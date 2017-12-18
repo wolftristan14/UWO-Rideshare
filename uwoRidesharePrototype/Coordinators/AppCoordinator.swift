@@ -7,3 +7,43 @@
 //
 
 import Foundation
+import UIKit
+
+protocol AppCoordinatorDelegate: class {
+    
+}
+
+class AppCoordinator: NSObject, AuthCoordinatorDelegate {
+    func didAuth() {
+        
+    }
+    
+    
+    var navigationController: UINavigationController?
+    var childCoordinators = [NSObject]()
+    
+    init(navigationController: UINavigationController) {
+        super.init()
+        self.navigationController = navigationController
+    }
+    
+    func start() {
+        
+        var isLoggedIn = false
+        
+        if isLoggedIn {
+            //showContent()
+        }
+        else {
+            showAuthentication()
+        }
+    }
+    
+    func showAuthentication() {
+        let authCoordinator = AuthCoordinator(navigationController: navigationController!)
+        authCoordinator.delegate = self as AuthCoordinatorDelegate
+        authCoordinator.start()
+        childCoordinators.append(authCoordinator)
+    }
+
+}

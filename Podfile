@@ -6,7 +6,8 @@ target 'uwoRidesharePrototype' do
   use_frameworks!
 
   # Pods for uwoRidesharePrototype
+  pod 'FirebaseUI/Auth'
+  pod 'FirebaseUI/Facebook'
   pod 'Firebase/Core’
-  pod 'Firebase/Auth'
 
 end

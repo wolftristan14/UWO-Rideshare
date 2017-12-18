@@ -10,126 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="gcm-OF-tTc">
+        <!--Launch View Controller-->
+        <scene sceneID="hxK-aa-xFC">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="YFF-bp-MxX" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="DDR-h3-taR">
+                <viewController storyboardIdentifier="back" id="qOn-Pg-gKo" customClass="LaunchViewController" customModule="uwoRidesharePrototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n0a-B4-jeJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2AT-AK-w6C">
-                                <rect key="frame" x="160" y="318" width="55" height="30"/>
-                                <state key="normal" title="Login"/>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="62L-Cv-Pwt">
-                                <rect key="frame" x="112" y="143" width="150" height="30"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xUy-Jt-CgI">
-                                <rect key="frame" x="112" y="181" width="150" height="30"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12n-KB-o8Z">
-                                <rect key="frame" x="160" y="356" width="55" height="30"/>
-                                <state key="normal" title="Signup"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="xUy-Jt-CgI" firstAttribute="trailing" secondItem="62L-Cv-Pwt" secondAttribute="trailing" id="C5l-m4-uMp"/>
-                            <constraint firstItem="KCA-Iv-Mj9" firstAttribute="trailing" secondItem="62L-Cv-Pwt" secondAttribute="trailing" constant="113" id="M3e-3n-sfM"/>
-                            <constraint firstItem="12n-KB-o8Z" firstAttribute="top" secondItem="2AT-AK-w6C" secondAttribute="bottom" constant="8" id="ckZ-kn-ZWk"/>
-                            <constraint firstItem="12n-KB-o8Z" firstAttribute="leading" secondItem="2AT-AK-w6C" secondAttribute="leading" id="cmb-rg-Z6o"/>
-                            <constraint firstItem="62L-Cv-Pwt" firstAttribute="top" secondItem="KCA-Iv-Mj9" secondAttribute="top" constant="123" id="gjX-nr-XSd"/>
-                            <constraint firstItem="xUy-Jt-CgI" firstAttribute="leading" secondItem="62L-Cv-Pwt" secondAttribute="leading" id="jtG-Dl-gNh"/>
-                            <constraint firstItem="2AT-AK-w6C" firstAttribute="leading" secondItem="KCA-Iv-Mj9" secondAttribute="leading" constant="160" id="lXQ-M4-U9W"/>
-                            <constraint firstItem="2AT-AK-w6C" firstAttribute="top" secondItem="xUy-Jt-CgI" secondAttribute="bottom" constant="107" id="pVf-XH-Nbr"/>
-                            <constraint firstItem="12n-KB-o8Z" firstAttribute="trailing" secondItem="2AT-AK-w6C" secondAttribute="trailing" id="qQl-UO-3mi"/>
-                            <constraint firstItem="KCA-Iv-Mj9" firstAttribute="trailing" secondItem="2AT-AK-w6C" secondAttribute="trailing" constant="160" id="rtl-B3-gSX"/>
-                            <constraint firstItem="62L-Cv-Pwt" firstAttribute="leading" secondItem="KCA-Iv-Mj9" secondAttribute="leading" constant="112" id="wKP-hL-llu"/>
-                            <constraint firstItem="xUy-Jt-CgI" firstAttribute="top" secondItem="62L-Cv-Pwt" secondAttribute="bottom" constant="8" id="yyx-h7-Ijg"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="KCA-Iv-Mj9"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cgx-JW-BDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="133.59999999999999" y="149.77511244377811"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="NXf-be-Nqi">
-            <objects>
-                <viewController storyboardIdentifier="TermsViewController" id="yPT-NC-V9u" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="au2-ol-CHe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tlO-Gi-KaN">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="615"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.  Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.  Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.  Coo?</mutableString>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jag-9O-dkU">
-                                <rect key="frame" x="16" y="623" width="52" height="30"/>
-                                <state key="normal" title="Decline"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLp-8O-jkg">
-                                <rect key="frame" x="310" y="623" width="49" height="30"/>
-                                <state key="normal" title="Accept"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="lfs-HX-sZm" firstAttribute="trailing" secondItem="GLp-8O-jkg" secondAttribute="trailing" constant="16" id="1h0-Gn-ubv"/>
-                            <constraint firstItem="tlO-Gi-KaN" firstAttribute="trailing" secondItem="lfs-HX-sZm" secondAttribute="trailing" id="K3k-hj-8U9"/>
-                            <constraint firstItem="lfs-HX-sZm" firstAttribute="bottom" secondItem="GLp-8O-jkg" secondAttribute="bottom" constant="14" id="asu-9G-keb"/>
-                            <constraint firstItem="lfs-HX-sZm" firstAttribute="bottom" secondItem="Jag-9O-dkU" secondAttribute="bottom" constant="14" id="d2w-xh-vZm"/>
-                            <constraint firstItem="GLp-8O-jkg" firstAttribute="top" secondItem="tlO-Gi-KaN" secondAttribute="bottom" constant="8" id="fbm-TQ-jmX"/>
-                            <constraint firstItem="tlO-Gi-KaN" firstAttribute="top" secondItem="au2-ol-CHe" secondAttribute="top" id="g7n-wi-PDQ"/>
-                            <constraint firstItem="lfs-HX-sZm" firstAttribute="bottom" secondItem="tlO-Gi-KaN" secondAttribute="bottom" constant="52" id="gkV-bC-sig"/>
-                            <constraint firstItem="Jag-9O-dkU" firstAttribute="leading" secondItem="lfs-HX-sZm" secondAttribute="leading" constant="16" id="pbQ-Rn-FVG"/>
-                            <constraint firstItem="tlO-Gi-KaN" firstAttribute="leading" secondItem="lfs-HX-sZm" secondAttribute="leading" id="qn4-29-rIa"/>
-                            <constraint firstItem="Jag-9O-dkU" firstAttribute="top" secondItem="tlO-Gi-KaN" secondAttribute="bottom" constant="8" id="s6o-Sd-3dS"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="lfs-HX-sZm"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HJr-Hw-0BQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="789.60000000000002" y="149.77511244377811"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="q3b-pW-sQd">
-            <objects>
-                <viewController storyboardIdentifier="SignupViewController" id="n3q-nB-nFW" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qoH-SH-bg4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzv-m5-kEL">
-                                <rect key="frame" x="16" y="20" width="0.0" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Myf-nW-vRa">
-                                <rect key="frame" x="16" y="20" width="84" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGv-Gg-J9y">
-                                <rect key="frame" x="16" y="49" width="79" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UWO Rideshare" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCx-9A-6ae">
+                                <rect key="frame" x="126" y="323" width="122" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -137,17 +27,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="YGv-Gg-J9y" firstAttribute="leading" secondItem="Myf-nW-vRa" secondAttribute="leading" id="6bD-Qb-ARI"/>
-                            <constraint firstItem="Myf-nW-vRa" firstAttribute="leading" secondItem="Hpx-Nv-MDn" secondAttribute="leading" constant="16" id="M18-0s-WgQ"/>
-                            <constraint firstItem="YGv-Gg-J9y" firstAttribute="top" secondItem="Myf-nW-vRa" secondAttribute="bottom" constant="8" id="eib-pj-8nv"/>
-                            <constraint firstItem="Myf-nW-vRa" firstAttribute="top" secondItem="Hpx-Nv-MDn" secondAttribute="top" id="oxU-wX-KcR"/>
+                            <constraint firstItem="lFM-u1-GE1" firstAttribute="bottom" secondItem="YCx-9A-6ae" secondAttribute="bottom" constant="323" id="EoO-Uy-sms"/>
+                            <constraint firstItem="lFM-u1-GE1" firstAttribute="trailing" secondItem="YCx-9A-6ae" secondAttribute="trailing" constant="127" id="UvO-TR-2wn"/>
+                            <constraint firstItem="YCx-9A-6ae" firstAttribute="top" secondItem="lFM-u1-GE1" secondAttribute="top" constant="303" id="tgo-Iv-VDN"/>
+                            <constraint firstItem="YCx-9A-6ae" firstAttribute="leading" secondItem="lFM-u1-GE1" secondAttribute="leading" constant="126" id="vWT-zS-jdk"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Hpx-Nv-MDn"/>
+                        <viewLayoutGuide key="safeArea" id="lFM-u1-GE1"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="R7I-Pu-f75" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D04-8o-1Wh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1473" y="150"/>
+            <point key="canvasLocation" x="15" y="152"/>
         </scene>
     </scenes>
 </document>
