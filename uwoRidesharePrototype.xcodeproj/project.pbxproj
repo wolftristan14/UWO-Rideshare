@@ -15,9 +15,7 @@
 		A170009A1FD870940003751B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17000981FD870940003751B /* Main.storyboard */; };
 		A170009C1FD870940003751B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A170009B1FD870940003751B /* Assets.xcassets */; };
 		A170009F1FD870940003751B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A170009D1FD870940003751B /* LaunchScreen.storyboard */; };
-		A17000A71FD870FB0003751B /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17000A61FD870FB0003751B /* Auth.storyboard */; };
 		A17000A91FD87CF80003751B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17000A81FD87CF80003751B /* AppCoordinator.swift */; };
-		A17000AB1FD87D270003751B /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17000AA1FD87D270003751B /* AuthCoordinator.swift */; };
 		A17000B21FD880780003751B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A17000B11FD880780003751B /* GoogleService-Info.plist */; };
 		C7A1DEA834D67A052844F8C7 /* Pods_uwoRidesharePrototype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F70FF9BB9B97B435632B9DAD /* Pods_uwoRidesharePrototype.framework */; };
 /* End PBXBuildFile section */
@@ -34,9 +32,7 @@
 		A170009B1FD870940003751B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A170009E1FD870940003751B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A17000A01FD870940003751B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A17000A61FD870FB0003751B /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		A17000A81FD87CF80003751B /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		A17000AA1FD87D270003751B /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		A17000B11FD880780003751B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F70FF9BB9B97B435632B9DAD /* Pods_uwoRidesharePrototype.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uwoRidesharePrototype.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE7F893DE01ED65F3C6DBED0 /* Pods-uwoRidesharePrototype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uwoRidesharePrototype.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				A17000A81FD87CF80003751B /* AppCoordinator.swift */,
-				A17000AA1FD87D270003751B /* AuthCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -114,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				A17000981FD870940003751B /* Main.storyboard */,
-				A17000A61FD870FB0003751B /* Auth.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -199,7 +193,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A17000B21FD880780003751B /* GoogleService-Info.plist in Resources */,
-				A17000A71FD870FB0003751B /* Auth.storyboard in Resources */,
 				A170009F1FD870940003751B /* LaunchScreen.storyboard in Resources */,
 				A170009C1FD870940003751B /* Assets.xcassets in Resources */,
 				A170009A1FD870940003751B /* Main.storyboard in Resources */,
@@ -263,7 +256,6 @@
 			files = (
 				A17000A91FD87CF80003751B /* AppCoordinator.swift in Sources */,
 				A16576CB1FE6EF78009985A1 /* LaunchViewController.swift in Sources */,
-				A17000AB1FD87D270003751B /* AuthCoordinator.swift in Sources */,
 				A17000951FD870940003751B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

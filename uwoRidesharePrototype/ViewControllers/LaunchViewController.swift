@@ -8,36 +8,22 @@
 
 import Foundation
 import UIKit
-import FirebaseAuthUI
-import FBSDKCoreKit
-import FirebaseFacebookAuthUI
 
-let providers: [FUIAuthProvider] = [
-    FUIFacebookAuth(),
-]
+protocol LaunchViewControllerDelegate: class {
+    func signOut()
+}
 
 class LaunchViewController: UIViewController {
+    
+    var delegate: LaunchViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        let authUI = FUIAuth.defaultAuthUI()
-        authUI?.providers = providers
-        // You need to adopt a FUIAuthDelegate protocol to receive callback
-        authUI?.delegate = self as? FUIAuthDelegate
-        
-        let authViewController = authUI!.authViewController()
-        
-        self.present(authViewController, animated: true, completion: nil)
+    @IBAction func signoutPressed(_ sender: Any) {
+        self.delegate?.signOut()
     }
-    
-    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
-        print("signed in")
-        // handle user and error as necessary
-    }
-
     
 }
 

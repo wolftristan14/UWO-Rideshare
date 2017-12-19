@@ -8,16 +8,25 @@
 
 import Foundation
 import UIKit
+import FirebaseAuthUI
+import FBSDKCoreKit
+import FirebaseFacebookAuthUI
+
+let providers: [FUIAuthProvider] = [
+    FUIFacebookAuth()
+]
 
 protocol AppCoordinatorDelegate: class {
     
 }
 
-class AppCoordinator: NSObject, AuthCoordinatorDelegate {
-    func didAuth() {
-        
-    }
-    
+class AppCoordinator: NSObject, FUIAuthDelegate, LaunchViewControllerDelegate {
+
+    var authStoryboard: UIStoryboard!
+    var launchVC: LaunchViewController!
+    var handle: AuthStateDidChangeListenerHandle!
+    var authUI: FUIAuth?
+
     
     var navigationController: UINavigationController?
     var childCoordinators = [NSObject]()
@@ -28,22 +37,51 @@ class AppCoordinator: NSObject, AuthCoordinatorDelegate {
     }
     
     func start() {
+        authStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
+        launchVC = authStoryboard.instantiateViewController(withIdentifier: "launch") as! LaunchViewController
+        launchVC.view.backgroundColor = UIColor.white
+        launchVC.delegate = self
+        navigationController?.pushViewController(launchVC, animated: true)
+        checkAuth()
         
-        var isLoggedIn = false
-        
-        if isLoggedIn {
-            //showContent()
-        }
-        else {
-            showAuthentication()
+    }
+    
+    func checkAuth() {
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if let user = user {
+                
+                // The user's ID, unique to the Firebase project.
+                // Do NOT use this value to authenticate with your backend server,
+                // if you have one. Use getTokenWithCompletion:completion: instead.
+                let uid = user.uid
+                let email = user.email
+                print("addstatedidchange listener hit")
+                print(uid)
+                print(email)
+                // let photoURL = user.photoURL
+            } else {
+                self.showAuthentication()
+            }
         }
     }
     
+    func signOut() {
+        try! Auth.auth().signOut()
+    }
+    
     func showAuthentication() {
-        let authCoordinator = AuthCoordinator(navigationController: navigationController!)
-        authCoordinator.delegate = self as AuthCoordinatorDelegate
-        authCoordinator.start()
-        childCoordinators.append(authCoordinator)
+        authUI = FUIAuth.defaultAuthUI()
+        authUI?.providers = providers
+        // You need to adopt a FUIAuthDelegate protocol to receive callback
+        authUI?.delegate = self as FUIAuthDelegate
+        
+        let authViewController = authUI!.authViewController()
+        
+        launchVC.present(authViewController, animated: true, completion: nil)
+    }
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+        // ye
     }
 
 }
