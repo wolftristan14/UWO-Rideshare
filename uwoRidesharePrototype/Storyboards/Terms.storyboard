@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Terms View Controller-->
+        <scene sceneID="cFX-Fj-ZRp">
+            <objects>
+                <viewController storyboardIdentifier="terms" id="dpY-Zp-2Kp" customClass="TermsViewController" customModule="uwoRidesharePrototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Ky-8U-mdR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ORC-am-d9c">
+                                <rect key="frame" x="0.0" y="20" width="375" height="553"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tre-W9-OQV">
+                                <rect key="frame" x="16" y="617" width="41" height="30"/>
+                                <state key="normal" title="Agree"/>
+                                <connections>
+                                    <action selector="didAcceptTerms:" destination="dpY-Zp-2Kp" eventType="touchUpInside" id="dOk-jb-FEc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EiW-27-r8k">
+                                <rect key="frame" x="310" y="617" width="52" height="30"/>
+                                <state key="normal" title="Decline"/>
+                                <connections>
+                                    <action selector="didDeclineTerms:" destination="dpY-Zp-2Kp" eventType="touchUpInside" id="ylw-zy-XQi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ORC-am-d9c" firstAttribute="leading" secondItem="jCb-s8-fw6" secondAttribute="leading" id="2Nw-O8-qEs"/>
+                            <constraint firstItem="tre-W9-OQV" firstAttribute="leading" secondItem="jCb-s8-fw6" secondAttribute="leading" constant="16" id="2oF-AG-xJs"/>
+                            <constraint firstItem="jCb-s8-fw6" firstAttribute="bottom" secondItem="ORC-am-d9c" secondAttribute="bottom" constant="94" id="BuQ-ux-C1N"/>
+                            <constraint firstItem="ORC-am-d9c" firstAttribute="trailing" secondItem="jCb-s8-fw6" secondAttribute="trailing" id="DsF-m3-s4s"/>
+                            <constraint firstItem="jCb-s8-fw6" firstAttribute="trailing" secondItem="EiW-27-r8k" secondAttribute="trailing" constant="13" id="Hhs-O7-I9w"/>
+                            <constraint firstItem="ORC-am-d9c" firstAttribute="top" secondItem="1Ky-8U-mdR" secondAttribute="top" constant="20" id="W1J-w2-bjP"/>
+                            <constraint firstItem="jCb-s8-fw6" firstAttribute="bottom" secondItem="tre-W9-OQV" secondAttribute="bottom" constant="20" id="hoY-82-hpK"/>
+                            <constraint firstItem="jCb-s8-fw6" firstAttribute="bottom" secondItem="EiW-27-r8k" secondAttribute="bottom" constant="20" id="q5a-WW-SzG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jCb-s8-fw6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UiE-5f-tjX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="98.50074962518741"/>
+        </scene>
+    </scenes>
+</document>

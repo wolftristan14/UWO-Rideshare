@@ -11,6 +11,8 @@
 		A16576C81FE6EA4F009985A1 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16576C51FE6EA4F009985A1 /* FBSDKCoreKit.framework */; };
 		A16576C91FE6EA4F009985A1 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16576C61FE6EA4F009985A1 /* FBSDKLoginKit.framework */; };
 		A16576CB1FE6EF78009985A1 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16576CA1FE6EF78009985A1 /* LaunchViewController.swift */; };
+		A16576CD1FE9B41A009985A1 /* Terms.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16576CC1FE9B41A009985A1 /* Terms.storyboard */; };
+		A16576CF1FE9B570009985A1 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16576CE1FE9B570009985A1 /* TermsViewController.swift */; };
 		A17000951FD870940003751B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17000941FD870940003751B /* AppDelegate.swift */; };
 		A170009A1FD870940003751B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17000981FD870940003751B /* Main.storyboard */; };
 		A170009C1FD870940003751B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A170009B1FD870940003751B /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 		A16576C51FE6EA4F009985A1 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		A16576C61FE6EA4F009985A1 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		A16576CA1FE6EF78009985A1 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		A16576CC1FE9B41A009985A1 /* Terms.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Terms.storyboard; sourceTree = "<group>"; };
+		A16576CE1FE9B570009985A1 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
 		A17000911FD870940003751B /* uwoRidesharePrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uwoRidesharePrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17000941FD870940003751B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A17000991FD870940003751B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				A17000981FD870940003751B /* Main.storyboard */,
+				A16576CC1FE9B41A009985A1 /* Terms.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -117,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				A16576CA1FE6EF78009985A1 /* LaunchViewController.swift */,
+				A16576CE1FE9B570009985A1 /* TermsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -193,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A17000B21FD880780003751B /* GoogleService-Info.plist in Resources */,
+				A16576CD1FE9B41A009985A1 /* Terms.storyboard in Resources */,
 				A170009F1FD870940003751B /* LaunchScreen.storyboard in Resources */,
 				A170009C1FD870940003751B /* Assets.xcassets in Resources */,
 				A170009A1FD870940003751B /* Main.storyboard in Resources */,
@@ -256,6 +263,7 @@
 			files = (
 				A17000A91FD87CF80003751B /* AppCoordinator.swift in Sources */,
 				A16576CB1FE6EF78009985A1 /* LaunchViewController.swift in Sources */,
+				A16576CF1FE9B570009985A1 /* TermsViewController.swift in Sources */,
 				A17000951FD870940003751B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

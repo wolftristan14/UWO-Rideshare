@@ -20,12 +20,14 @@ protocol AppCoordinatorDelegate: class {
     
 }
 
-class AppCoordinator: NSObject, FUIAuthDelegate, LaunchViewControllerDelegate {
+class AppCoordinator: NSObject, FUIAuthDelegate, LaunchViewControllerDelegate, TermsViewControllerDelegate {
 
     var authStoryboard: UIStoryboard!
     var launchVC: LaunchViewController!
+    var termsVC: TermsViewController!
     var handle: AuthStateDidChangeListenerHandle!
     var authUI: FUIAuth?
+    var termsAccepted: Bool = false
 
     
     var navigationController: UINavigationController?
@@ -39,7 +41,6 @@ class AppCoordinator: NSObject, FUIAuthDelegate, LaunchViewControllerDelegate {
     func start() {
         authStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
         launchVC = authStoryboard.instantiateViewController(withIdentifier: "launch") as! LaunchViewController
-        launchVC.view.backgroundColor = UIColor.white
         launchVC.delegate = self
         navigationController?.pushViewController(launchVC, animated: true)
         checkAuth()
@@ -58,6 +59,9 @@ class AppCoordinator: NSObject, FUIAuthDelegate, LaunchViewControllerDelegate {
                 print("addstatedidchange listener hit")
                 print(uid)
                 print(email)
+                if self.termsAccepted == false {
+                    self.showTerms()
+                }
                 // let photoURL = user.photoURL
             } else {
                 self.showAuthentication()
@@ -83,5 +87,27 @@ class AppCoordinator: NSObject, FUIAuthDelegate, LaunchViewControllerDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
         // ye
     }
+    
+    func showTerms() {
+        authStoryboard = UIStoryboard.init(name: "Terms", bundle: nil)
+        termsVC = authStoryboard.instantiateViewController(withIdentifier: "terms") as! TermsViewController
+        termsVC.delegate = self
+        launchVC.present(termsVC, animated: true, completion: nil)
+    }
+    
+    func didDismissTerms(didAccept: Bool) {
+        if didAccept == true {
+            print("termsAccepted")
+            termsAccepted = true
+            checkAuth()
+        } else {
+            print("you need to accept the terms")
+            termsAccepted = false
+            checkAuth()
+
+            // some alert message "you gotta accept terms" probably just go back to terms page after cancelling alert
+        }
+    }
+    
 
 }
