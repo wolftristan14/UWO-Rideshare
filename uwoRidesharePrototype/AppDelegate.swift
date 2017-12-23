@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 import FirebaseAuthUI
 import FBSDKCoreKit
 import FirebaseFacebookAuthUI
@@ -24,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        let defaultStore = Firestore.firestore()
         window = UIWindow.init(frame: UIScreen.main.bounds)
         rootViewController = UINavigationController()
         

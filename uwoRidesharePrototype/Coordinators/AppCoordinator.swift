@@ -20,16 +20,14 @@ protocol AppCoordinatorDelegate: class {
     
 }
 
-class AppCoordinator: NSObject, FUIAuthDelegate, LaunchViewControllerDelegate, TermsViewControllerDelegate {
+class AppCoordinator: NSObject, FUIAuthDelegate {
 
-    var authStoryboard: UIStoryboard!
+    var mainStoryboard: UIStoryboard!
     var launchVC: LaunchViewController!
-    var termsVC: TermsViewController!
     var handle: AuthStateDidChangeListenerHandle!
     var authUI: FUIAuth?
-    var termsAccepted: Bool = false
+    var termsAccepted = false
 
-    
     var navigationController: UINavigationController?
     var childCoordinators = [NSObject]()
     
@@ -39,8 +37,8 @@ class AppCoordinator: NSObject, FUIAuthDelegate, LaunchViewControllerDelegate, T
     }
     
     func start() {
-        authStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
-        launchVC = authStoryboard.instantiateViewController(withIdentifier: "launch") as! LaunchViewController
+        mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
+        launchVC = mainStoryboard.instantiateViewController(withIdentifier: "launch") as! LaunchViewController
         launchVC.delegate = self
         navigationController?.pushViewController(launchVC, animated: true)
         checkAuth()
@@ -59,9 +57,10 @@ class AppCoordinator: NSObject, FUIAuthDelegate, LaunchViewControllerDelegate, T
                 print("addstatedidchange listener hit")
                 print(uid)
                 print(email)
-                if self.termsAccepted == false {
-                    self.showTerms()
-                }
+                self.checkTerms()
+                
+                
+
                 // let photoURL = user.photoURL
             } else {
                 self.showAuthentication()
@@ -69,11 +68,20 @@ class AppCoordinator: NSObject, FUIAuthDelegate, LaunchViewControllerDelegate, T
         }
     }
     
-    func signOut() {
-        try! Auth.auth().signOut()
+    func checkTerms() {
+        if self.termsAccepted == false {
+            self.showTerms()
+        } else {
+            self.checkIfUserHasBeenCreated()
+        }
     }
     
-    func showAuthentication() {
+    func checkIfUserHasBeenCreated() {
+        // check for database details on current user //do you need email in database to get this?
+    }
+    
+    
+    private func showAuthentication() {
         authUI = FUIAuth.defaultAuthUI()
         authUI?.providers = providers
         // You need to adopt a FUIAuthDelegate protocol to receive callback
@@ -85,29 +93,50 @@ class AppCoordinator: NSObject, FUIAuthDelegate, LaunchViewControllerDelegate, T
     }
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+        
         // ye
     }
     
     func showTerms() {
-        authStoryboard = UIStoryboard.init(name: "Terms", bundle: nil)
-        termsVC = authStoryboard.instantiateViewController(withIdentifier: "terms") as! TermsViewController
-        termsVC.delegate = self
-        launchVC.present(termsVC, animated: true, completion: nil)
+        let termsCoordinator = TermsCoordinator(navigationController: navigationController!)
+        termsCoordinator.delegate = self as TermsCoordinatorDelegate
+        termsCoordinator.start()
+        childCoordinators.append(termsCoordinator)
     }
     
-    func didDismissTerms(didAccept: Bool) {
-        if didAccept == true {
+    func showCreateUser() {
+        
+    }
+    
+    
+    func showHome() {
+        let homeCoordinator = HomeCoordintor(navigationController: navigationController!)
+        homeCoordinator.delegate = self as HomeCoordinatorDelegate
+        homeCoordinator.start()
+        childCoordinators.append(homeCoordinator)
+    }
+    
+
+}
+
+extension AppCoordinator: LaunchViewControllerDelegate {
+    
+    func signOut() {
+        try! Auth.auth().signOut()
+    }
+    
+}
+
+extension AppCoordinator: TermsCoordinatorDelegate {
+    
+    func didAcceptTerms() {
             print("termsAccepted")
             termsAccepted = true
             checkAuth()
-        } else {
-            print("you need to accept the terms")
-            termsAccepted = false
-            checkAuth()
-
-            // some alert message "you gotta accept terms" probably just go back to terms page after cancelling alert
-        }
+      
     }
-    
+}
 
+extension AppCoordinator: HomeCoordinatorDelegate {
+    
 }
