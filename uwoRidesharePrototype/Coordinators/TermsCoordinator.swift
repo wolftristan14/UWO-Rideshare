@@ -39,7 +39,6 @@ extension TermsCoordinator: TermsViewControllerDelegate {
     
     func didDismissTerms(didAccept: Bool) {
         if didAccept == true {
-            print("termsAccepted")
             navigationController?.popViewController(animated: true)
             self.delegate?.didAcceptTerms()
             

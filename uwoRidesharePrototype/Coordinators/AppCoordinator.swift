@@ -27,6 +27,7 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
     var handle: AuthStateDidChangeListenerHandle!
     var authUI: FUIAuth?
     var termsAccepted = false
+    var accountCreated = false
     var authViewController: UINavigationController?
 
     var navigationController: UINavigationController?
@@ -55,13 +56,10 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
                 // if you have one. Use getTokenWithCompletion:completion: instead.
                 let uid = user.uid
                 let email = user.email
-                //print("addstatedidchange listener hit")
-                //print(uid)
-                //print(email)
-                self.checkTerms()
+                print("addstatedidchange listener hit")
+                print(uid)
+                print(email)
                 
-                
-
                 // let photoURL = user.photoURL
             } else {
                 self.showAuthentication()
@@ -70,14 +68,19 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
     }
     
     func checkTerms() {
-        if self.termsAccepted == false {
-            self.showTerms()
+        if termsAccepted == false {
+            showTerms()
         } else {
-            self.checkIfUserHasBeenCreated()
+            checkIfUserHasBeenCreated()
         }
     }
     
     func checkIfUserHasBeenCreated() {
+        if accountCreated == false {
+            showCreateUser()
+        } else {
+            showHome()
+        }
         // check for database details on current user //do you need email in database to get this?
     }
     
@@ -94,8 +97,8 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
     }
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
-        authViewController?.dismiss(animated: true, completion: nil)
-        // ye
+        checkTerms()
+        //authViewController?.dismiss(animated: true, completion: nil)
     }
     
     func showTerms() {
@@ -106,7 +109,10 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
     }
     
     func showCreateUser() {
-        
+        let createUserCoordinator = CreateUserCoordinator(navigationController: navigationController!)
+        createUserCoordinator.delegate = self as CreateUserCoordinatorDelegate
+        createUserCoordinator.start()
+        childCoordinators.append(createUserCoordinator)
     }
     
     
@@ -133,10 +139,22 @@ extension AppCoordinator: TermsCoordinatorDelegate {
     func didAcceptTerms() {
             print("termsAccepted")
             termsAccepted = true
-      
+            //checkAuth()
+            checkTerms()
+    }
+}
+
+extension AppCoordinator: CreateUserCoordinatorDelegate {
+    func didDismissCreateUserViewController() {
+        accountCreated = true
+        //checkAuth()
+        //checkTerms()
+        checkIfUserHasBeenCreated()
     }
 }
 
 extension AppCoordinator: HomeCoordinatorDelegate {
     
 }
+
+

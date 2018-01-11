@@ -27,6 +27,7 @@ class HomeCoordintor: NSObject {
     }
     
     func start() {
+        print("home coordinator start method hit")
         let storyboard = UIStoryboard.init(name: "Home", bundle: nil)
         let homeViewController = storyboard.instantiateViewController(withIdentifier: "home")
         // set as delegate for homevc

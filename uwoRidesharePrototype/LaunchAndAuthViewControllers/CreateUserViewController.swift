@@ -13,9 +13,10 @@ protocol CreateUserViewControllerDelegate: class { // class so you can make dele
     
 }
 
-class CreateUserViewController: UIViewController {
+class CreateUserViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     weak var delegate: CreateUserViewControllerDelegate?
+    let imagePicker = UIImagePickerController()
     
     @IBOutlet weak var firstNameTextField: UITextField!
     
@@ -24,14 +25,32 @@ class CreateUserViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = false
+        self.hideKeyboard()
         // Do any additional setup after loading the view.
     }
     
     @IBAction func chooseImageFromPhotoLibrary(_ sender: Any) {
-        self.delegate?.didFinishCreatingUser(firstName: firstNameTextField.text ?? "", lastName: lastNameTextField.text ?? "", image: imageView.image ?? #imageLiteral(resourceName: "default-user"))
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print("hitting this")
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            print("picked image is the image")
+            imageView.image = pickedImage
+
+        }
+        dismiss(animated: true, completion: nil)
     }
     
     
-
+    @IBAction func finishTapped(_ sender: Any) {
+        self.delegate?.didFinishCreatingUser(firstName: firstNameTextField.text ?? "", lastName: lastNameTextField.text ?? "", image: imageView.image ?? #imageLiteral(resourceName: "default-user"))
+    }
+    
 
 }
+
