@@ -21,6 +21,8 @@
 		A16576DC1FEEDB3B009985A1 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16576DB1FEEDB3B009985A1 /* MessagesViewController.swift */; };
 		A16576E01FEEE1E2009985A1 /* CreateUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16576DF1FEEE1E2009985A1 /* CreateUser.storyboard */; };
 		A16576E41FEEEF4D009985A1 /* TermsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16576E31FEEEF4D009985A1 /* TermsCoordinator.swift */; };
+		A16576E61FEEFD0D009985A1 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16576E51FEEFD0D009985A1 /* CreateUserViewController.swift */; };
+		A16576E81FEF0B1C009985A1 /* CreateUserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16576E71FEF0B1C009985A1 /* CreateUserCoordinator.swift */; };
 		A17000951FD870940003751B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17000941FD870940003751B /* AppDelegate.swift */; };
 		A170009A1FD870940003751B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17000981FD870940003751B /* Main.storyboard */; };
 		A170009C1FD870940003751B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A170009B1FD870940003751B /* Assets.xcassets */; };
@@ -46,6 +48,8 @@
 		A16576DB1FEEDB3B009985A1 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		A16576DF1FEEE1E2009985A1 /* CreateUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateUser.storyboard; sourceTree = "<group>"; };
 		A16576E31FEEEF4D009985A1 /* TermsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsCoordinator.swift; sourceTree = "<group>"; };
+		A16576E51FEEFD0D009985A1 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		A16576E71FEF0B1C009985A1 /* CreateUserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserCoordinator.swift; sourceTree = "<group>"; };
 		A17000911FD870940003751B /* uwoRidesharePrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uwoRidesharePrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17000941FD870940003751B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A17000991FD870940003751B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 				A17000A81FD87CF80003751B /* AppCoordinator.swift */,
 				A16576D21FEAE840009985A1 /* HomeCoordinator.swift */,
 				A16576E31FEEEF4D009985A1 /* TermsCoordinator.swift */,
+				A16576E71FEF0B1C009985A1 /* CreateUserCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 			children = (
 				A16576CA1FE6EF78009985A1 /* LaunchViewController.swift */,
 				A16576CE1FE9B570009985A1 /* TermsViewController.swift */,
+				A16576E51FEEFD0D009985A1 /* CreateUserViewController.swift */,
 			);
 			path = LaunchAndAuthViewControllers;
 			sourceTree = "<group>";
@@ -301,8 +307,10 @@
 				A16576D81FEEDAFC009985A1 /* YourRidesViewController.swift in Sources */,
 				A16576DC1FEEDB3B009985A1 /* MessagesViewController.swift in Sources */,
 				A16576CB1FE6EF78009985A1 /* LaunchViewController.swift in Sources */,
+				A16576E61FEEFD0D009985A1 /* CreateUserViewController.swift in Sources */,
 				A16576D31FEAE840009985A1 /* HomeCoordinator.swift in Sources */,
 				A16576CF1FE9B570009985A1 /* TermsViewController.swift in Sources */,
+				A16576E81FEF0B1C009985A1 /* CreateUserCoordinator.swift in Sources */,
 				A16576DA1FEEDB2E009985A1 /* ProfileViewController.swift in Sources */,
 				A17000951FD870940003751B /* AppDelegate.swift in Sources */,
 			);

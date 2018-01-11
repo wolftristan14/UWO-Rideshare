@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 
-protocol TermsViewControllerDelegate {
+protocol TermsViewControllerDelegate: class {
     func didDismissTerms(didAccept: Bool)
 }
 
 class TermsViewController: UIViewController {
     
     var didAcceptTerms: Bool!
-    var delegate: TermsViewControllerDelegate?
+    weak var delegate: TermsViewControllerDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
     }

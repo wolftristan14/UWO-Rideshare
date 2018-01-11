@@ -17,7 +17,7 @@ protocol HomeCoordinatorDelegate: class {
 class HomeCoordintor: NSObject {
     
     var navigationController: UINavigationController?
-    var delegate: HomeCoordinatorDelegate?
+    weak var delegate: HomeCoordinatorDelegate?
     var childCoordinators = [NSObject]()
     
     init(navigationController: UINavigationController) {

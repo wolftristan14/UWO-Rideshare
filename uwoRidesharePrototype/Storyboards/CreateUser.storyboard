@@ -6,14 +6,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Create User View Controller-->
         <scene sceneID="apd-iw-WI3">
             <objects>
-                <viewController id="S5L-3w-VbG" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="createuser" id="S5L-3w-VbG" customClass="CreateUserViewController" customModule="uwoRidesharePrototype" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sp9-KL-MEl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,36 +43,59 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2x-k4-Xqp">
-                                <rect key="frame" x="106" y="97.5" width="111" height="30"/>
-                                <state key="normal" title="Choose image..."/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onR-Mz-YuS">
                                 <rect key="frame" x="34" y="102" width="47" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2x-k4-Xqp">
+                                <rect key="frame" x="106" y="98" width="111" height="30"/>
+                                <state key="normal" title="Choose image..."/>
+                                <connections>
+                                    <action selector="chooseImageFromPhotoLibrary:" destination="S5L-3w-VbG" eventType="touchUpInside" id="c42-3F-V3g"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pyc-ov-5cd">
+                                <rect key="frame" x="37" y="183" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Pyc-ov-5cd" secondAttribute="height" multiplier="1:1" id="iNf-sb-XxU"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKB-A9-4yb">
+                                <rect key="frame" x="167" y="617" width="41" height="30"/>
+                                <state key="normal" title="Finish"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Y2x-k4-Xqp" firstAttribute="centerY" secondItem="onR-Mz-YuS" secondAttribute="centerY" id="1ys-fz-3Ya"/>
                             <constraint firstItem="oH5-bb-Wt6" firstAttribute="trailing" secondItem="FJX-iQ-iLD" secondAttribute="trailing" constant="16" id="8dv-Bq-HMQ"/>
                             <constraint firstItem="onR-Mz-YuS" firstAttribute="centerX" secondItem="gke-1R-uod" secondAttribute="centerX" id="8yW-iQ-LNv"/>
+                            <constraint firstItem="Pyc-ov-5cd" firstAttribute="centerY" secondItem="sp9-KL-MEl" secondAttribute="centerY" id="C8W-GT-2IH"/>
                             <constraint firstItem="OVW-gk-5nO" firstAttribute="centerY" secondItem="ZJN-z3-dLp" secondAttribute="centerY" id="F5k-hd-cVW"/>
                             <constraint firstItem="FJX-iQ-iLD" firstAttribute="centerY" secondItem="gke-1R-uod" secondAttribute="centerY" id="KEM-5U-Ypl"/>
                             <constraint firstItem="FJX-iQ-iLD" firstAttribute="leading" secondItem="gke-1R-uod" secondAttribute="trailing" constant="8" id="ScH-1q-4cN"/>
+                            <constraint firstItem="Pyc-ov-5cd" firstAttribute="centerX" secondItem="sKB-A9-4yb" secondAttribute="centerX" id="Xcq-Ow-mRC"/>
+                            <constraint firstItem="sKB-A9-4yb" firstAttribute="centerX" secondItem="oH5-bb-Wt6" secondAttribute="centerX" id="dEk-dE-JmA"/>
                             <constraint firstItem="oH5-bb-Wt6" firstAttribute="trailing" secondItem="OVW-gk-5nO" secondAttribute="trailing" constant="16" id="duW-ab-GXP"/>
                             <constraint firstItem="Y2x-k4-Xqp" firstAttribute="leading" secondItem="FJX-iQ-iLD" secondAttribute="leading" id="gJo-8K-3zK"/>
                             <constraint firstItem="ZJN-z3-dLp" firstAttribute="top" secondItem="oH5-bb-Wt6" secondAttribute="top" id="gjg-uz-N3j"/>
                             <constraint firstItem="onR-Mz-YuS" firstAttribute="top" secondItem="gke-1R-uod" secondAttribute="bottom" constant="20" id="h94-UJ-PiJ"/>
                             <constraint firstItem="gke-1R-uod" firstAttribute="top" secondItem="ZJN-z3-dLp" secondAttribute="bottom" constant="20" id="hWs-M9-aUW"/>
                             <constraint firstItem="gke-1R-uod" firstAttribute="leading" secondItem="ZJN-z3-dLp" secondAttribute="leading" id="hZP-6E-f6G"/>
+                            <constraint firstItem="oH5-bb-Wt6" firstAttribute="bottom" secondItem="sKB-A9-4yb" secondAttribute="bottom" constant="20" id="iZ2-Wt-z1E"/>
+                            <constraint firstItem="Pyc-ov-5cd" firstAttribute="top" secondItem="Y2x-k4-Xqp" secondAttribute="bottom" constant="55" id="pC1-43-ngB"/>
                             <constraint firstItem="ZJN-z3-dLp" firstAttribute="leading" secondItem="oH5-bb-Wt6" secondAttribute="leading" constant="16" id="wJf-7v-1M3"/>
                             <constraint firstItem="OVW-gk-5nO" firstAttribute="leading" secondItem="ZJN-z3-dLp" secondAttribute="trailing" constant="8" id="wu8-3x-wTy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oH5-bb-Wt6"/>
                     </view>
+                    <connections>
+                        <outlet property="firstNameTextField" destination="OVW-gk-5nO" id="EM9-zg-Hya"/>
+                        <outlet property="imageView" destination="Pyc-ov-5cd" id="Bnu-7z-pUx"/>
+                        <outlet property="lastNameTextField" destination="FJX-iQ-iLD" id="pLf-Zu-T8h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NKH-oO-LXt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

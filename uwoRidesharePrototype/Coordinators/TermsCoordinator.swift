@@ -13,11 +13,11 @@ protocol TermsCoordinatorDelegate: class {
    func didAcceptTerms()
 }
 
-class TermsCoordinator: NSObject, TermsViewControllerDelegate {
+class TermsCoordinator: NSObject {
     
     
     var navigationController: UINavigationController?
-    var delegate: TermsCoordinatorDelegate?
+    weak var delegate: TermsCoordinatorDelegate?
     var childCoordinators = [NSObject]()
     
     init(navigationController: UINavigationController) {
@@ -31,19 +31,21 @@ class TermsCoordinator: NSObject, TermsViewControllerDelegate {
         let termsVC = authStoryboard.instantiateViewController(withIdentifier: "terms") as! TermsViewController
         termsVC.delegate = self
         navigationController?.pushViewController(termsVC, animated: true)
-        //launchVC.present(termsVC, animated: true, completion: nil)
     }
+    
+}
+
+extension TermsCoordinator: TermsViewControllerDelegate {
     
     func didDismissTerms(didAccept: Bool) {
         if didAccept == true {
             print("termsAccepted")
             navigationController?.popViewController(animated: true)
             self.delegate?.didAcceptTerms()
- 
+            
         } else {
             fatalError()
         }
     }
-
-    
+  
 }

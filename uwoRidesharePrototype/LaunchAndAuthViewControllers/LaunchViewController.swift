@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-protocol LaunchViewControllerDelegate: class {
+protocol LaunchViewControllerDelegate: class { //class so you can make delegate weak
     func signOut()
 }
 
 class LaunchViewController: UIViewController {
     
-    var delegate: LaunchViewControllerDelegate?
+    weak var delegate: LaunchViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()

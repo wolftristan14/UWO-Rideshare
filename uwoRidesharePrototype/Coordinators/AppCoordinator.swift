@@ -27,6 +27,7 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
     var handle: AuthStateDidChangeListenerHandle!
     var authUI: FUIAuth?
     var termsAccepted = false
+    var authViewController: UINavigationController?
 
     var navigationController: UINavigationController?
     var childCoordinators = [NSObject]()
@@ -54,9 +55,9 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
                 // if you have one. Use getTokenWithCompletion:completion: instead.
                 let uid = user.uid
                 let email = user.email
-                print("addstatedidchange listener hit")
-                print(uid)
-                print(email)
+                //print("addstatedidchange listener hit")
+                //print(uid)
+                //print(email)
                 self.checkTerms()
                 
                 
@@ -87,13 +88,13 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         // You need to adopt a FUIAuthDelegate protocol to receive callback
         authUI?.delegate = self as FUIAuthDelegate
         
-        let authViewController = authUI!.authViewController()
-        
-        launchVC.present(authViewController, animated: true, completion: nil)
+        authViewController = authUI!.authViewController()
+        authViewController?.isNavigationBarHidden = true
+        launchVC.present(authViewController!, animated: true, completion: nil)
     }
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
-        
+        authViewController?.dismiss(animated: true, completion: nil)
         // ye
     }
     
@@ -132,7 +133,6 @@ extension AppCoordinator: TermsCoordinatorDelegate {
     func didAcceptTerms() {
             print("termsAccepted")
             termsAccepted = true
-            checkAuth()
       
     }
 }
