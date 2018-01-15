@@ -10,5 +10,7 @@ target 'uwoRidesharePrototype' do
   pod 'FirebaseUI/Facebook'
   pod 'Firebase/Core’
   pod ‘Firebase/Firestore’
+  pod ‘Firebase/Storage’
+
 
 end
