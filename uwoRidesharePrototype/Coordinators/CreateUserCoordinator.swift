@@ -25,6 +25,7 @@ class CreateUserCoordinator: NSObject {
     var storageRef: StorageReference!
 
 
+
     
     init(navigationController: UINavigationController) {
         super.init()
@@ -37,6 +38,28 @@ class CreateUserCoordinator: NSObject {
         let createUserVC = storyboard.instantiateViewController(withIdentifier: "createuser") as! CreateUserViewController
         createUserVC.delegate = self as CreateUserViewControllerDelegate
         navigationController?.pushViewController(createUserVC, animated: true)
+    }
+    
+    
+    func storeImageInFirebaseStorage(image: UIImage, completionHandler: @escaping ( _ imageDownloadURL:String) -> Void) {
+        let data = UIImageJPEGRepresentation(image, 0.8)!
+        storage = Storage.storage()
+        storageRef = storage.reference()
+        let filePath = "\(Auth.auth().currentUser!.uid)/\("userPhoto")"
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpg"
+        self.storageRef.child(filePath).putData(data, metadata: metaData){(metaData,error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }else{
+                
+                let imageDownloadURL = metaData!.downloadURL()!.absoluteString
+                completionHandler(imageDownloadURL)
+
+            }
+            
+        }
     }
     
     func writeNewUserDataToDatabase(firstName: String, lastName: String, imageDownloadURL: String) {
@@ -61,23 +84,11 @@ class CreateUserCoordinator: NSObject {
 
 extension CreateUserCoordinator: CreateUserViewControllerDelegate {
     func didFinishCreatingUser(firstName: String, lastName: String, image: UIImage) {
-        let data = UIImageJPEGRepresentation(image, 0.8)!
-        storage = Storage.storage()
-        storageRef = storage.reference()
-        // set upload path
-        let filePath = "\(Auth.auth().currentUser!.uid)/\("userPhoto")"
-        let metaData = StorageMetadata()
-        metaData.contentType = "image/jpg"
-        self.storageRef.child(filePath).putData(data, metadata: metaData){(metaData,error) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }else{
-                let imageDownloadURL = metaData!.downloadURL()!.absoluteString
-                self.writeNewUserDataToDatabase(firstName: firstName, lastName: lastName, imageDownloadURL: imageDownloadURL)
-            }
+        storeImageInFirebaseStorage(image: image) {imageDownloadURL in
+            self.writeNewUserDataToDatabase(firstName: firstName, lastName: lastName, imageDownloadURL: imageDownloadURL)
 
         }
+        
 
     }
     
