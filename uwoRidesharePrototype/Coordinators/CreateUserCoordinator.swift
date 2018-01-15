@@ -63,8 +63,11 @@ class CreateUserCoordinator: NSObject {
     }
     
     func writeNewUserDataToDatabase(firstName: String, lastName: String, imageDownloadURL: String) {
-        databaseRef = Firestore.firestore().document("users/\(firstName)")
+        if Auth.auth().currentUser != nil {
+        
+        databaseRef = Firestore.firestore().document("users/\(Auth.auth().currentUser?.email ?? "no email, probably added phone sign in, update to work with phone number if this comes up")")
         databaseRef.setData([
+            "email": Auth.auth().currentUser?.email ?? "no email, probably added phone sign in, update to work with phone number if this comes up",
             "firstName": firstName,
             "lastName": lastName,
             "imageDownloadURL": imageDownloadURL
@@ -77,6 +80,9 @@ class CreateUserCoordinator: NSObject {
                 print("Document added with ID: \(self.databaseRef!.documentID)")
                 
             }
+        }
+        } else {
+           print("BIG ERROR TING")
         }
     }
 

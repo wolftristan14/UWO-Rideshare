@@ -11,6 +11,7 @@ import UIKit
 import FirebaseAuthUI
 import FBSDKCoreKit
 import FirebaseFacebookAuthUI
+import Firebase
 
 let providers: [FUIAuthProvider] = [
     FUIFacebookAuth()
@@ -21,7 +22,7 @@ protocol AppCoordinatorDelegate: class {
 }
 
 class AppCoordinator: NSObject, FUIAuthDelegate {
-
+    
     var mainStoryboard: UIStoryboard!
     var launchVC: LaunchViewController!
     var handle: AuthStateDidChangeListenerHandle!
@@ -29,9 +30,10 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
     var termsAccepted = false
     var accountCreated = false
     var authViewController: UINavigationController?
-
+    
     var navigationController: UINavigationController?
     var childCoordinators = [NSObject]()
+    var docRef: DocumentReference!
     
     init(navigationController: UINavigationController) {
         super.init()
@@ -50,7 +52,7 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
     func checkAuth() {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
-                
+                print("CURRENTUSER::\(Auth.auth().currentUser)")
                 // The user's ID, unique to the Firebase project.
                 // Do NOT use this value to authenticate with your backend server,
                 // if you have one. Use getTokenWithCompletion:completion: instead.
@@ -60,9 +62,20 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
                 print(uid)
                 print(email)
                 
-                // let photoURL = user.photoURL
+                self.docRef = Firestore.firestore().collection("users").document(user.email!)
+
+                self.docRef.getDocument { (document, error) in
+                    if (document?.exists)! {
+                        //print("Document data: \(document.data())")
+                        self.showHome()
+                    } else {
+                        self.showCreateUser()
+                        print("Document does not exist")
+                    }
+                }
             } else {
-                self.showAuthentication()
+                self.showTerms()
+                
             }
         }
     }
@@ -71,7 +84,7 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         if termsAccepted == false {
             showTerms()
         } else {
-            checkIfUserHasBeenCreated()
+            showAuthentication()
         }
     }
     
@@ -97,8 +110,8 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
     }
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
-        checkTerms()
-        //authViewController?.dismiss(animated: true, completion: nil)
+        self.checkIfUserHasBeenCreated()
+
     }
     
     func showTerms() {
@@ -123,7 +136,7 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         childCoordinators.append(homeCoordinator)
     }
     
-
+    
 }
 
 extension AppCoordinator: LaunchViewControllerDelegate {
@@ -137,18 +150,15 @@ extension AppCoordinator: LaunchViewControllerDelegate {
 extension AppCoordinator: TermsCoordinatorDelegate {
     
     func didAcceptTerms() {
-            print("termsAccepted")
-            termsAccepted = true
-            //checkAuth()
-            checkTerms()
+        print("termsAccepted")
+        termsAccepted = true
+        checkTerms()
     }
 }
 
 extension AppCoordinator: CreateUserCoordinatorDelegate {
     func didDismissCreateUserViewController() {
         accountCreated = true
-        //checkAuth()
-        //checkTerms()
         checkIfUserHasBeenCreated()
     }
 }

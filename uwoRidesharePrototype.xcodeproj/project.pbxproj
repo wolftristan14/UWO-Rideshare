@@ -52,6 +52,7 @@
 		A16576E51FEEFD0D009985A1 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 		A16576E71FEF0B1C009985A1 /* CreateUserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserCoordinator.swift; sourceTree = "<group>"; };
 		A16576EA2007F67D009985A1 /* UIViewControllerDismissKeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerDismissKeyboardExtension.swift; sourceTree = "<group>"; };
+		A16576ED200D61C8009985A1 /* uwoRidesharePrototype.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = uwoRidesharePrototype.entitlements; sourceTree = "<group>"; };
 		A17000911FD870940003751B /* uwoRidesharePrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uwoRidesharePrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17000941FD870940003751B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A17000991FD870940003751B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -130,6 +131,7 @@
 		A17000931FD870940003751B /* uwoRidesharePrototype */ = {
 			isa = PBXGroup;
 			children = (
+				A16576ED200D61C8009985A1 /* uwoRidesharePrototype.entitlements */,
 				A16576E92007F654009985A1 /* Extensions */,
 				A17000941FD870940003751B /* AppDelegate.swift */,
 				A16576D41FEEDAA2009985A1 /* TabBarViewControllers */,
@@ -221,6 +223,11 @@
 					A17000901FD870940003751B = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -462,6 +469,7 @@
 			baseConfigurationReference = B0666A1E6A5C0A7F279B0316 /* Pods-uwoRidesharePrototype.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = uwoRidesharePrototype/uwoRidesharePrototype.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B5TBSUDAA5;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -469,6 +477,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = uwoRidesharePrototype/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tristanwolf.uwoRidesharePrototype;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -482,6 +491,7 @@
 			baseConfigurationReference = F082267A46C5A36BE10BA957 /* Pods-uwoRidesharePrototype.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = uwoRidesharePrototype/uwoRidesharePrototype.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B5TBSUDAA5;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -489,6 +499,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = uwoRidesharePrototype/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tristanwolf.uwoRidesharePrototype;
 				PRODUCT_NAME = "$(TARGET_NAME)";
