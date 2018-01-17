@@ -62,11 +62,14 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
                 print(uid)
                 print(email)
                 
+                
+                //checks if the authenticated user has made a profile yet
                 self.docRef = Firestore.firestore().collection("users").document(user.email!)
 
                 self.docRef.getDocument { (document, error) in
                     if (document?.exists)! {
                         //print("Document data: \(document.data())")
+                        print("hit show home")
                         self.showHome()
                     } else {
                         self.showCreateUser()
@@ -110,7 +113,6 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
     }
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
-        self.checkIfUserHasBeenCreated()
 
     }
     
