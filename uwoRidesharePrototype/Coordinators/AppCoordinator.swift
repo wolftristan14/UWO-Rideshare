@@ -47,7 +47,7 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         launchVC = mainStoryboard.instantiateViewController(withIdentifier: "launch") as! LaunchViewController
         launchVC.delegate = self
         navigationController?.pushViewController(launchVC, animated: true)
-       // checkAuth()
+        checkAuth()
         
     }
     
@@ -70,7 +70,6 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
 
                 self.docRef.getDocument { (document, error) in
                     if (document?.exists)! {
-                        //print("Document data: \(document.data())")
                         print("hit show home")
                         self.showHome()
                     } else {
