@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import ChameleonFramework
 
 protocol LaunchViewControllerDelegate: class { //class so you can make delegate weak
     func signOut()
@@ -19,6 +20,8 @@ class LaunchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(gradientStyle:.topToBottom, withFrame:self.view.frame, andColors:[UIColor.flatPurple, UIColor.flatPurpleDark])
+
     }
     
     @IBAction func signoutPressed(_ sender: Any) {

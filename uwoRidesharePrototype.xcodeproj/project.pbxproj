@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0365A905A94383C245B4CFC9 /* Pods_uwoRidesharePrototype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B040198FF0F9D4579475CD4B /* Pods_uwoRidesharePrototype.framework */; };
 		A16576C71FE6EA4F009985A1 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16576C41FE6EA4D009985A1 /* Bolts.framework */; };
 		A16576C81FE6EA4F009985A1 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16576C51FE6EA4F009985A1 /* FBSDKCoreKit.framework */; };
 		A16576C91FE6EA4F009985A1 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16576C61FE6EA4F009985A1 /* FBSDKLoginKit.framework */; };
@@ -24,17 +25,17 @@
 		A16576E61FEEFD0D009985A1 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16576E51FEEFD0D009985A1 /* CreateUserViewController.swift */; };
 		A16576E81FEF0B1C009985A1 /* CreateUserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16576E71FEF0B1C009985A1 /* CreateUserCoordinator.swift */; };
 		A16576EB2007F67D009985A1 /* UIViewControllerDismissKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16576EA2007F67D009985A1 /* UIViewControllerDismissKeyboardExtension.swift */; };
+		A16576EF200FCE1F009985A1 /* AddRide.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16576EE200FCE1F009985A1 /* AddRide.storyboard */; };
 		A17000951FD870940003751B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17000941FD870940003751B /* AppDelegate.swift */; };
 		A170009A1FD870940003751B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17000981FD870940003751B /* Main.storyboard */; };
 		A170009C1FD870940003751B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A170009B1FD870940003751B /* Assets.xcassets */; };
 		A170009F1FD870940003751B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A170009D1FD870940003751B /* LaunchScreen.storyboard */; };
 		A17000A91FD87CF80003751B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17000A81FD87CF80003751B /* AppCoordinator.swift */; };
 		A17000B21FD880780003751B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A17000B11FD880780003751B /* GoogleService-Info.plist */; };
-		EF487939E561906F39914122 /* Pods_uwoRidesharePrototype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAA13773ADAA49E243786CD /* Pods_uwoRidesharePrototype.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9AAA13773ADAA49E243786CD /* Pods_uwoRidesharePrototype.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uwoRidesharePrototype.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		15D34E26960041C4EB1C63A4 /* Pods-uwoRidesharePrototype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uwoRidesharePrototype.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype.debug.xcconfig"; sourceTree = "<group>"; };
 		A16576C41FE6EA4D009985A1 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		A16576C51FE6EA4F009985A1 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		A16576C61FE6EA4F009985A1 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -53,6 +54,7 @@
 		A16576E71FEF0B1C009985A1 /* CreateUserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserCoordinator.swift; sourceTree = "<group>"; };
 		A16576EA2007F67D009985A1 /* UIViewControllerDismissKeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerDismissKeyboardExtension.swift; sourceTree = "<group>"; };
 		A16576ED200D61C8009985A1 /* uwoRidesharePrototype.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = uwoRidesharePrototype.entitlements; sourceTree = "<group>"; };
+		A16576EE200FCE1F009985A1 /* AddRide.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddRide.storyboard; sourceTree = "<group>"; };
 		A17000911FD870940003751B /* uwoRidesharePrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uwoRidesharePrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17000941FD870940003751B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A17000991FD870940003751B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,8 +63,8 @@
 		A17000A01FD870940003751B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A17000A81FD87CF80003751B /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		A17000B11FD880780003751B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		B0666A1E6A5C0A7F279B0316 /* Pods-uwoRidesharePrototype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uwoRidesharePrototype.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype.debug.xcconfig"; sourceTree = "<group>"; };
-		F082267A46C5A36BE10BA957 /* Pods-uwoRidesharePrototype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uwoRidesharePrototype.release.xcconfig"; path = "Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype.release.xcconfig"; sourceTree = "<group>"; };
+		B040198FF0F9D4579475CD4B /* Pods_uwoRidesharePrototype.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uwoRidesharePrototype.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4E1A1CA1D66FA486E7069B8 /* Pods-uwoRidesharePrototype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uwoRidesharePrototype.release.xcconfig"; path = "Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +75,7 @@
 				A16576C81FE6EA4F009985A1 /* FBSDKCoreKit.framework in Frameworks */,
 				A16576C91FE6EA4F009985A1 /* FBSDKLoginKit.framework in Frameworks */,
 				A16576C71FE6EA4F009985A1 /* Bolts.framework in Frameworks */,
-				EF487939E561906F39914122 /* Pods_uwoRidesharePrototype.framework in Frameworks */,
+				0365A905A94383C245B4CFC9 /* Pods_uwoRidesharePrototype.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +88,7 @@
 				A16576C41FE6EA4D009985A1 /* Bolts.framework */,
 				A16576C51FE6EA4F009985A1 /* FBSDKCoreKit.framework */,
 				A16576C61FE6EA4F009985A1 /* FBSDKLoginKit.framework */,
-				9AAA13773ADAA49E243786CD /* Pods_uwoRidesharePrototype.framework */,
+				B040198FF0F9D4579475CD4B /* Pods_uwoRidesharePrototype.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,7 +118,7 @@
 				A17000931FD870940003751B /* uwoRidesharePrototype */,
 				A17000921FD870940003751B /* Products */,
 				13AB81F1FB20BCE1D124064F /* Frameworks */,
-				F707B6F4427F3D743865E7F6 /* Pods */,
+				A6CD18545C8930918BE4302D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,6 +166,7 @@
 				A16576CC1FE9B41A009985A1 /* Terms.storyboard */,
 				A16576D01FEAE426009985A1 /* Home.storyboard */,
 				A16576DF1FEEE1E2009985A1 /* CreateUser.storyboard */,
+				A16576EE200FCE1F009985A1 /* AddRide.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -178,11 +181,11 @@
 			path = LaunchAndAuthViewControllers;
 			sourceTree = "<group>";
 		};
-		F707B6F4427F3D743865E7F6 /* Pods */ = {
+		A6CD18545C8930918BE4302D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B0666A1E6A5C0A7F279B0316 /* Pods-uwoRidesharePrototype.debug.xcconfig */,
-				F082267A46C5A36BE10BA957 /* Pods-uwoRidesharePrototype.release.xcconfig */,
+				15D34E26960041C4EB1C63A4 /* Pods-uwoRidesharePrototype.debug.xcconfig */,
+				F4E1A1CA1D66FA486E7069B8 /* Pods-uwoRidesharePrototype.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -194,12 +197,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A17000A31FD870940003751B /* Build configuration list for PBXNativeTarget "uwoRidesharePrototype" */;
 			buildPhases = (
-				9A8D18ECE3C92066F1EBEAB0 /* [CP] Check Pods Manifest.lock */,
+				8B9C80E435F8DAB0D96A9B5F /* [CP] Check Pods Manifest.lock */,
 				A170008D1FD870940003751B /* Sources */,
 				A170008E1FD870940003751B /* Frameworks */,
 				A170008F1FD870940003751B /* Resources */,
-				502EBDA6F3E9271FC5AE86B7 /* [CP] Embed Pods Frameworks */,
-				62CF8A7C4D9DC87D185A652C /* [CP] Copy Pods Resources */,
+				CF0D0E6590D92EFC40AE08CD /* [CP] Embed Pods Frameworks */,
+				EEB30EF77778ECB0A60BA630 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -260,6 +263,7 @@
 				A16576E01FEEE1E2009985A1 /* CreateUser.storyboard in Resources */,
 				A16576D11FEAE426009985A1 /* Home.storyboard in Resources */,
 				A170009C1FD870940003751B /* Assets.xcassets in Resources */,
+				A16576EF200FCE1F009985A1 /* AddRide.storyboard in Resources */,
 				A170009A1FD870940003751B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,7 +271,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		502EBDA6F3E9271FC5AE86B7 /* [CP] Embed Pods Frameworks */ = {
+		8B9C80E435F8DAB0D96A9B5F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CF0D0E6590D92EFC40AE08CD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -282,7 +301,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		62CF8A7C4D9DC87D185A652C /* [CP] Copy Pods Resources */ = {
+		EEB30EF77778ECB0A60BA630 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -295,21 +314,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9A8D18ECE3C92066F1EBEAB0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -466,7 +470,7 @@
 		};
 		A17000A41FD870940003751B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0666A1E6A5C0A7F279B0316 /* Pods-uwoRidesharePrototype.debug.xcconfig */;
+			baseConfigurationReference = 15D34E26960041C4EB1C63A4 /* Pods-uwoRidesharePrototype.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = uwoRidesharePrototype/uwoRidesharePrototype.entitlements;
@@ -488,7 +492,7 @@
 		};
 		A17000A51FD870940003751B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F082267A46C5A36BE10BA957 /* Pods-uwoRidesharePrototype.release.xcconfig */;
+			baseConfigurationReference = F4E1A1CA1D66FA486E7069B8 /* Pods-uwoRidesharePrototype.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = uwoRidesharePrototype/uwoRidesharePrototype.entitlements;

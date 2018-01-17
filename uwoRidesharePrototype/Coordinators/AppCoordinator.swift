@@ -38,6 +38,8 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
     init(navigationController: UINavigationController) {
         super.init()
         self.navigationController = navigationController
+        self.navigationController?.isNavigationBarHidden = true
+
     }
     
     func start() {
@@ -45,7 +47,7 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         launchVC = mainStoryboard.instantiateViewController(withIdentifier: "launch") as! LaunchViewController
         launchVC.delegate = self
         navigationController?.pushViewController(launchVC, animated: true)
-        checkAuth()
+       // checkAuth()
         
     }
     

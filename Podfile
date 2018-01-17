@@ -11,6 +11,6 @@ target 'uwoRidesharePrototype' do
   pod 'Firebase/Core’
   pod ‘Firebase/Firestore’
   pod ‘Firebase/Storage’
-
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 
 end

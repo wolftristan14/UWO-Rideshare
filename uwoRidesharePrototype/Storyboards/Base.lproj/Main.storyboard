@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="TimesNewRoman.ttf">
+            <string>TimesNewRomanPSMT</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Launch View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -18,26 +23,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rideshare" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Zo-va-gI3">
-                                <rect key="frame" x="149" y="333" width="77" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Zo-va-gI3">
+                                <rect key="frame" x="187.5" y="343.5" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0R-4I-BAs">
-                                <rect key="frame" x="157" y="617" width="60" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UWO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceh-F8-wi1">
+                                <rect key="frame" x="16" y="20" width="179.5" height="83.5"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="75"/>
+                                <color key="textColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rideshare" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geN-pH-cWb">
+                                <rect key="frame" x="21" y="112" width="174.5" height="42"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="37.5"/>
+                                <color key="textColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ByW-fv-xvh">
+                                <rect key="frame" x="0.0" y="184" width="375" height="2"/>
+                                <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="mfQ-ZM-UD1"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car-25-256" translatesAutoresizingMaskIntoConstraints="NO" id="Rbv-Mq-EtU">
+                                <rect key="frame" x="87" y="467" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="uaE-1S-AIb"/>
+                                    <constraint firstAttribute="width" constant="200" id="wZ3-V3-JZc"/>
+                                </constraints>
+                            </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0R-4I-BAs">
+                                <rect key="frame" x="157.5" y="617" width="60" height="30"/>
                                 <state key="normal" title="Sign Out"/>
                                 <connections>
                                     <action selector="signoutPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V1k-Nu-lzk"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="d0R-4I-BAs" secondAttribute="bottom" constant="20" id="Lcx-Tf-EY5"/>
-                            <constraint firstItem="d0R-4I-BAs" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ZyL-gJ-bw4"/>
-                            <constraint firstItem="7Zo-va-gI3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="lhD-Jn-rQE"/>
-                            <constraint firstItem="7Zo-va-gI3" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="reG-8f-aII"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ceh-F8-wi1" secondAttribute="trailing" constant="20" symbolic="YES" id="3wk-vK-IUu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Rbv-Mq-EtU" secondAttribute="bottom" id="8BK-c8-kOJ"/>
+                            <constraint firstItem="geN-pH-cWb" firstAttribute="trailing" secondItem="ceh-F8-wi1" secondAttribute="trailing" id="Rfy-Wy-Ec3"/>
+                            <constraint firstItem="Rbv-Mq-EtU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="TwA-2G-Nam"/>
+                            <constraint firstItem="geN-pH-cWb" firstAttribute="top" secondItem="ceh-F8-wi1" secondAttribute="bottom" constant="8" id="YVM-MZ-wJW"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="geN-pH-cWb" secondAttribute="trailing" constant="20" symbolic="YES" id="a7n-1k-HH3"/>
+                            <constraint firstItem="ceh-F8-wi1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cEb-V0-7iA"/>
+                            <constraint firstItem="geN-pH-cWb" firstAttribute="leading" secondItem="ceh-F8-wi1" secondAttribute="leading" constant="5" id="fRy-XO-mcn"/>
+                            <constraint firstItem="ByW-fv-xvh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jSN-la-TIi"/>
+                            <constraint firstItem="d0R-4I-BAs" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mij-bG-37q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="d0R-4I-BAs" secondAttribute="bottom" constant="20" id="pGJ-gb-aRq"/>
+                            <constraint firstItem="ByW-fv-xvh" firstAttribute="top" secondItem="geN-pH-cWb" secondAttribute="bottom" constant="30" id="pTY-SU-0UG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ByW-fv-xvh" secondAttribute="trailing" id="u3R-y9-k0R"/>
+                            <constraint firstItem="ceh-F8-wi1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="y2Z-KO-aEa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -47,4 +88,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="99.400299850074973"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="car-25-256" width="256" height="256"/>
+    </resources>
 </document>
