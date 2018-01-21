@@ -115,7 +115,7 @@
         <!--Item3-->
         <scene sceneID="Rzo-5Q-85k">
             <objects>
-                <viewController id="rEB-ZN-Rwj" customClass="ProfileViewController" customModule="uwoRidesharePrototype" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profile" id="rEB-ZN-Rwj" customClass="ProfileViewController" customModule="uwoRidesharePrototype" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z86-Ek-Fah">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -126,9 +126,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W67-Kv-Lg4">
+                                <rect key="frame" x="157" y="565" width="60" height="30"/>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signOutButtonTapped:" destination="rEB-ZN-Rwj" eventType="touchUpInside" id="3Ho-gA-uAk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="W67-Kv-Lg4" firstAttribute="centerX" secondItem="QMS-WC-Bx5" secondAttribute="centerX" id="Whf-W0-HEc"/>
+                            <constraint firstItem="QMS-WC-Bx5" firstAttribute="bottom" secondItem="W67-Kv-Lg4" secondAttribute="bottom" constant="23" id="b6Q-0o-NJy"/>
                             <constraint firstItem="Ggb-CT-wgE" firstAttribute="centerY" secondItem="QMS-WC-Bx5" secondAttribute="centerY" id="cpE-g9-vZY"/>
                             <constraint firstItem="Ggb-CT-wgE" firstAttribute="centerX" secondItem="QMS-WC-Bx5" secondAttribute="centerX" id="yAi-sq-aG4"/>
                         </constraints>

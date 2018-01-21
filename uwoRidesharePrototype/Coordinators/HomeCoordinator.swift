@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 protocol HomeCoordinatorDelegate: class {
     
@@ -32,6 +33,8 @@ class HomeCoordintor: NSObject {
         let homeViewController = storyboard.instantiateViewController(withIdentifier: "home")
         let yourRidesViewController = homeViewController.childViewControllers[1] as! YourRidesViewController
         yourRidesViewController.delegate = self as YourRidesViewControllerDelegate
+        let profileViewController = homeViewController.childViewControllers[2] as! ProfileViewController
+        profileViewController.delegate = self as ProfileViewControllerDelegate
         // set as delegate for homevc
         navigationController?.pushViewController(homeViewController, animated: true)
         
@@ -53,3 +56,13 @@ extension HomeCoordintor: YourRidesViewControllerDelegate {
     }
     
 }
+
+extension HomeCoordintor: ProfileViewControllerDelegate {
+    func didTapSignOutButton() {
+        try! Auth.auth().signOut()
+    navigationController?.popViewController(animated: true)
+
+    }
+    
+}
+
