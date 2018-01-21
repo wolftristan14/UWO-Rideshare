@@ -8,13 +8,23 @@
 
 import UIKit
 
+protocol YourRidesViewControllerDelegate: class {
+    func didTapAddRideButton()
+}
+
+
 class YourRidesViewController: UIViewController {
 
+    weak var delegate: YourRidesViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func addRideButtonTapped(_ sender: Any) {
+        self.delegate?.didTapAddRideButton()
+    }
+    
 }

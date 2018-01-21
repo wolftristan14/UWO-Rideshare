@@ -30,9 +30,26 @@ class HomeCoordintor: NSObject {
         print("home coordinator start method hit")
         let storyboard = UIStoryboard.init(name: "Home", bundle: nil)
         let homeViewController = storyboard.instantiateViewController(withIdentifier: "home")
+        let yourRidesViewController = homeViewController.childViewControllers[1] as! YourRidesViewController
+        yourRidesViewController.delegate = self as YourRidesViewControllerDelegate
         // set as delegate for homevc
         navigationController?.pushViewController(homeViewController, animated: true)
         
+    }
+    
+    func goToAddRideCoordinator() {
+        
+        let addRideCoordinator = AddRideCoordinator(navigationController: navigationController!)
+        addRideCoordinator.delegate = self as? AddRideViewControllerDelegate
+        addRideCoordinator.start()
+        childCoordinators.append(addRideCoordinator)
+    }
+    
+}
+
+extension HomeCoordintor: YourRidesViewControllerDelegate {
+    func didTapAddRideButton() {
+        goToAddRideCoordinator()
     }
     
 }

@@ -82,7 +82,7 @@ class CreateUserCoordinator: NSObject {
             }
         }
         } else {
-           print("BIG ERROR TING")
+           print("error")
         }
     }
 

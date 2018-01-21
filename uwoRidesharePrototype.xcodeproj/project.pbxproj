@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0365A905A94383C245B4CFC9 /* Pods_uwoRidesharePrototype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B040198FF0F9D4579475CD4B /* Pods_uwoRidesharePrototype.framework */; };
+		A1434FCF20126B86009CDBE9 /* AddRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1434FCE20126B86009CDBE9 /* AddRideViewController.swift */; };
+		A1434FD220126F1D009CDBE9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1434FD120126F1D009CDBE9 /* User.swift */; };
+		A1434FD420126F2B009CDBE9 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1434FD320126F2B009CDBE9 /* Ride.swift */; };
+		A1434FD62013C03F009CDBE9 /* AddRideCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1434FD52013C03F009CDBE9 /* AddRideCoordinator.swift */; };
 		A16576C71FE6EA4F009985A1 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16576C41FE6EA4D009985A1 /* Bolts.framework */; };
 		A16576C81FE6EA4F009985A1 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16576C51FE6EA4F009985A1 /* FBSDKCoreKit.framework */; };
 		A16576C91FE6EA4F009985A1 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16576C61FE6EA4F009985A1 /* FBSDKLoginKit.framework */; };
@@ -36,6 +40,10 @@
 
 /* Begin PBXFileReference section */
 		15D34E26960041C4EB1C63A4 /* Pods-uwoRidesharePrototype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uwoRidesharePrototype.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype.debug.xcconfig"; sourceTree = "<group>"; };
+		A1434FCE20126B86009CDBE9 /* AddRideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRideViewController.swift; sourceTree = "<group>"; };
+		A1434FD120126F1D009CDBE9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A1434FD320126F2B009CDBE9 /* Ride.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
+		A1434FD52013C03F009CDBE9 /* AddRideCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRideCoordinator.swift; sourceTree = "<group>"; };
 		A16576C41FE6EA4D009985A1 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		A16576C51FE6EA4F009985A1 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		A16576C61FE6EA4F009985A1 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -93,6 +101,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A1434FD020126EF0009CDBE9 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				A1434FD120126F1D009CDBE9 /* User.swift */,
+				A1434FD320126F2B009CDBE9 /* Ride.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
 		A16576D41FEEDAA2009985A1 /* TabBarViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +117,7 @@
 				A16576D71FEEDAFC009985A1 /* YourRidesViewController.swift */,
 				A16576D91FEEDB2E009985A1 /* ProfileViewController.swift */,
 				A16576DB1FEEDB3B009985A1 /* MessagesViewController.swift */,
+				A1434FCE20126B86009CDBE9 /* AddRideViewController.swift */,
 			);
 			path = TabBarViewControllers;
 			sourceTree = "<group>";
@@ -141,6 +159,7 @@
 				A17000AD1FD87EAA0003751B /* Storyboards */,
 				A17000AC1FD87E8E0003751B /* Coordinators */,
 				A170009B1FD870940003751B /* Assets.xcassets */,
+				A1434FD020126EF0009CDBE9 /* Data Models */,
 				A170009D1FD870940003751B /* LaunchScreen.storyboard */,
 				A17000B11FD880780003751B /* GoogleService-Info.plist */,
 				A17000A01FD870940003751B /* Info.plist */,
@@ -155,6 +174,7 @@
 				A16576D21FEAE840009985A1 /* HomeCoordinator.swift */,
 				A16576E31FEEEF4D009985A1 /* TermsCoordinator.swift */,
 				A16576E71FEF0B1C009985A1 /* CreateUserCoordinator.swift */,
+				A1434FD52013C03F009CDBE9 /* AddRideCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -327,9 +347,13 @@
 				A17000A91FD87CF80003751B /* AppCoordinator.swift in Sources */,
 				A16576E41FEEEF4D009985A1 /* TermsCoordinator.swift in Sources */,
 				A16576EB2007F67D009985A1 /* UIViewControllerDismissKeyboardExtension.swift in Sources */,
+				A1434FCF20126B86009CDBE9 /* AddRideViewController.swift in Sources */,
 				A16576D81FEEDAFC009985A1 /* YourRidesViewController.swift in Sources */,
 				A16576DC1FEEDB3B009985A1 /* MessagesViewController.swift in Sources */,
 				A16576CB1FE6EF78009985A1 /* LaunchViewController.swift in Sources */,
+				A1434FD220126F1D009CDBE9 /* User.swift in Sources */,
+				A1434FD62013C03F009CDBE9 /* AddRideCoordinator.swift in Sources */,
+				A1434FD420126F2B009CDBE9 /* Ride.swift in Sources */,
 				A16576E61FEEFD0D009985A1 /* CreateUserViewController.swift in Sources */,
 				A16576D31FEAE840009985A1 /* HomeCoordinator.swift in Sources */,
 				A16576CF1FE9B570009985A1 /* TermsViewController.swift in Sources */,

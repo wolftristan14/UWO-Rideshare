@@ -42,6 +42,10 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
 
     }
     
+    func authUI(_ authUI: FUIAuth, didSignInWith user: FirebaseAuth.User?, error: Error?) {
+        
+    }
+    
     func start() {
         mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
         launchVC = mainStoryboard.instantiateViewController(withIdentifier: "launch") as! LaunchViewController
@@ -113,9 +117,7 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         launchVC.present(authViewController!, animated: true, completion: nil)
     }
     
-    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
 
-    }
     
     func showTerms() {
         let termsCoordinator = TermsCoordinator(navigationController: navigationController!)
