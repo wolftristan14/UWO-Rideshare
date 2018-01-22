@@ -36,6 +36,10 @@
 		A170009F1FD870940003751B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A170009D1FD870940003751B /* LaunchScreen.storyboard */; };
 		A17000A91FD87CF80003751B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17000A81FD87CF80003751B /* AppCoordinator.swift */; };
 		A17000B21FD880780003751B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A17000B11FD880780003751B /* GoogleService-Info.plist */; };
+		A183824A20166BE0004180BE /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183824920166BE0004180BE /* SearchCoordinator.swift */; };
+		A183824C20166BF0004180BE /* YourRidesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183824B20166BEF004180BE /* YourRidesCoordinator.swift */; };
+		A183825020166C20004180BE /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183824F20166C20004180BE /* ProfileCoordinator.swift */; };
+		A183825220166C31004180BE /* MessagesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183825120166C31004180BE /* MessagesCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +75,10 @@
 		A17000A01FD870940003751B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A17000A81FD87CF80003751B /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		A17000B11FD880780003751B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A183824920166BE0004180BE /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		A183824B20166BEF004180BE /* YourRidesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourRidesCoordinator.swift; sourceTree = "<group>"; };
+		A183824F20166C20004180BE /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		A183825120166C31004180BE /* MessagesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesCoordinator.swift; sourceTree = "<group>"; };
 		B040198FF0F9D4579475CD4B /* Pods_uwoRidesharePrototype.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uwoRidesharePrototype.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4E1A1CA1D66FA486E7069B8 /* Pods-uwoRidesharePrototype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uwoRidesharePrototype.release.xcconfig"; path = "Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,6 +178,7 @@
 		A17000AC1FD87E8E0003751B /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				A183824820166BB9004180BE /* TabBarCoordinators */,
 				A17000A81FD87CF80003751B /* AppCoordinator.swift */,
 				A16576D21FEAE840009985A1 /* HomeCoordinator.swift */,
 				A16576E31FEEEF4D009985A1 /* TermsCoordinator.swift */,
@@ -199,6 +208,17 @@
 				A16576E51FEEFD0D009985A1 /* CreateUserViewController.swift */,
 			);
 			path = LaunchAndAuthViewControllers;
+			sourceTree = "<group>";
+		};
+		A183824820166BB9004180BE /* TabBarCoordinators */ = {
+			isa = PBXGroup;
+			children = (
+				A183824920166BE0004180BE /* SearchCoordinator.swift */,
+				A183824B20166BEF004180BE /* YourRidesCoordinator.swift */,
+				A183824F20166C20004180BE /* ProfileCoordinator.swift */,
+				A183825120166C31004180BE /* MessagesCoordinator.swift */,
+			);
+			path = TabBarCoordinators;
 			sourceTree = "<group>";
 		};
 		A6CD18545C8930918BE4302D /* Pods */ = {
@@ -347,19 +367,23 @@
 				A17000A91FD87CF80003751B /* AppCoordinator.swift in Sources */,
 				A16576E41FEEEF4D009985A1 /* TermsCoordinator.swift in Sources */,
 				A16576EB2007F67D009985A1 /* UIViewControllerDismissKeyboardExtension.swift in Sources */,
+				A183824A20166BE0004180BE /* SearchCoordinator.swift in Sources */,
 				A1434FCF20126B86009CDBE9 /* AddRideViewController.swift in Sources */,
 				A16576D81FEEDAFC009985A1 /* YourRidesViewController.swift in Sources */,
 				A16576DC1FEEDB3B009985A1 /* MessagesViewController.swift in Sources */,
+				A183825020166C20004180BE /* ProfileCoordinator.swift in Sources */,
 				A16576CB1FE6EF78009985A1 /* LaunchViewController.swift in Sources */,
 				A1434FD220126F1D009CDBE9 /* User.swift in Sources */,
 				A1434FD62013C03F009CDBE9 /* AddRideCoordinator.swift in Sources */,
 				A1434FD420126F2B009CDBE9 /* Ride.swift in Sources */,
 				A16576E61FEEFD0D009985A1 /* CreateUserViewController.swift in Sources */,
+				A183825220166C31004180BE /* MessagesCoordinator.swift in Sources */,
 				A16576D31FEAE840009985A1 /* HomeCoordinator.swift in Sources */,
 				A16576CF1FE9B570009985A1 /* TermsViewController.swift in Sources */,
 				A16576E81FEF0B1C009985A1 /* CreateUserCoordinator.swift in Sources */,
 				A16576DA1FEEDB2E009985A1 /* ProfileViewController.swift in Sources */,
 				A17000951FD870940003751B /* AppDelegate.swift in Sources */,
+				A183824C20166BF0004180BE /* YourRidesCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

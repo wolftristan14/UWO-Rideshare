@@ -13,8 +13,12 @@ protocol YourRidesViewControllerDelegate: class {
 }
 
 
-class YourRidesViewController: UIViewController {
-
+class YourRidesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var rideArray = [Ride]()
+    
     weak var delegate: YourRidesViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -22,9 +26,29 @@ class YourRidesViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return rideArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "yourrides", for: indexPath)
+        
+        if rideArray.count > 0 {
+        let ride = rideArray[indexPath.row]
+        cell.textLabel?.text = ride.destination
+        cell.detailTextLabel?.text = ride.origin
+        }
+        
+        
+        
+        return cell
+    }
 
     @IBAction func addRideButtonTapped(_ sender: Any) {
         self.delegate?.didTapAddRideButton()
     }
+    
     
 }

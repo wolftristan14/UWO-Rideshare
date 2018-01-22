@@ -20,7 +20,7 @@ class CreateUserCoordinator: NSObject {
     var navigationController: UINavigationController?
     weak var delegate: CreateUserCoordinatorDelegate?
     var childCoordinators = [NSObject]()
-    var databaseRef: DocumentReference!
+    var docRef: DocumentReference!
     var storage: Storage!
     var storageRef: StorageReference!
 
@@ -65,8 +65,8 @@ class CreateUserCoordinator: NSObject {
     func writeNewUserDataToDatabase(firstName: String, lastName: String, imageDownloadURL: String) {
         if Auth.auth().currentUser != nil {
         
-        databaseRef = Firestore.firestore().document("users/\(Auth.auth().currentUser?.email ?? "no email, probably added phone sign in, update to work with phone number if this comes up")")
-        databaseRef.setData([
+        docRef = Firestore.firestore().document("users/\(Auth.auth().currentUser?.email ?? "no email, probably added phone sign in, update to work with phone number if this comes up")")
+        docRef.setData([
             "email": Auth.auth().currentUser?.email ?? "no email, probably added phone sign in, update to work with phone number if this comes up",
             "firstName": firstName,
             "lastName": lastName,
@@ -77,7 +77,7 @@ class CreateUserCoordinator: NSObject {
             } else {
                 self.navigationController?.popViewController(animated: true)
                 self.delegate?.didDismissCreateUserViewController()
-                print("Document added with ID: \(self.databaseRef!.documentID)")
+                print("Document added with ID: \(self.docRef!.documentID)")
                 
             }
         }

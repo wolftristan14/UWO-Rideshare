@@ -18,13 +18,13 @@ class AddRideCoordinator: NSObject {
     
     var navigationController: UINavigationController?
 
-    weak var delegate: AddRideViewControllerDelegate?
-        var databaseRef: DocumentReference!
+    weak var delegate: AddRideCoordinatorDelegate?
+        var docRef: DocumentReference!
     
     init(navigationController: UINavigationController) {
         super.init()
         self.navigationController = navigationController
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true //maybe keep nav bar for add ride vc
     }
     
     func start() {
@@ -42,8 +42,8 @@ class AddRideCoordinator: NSObject {
         print(ride.price)
         print(ride.availableSpots)
         
-        databaseRef = Firestore.firestore().document("users/\(Auth.auth().currentUser?.email ?? "no email, probably added phone sign in, update to work with phone number if this comes up")").collection("postedRides").document("\(ride.origin) to \(ride.destination), \(ride.date)")
-        databaseRef.setData([
+        docRef = Firestore.firestore().document("users/\(Auth.auth().currentUser?.email ?? "no email, probably added phone sign in, update to work with phone number if this comes up")").collection("postedRides").document("\(ride.origin) to \(ride.destination), \(ride.date)")
+        docRef.setData([
             "destination": ride.destination,
             "origin": ride.origin,
             "date": ride.date,
@@ -54,8 +54,8 @@ class AddRideCoordinator: NSObject {
                 print("Error adding document: \(err)")
             } else {
             self.navigationController?.popViewController(animated: true)
-               // self.delegate?.didDismissCreateUserViewController()
-            print("Document added with ID: \(self.databaseRef!.documentID)")
+            self.delegate?.didDismissAddRideViewController()
+            print("Document added with ID: \(self.docRef!.documentID)")
                 
             }
 

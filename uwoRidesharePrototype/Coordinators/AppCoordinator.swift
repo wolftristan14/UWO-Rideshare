@@ -59,10 +59,11 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
                 print("CURRENTUSER::\(Auth.auth().currentUser)")
+
+                let uid = user.uid
                 // The user's ID, unique to the Firebase project.
                 // Do NOT use this value to authenticate with your backend server,
                 // if you have one. Use getTokenWithCompletion:completion: instead.
-                let uid = user.uid
                 let email = user.email
                 print("addstatedidchange listener hit")
                 print(uid)
@@ -117,7 +118,7 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         launchVC.present(authViewController!, animated: true, completion: nil)
     }
     
-
+    //find a way to make this more DRY
     
     func showTerms() {
         let termsCoordinator = TermsCoordinator(navigationController: navigationController!)
