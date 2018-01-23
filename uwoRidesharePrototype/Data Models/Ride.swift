@@ -14,14 +14,14 @@ class Ride {
     var destination: String
     var date: String
     var price: String
-    var availableSpots: String
+    var availableSeats: String
     
-    init(origin: String, destination: String, date: String, price: String, availableSpots: String) {
+    init(origin: String, destination: String, date: String, price: String, availableSeats: String) {
         self.origin = origin
         self.destination = destination
         self.date = date
         self.price = price
-        self.availableSpots = availableSpots
+        self.availableSeats = availableSeats
         
     }
     

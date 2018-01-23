@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0365A905A94383C245B4CFC9 /* Pods_uwoRidesharePrototype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B040198FF0F9D4579475CD4B /* Pods_uwoRidesharePrototype.framework */; };
+		A110C8A82017AF8B00DC11EE /* YourRidesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A110C8A72017AF8B00DC11EE /* YourRidesTableViewCell.swift */; };
 		A1434FCF20126B86009CDBE9 /* AddRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1434FCE20126B86009CDBE9 /* AddRideViewController.swift */; };
 		A1434FD220126F1D009CDBE9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1434FD120126F1D009CDBE9 /* User.swift */; };
 		A1434FD420126F2B009CDBE9 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1434FD320126F2B009CDBE9 /* Ride.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		15D34E26960041C4EB1C63A4 /* Pods-uwoRidesharePrototype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uwoRidesharePrototype.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype.debug.xcconfig"; sourceTree = "<group>"; };
+		A110C8A72017AF8B00DC11EE /* YourRidesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourRidesTableViewCell.swift; sourceTree = "<group>"; };
 		A1434FCE20126B86009CDBE9 /* AddRideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRideViewController.swift; sourceTree = "<group>"; };
 		A1434FD120126F1D009CDBE9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A1434FD320126F2B009CDBE9 /* Ride.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
@@ -109,6 +111,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A110C8A62017AF3600DC11EE /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A110C8A72017AF8B00DC11EE /* YourRidesTableViewCell.swift */,
+			);
+			path = "Table View Cells";
+			sourceTree = "<group>";
+		};
 		A1434FD020126EF0009CDBE9 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +178,7 @@
 				A17000AC1FD87E8E0003751B /* Coordinators */,
 				A170009B1FD870940003751B /* Assets.xcassets */,
 				A1434FD020126EF0009CDBE9 /* Data Models */,
+				A110C8A62017AF3600DC11EE /* Table View Cells */,
 				A170009D1FD870940003751B /* LaunchScreen.storyboard */,
 				A17000B11FD880780003751B /* GoogleService-Info.plist */,
 				A17000A01FD870940003751B /* Info.plist */,
@@ -379,6 +390,7 @@
 				A16576E61FEEFD0D009985A1 /* CreateUserViewController.swift in Sources */,
 				A183825220166C31004180BE /* MessagesCoordinator.swift in Sources */,
 				A16576D31FEAE840009985A1 /* HomeCoordinator.swift in Sources */,
+				A110C8A82017AF8B00DC11EE /* YourRidesTableViewCell.swift in Sources */,
 				A16576CF1FE9B570009985A1 /* TermsViewController.swift in Sources */,
 				A16576E81FEF0B1C009985A1 /* CreateUserCoordinator.swift in Sources */,
 				A16576DA1FEEDB2E009985A1 /* ProfileViewController.swift in Sources */,

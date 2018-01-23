@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol AddRideViewControllerDelegate: class {
-    func didAddRide(origin: String, destination: String, date: String, price: String, availableSpots: String)
+    func didAddRide(origin: String, destination: String, date: String, price: String, availableSeats: String)
 }
 
 class AddRideViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -43,7 +43,7 @@ class AddRideViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let pricePickerViewRow = pricePickerView.selectedRow(inComponent: 0)
         let numberOfSeatsPickerViewRow = numberOfSeatsPickerView.selectedRow(inComponent: 0)
 
-        delegate?.didAddRide(origin: fromTextField.text ?? "", destination: goingToTextField.text ?? "", date: dateString, price: pricePickerData[pricePickerViewRow] ?? "", availableSpots: numberOfSeatsPickerData[numberOfSeatsPickerViewRow] ?? "")
+        delegate?.didAddRide(origin: fromTextField.text ?? "", destination: goingToTextField.text ?? "", date: dateString, price: pricePickerData[pricePickerViewRow] ?? "", availableSeats: numberOfSeatsPickerData[numberOfSeatsPickerViewRow] ?? "")
         
     }
     

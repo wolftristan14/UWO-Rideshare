@@ -24,7 +24,7 @@ class AddRideCoordinator: NSObject {
     init(navigationController: UINavigationController) {
         super.init()
         self.navigationController = navigationController
-        self.navigationController?.isNavigationBarHidden = true //maybe keep nav bar for add ride vc
+        //self.navigationController?.isNavigationBarHidden = true
     }
     
     func start() {
@@ -40,7 +40,7 @@ class AddRideCoordinator: NSObject {
         print(ride.origin)
         print(ride.date)
         print(ride.price)
-        print(ride.availableSpots)
+        print(ride.availableSeats)
         
         docRef = Firestore.firestore().document("users/\(Auth.auth().currentUser?.email ?? "no email, probably added phone sign in, update to work with phone number if this comes up")").collection("postedRides").document("\(ride.origin) to \(ride.destination), \(ride.date)")
         docRef.setData([
@@ -48,7 +48,7 @@ class AddRideCoordinator: NSObject {
             "origin": ride.origin,
             "date": ride.date,
             "price": ride.price,
-            "availableSpots": ride.availableSpots
+            "availableSpots": ride.availableSeats
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")
@@ -65,9 +65,9 @@ class AddRideCoordinator: NSObject {
 }
 
 extension AddRideCoordinator: AddRideViewControllerDelegate {
-    func didAddRide(origin: String, destination: String, date: String, price: String, availableSpots: String) {
+    func didAddRide(origin: String, destination: String, date: String, price: String, availableSeats: String) {
         //navigationController?.popViewController(animated: true)
-        let ride = Ride(origin: origin, destination: destination, date: date, price: price, availableSpots: availableSpots)
+        let ride = Ride(origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats)
         addRideToDatabase(ride: ride)
     }
 }

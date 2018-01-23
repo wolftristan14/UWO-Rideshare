@@ -23,7 +23,7 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.rowHeight = 129
         // Do any additional setup after loading the view.
     }
     
@@ -33,12 +33,15 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "yourrides", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "yourrides", for: indexPath) as! YourRidesTableViewCell
         
         if rideArray.count > 0 {
         let ride = rideArray[indexPath.row]
-        cell.textLabel?.text = ride.destination
-        cell.detailTextLabel?.text = ride.origin
+        cell.destinationLabel.text = ride.destination
+        cell.originLabel.text = ride.origin
+        cell.dateLabel.text = ride.date
+        cell.priceLabel.text = ride.price
+        cell.availableSeatsLabel.text = ride.availableSeats
         }
         
         
