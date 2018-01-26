@@ -19,9 +19,11 @@ class SearchViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         self.tabBarController?.navigationItem.title = "Search"
-        
+        self.navigationController?.isNavigationBarHidden = false
+
         
     }
+    
 
 
 }

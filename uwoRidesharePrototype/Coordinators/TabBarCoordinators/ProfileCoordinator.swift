@@ -41,6 +41,7 @@ class ProfileCoordinator: NSObject {
 extension ProfileCoordinator: ProfileViewControllerDelegate {
     func didTapSignOutButton() {
         try! Auth.auth().signOut()
+        navigationController?.isNavigationBarHidden = true
         navigationController?.popViewController(animated: true)
         
     }

@@ -39,6 +39,8 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         super.init()
         self.navigationController = navigationController
         self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.navigationBar.barTintColor = UIColor.flatPurpleDark
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.flatWhite, NSAttributedStringKey.font: UIFont.init(name: "Times New Roman", size: 20) ?? UIFont.boldSystemFont(ofSize: 25)]
 
     }
     
