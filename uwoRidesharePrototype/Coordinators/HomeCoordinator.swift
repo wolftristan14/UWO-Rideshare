@@ -31,14 +31,17 @@ class HomeCoordintor: NSObject, UITabBarDelegate, UITabBarControllerDelegate {
     init(navigationController: UINavigationController) {
         super.init()
         self.navigationController = navigationController
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = false
+        //back item is nil at this point
     }
     
     func start() {
         let storyboard = UIStoryboard.init(name: "Home", bundle: nil)
         let homeViewController = storyboard.instantiateViewController(withIdentifier: "home")
         //doing this to get reference to tab bar controller, might be a better way
-        homeViewController.childViewControllers[0].tabBarController?.delegate = self
+        let tabBarController = homeViewController.childViewControllers[0].tabBarController
+        tabBarController?.delegate = self
+        tabBarController?.navigationItem.setHidesBackButton(true, animated: false)
         navigationController?.pushViewController(homeViewController, animated: true)
         
         
@@ -57,6 +60,7 @@ class HomeCoordintor: NSObject, UITabBarDelegate, UITabBarControllerDelegate {
             yourRidesCoordinator.delegate = self as YourRidesCoordinatorDelegate
             yourRidesCoordinator.start()
             childCoordinators.append(yourRidesCoordinator)
+
             
         case 2:
             let profileCoordinator = ProfileCoordinator(navigationController: navigationController!)

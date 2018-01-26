@@ -24,8 +24,17 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 129
-        // Do any additional setup after loading the view.
+
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
+    self.tabBarController?.navigationItem.title = "Your Rides"
+        
+        
+    }
+    
+    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

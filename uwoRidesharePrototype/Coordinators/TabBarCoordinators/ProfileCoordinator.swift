@@ -26,13 +26,15 @@ class ProfileCoordinator: NSObject {
     init(navigationController: UINavigationController) {
         super.init()
         self.navigationController = navigationController
-        self.navigationController?.isNavigationBarHidden = true
+        //self.navigationController?.isNavigationBarHidden = true
     }
     
     func start() {
         let profileViewController = navigationController?.visibleViewController?.childViewControllers[2] as!ProfileViewController
         profileViewController.delegate = self as! ProfileViewControllerDelegate
     }
+    
+    
     
 }
 

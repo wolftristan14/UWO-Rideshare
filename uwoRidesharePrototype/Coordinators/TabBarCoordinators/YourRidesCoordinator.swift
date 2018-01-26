@@ -28,13 +28,14 @@ class YourRidesCoordinator: NSObject {
     init(navigationController: UINavigationController) {
         super.init()
         self.navigationController = navigationController
-        self.navigationController?.isNavigationBarHidden = true
+        //self.navigationController?.isNavigationBarHidden = false
     }
     
     func start() {
         loadFirebaseData()
         yourRidesViewController = navigationController?.visibleViewController?.childViewControllers[1] as! YourRidesViewController
         yourRidesViewController.delegate = self
+
     }
     
 

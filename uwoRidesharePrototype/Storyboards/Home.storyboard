@@ -9,13 +9,8 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue-Bold</string>
-        </array>
-    </customFonts>
     <scenes>
-        <!--Item 2-->
+        <!--Your Rides-->
         <scene sceneID="TC0-Ec-kBA">
             <objects>
                 <viewController storyboardIdentifier="yourrides" id="yzj-X2-JnV" customClass="YourRidesViewController" customModule="uwoRidesharePrototype" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,13 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5y-76-cMA">
-                                <rect key="frame" x="157.5" y="532" width="60" height="68"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5y-76-cMA">
+                                <rect key="frame" x="163" y="532" width="50" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="yki-0X-kap"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="100"/>
-                                <state key="normal" title="+"/>
+                                <state key="normal" image="plusmed"/>
                                 <connections>
                                     <action selector="addRideButtonTapped:" destination="yzj-X2-JnV" eventType="touchUpInside" id="JBc-um-1GA"/>
                                 </connections>
@@ -140,7 +134,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4uo-dU-2Yo"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="Item 2" id="yzM-pn-26B"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Your Rides" image="car" selectedImage="car" id="yzM-pn-26B">
+                        <color key="badgeColor" red="0.3707177639" green="0.25714370609999998" blue="0.75468015669999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="tableView" destination="rtT-U8-mca" id="KXt-Wu-egK"/>
                     </connections>
@@ -149,63 +145,39 @@
             </objects>
             <point key="canvasLocation" x="618.39999999999998" y="489.80509745127438"/>
         </scene>
-        <!--Item 1-->
+        <!--Search-->
         <scene sceneID="igh-l2-5DG">
             <objects>
                 <viewController id="BdH-ce-2RA" customClass="SearchViewController" customModule="uwoRidesharePrototype" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M32-KU-Bze">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Rides" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJs-50-QOc">
-                                <rect key="frame" x="137" y="308.5" width="101" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="IJs-50-QOc" firstAttribute="centerY" secondItem="dtp-ZX-ArB" secondAttribute="centerY" id="eDc-wr-IIl"/>
-                            <constraint firstItem="IJs-50-QOc" firstAttribute="centerX" secondItem="dtp-ZX-ArB" secondAttribute="centerX" id="qO9-Qh-cCF"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dtp-ZX-ArB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="1i4-5S-W6w"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="searchbig" selectedImage="searchbig" id="1i4-5S-W6w"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="atg-IY-2Pm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="620" y="-174"/>
         </scene>
-        <!--Item4-->
+        <!--Messages-->
         <scene sceneID="aQt-OI-TcP">
             <objects>
                 <viewController id="fH2-xn-cCs" customClass="MessagesViewController" customModule="uwoRidesharePrototype" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" tag="3" contentMode="scaleToFill" id="YnQ-jB-QrW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9z1-WJ-qi6">
-                                <rect key="frame" x="149" y="308.5" width="77" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="9z1-WJ-qi6" firstAttribute="centerX" secondItem="ubc-i7-x9O" secondAttribute="centerX" id="GPC-4V-oEX"/>
-                            <constraint firstItem="9z1-WJ-qi6" firstAttribute="centerY" secondItem="ubc-i7-x9O" secondAttribute="centerY" id="dMT-gv-2Yb"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ubc-i7-x9O"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="3" title="Item4" id="XcB-OF-THx"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="Messages" image="messages" selectedImage="messages" id="XcB-OF-THx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7oC-1T-HVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1119" y="28"/>
         </scene>
-        <!--Item3-->
+        <!--Settings-->
         <scene sceneID="Rzo-5Q-85k">
             <objects>
                 <viewController storyboardIdentifier="profile" id="rEB-ZN-Rwj" customClass="ProfileViewController" customModule="uwoRidesharePrototype" customModuleProvider="target" sceneMemberID="viewController">
@@ -213,12 +185,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile/Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggb-CT-wgE">
-                                <rect key="frame" x="128.5" y="308.5" width="118" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W67-Kv-Lg4">
                                 <rect key="frame" x="157.5" y="565" width="60" height="30"/>
                                 <state key="normal" title="Sign Out"/>
@@ -231,12 +197,10 @@
                         <constraints>
                             <constraint firstItem="W67-Kv-Lg4" firstAttribute="centerX" secondItem="QMS-WC-Bx5" secondAttribute="centerX" id="Whf-W0-HEc"/>
                             <constraint firstItem="QMS-WC-Bx5" firstAttribute="bottom" secondItem="W67-Kv-Lg4" secondAttribute="bottom" constant="23" id="b6Q-0o-NJy"/>
-                            <constraint firstItem="Ggb-CT-wgE" firstAttribute="centerY" secondItem="QMS-WC-Bx5" secondAttribute="centerY" id="cpE-g9-vZY"/>
-                            <constraint firstItem="Ggb-CT-wgE" firstAttribute="centerX" secondItem="QMS-WC-Bx5" secondAttribute="centerX" id="yAi-sq-aG4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QMS-WC-Bx5"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="Item3" id="EJe-2X-Xdf"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Settings" image="settings" selectedImage="settings" id="EJe-2X-Xdf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hso-bT-ra8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -263,4 +227,11 @@
             <point key="canvasLocation" x="-332" y="159"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="car" width="33" height="33"/>
+        <image name="messages" width="33" height="33"/>
+        <image name="plusmed" width="50" height="50"/>
+        <image name="searchbig" width="33" height="33"/>
+        <image name="settings" width="33" height="33"/>
+    </resources>
 </document>

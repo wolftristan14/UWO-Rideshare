@@ -36,6 +36,8 @@ class AddRideViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.hideKeyboard()
     }
     
+
+    
     @IBAction func addRideButtonTapped(_ sender: Any) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
@@ -43,7 +45,7 @@ class AddRideViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let pricePickerViewRow = pricePickerView.selectedRow(inComponent: 0)
         let numberOfSeatsPickerViewRow = numberOfSeatsPickerView.selectedRow(inComponent: 0)
 
-        delegate?.didAddRide(origin: fromTextField.text ?? "", destination: goingToTextField.text ?? "", date: dateString, price: pricePickerData[pricePickerViewRow] ?? "", availableSeats: numberOfSeatsPickerData[numberOfSeatsPickerViewRow] ?? "")
+        delegate?.didAddRide(origin: fromTextField.text ?? "", destination: goingToTextField.text ?? "", date: dateString, price: pricePickerData[pricePickerViewRow], availableSeats: numberOfSeatsPickerData[numberOfSeatsPickerViewRow])
         
     }
     

@@ -15,5 +15,13 @@ class SearchViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.tabBarController?.navigationItem.title = "Search"
+        
+        
+    }
+
 
 }

@@ -26,7 +26,7 @@ class SearchCoordinator: NSObject {
     init(navigationController: UINavigationController) {
         super.init()
         self.navigationController = navigationController
-        self.navigationController?.isNavigationBarHidden = true
+        //self.navigationController?.isNavigationBarHidden = true
     }
     
     func start() {
