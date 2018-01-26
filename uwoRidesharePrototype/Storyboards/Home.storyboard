@@ -40,49 +40,49 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="London" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="raS-a6-R0d">
-                                                    <rect key="frame" x="15" y="11" width="82" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <rect key="frame" x="15" y="11" width="66" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYe-77-1Ak">
-                                                    <rect key="frame" x="48" y="50" width="15" height="16"/>
+                                                    <rect key="frame" x="38" y="44" width="15" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toronto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S3E-rL-Rsz">
-                                                    <rect key="frame" x="15" y="76" width="81" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <rect key="frame" x="15" y="70" width="65.5" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="June 21st, 10:30 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfV-ru-oP9">
-                                                    <rect key="frame" x="170" y="17" width="155.5" height="21"/>
+                                                    <rect key="frame" x="171" y="11" width="155.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXj-dA-yeS">
-                                                    <rect key="frame" x="192" y="49" width="35" height="18"/>
+                                                    <rect key="frame" x="193" y="43" width="35" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20.00$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="OpL-xV-C9z">
-                                                    <rect key="frame" x="179" y="74" width="61" height="23"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <rect key="frame" x="184.5" y="68" width="52" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XtH-DA-7hm">
-                                                    <rect key="frame" x="290" y="74" width="12" height="23"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <rect key="frame" x="292" y="68" width="10" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tn5-eq-fra">
-                                                    <rect key="frame" x="277" y="48" width="38.5" height="18"/>
+                                                    <rect key="frame" x="278" y="42" width="38.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -94,7 +94,7 @@
                                                 <constraint firstItem="fXj-dA-yeS" firstAttribute="centerX" secondItem="OpL-xV-C9z" secondAttribute="centerX" id="Fke-On-Hax"/>
                                                 <constraint firstItem="OpL-xV-C9z" firstAttribute="top" secondItem="fXj-dA-yeS" secondAttribute="bottom" constant="7" id="FzV-6A-s75"/>
                                                 <constraint firstItem="Tn5-eq-fra" firstAttribute="leading" secondItem="fXj-dA-yeS" secondAttribute="trailing" constant="50" id="NcH-Yr-Gjo"/>
-                                                <constraint firstItem="ZYe-77-1Ak" firstAttribute="leading" secondItem="045-LJ-sS5" secondAttribute="leading" constant="48" id="OWj-4C-Bgy"/>
+                                                <constraint firstItem="ZYe-77-1Ak" firstAttribute="leading" secondItem="045-LJ-sS5" secondAttribute="leading" constant="38" id="OWj-4C-Bgy"/>
                                                 <constraint firstItem="CfV-ru-oP9" firstAttribute="bottom" secondItem="raS-a6-R0d" secondAttribute="bottom" constant="-3" id="OvU-xS-z2i"/>
                                                 <constraint firstItem="Tn5-eq-fra" firstAttribute="trailing" secondItem="CfV-ru-oP9" secondAttribute="trailing" constant="-10" id="QnC-Nb-dI1"/>
                                                 <constraint firstItem="XtH-DA-7hm" firstAttribute="bottom" secondItem="OpL-xV-C9z" secondAttribute="bottom" id="TT7-Fj-l7V"/>
@@ -214,7 +214,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.3707177639" green="0.25714370609999998" blue="0.75468015669999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.27836513519287109" green="0.18530510365962982" blue="0.59323644638061523" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
