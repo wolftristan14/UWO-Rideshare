@@ -40,7 +40,13 @@ class HomeCoordintor: NSObject, UITabBarDelegate, UITabBarControllerDelegate {
         let tabBarController = homeViewController.childViewControllers[0].tabBarController
         tabBarController?.delegate = self
         tabBarController?.navigationItem.setHidesBackButton(true, animated: false)
+        
         navigationController?.pushViewController(homeViewController, animated: true)
+        
+        let searchCoordinator = SearchCoordinator(navigationController: navigationController!)
+        searchCoordinator.delegate = self as SearchCoordinatorDelegate
+        searchCoordinator.start()
+        childCoordinators.append(searchCoordinator)
         
         
     }

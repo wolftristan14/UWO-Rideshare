@@ -32,9 +32,10 @@ class YourRidesCoordinator: NSObject {
     }
     
     func start() {
-        loadFirebaseData()
         yourRidesViewController = navigationController?.visibleViewController?.childViewControllers[1] as! YourRidesViewController
         yourRidesViewController.delegate = self
+        loadFirebaseData()
+
 
     }
     
@@ -45,9 +46,10 @@ class YourRidesCoordinator: NSObject {
             yourRidesArray.removeAll()
        
         
-        collRef = Firestore.firestore().collection("users").document((Auth.auth().currentUser?.email)!).collection("postedRides")
+//        collRef = Firestore.firestore().collection("users").document((Auth.auth().currentUser?.email)!).collection("postedRides")
+        collRef = Firestore.firestore().collection("Rides")
         
-        collRef.getDocuments() { (querySnapshot, err) in
+        collRef.whereField("driver", isEqualTo: Auth.auth().currentUser?.email ?? "ERROR").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {

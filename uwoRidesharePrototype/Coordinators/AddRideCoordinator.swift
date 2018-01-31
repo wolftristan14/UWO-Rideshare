@@ -42,8 +42,9 @@ class AddRideCoordinator: NSObject {
         print(ride.price)
         print(ride.availableSeats)
         
-        docRef = Firestore.firestore().document("users/\(Auth.auth().currentUser?.email ?? "no email, probably added phone sign in, update to work with phone number if this comes up")").collection("postedRides").document("\(ride.origin) to \(ride.destination), \(ride.date)")
+        docRef = Firestore.firestore().document("Rides/\(ride.origin) to \(ride.destination), \(ride.date)")
         docRef.setData([
+            "driver": Auth.auth().currentUser?.email ?? "error",
             "destination": ride.destination,
             "origin": ride.origin,
             "date": ride.date,

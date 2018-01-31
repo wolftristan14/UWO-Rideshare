@@ -1,15 +1,16 @@
 //
-//  YourRidesTableViewCell.swift
+//  SearchTableViewCell.swift
 //  uwoRidesharePrototype
 //
-//  Created by Tristan Wolf on 2018-01-23.
+//  Created by Tristan Wolf on 2018-01-31.
 //  Copyright © 2018 Tristan Wolf. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class YourRidesTableViewCell: UITableViewCell {
-
+class SearchTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var originLabel: UILabel!
     
     @IBOutlet weak var destinationLabel: UILabel!
@@ -26,4 +27,5 @@ class YourRidesTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+    
 }
