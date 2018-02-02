@@ -75,7 +75,7 @@ class CreateUserCoordinator: NSObject {
             if let err = err {
                 print("Error adding document: \(err)")
             } else {
-                self.navigationController?.popViewController(animated: true)
+                //self.navigationController?.popViewController(animated: true)
                 self.delegate?.didDismissCreateUserViewController()
                 print("Document added with ID: \(self.docRef!.documentID)")
                 
@@ -90,6 +90,7 @@ class CreateUserCoordinator: NSObject {
 
 extension CreateUserCoordinator: CreateUserViewControllerDelegate {
     func didFinishCreatingUser(firstName: String, lastName: String, image: UIImage) {
+        self.navigationController?.popViewController(animated: true)
         storeImageInFirebaseStorage(image: image) {imageDownloadURL in
             self.writeNewUserDataToDatabase(firstName: firstName, lastName: lastName, imageDownloadURL: imageDownloadURL)
 
