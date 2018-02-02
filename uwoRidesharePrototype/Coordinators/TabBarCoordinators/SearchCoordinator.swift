@@ -41,12 +41,12 @@ class SearchCoordinator: NSObject {
     }
     
     func loadFirebaseData()  {
-        allRidesArray.removeAll()
+        //allRidesArray.removeAll()
         
         
         collRef = Firestore.firestore().collection("Rides")
         
-        collRef.getDocuments() { (querySnapshot, err) in
+        collRef.addSnapshotListener() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
