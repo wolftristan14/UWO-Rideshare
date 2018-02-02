@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +16,7 @@
             <objects>
                 <viewController storyboardIdentifier="createuser" id="S5L-3w-VbG" customClass="CreateUserViewController" customModule="uwoRidesharePrototype" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sp9-KL-MEl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJN-z3-dLp">
@@ -31,13 +32,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OVW-gk-5nO">
-                                <rect key="frame" x="107" y="25" width="252" height="30"/>
+                                <rect key="frame" x="107" y="25" width="197" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="honorifix-prefix"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FJX-iQ-iLD">
-                                <rect key="frame" x="106" y="66" width="253" height="30"/>
+                                <rect key="frame" x="106" y="66" width="198" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="honorifix-prefix"/>
@@ -55,11 +56,14 @@
                                     <action selector="chooseImageFromPhotoLibrary:" destination="S5L-3w-VbG" eventType="touchUpInside" id="c42-3F-V3g"/>
                                 </connections>
                             </button>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pyc-ov-5cd">
-                                <rect key="frame" x="47" y="153" width="280" height="434"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pyc-ov-5cd" customClass="ProfileImageStyleManager" customModule="uwoRidesharePrototype" customModuleProvider="target">
+                                <rect key="frame" x="48" y="182" width="224" height="224"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Pyc-ov-5cd" secondAttribute="height" multiplier="1:1" id="44d-ai-zWI"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKB-A9-4yb">
-                                <rect key="frame" x="167" y="617" width="41" height="30"/>
+                                <rect key="frame" x="139.5" y="518" width="41" height="30"/>
                                 <state key="normal" title="Finish"/>
                                 <connections>
                                     <action selector="finishTapped:" destination="S5L-3w-VbG" eventType="touchUpInside" id="slY-Pq-Fd6"/>
@@ -71,11 +75,13 @@
                             <constraint firstItem="Y2x-k4-Xqp" firstAttribute="centerY" secondItem="onR-Mz-YuS" secondAttribute="centerY" id="1ys-fz-3Ya"/>
                             <constraint firstItem="oH5-bb-Wt6" firstAttribute="trailing" secondItem="FJX-iQ-iLD" secondAttribute="trailing" constant="16" id="8dv-Bq-HMQ"/>
                             <constraint firstItem="onR-Mz-YuS" firstAttribute="centerX" secondItem="gke-1R-uod" secondAttribute="centerX" id="8yW-iQ-LNv"/>
+                            <constraint firstItem="Pyc-ov-5cd" firstAttribute="centerX" secondItem="oH5-bb-Wt6" secondAttribute="centerX" id="E37-H7-z7r"/>
                             <constraint firstItem="OVW-gk-5nO" firstAttribute="centerY" secondItem="ZJN-z3-dLp" secondAttribute="centerY" id="F5k-hd-cVW"/>
+                            <constraint firstItem="oH5-bb-Wt6" firstAttribute="bottom" secondItem="Pyc-ov-5cd" secondAttribute="bottom" priority="750" constant="133" id="JWJ-cI-MWH"/>
                             <constraint firstItem="FJX-iQ-iLD" firstAttribute="centerY" secondItem="gke-1R-uod" secondAttribute="centerY" id="KEM-5U-Ypl"/>
-                            <constraint firstItem="sKB-A9-4yb" firstAttribute="top" secondItem="Pyc-ov-5cd" secondAttribute="bottom" constant="30" id="Kfd-Wk-hNR"/>
+                            <constraint firstItem="Pyc-ov-5cd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oH5-bb-Wt6" secondAttribute="top" constant="133" id="LWX-eh-ak5"/>
                             <constraint firstItem="FJX-iQ-iLD" firstAttribute="leading" secondItem="gke-1R-uod" secondAttribute="trailing" constant="8" id="ScH-1q-4cN"/>
-                            <constraint firstItem="Pyc-ov-5cd" firstAttribute="centerX" secondItem="sKB-A9-4yb" secondAttribute="centerX" id="Xcq-Ow-mRC"/>
+                            <constraint firstItem="Pyc-ov-5cd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oH5-bb-Wt6" secondAttribute="leading" constant="47" id="V22-zF-beK"/>
                             <constraint firstItem="sKB-A9-4yb" firstAttribute="centerX" secondItem="oH5-bb-Wt6" secondAttribute="centerX" id="dEk-dE-JmA"/>
                             <constraint firstItem="oH5-bb-Wt6" firstAttribute="trailing" secondItem="OVW-gk-5nO" secondAttribute="trailing" constant="16" id="duW-ab-GXP"/>
                             <constraint firstItem="Y2x-k4-Xqp" firstAttribute="leading" secondItem="FJX-iQ-iLD" secondAttribute="leading" id="gJo-8K-3zK"/>
@@ -84,10 +90,13 @@
                             <constraint firstItem="gke-1R-uod" firstAttribute="top" secondItem="ZJN-z3-dLp" secondAttribute="bottom" constant="20" id="hWs-M9-aUW"/>
                             <constraint firstItem="gke-1R-uod" firstAttribute="leading" secondItem="ZJN-z3-dLp" secondAttribute="leading" id="hZP-6E-f6G"/>
                             <constraint firstItem="oH5-bb-Wt6" firstAttribute="bottom" secondItem="sKB-A9-4yb" secondAttribute="bottom" constant="20" id="iZ2-Wt-z1E"/>
-                            <constraint firstItem="Pyc-ov-5cd" firstAttribute="top" secondItem="onR-Mz-YuS" secondAttribute="bottom" constant="20" id="ofd-9m-Uun"/>
-                            <constraint firstItem="Pyc-ov-5cd" firstAttribute="leading" secondItem="oH5-bb-Wt6" secondAttribute="leading" constant="47" id="qx3-ek-Xhy"/>
-                            <constraint firstItem="oH5-bb-Wt6" firstAttribute="trailing" secondItem="Pyc-ov-5cd" secondAttribute="trailing" constant="48" id="vXL-xp-Jfh"/>
+                            <constraint firstItem="oH5-bb-Wt6" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Pyc-ov-5cd" secondAttribute="bottom" constant="133" id="k6y-US-3r6"/>
+                            <constraint firstItem="Pyc-ov-5cd" firstAttribute="centerY" secondItem="oH5-bb-Wt6" secondAttribute="centerY" id="lqh-kb-d9b"/>
+                            <constraint firstItem="Pyc-ov-5cd" firstAttribute="top" secondItem="oH5-bb-Wt6" secondAttribute="top" priority="750" constant="133" id="nhH-Mo-r2P"/>
+                            <constraint firstItem="Pyc-ov-5cd" firstAttribute="leading" secondItem="oH5-bb-Wt6" secondAttribute="leading" priority="750" constant="47" id="qx3-ek-Xhy"/>
+                            <constraint firstItem="oH5-bb-Wt6" firstAttribute="trailing" secondItem="Pyc-ov-5cd" secondAttribute="trailing" priority="750" constant="48" id="vXL-xp-Jfh"/>
                             <constraint firstItem="ZJN-z3-dLp" firstAttribute="leading" secondItem="oH5-bb-Wt6" secondAttribute="leading" constant="16" id="wJf-7v-1M3"/>
+                            <constraint firstItem="oH5-bb-Wt6" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Pyc-ov-5cd" secondAttribute="trailing" constant="48" id="wMD-Kj-rZI"/>
                             <constraint firstItem="OVW-gk-5nO" firstAttribute="leading" secondItem="ZJN-z3-dLp" secondAttribute="trailing" constant="8" id="wu8-3x-wTy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oH5-bb-Wt6"/>
