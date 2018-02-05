@@ -54,7 +54,6 @@ class AddRideViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        // make data then get count
         if (pickerView.tag == 1){
             return pricePickerData.count
         }else{
@@ -63,7 +62,6 @@ class AddRideViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        // add 1 tag to pricepickerview
         if (pickerView.tag == 1){
             return "\(pricePickerData[row])"
         }else{

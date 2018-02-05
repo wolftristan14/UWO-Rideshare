@@ -9,7 +9,22 @@
 import UIKit
 
 class RideDetailViewController: UIViewController {
-
+    
+    @IBOutlet weak var imageView: ProfileImageStyleManager!
+    
+    @IBOutlet weak var originLabel: UILabel!
+    
+    @IBOutlet weak var destinationLabel: UILabel!
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    @IBOutlet weak var priceLabel: UILabel!
+    
+    @IBOutlet weak var availableSeatsLabel: NSLayoutConstraint!
+    
+    @IBOutlet weak var driverLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +36,9 @@ class RideDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func joinRideButtonTapped(_ sender: Any) {
+    }
+    
     /*
     // MARK: - Navigation
 

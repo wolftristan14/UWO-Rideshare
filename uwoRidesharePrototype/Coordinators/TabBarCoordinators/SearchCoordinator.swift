@@ -34,6 +34,7 @@ class SearchCoordinator: NSObject {
     }
     
     func start() {
+        
         searchViewController = navigationController?.visibleViewController?.childViewControllers[0] as! SearchViewController
         loadFirebaseData()
 

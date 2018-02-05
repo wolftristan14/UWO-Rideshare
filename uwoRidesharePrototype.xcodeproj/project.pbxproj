@@ -12,6 +12,7 @@
 		A10433EA2024C66D00F0E8FD /* RideDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10433E92024C66D00F0E8FD /* RideDetailViewController.swift */; };
 		A10433EC2024C68800F0E8FD /* RideDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A10433EB2024C68800F0E8FD /* RideDetail.storyboard */; };
 		A10433EF2024C7C900F0E8FD /* ProfileImageStyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10433EE2024C7C900F0E8FD /* ProfileImageStyleManager.swift */; };
+		A10BDFC72028C52700C5C2B9 /* RideDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10BDFC62028C52700C5C2B9 /* RideDetailCoordinator.swift */; };
 		A110C8A82017AF8B00DC11EE /* YourRidesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A110C8A72017AF8B00DC11EE /* YourRidesTableViewCell.swift */; };
 		A1434FCF20126B86009CDBE9 /* AddRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1434FCE20126B86009CDBE9 /* AddRideViewController.swift */; };
 		A1434FD220126F1D009CDBE9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1434FD120126F1D009CDBE9 /* User.swift */; };
@@ -53,6 +54,7 @@
 		A10433E92024C66D00F0E8FD /* RideDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideDetailViewController.swift; sourceTree = "<group>"; };
 		A10433EB2024C68800F0E8FD /* RideDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RideDetail.storyboard; sourceTree = "<group>"; };
 		A10433EE2024C7C900F0E8FD /* ProfileImageStyleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageStyleManager.swift; sourceTree = "<group>"; };
+		A10BDFC62028C52700C5C2B9 /* RideDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideDetailCoordinator.swift; sourceTree = "<group>"; };
 		A110C8A72017AF8B00DC11EE /* YourRidesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourRidesTableViewCell.swift; sourceTree = "<group>"; };
 		A1434FCE20126B86009CDBE9 /* AddRideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRideViewController.swift; sourceTree = "<group>"; };
 		A1434FD120126F1D009CDBE9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				A16576E31FEEEF4D009985A1 /* TermsCoordinator.swift */,
 				A16576E71FEF0B1C009985A1 /* CreateUserCoordinator.swift */,
 				A1434FD52013C03F009CDBE9 /* AddRideCoordinator.swift */,
+				A10BDFC62028C52700C5C2B9 /* RideDetailCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A16576D61FEEDAC7009985A1 /* SearchViewController.swift in Sources */,
+				A10BDFC72028C52700C5C2B9 /* RideDetailCoordinator.swift in Sources */,
 				A17000A91FD87CF80003751B /* AppCoordinator.swift in Sources */,
 				A16576E41FEEEF4D009985A1 /* TermsCoordinator.swift in Sources */,
 				A16576EB2007F67D009985A1 /* UIViewControllerDismissKeyboardExtension.swift in Sources */,

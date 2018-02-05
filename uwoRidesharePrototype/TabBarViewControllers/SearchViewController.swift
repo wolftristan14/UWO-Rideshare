@@ -17,6 +17,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 129
+        
 
 
         // Do any additional setup after loading the view.

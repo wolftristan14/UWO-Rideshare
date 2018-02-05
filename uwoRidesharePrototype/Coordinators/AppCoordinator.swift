@@ -45,7 +45,17 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
     }
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: FirebaseAuth.User?, error: Error?) {
+        self.docRef = Firestore.firestore().collection("users").document((user?.email)!)
         
+        self.docRef.getDocument { (document, error) in
+            if (document?.exists)! {
+                print("hit show home")
+                self.showHome()
+            } else {
+                self.showCreateUser()
+                print("Document does not exist")
+            }
+        }
     }
     
     func start() {
@@ -73,8 +83,11 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
                 
                 
                 //checks if the authenticated user has made a profile yet
+                if self.navigationController?.visibleViewController == self.launchVC {
+
                 self.docRef = Firestore.firestore().collection("users").document(user.email!)
 
+                
                 self.docRef.getDocument { (document, error) in
                     if (document?.exists)! {
                         print("hit show home")
@@ -83,6 +96,7 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
                         self.showCreateUser()
                         print("Document does not exist")
                     }
+                    }
                 }
             } else {
                 self.showTerms()
@@ -90,6 +104,9 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
             }
         }
     }
+    
+    
+    
     
     func checkTerms() {
         if termsAccepted == false {
@@ -120,7 +137,6 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         launchVC.present(authViewController!, animated: true, completion: nil)
     }
     
-    //find a way to make this more DRY
     
     func showTerms() {
         let termsCoordinator = TermsCoordinator(navigationController: navigationController!)
