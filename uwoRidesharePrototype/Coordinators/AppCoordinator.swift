@@ -41,21 +41,11 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.navigationBar.barTintColor = UIColor.flatPurpleDark
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.flatWhite, NSAttributedStringKey.font: UIFont.init(name: "Times New Roman", size: 20) ?? UIFont.boldSystemFont(ofSize: 25)]
-
+        
     }
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: FirebaseAuth.User?, error: Error?) {
-        self.docRef = Firestore.firestore().collection("users").document((user?.email)!)
-        
-        self.docRef.getDocument { (document, error) in
-            if (document?.exists)! {
-                print("hit show home")
-                self.showHome()
-            } else {
-                self.showCreateUser()
-                print("Document does not exist")
-            }
-        }
+        checkUser(user: user!)
     }
     
     func start() {
@@ -71,7 +61,7 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
                 print("CURRENTUSER::\(Auth.auth().currentUser)")
-
+                
                 let uid = user.uid
                 // The user's ID, unique to the Firebase project.
                 // Do NOT use this value to authenticate with your backend server,
@@ -84,19 +74,7 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
                 
                 //checks if the authenticated user has made a profile yet
                 if self.navigationController?.visibleViewController == self.launchVC {
-
-                self.docRef = Firestore.firestore().collection("users").document(user.email!)
-
-                
-                self.docRef.getDocument { (document, error) in
-                    if (document?.exists)! {
-                        print("hit show home")
-                        self.showHome()
-                    } else {
-                        self.showCreateUser()
-                        print("Document does not exist")
-                    }
-                    }
+                    self.checkUser(user: user)
                 }
             } else {
                 self.showTerms()
@@ -105,7 +83,22 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         }
     }
     
-    
+    func checkUser(user: FirebaseAuth.User) {
+        self.docRef = Firestore.firestore().collection("users").document(user.email!)
+        
+        
+        self.docRef.getDocument { (document, error) in
+            if (document?.exists)! {
+                print("hit show home")
+                self.showHome()
+            } else {
+                self.showCreateUser()
+                print("Document does not exist")
+            }
+        }
+        
+        
+    }
     
     
     func checkTerms() {
