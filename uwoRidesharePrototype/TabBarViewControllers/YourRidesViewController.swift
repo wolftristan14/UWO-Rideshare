@@ -10,6 +10,7 @@ import UIKit
 
 protocol YourRidesViewControllerDelegate: class {
     func didTapAddRideButton()
+    func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: String)
 }
 
 
@@ -56,6 +57,13 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let currentCell = tableView.cellForRow(at: indexPath) as! YourRidesTableViewCell
+        
+        delegate?.didSelectRide(origin: currentCell.originLabel.text ?? "", destination: currentCell.destinationLabel.text ?? "", date: currentCell.dateLabel.text ?? "", price: currentCell.priceLabel.text ?? "", availableSeats: currentCell.availableSeatsLabel.text ?? "")
     }
 
     @IBAction func addRideButtonTapped(_ sender: Any) {

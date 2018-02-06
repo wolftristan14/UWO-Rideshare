@@ -70,9 +70,24 @@ class YourRidesCoordinator: NSObject {
         childCoordinators.append(addRideCoordinator)
     }
     
+    func showRideDetail(ride: Ride) {
+        let rideDetailCoordinator = RideDetailCoordinator(navigationController: navigationController!)
+        rideDetailCoordinator.delegate = self as? RideDetailCoordinatorDelegate
+        rideDetailCoordinator.selectedRide = ride
+        rideDetailCoordinator.start()
+        childCoordinators.append(rideDetailCoordinator)
+        
+        
+    }
+    
 }
 
 extension YourRidesCoordinator: YourRidesViewControllerDelegate {
+    func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: String) {
+        let selectedRide = Ride(origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats)
+        showRideDetail(ride: selectedRide)
+    }
+    
     func didTapAddRideButton() {
         goToAddRideCoordinator()
         
