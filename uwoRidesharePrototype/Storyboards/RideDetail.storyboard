@@ -13,67 +13,67 @@
         <!--Ride Detail View Controller-->
         <scene sceneID="VhF-Jr-QsB">
             <objects>
-                <viewController id="xnT-wW-VAL" customClass="RideDetailViewController" customModule="uwoRidesharePrototype" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ridedetail" id="xnT-wW-VAL" customClass="RideDetailViewController" customModule="uwoRidesharePrototype" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TzG-bM-tTF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="London" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qy-tu-K4j">
-                                <rect key="frame" x="131" y="214" width="58" height="21"/>
+                                <rect key="frame" x="131" y="224" width="58" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17b-uK-tVi">
-                                <rect key="frame" x="150.5" y="243" width="19" height="21"/>
+                                <rect key="frame" x="150.5" y="253" width="19" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toronto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjH-S4-h39">
-                                <rect key="frame" x="130.5" y="272" width="59" height="21"/>
+                                <rect key="frame" x="130.5" y="282" width="59" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3To-k2-8ha">
-                                <rect key="frame" x="142" y="322" width="36" height="21"/>
+                                <rect key="frame" x="142" y="332" width="36" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfw-5m-ED7">
-                                <rect key="frame" x="140.5" y="351" width="39" height="21"/>
+                                <rect key="frame" x="140.5" y="361" width="39" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Seats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2V-78-zPK">
-                                <rect key="frame" x="102.5" y="409" width="115" height="21"/>
+                                <rect key="frame" x="102.5" y="419" width="115" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.00$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBU-PC-e6q">
-                                <rect key="frame" x="137.5" y="380" width="45" height="21"/>
+                                <rect key="frame" x="137.5" y="390" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwb-z3-3JH">
-                                <rect key="frame" x="154.5" y="438" width="11" height="21"/>
+                                <rect key="frame" x="154.5" y="448" width="11" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driver:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEg-0j-maA">
-                                <rect key="frame" x="16" y="479" width="51" height="21"/>
+                                <rect key="frame" x="16" y="505" width="51" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Steve" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Kc-lk-wWZ">
-                                <rect key="frame" x="75" y="479" width="86" height="21"/>
+                                <rect key="frame" x="75" y="505" width="86" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -86,7 +86,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k9R-pf-f2D" customClass="ProfileImageStyleManager" customModule="uwoRidesharePrototype" customModuleProvider="target">
-                                <rect key="frame" x="85" y="20" width="150" height="150"/>
+                                <rect key="frame" x="85" y="30" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="4Qr-I7-4bF"/>
                                     <constraint firstAttribute="height" constant="150" id="YIo-xw-hMD"/>
@@ -107,9 +107,9 @@
                             <constraint firstItem="7Kc-lk-wWZ" firstAttribute="bottom" secondItem="hEg-0j-maA" secondAttribute="bottom" id="Bxb-qQ-2hO"/>
                             <constraint firstItem="IBU-PC-e6q" firstAttribute="centerX" secondItem="0z8-ZW-A3R" secondAttribute="centerX" id="DzU-Ub-pE1"/>
                             <constraint firstItem="Vfw-5m-ED7" firstAttribute="top" secondItem="3To-k2-8ha" secondAttribute="bottom" constant="8" id="J8i-Vy-hQE"/>
-                            <constraint firstItem="DG0-su-ZCw" firstAttribute="top" secondItem="7Kc-lk-wWZ" secondAttribute="bottom" constant="31" id="Jzh-JK-hU9"/>
+                            <constraint firstItem="DG0-su-ZCw" firstAttribute="top" secondItem="7Kc-lk-wWZ" secondAttribute="bottom" constant="5" id="Jzh-JK-hU9"/>
                             <constraint firstItem="Rwb-z3-3JH" firstAttribute="top" secondItem="X2V-78-zPK" secondAttribute="bottom" constant="8" id="QV1-Fy-Dwu"/>
-                            <constraint firstItem="k9R-pf-f2D" firstAttribute="top" secondItem="0z8-ZW-A3R" secondAttribute="top" id="ank-DJ-Y1h"/>
+                            <constraint firstItem="k9R-pf-f2D" firstAttribute="top" secondItem="0z8-ZW-A3R" secondAttribute="top" constant="10" id="ank-DJ-Y1h"/>
                             <constraint firstItem="0qy-tu-K4j" firstAttribute="centerX" secondItem="0z8-ZW-A3R" secondAttribute="centerX" id="aqW-ae-2JU"/>
                             <constraint firstItem="Vfw-5m-ED7" firstAttribute="centerX" secondItem="0z8-ZW-A3R" secondAttribute="centerX" id="bue-f2-32k"/>
                             <constraint firstItem="0qy-tu-K4j" firstAttribute="top" secondItem="k9R-pf-f2D" secondAttribute="bottom" constant="44" id="hpX-PG-N5Q"/>
@@ -123,7 +123,7 @@
                         <viewLayoutGuide key="safeArea" id="0z8-ZW-A3R"/>
                     </view>
                     <connections>
-                        <outlet property="availableSeatsLabel" destination="1AC-eO-dg5" id="LUx-Vh-iHs"/>
+                        <outlet property="availableSeatsLabel" destination="Rwb-z3-3JH" id="F7M-KR-Apr"/>
                         <outlet property="dateLabel" destination="3To-k2-8ha" id="9uX-zg-Xg8"/>
                         <outlet property="destinationLabel" destination="TjH-S4-h39" id="OXE-OS-wql"/>
                         <outlet property="driverLabel" destination="7Kc-lk-wWZ" id="7mT-zQ-qlt"/>

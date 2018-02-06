@@ -10,6 +10,8 @@ import UIKit
 
 class RideDetailViewController: UIViewController {
     
+    var selectedRide: Ride!
+    
     @IBOutlet weak var imageView: ProfileImageStyleManager!
     
     @IBOutlet weak var originLabel: UILabel!
@@ -20,14 +22,20 @@ class RideDetailViewController: UIViewController {
     
     @IBOutlet weak var priceLabel: UILabel!
     
-    @IBOutlet weak var availableSeatsLabel: NSLayoutConstraint!
+    @IBOutlet weak var availableSeatsLabel: UILabel!
     
     @IBOutlet weak var driverLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        imageView.image = #imageLiteral(resourceName: "default-user")
+        originLabel.text = selectedRide.origin
+        destinationLabel.text = selectedRide.destination
+        dateLabel.text = selectedRide.date
+        priceLabel.text = selectedRide.price
+        availableSeatsLabel.text = selectedRide.availableSeats
+        driverLabel.text = ""
         // Do any additional setup after loading the view.
     }
 

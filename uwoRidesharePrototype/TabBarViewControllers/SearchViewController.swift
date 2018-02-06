@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol SearchViewControllerDelegate: class {
+    func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: String)
+}
+
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
     var rideArray = [Ride]()
+    weak var delegate: SearchViewControllerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +58,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let currentCell = tableView.cellForRow(at: indexPath) as! SearchTableViewCell
+ 
+        delegate.didSelectRide(origin: currentCell.originLabel.text ?? "", destination: currentCell.destinationLabel.text ?? "", date: currentCell.dateLabel.text ?? "", price: currentCell.priceLabel.text ?? "", availableSeats: currentCell.availableSeatsLabel.text ?? "")
     }
     
 

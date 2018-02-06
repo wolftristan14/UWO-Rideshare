@@ -36,6 +36,7 @@ class SearchCoordinator: NSObject {
     func start() {
         
         searchViewController = navigationController?.visibleViewController?.childViewControllers[0] as! SearchViewController
+        searchViewController.delegate = self
         loadFirebaseData()
 
 
@@ -64,6 +65,25 @@ class SearchCoordinator: NSObject {
         }
     }
 
+    func showRideDetail(ride: Ride) {
+        let rideDetailCoordinator = RideDetailCoordinator(navigationController: navigationController!)
+        rideDetailCoordinator.delegate = self as? RideDetailCoordinatorDelegate
+        rideDetailCoordinator.selectedRide = ride
+        rideDetailCoordinator.start()
+        childCoordinators.append(rideDetailCoordinator)
+        
+        
+    }
+    
+}
+
+extension SearchCoordinator: SearchViewControllerDelegate {
+    func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: String) {
+        let selectedRide = Ride(origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats)
+        showRideDetail(ride: selectedRide)
+        
+    }
+    
     
 }
 
