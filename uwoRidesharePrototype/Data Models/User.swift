@@ -12,11 +12,11 @@ class User {
     
     var firstName: String
     var lastName: String
-    var imageReferenceURL: String?
+    var imageDownloadURL: String?
     
-    init(firstName: String, lastName: String, imageReferenceURL: String?) {
+    init(firstName: String, lastName: String, imageDownloadURL: String?) {
         self.firstName = firstName
         self.lastName = lastName
-        self.imageReferenceURL = imageReferenceURL
+        self.imageDownloadURL = imageDownloadURL
     }
 }

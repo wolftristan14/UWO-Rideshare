@@ -15,14 +15,15 @@ class Ride {
     var date: String
     var price: String
     var availableSeats: String
+    var driver: String
     
-    init(origin: String, destination: String, date: String, price: String, availableSeats: String) {
+    init(origin: String, destination: String, date: String, price: String, availableSeats: String, driver: String) {
         self.origin = origin
         self.destination = destination
         self.date = date
         self.price = price
         self.availableSeats = availableSeats
-        
+        self.driver = driver
     }
     
     

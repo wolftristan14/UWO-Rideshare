@@ -85,7 +85,7 @@
                                     <action selector="joinRideButtonTapped:" destination="xnT-wW-VAL" eventType="touchUpInside" id="yDH-vH-96O"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k9R-pf-f2D" customClass="ProfileImageStyleManager" customModule="uwoRidesharePrototype" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k9R-pf-f2D" customClass="ProfileImageStyleManager" customModule="uwoRidesharePrototype" customModuleProvider="target">
                                 <rect key="frame" x="85" y="30" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="4Qr-I7-4bF"/>

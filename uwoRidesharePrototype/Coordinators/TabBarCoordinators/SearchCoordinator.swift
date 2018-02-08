@@ -54,7 +54,7 @@ class SearchCoordinator: NSObject {
             } else {
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
-                    let ride = Ride(origin: document.data()["origin"] as! String, destination: document.data()["destination"] as! String, date: document.data()["date"] as! String, price: document.data()["price"] as! String, availableSeats: document.data()["availableSpots"] as! String)
+                    let ride = Ride(origin: document.data()["origin"] as! String, destination: document.data()["destination"] as! String, date: document.data()["date"] as! String, price: document.data()["price"] as! String, availableSeats: document.data()["availableSpots"] as! String, driver: document.data()["driver"] as! String)
                     
                     self.allRidesArray.append(ride)
                     print("added ride")
@@ -78,8 +78,8 @@ class SearchCoordinator: NSObject {
 }
 
 extension SearchCoordinator: SearchViewControllerDelegate {
-    func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: String) {
-        let selectedRide = Ride(origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats)
+    func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: String, driver: String) {
+        let selectedRide = Ride(origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driver: driver)
         showRideDetail(ride: selectedRide)
         
     }

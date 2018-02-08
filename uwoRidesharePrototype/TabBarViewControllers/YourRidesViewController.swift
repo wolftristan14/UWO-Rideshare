@@ -10,7 +10,7 @@ import UIKit
 
 protocol YourRidesViewControllerDelegate: class {
     func didTapAddRideButton()
-    func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: String)
+    func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: String, driver: String)
 }
 
 
@@ -52,6 +52,7 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.dateLabel.text = ride.date
         cell.priceLabel.text = ride.price
         cell.availableSeatsLabel.text = ride.availableSeats
+        cell.accessibilityHint = ride.driver
         }
         
         
@@ -63,7 +64,9 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let currentCell = tableView.cellForRow(at: indexPath) as! YourRidesTableViewCell
         
-        delegate?.didSelectRide(origin: currentCell.originLabel.text ?? "", destination: currentCell.destinationLabel.text ?? "", date: currentCell.dateLabel.text ?? "", price: currentCell.priceLabel.text ?? "", availableSeats: currentCell.availableSeatsLabel.text ?? "")
+        
+        
+        delegate?.didSelectRide(origin: currentCell.originLabel.text ?? "", destination: currentCell.destinationLabel.text ?? "", date: currentCell.dateLabel.text ?? "", price: currentCell.priceLabel.text ?? "", availableSeats: currentCell.availableSeatsLabel.text ?? "", driver: currentCell.accessibilityHint!)
     }
 
     @IBAction func addRideButtonTapped(_ sender: Any) {
