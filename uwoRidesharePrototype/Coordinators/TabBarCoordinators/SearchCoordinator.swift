@@ -56,6 +56,7 @@ class SearchCoordinator: NSObject {
                     print("\(document.documentID) => \(document.data())")
                     let ride = Ride(origin: document.data()["origin"] as! String, destination: document.data()["destination"] as! String, date: document.data()["date"] as! String, price: document.data()["price"] as! String, availableSeats: document.data()["availableSpots"] as! String, driver: document.data()["driver"] as! String)
                     
+                    
                     self.allRidesArray.append(ride)
                     print("added ride")
                     self.searchViewController.rideArray = self.allRidesArray
@@ -74,6 +75,7 @@ class SearchCoordinator: NSObject {
         
         
     }
+    
     
 }
 

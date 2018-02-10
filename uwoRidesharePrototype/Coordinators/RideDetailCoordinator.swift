@@ -43,22 +43,19 @@ class RideDetailCoordinator: NSObject {
     
     func loadDriverImageAndName(selectedRide: Ride, rideDetailVC: RideDetailViewController) {
         docRef = Firestore.firestore().collection("users").document(selectedRide.driver)
-        
+        print("hit load driver image method")
         docRef.getDocument() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 
-                //print("\(document.documentID) => \(document.data())")
                 rideDetailVC.driverLabel.text = querySnapshot?.data()["firstName"] as? String
                 let downloadURLString = querySnapshot?.data()["imageDownloadURL"] as? String
                 //let downloadURL = URL(fileURLWithPath: downloadURLString!)
-                // Create a storage reference from the URL
                 self.storage = Storage.storage()
                 let storageRef = self.storage.reference(forURL: downloadURLString!)
-                // Download the data, assuming a max size of 1MB (you can change this as necessary)
-                storageRef.getData(maxSize: 1 * 5000 * 5000) { (data, error) -> Void in
-                    // Create a UIImage, add it to the array
+                storageRef.getData(maxSize: 1 * 2000 * 2000) { (data, error) -> Void in
+                    print("got image data")
                     let image = UIImage(data: data!)
                     rideDetailVC.imageView.image = image
                     
