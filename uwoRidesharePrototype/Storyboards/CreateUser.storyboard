@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14087.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14075.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -49,15 +49,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2x-k4-Xqp">
-                                <rect key="frame" x="106" y="108" width="111" height="30"/>
-                                <state key="normal" title="Choose image..."/>
-                                <connections>
-                                    <action selector="chooseImageFromPhotoLibrary:" destination="S5L-3w-VbG" eventType="touchUpInside" id="c42-3F-V3g"/>
-                                </connections>
-                            </button>
                             <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pyc-ov-5cd" customClass="ProfileImageStyleManager" customModule="uwoRidesharePrototype" customModuleProvider="target">
                                 <rect key="frame" x="48" y="182" width="224" height="224"/>
+                                <color key="backgroundColor" red="0.68888300657272339" green="0.71366006135940552" blue="0.73448425531387329" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Pyc-ov-5cd" secondAttribute="height" multiplier="1:1" id="44d-ai-zWI"/>
                                 </constraints>
@@ -69,10 +63,22 @@
                                     <action selector="finishTapped:" destination="S5L-3w-VbG" eventType="touchUpInside" id="slY-Pq-Fd6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2x-k4-Xqp">
+                                <rect key="frame" x="105" y="276" width="111" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="111" id="grs-XO-jgs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Add Photo">
+                                    <color key="titleColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseImageFromPhotoLibrary:" destination="S5L-3w-VbG" eventType="touchUpInside" id="c42-3F-V3g"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Y2x-k4-Xqp" firstAttribute="centerY" secondItem="onR-Mz-YuS" secondAttribute="centerY" id="1ys-fz-3Ya"/>
                             <constraint firstItem="oH5-bb-Wt6" firstAttribute="trailing" secondItem="FJX-iQ-iLD" secondAttribute="trailing" constant="16" id="8dv-Bq-HMQ"/>
                             <constraint firstItem="onR-Mz-YuS" firstAttribute="centerX" secondItem="gke-1R-uod" secondAttribute="centerX" id="8yW-iQ-LNv"/>
                             <constraint firstItem="Pyc-ov-5cd" firstAttribute="centerX" secondItem="oH5-bb-Wt6" secondAttribute="centerX" id="E37-H7-z7r"/>
@@ -81,10 +87,10 @@
                             <constraint firstItem="FJX-iQ-iLD" firstAttribute="centerY" secondItem="gke-1R-uod" secondAttribute="centerY" id="KEM-5U-Ypl"/>
                             <constraint firstItem="Pyc-ov-5cd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oH5-bb-Wt6" secondAttribute="top" constant="133" id="LWX-eh-ak5"/>
                             <constraint firstItem="FJX-iQ-iLD" firstAttribute="leading" secondItem="gke-1R-uod" secondAttribute="trailing" constant="8" id="ScH-1q-4cN"/>
+                            <constraint firstItem="Y2x-k4-Xqp" firstAttribute="centerY" secondItem="Pyc-ov-5cd" secondAttribute="centerY" id="TZD-tt-k3I"/>
                             <constraint firstItem="Pyc-ov-5cd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oH5-bb-Wt6" secondAttribute="leading" constant="47" id="V22-zF-beK"/>
                             <constraint firstItem="sKB-A9-4yb" firstAttribute="centerX" secondItem="oH5-bb-Wt6" secondAttribute="centerX" id="dEk-dE-JmA"/>
                             <constraint firstItem="oH5-bb-Wt6" firstAttribute="trailing" secondItem="OVW-gk-5nO" secondAttribute="trailing" constant="16" id="duW-ab-GXP"/>
-                            <constraint firstItem="Y2x-k4-Xqp" firstAttribute="leading" secondItem="FJX-iQ-iLD" secondAttribute="leading" id="gJo-8K-3zK"/>
                             <constraint firstItem="ZJN-z3-dLp" firstAttribute="top" secondItem="oH5-bb-Wt6" secondAttribute="top" constant="10" id="gjg-uz-N3j"/>
                             <constraint firstItem="onR-Mz-YuS" firstAttribute="top" secondItem="gke-1R-uod" secondAttribute="bottom" constant="20" id="h94-UJ-PiJ"/>
                             <constraint firstItem="gke-1R-uod" firstAttribute="top" secondItem="ZJN-z3-dLp" secondAttribute="bottom" constant="20" id="hWs-M9-aUW"/>
@@ -93,6 +99,7 @@
                             <constraint firstItem="oH5-bb-Wt6" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Pyc-ov-5cd" secondAttribute="bottom" constant="133" id="k6y-US-3r6"/>
                             <constraint firstItem="Pyc-ov-5cd" firstAttribute="centerY" secondItem="oH5-bb-Wt6" secondAttribute="centerY" id="lqh-kb-d9b"/>
                             <constraint firstItem="Pyc-ov-5cd" firstAttribute="top" secondItem="oH5-bb-Wt6" secondAttribute="top" priority="750" constant="133" id="nhH-Mo-r2P"/>
+                            <constraint firstItem="Y2x-k4-Xqp" firstAttribute="centerX" secondItem="Pyc-ov-5cd" secondAttribute="centerX" id="pyC-aj-YcR"/>
                             <constraint firstItem="Pyc-ov-5cd" firstAttribute="leading" secondItem="oH5-bb-Wt6" secondAttribute="leading" priority="750" constant="47" id="qx3-ek-Xhy"/>
                             <constraint firstItem="oH5-bb-Wt6" firstAttribute="trailing" secondItem="Pyc-ov-5cd" secondAttribute="trailing" priority="750" constant="48" id="vXL-xp-Jfh"/>
                             <constraint firstItem="ZJN-z3-dLp" firstAttribute="leading" secondItem="oH5-bb-Wt6" secondAttribute="leading" constant="16" id="wJf-7v-1M3"/>
@@ -102,6 +109,7 @@
                         <viewLayoutGuide key="safeArea" id="oH5-bb-Wt6"/>
                     </view>
                     <connections>
+                        <outlet property="addPhotoButton" destination="Y2x-k4-Xqp" id="Nse-tO-344"/>
                         <outlet property="firstNameTextField" destination="OVW-gk-5nO" id="EM9-zg-Hya"/>
                         <outlet property="imageView" destination="Pyc-ov-5cd" id="Bnu-7z-pUx"/>
                         <outlet property="lastNameTextField" destination="FJX-iQ-iLD" id="pLf-Zu-T8h"/>

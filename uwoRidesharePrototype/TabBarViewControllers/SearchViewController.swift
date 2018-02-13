@@ -52,6 +52,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.priceLabel.text = ride.price
             cell.availableSeatsLabel.text = ride.availableSeats
             cell.accessibilityHint = ride.driver
+            cell
 
         }
         

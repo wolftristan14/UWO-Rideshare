@@ -23,12 +23,22 @@ class CreateUserViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var lastNameTextField: UITextField!
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var addPhotoButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
         self.hideKeyboard()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if imageView.image == nil {
+            addPhotoButton.titleLabel?.isHidden = false
+        } else {
+        addPhotoButton.titleLabel?.isHidden = true
+        }
     }
     
     @IBAction func chooseImageFromPhotoLibrary(_ sender: Any) {
