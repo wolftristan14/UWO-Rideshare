@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SearchViewControllerDelegate: class {
-    func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: String, driver: String)
+    func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: String, driver: String, passengers: [String])
 }
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -52,6 +52,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.priceLabel.text = ride.price
             cell.availableSeatsLabel.text = ride.availableSeats
             cell.accessibilityHint = ride.driver
+            cell.accessibilityElements = ride.passengers
 
         }
         
@@ -66,7 +67,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let currentCell = tableView.cellForRow(at: indexPath) as! SearchTableViewCell
  
-        delegate.didSelectRide(origin: currentCell.originLabel.text ?? "", destination: currentCell.destinationLabel.text ?? "", date: currentCell.dateLabel.text ?? "", price: currentCell.priceLabel.text ?? "", availableSeats: currentCell.availableSeatsLabel.text ?? "", driver: currentCell.accessibilityHint!)
+        delegate.didSelectRide(origin: currentCell.originLabel.text ?? "", destination: currentCell.destinationLabel.text ?? "", date: currentCell.dateLabel.text ?? "", price: currentCell.priceLabel.text ?? "", availableSeats: currentCell.availableSeatsLabel.text ?? "", driver: currentCell.accessibilityHint!, passengers: currentCell.accessibilityElements as! [String] )
     }
     
 

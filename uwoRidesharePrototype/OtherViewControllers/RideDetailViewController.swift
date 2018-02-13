@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol RideDetailViewControllerDelegate: class {
+    func didJoinRide(ride: Ride)
+}
+
 class RideDetailViewController: UIViewController {
     
     var selectedRide: Ride!
+    
+    weak var delegate: RideDetailViewControllerDelegate?
     
     @IBOutlet weak var imageView: ProfileImageStyleManager!
     
@@ -45,6 +51,8 @@ class RideDetailViewController: UIViewController {
     }
     
     @IBAction func joinRideButtonTapped(_ sender: Any) {
+        
+        delegate?.didJoinRide(ride: selectedRide)
     }
     
     /*

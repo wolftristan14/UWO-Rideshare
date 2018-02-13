@@ -51,12 +51,14 @@ class YourRidesCoordinator: NSObject {
             } else {
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
-                    let ride = Ride(origin: document.data()["origin"] as! String, destination: document.data()["destination"] as! String, date: document.data()["date"] as! String, price: document.data()["price"] as! String, availableSeats: document.data()["availableSpots"] as! String, driver: document.data()["driver"] as! String)
+                    if document.data().count > 0 {
+                    let ride = Ride(origin: document.data()["origin"] as! String, destination: document.data()["destination"] as! String, date: document.data()["date"] as! String, price: document.data()["price"] as! String, availableSeats: document.data()["availableSpots"] as! String, driver: document.data()["driver"] as! String, passengers: document.data()["passengers"] as! Array)
                     
                     self.yourRidesArray.append(ride)
                     print("added ride")
                     self.yourRidesViewController.rideArray = self.yourRidesArray
                     self.yourRidesViewController.tableView.reloadData()
+                    }
                 }
             }
         }
@@ -83,8 +85,8 @@ class YourRidesCoordinator: NSObject {
 }
 
 extension YourRidesCoordinator: YourRidesViewControllerDelegate {
-    func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: String, driver: String) {
-        let selectedRide = Ride(origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driver: driver)
+    func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: String, driver: String, passengers: [String]) {
+        let selectedRide = Ride(origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driver: driver, passengers: passengers)
         showRideDetail(ride: selectedRide)
     }
     

@@ -49,7 +49,8 @@ class AddRideCoordinator: NSObject {
             "origin": ride.origin,
             "date": ride.date,
             "price": ride.price,
-            "availableSpots": ride.availableSeats
+            "availableSpots": ride.availableSeats,
+            "passengers": []
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")
@@ -70,7 +71,7 @@ extension AddRideCoordinator: AddRideViewControllerDelegate {
     
     func didAddRide(origin: String, destination: String, date: String, price: String, availableSeats: String, driver: String) {
         //navigationController?.popViewController(animated: true)
-        let ride = Ride(origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driver: driver)
+        let ride = Ride(origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driver: driver, passengers: [])
         addRideToDatabase(ride: ride)
         
     }

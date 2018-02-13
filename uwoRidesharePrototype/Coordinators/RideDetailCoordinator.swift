@@ -12,7 +12,7 @@ import Firebase
 
 
 protocol RideDetailCoordinatorDelegate: class {
-    
+   func didAddUserToRide()
 }
 
 class RideDetailCoordinator: NSObject {
@@ -22,6 +22,8 @@ class RideDetailCoordinator: NSObject {
     
     weak var delegate: RideDetailCoordinatorDelegate?
     var docRef: DocumentReference!
+    var docRefRides: DocumentReference!
+
     var storage: Storage!
     //var storageRef: StorageReference!
     
@@ -34,6 +36,7 @@ class RideDetailCoordinator: NSObject {
     func start() {
         let storyboard = UIStoryboard.init(name: "RideDetail", bundle: nil)
         let rideDetailVC = storyboard.instantiateViewController(withIdentifier: "ridedetail") as! RideDetailViewController
+        rideDetailVC.delegate = self as RideDetailViewControllerDelegate
         loadDriverImageAndName(selectedRide: selectedRide, rideDetailVC: rideDetailVC)
         rideDetailVC.selectedRide = selectedRide
         
@@ -66,6 +69,23 @@ class RideDetailCoordinator: NSObject {
                 
             }
         }
+    }
+    
+    func addPassengerToRide(ride: Ride) {
+        docRefRides = Firestore.firestore().document("Rides/\(ride.origin) to \(ride.destination), \(ride.date)")
+        //update passenger area (add current user email), take available seats down by 1
+        
+        ride.passengers.append((Auth.auth().currentUser?.email!)!)
+        
+        docRefRides.updateData(["passengers": ride.passengers])
+    }
+}
+
+extension RideDetailCoordinator: RideDetailViewControllerDelegate {
+    func didJoinRide(ride: Ride) {
+        delegate?.didAddUserToRide()
+        navigationController?.popViewController(animated: true)
+        addPassengerToRide(ride: ride)
     }
     
     
