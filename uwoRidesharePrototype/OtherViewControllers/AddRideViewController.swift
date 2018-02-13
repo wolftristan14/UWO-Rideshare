@@ -44,8 +44,19 @@ class AddRideViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let dateString = formatter.string(from: dateAndTimeDatePicker.date)
         let pricePickerViewRow = pricePickerView.selectedRow(inComponent: 0)
         let numberOfSeatsPickerViewRow = numberOfSeatsPickerView.selectedRow(inComponent: 0)
+        
+        if fromTextField.text == "" || goingToTextField.text == "" {
+            
+            let alert = UIAlertController(title: ">:(", message: "All rides must have a start and end point.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
+        } else {
 
         delegate?.didAddRide(origin: fromTextField.text ?? "", destination: goingToTextField.text ?? "", date: dateString, price: pricePickerData[pricePickerViewRow], availableSeats: numberOfSeatsPickerData[numberOfSeatsPickerViewRow], driver: "")
+        }
         
     }
     

@@ -72,5 +72,6 @@ extension AddRideCoordinator: AddRideViewControllerDelegate {
         //navigationController?.popViewController(animated: true)
         let ride = Ride(origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driver: driver)
         addRideToDatabase(ride: ride)
+        
     }
 }

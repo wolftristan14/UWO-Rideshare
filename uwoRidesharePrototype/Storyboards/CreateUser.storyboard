@@ -43,12 +43,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="honorifix-prefix"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onR-Mz-YuS">
-                                <rect key="frame" x="34" y="112" width="47" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pyc-ov-5cd" customClass="ProfileImageStyleManager" customModule="uwoRidesharePrototype" customModuleProvider="target">
                                 <rect key="frame" x="48" y="182" width="224" height="224"/>
                                 <color key="backgroundColor" red="0.68888300657272339" green="0.71366006135940552" blue="0.73448425531387329" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,8 +51,11 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKB-A9-4yb">
-                                <rect key="frame" x="139.5" y="518" width="41" height="30"/>
-                                <state key="normal" title="Finish"/>
+                                <rect key="frame" x="133" y="514" width="54" height="34"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
+                                <state key="normal" title="Finish">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="finishTapped:" destination="S5L-3w-VbG" eventType="touchUpInside" id="slY-Pq-Fd6"/>
                                 </connections>
@@ -80,7 +77,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="oH5-bb-Wt6" firstAttribute="trailing" secondItem="FJX-iQ-iLD" secondAttribute="trailing" constant="16" id="8dv-Bq-HMQ"/>
-                            <constraint firstItem="onR-Mz-YuS" firstAttribute="centerX" secondItem="gke-1R-uod" secondAttribute="centerX" id="8yW-iQ-LNv"/>
                             <constraint firstItem="Pyc-ov-5cd" firstAttribute="centerX" secondItem="oH5-bb-Wt6" secondAttribute="centerX" id="E37-H7-z7r"/>
                             <constraint firstItem="OVW-gk-5nO" firstAttribute="centerY" secondItem="ZJN-z3-dLp" secondAttribute="centerY" id="F5k-hd-cVW"/>
                             <constraint firstItem="oH5-bb-Wt6" firstAttribute="bottom" secondItem="Pyc-ov-5cd" secondAttribute="bottom" priority="750" constant="133" id="JWJ-cI-MWH"/>
@@ -92,7 +88,6 @@
                             <constraint firstItem="sKB-A9-4yb" firstAttribute="centerX" secondItem="oH5-bb-Wt6" secondAttribute="centerX" id="dEk-dE-JmA"/>
                             <constraint firstItem="oH5-bb-Wt6" firstAttribute="trailing" secondItem="OVW-gk-5nO" secondAttribute="trailing" constant="16" id="duW-ab-GXP"/>
                             <constraint firstItem="ZJN-z3-dLp" firstAttribute="top" secondItem="oH5-bb-Wt6" secondAttribute="top" constant="10" id="gjg-uz-N3j"/>
-                            <constraint firstItem="onR-Mz-YuS" firstAttribute="top" secondItem="gke-1R-uod" secondAttribute="bottom" constant="20" id="h94-UJ-PiJ"/>
                             <constraint firstItem="gke-1R-uod" firstAttribute="top" secondItem="ZJN-z3-dLp" secondAttribute="bottom" constant="20" id="hWs-M9-aUW"/>
                             <constraint firstItem="gke-1R-uod" firstAttribute="leading" secondItem="ZJN-z3-dLp" secondAttribute="leading" id="hZP-6E-f6G"/>
                             <constraint firstItem="oH5-bb-Wt6" firstAttribute="bottom" secondItem="sKB-A9-4yb" secondAttribute="bottom" constant="20" id="iZ2-Wt-z1E"/>
