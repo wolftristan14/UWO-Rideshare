@@ -53,7 +53,8 @@ class SearchCoordinator: NSObject {
             } else {
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
-                    if document.data().count > 0 {
+                    let driver = document.data()["driver"] as! String
+                    if document.data().count > 0 && driver != Auth.auth().currentUser?.email {
                     let ride = Ride(origin: document.data()["origin"] as! String, destination: document.data()["destination"] as! String, date: document.data()["date"] as! String, price: document.data()["price"] as! String, availableSeats: document.data()["availableSpots"] as! Int, driver: document.data()["driver"] as! String, passengers: document.data()["passengers"] as! Array)
                     
                     
