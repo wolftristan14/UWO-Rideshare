@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol AddRideViewControllerDelegate: class {
-    func didAddRide(origin: String, destination: String, date: String, price: String, availableSeats: String, driver: String)
+    func didAddRide(origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String)
 }
 
 class AddRideViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -27,7 +27,7 @@ class AddRideViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var numberOfSeatsPickerView: UIPickerView!
     
     let pricePickerData = ["Free","$2.50","$5.00","$7.50","$10.00","$15.00", "$20.00"]
-    let numberOfSeatsPickerData = ["1","2","3","4","5","6","7","8"]
+    let numberOfSeatsPickerData = [1,2,3,4,5,6,7,8]
     
     weak var delegate: AddRideViewControllerDelegate?
     

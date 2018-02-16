@@ -84,9 +84,9 @@ class RideDetailCoordinator: NSObject {
         ride.passengers.append((Auth.auth().currentUser?.email!)!)
         
         docRefRides.updateData(["passengers": ride.passengers])
-       // if ride.availableSeats.count > 0 {
-        //docRefRides.updateData(["availableSeats": ride.availableSeats - 1])
-        //}
+        if ride.availableSeats > 0 {
+        docRefRides.updateData(["availableSpots": ride.availableSeats - 1])
+        }
     }
 }
 

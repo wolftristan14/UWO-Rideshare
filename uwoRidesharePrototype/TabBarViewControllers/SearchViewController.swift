@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SearchViewControllerDelegate: class {
-    func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: String, driver: String, passengers: [String])
+    func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String, passengers: [String])
 }
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -50,7 +50,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.originLabel.text = ride.origin
             cell.dateLabel.text = ride.date
             cell.priceLabel.text = ride.price
-            cell.availableSeatsLabel.text = ride.availableSeats
+            cell.availableSeatsLabel.text = "\(ride.availableSeats)"
             cell.accessibilityHint = ride.driver
             cell.accessibilityElements = ride.passengers
 
@@ -66,8 +66,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let currentCell = tableView.cellForRow(at: indexPath) as! SearchTableViewCell
+        let availableSeats = Int(currentCell.availableSeatsLabel.text!)
  
-        delegate.didSelectRide(origin: currentCell.originLabel.text ?? "", destination: currentCell.destinationLabel.text ?? "", date: currentCell.dateLabel.text ?? "", price: currentCell.priceLabel.text ?? "", availableSeats: currentCell.availableSeatsLabel.text ?? "", driver: currentCell.accessibilityHint!, passengers: currentCell.accessibilityElements as! [String] )
+        delegate.didSelectRide(origin: currentCell.originLabel.text ?? "", destination: currentCell.destinationLabel.text ?? "", date: currentCell.dateLabel.text ?? "", price: currentCell.priceLabel.text ?? "", availableSeats: availableSeats ?? 0, driver: currentCell.accessibilityHint!, passengers: currentCell.accessibilityElements as! [String] )
     }
     
 

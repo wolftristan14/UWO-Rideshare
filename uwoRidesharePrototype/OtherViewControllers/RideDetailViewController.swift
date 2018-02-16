@@ -46,7 +46,7 @@ class RideDetailViewController: UIViewController {
         destinationLabel.text = selectedRide.destination
         dateLabel.text = selectedRide.date
         priceLabel.text = selectedRide.price
-        availableSeatsLabel.text = selectedRide.availableSeats
+        availableSeatsLabel.text = "\(selectedRide.availableSeats)"
         driverLabel.text = ""
         print(joinRideButton.isHidden)
         // Do any additional setup after loading the view.

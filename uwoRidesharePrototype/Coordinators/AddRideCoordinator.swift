@@ -69,7 +69,7 @@ class AddRideCoordinator: NSObject {
 extension AddRideCoordinator: AddRideViewControllerDelegate {
 
     
-    func didAddRide(origin: String, destination: String, date: String, price: String, availableSeats: String, driver: String) {
+    func didAddRide(origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String) {
         //navigationController?.popViewController(animated: true)
         let ride = Ride(origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driver: driver, passengers: [])
         addRideToDatabase(ride: ride)

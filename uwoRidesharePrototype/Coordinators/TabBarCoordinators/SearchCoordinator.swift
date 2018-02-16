@@ -43,19 +43,18 @@ class SearchCoordinator: NSObject {
     }
     
     func loadFirebaseData()  {
-        //allRidesArray.removeAll()
         
         
         collRef = Firestore.firestore().collection("Rides")
         
-        collRef.addSnapshotListener() { (querySnapshot, err) in
+        collRef.getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
                     if document.data().count > 0 {
-                    let ride = Ride(origin: document.data()["origin"] as! String, destination: document.data()["destination"] as! String, date: document.data()["date"] as! String, price: document.data()["price"] as! String, availableSeats: document.data()["availableSpots"] as! String, driver: document.data()["driver"] as! String, passengers: document.data()["passengers"] as! Array)
+                    let ride = Ride(origin: document.data()["origin"] as! String, destination: document.data()["destination"] as! String, date: document.data()["date"] as! String, price: document.data()["price"] as! String, availableSeats: document.data()["availableSpots"] as! Int, driver: document.data()["driver"] as! String, passengers: document.data()["passengers"] as! Array)
                     
                     
                     self.allRidesArray.append(ride)
@@ -85,7 +84,7 @@ class SearchCoordinator: NSObject {
 }
 
 extension SearchCoordinator: SearchViewControllerDelegate {
-    func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: String, driver: String, passengers: [String]) {
+    func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String, passengers: [String]) {
         let selectedRide = Ride(origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driver: driver, passengers: passengers)
         showRideDetail(ride: selectedRide)
         
@@ -97,6 +96,7 @@ extension SearchCoordinator: SearchViewControllerDelegate {
 extension SearchCoordinator: RideDetailCoordinatorDelegate {
     func didAddUserToRide() {
         allRidesArray.removeAll()
+        loadFirebaseData()
     }
     
     
