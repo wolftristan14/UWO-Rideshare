@@ -131,6 +131,7 @@
                         <outlet property="destinationLabel" destination="TjH-S4-h39" id="OXE-OS-wql"/>
                         <outlet property="driverLabel" destination="7Kc-lk-wWZ" id="7mT-zQ-qlt"/>
                         <outlet property="imageView" destination="k9R-pf-f2D" id="3IT-0g-tH2"/>
+                        <outlet property="joinRideButton" destination="DG0-su-ZCw" id="hIu-kG-uZB"/>
                         <outlet property="originLabel" destination="0qy-tu-K4j" id="xQo-0q-aeS"/>
                         <outlet property="priceLabel" destination="IBU-PC-e6q" id="J2m-aL-g3p"/>
                     </connections>

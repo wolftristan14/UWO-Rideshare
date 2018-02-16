@@ -13,6 +13,7 @@ protocol RideDetailViewControllerDelegate: class {
 }
 
 class RideDetailViewController: UIViewController {
+    @IBOutlet weak var joinRideButton: UIButton!
     
     var selectedRide: Ride!
     
@@ -32,9 +33,14 @@ class RideDetailViewController: UIViewController {
     
     @IBOutlet weak var driverLabel: UILabel!
     
+    var isJoinRideButtonHidden: Bool!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if isJoinRideButtonHidden == true {
+            joinRideButton.isHidden = true
+        }
         imageView.image = #imageLiteral(resourceName: "default-user")
         originLabel.text = selectedRide.origin
         destinationLabel.text = selectedRide.destination
@@ -42,6 +48,7 @@ class RideDetailViewController: UIViewController {
         priceLabel.text = selectedRide.price
         availableSeatsLabel.text = selectedRide.availableSeats
         driverLabel.text = ""
+        print(joinRideButton.isHidden)
         // Do any additional setup after loading the view.
     }
 

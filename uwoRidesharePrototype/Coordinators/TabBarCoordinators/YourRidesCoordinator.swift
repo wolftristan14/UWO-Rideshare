@@ -76,6 +76,7 @@ class YourRidesCoordinator: NSObject {
         let rideDetailCoordinator = RideDetailCoordinator(navigationController: navigationController!)
         rideDetailCoordinator.delegate = self as? RideDetailCoordinatorDelegate
         rideDetailCoordinator.selectedRide = ride
+        rideDetailCoordinator.isParentSearchVC = false
         rideDetailCoordinator.start()
         childCoordinators.append(rideDetailCoordinator)
         

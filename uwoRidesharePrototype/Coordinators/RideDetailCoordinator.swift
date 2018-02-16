@@ -19,6 +19,7 @@ class RideDetailCoordinator: NSObject {
     
     var navigationController: UINavigationController?
     var selectedRide: Ride!
+    var isParentSearchVC: Bool!
     
     weak var delegate: RideDetailCoordinatorDelegate?
     var docRef: DocumentReference!
@@ -39,9 +40,14 @@ class RideDetailCoordinator: NSObject {
         rideDetailVC.delegate = self as RideDetailViewControllerDelegate
         loadDriverImageAndName(selectedRide: selectedRide, rideDetailVC: rideDetailVC)
         rideDetailVC.selectedRide = selectedRide
+        navigationController?.pushViewController(rideDetailVC, animated: true)
+        if isParentSearchVC == true {
+            rideDetailVC.isJoinRideButtonHidden = false
+        } else if isParentSearchVC == false {
+            rideDetailVC.isJoinRideButtonHidden = true
+        }
         
        // rideDetailVC.delegate = self as RideDetailViewControllerDelegate
-        navigationController?.pushViewController(rideDetailVC, animated: true)
     }
     
     func loadDriverImageAndName(selectedRide: Ride, rideDetailVC: RideDetailViewController) {
@@ -78,6 +84,9 @@ class RideDetailCoordinator: NSObject {
         ride.passengers.append((Auth.auth().currentUser?.email!)!)
         
         docRefRides.updateData(["passengers": ride.passengers])
+       // if ride.availableSeats.count > 0 {
+        //docRefRides.updateData(["availableSeats": ride.availableSeats - 1])
+        //}
     }
 }
 
