@@ -25,7 +25,6 @@ class SearchCoordinator: NSObject {
 
     
     weak var delegate: SearchCoordinatorDelegate?
-    var docRef: DocumentReference!
     
     init(navigationController: UINavigationController) {
         super.init()
@@ -34,25 +33,29 @@ class SearchCoordinator: NSObject {
     }
     
     func start() {
-        
+        print("search vc start hit")
         searchViewController = navigationController?.visibleViewController?.childViewControllers[0] as! SearchViewController
         searchViewController.delegate = self
-        loadFirebaseData()
+        
+        //loadFirebaseData()
 
 
     }
     
     func loadFirebaseData()  {
-        
+        print("search vc loadFirebaseData hit")
         
         collRef = Firestore.firestore().collection("Rides")
         
-        collRef.getDocuments { (querySnapshot, err) in
+        collRef.addSnapshotListener { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                print("add snapshotlistener hit")
+
                 for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
+                    print(querySnapshot?.documents.count)
+                    //print("\(document.documentID) => \(document.data())")
                     let driver = document.data()["driver"] as! String
                     if document.data().count > 0 && driver != Auth.auth().currentUser?.email {
                     let ride = Ride(origin: document.data()["origin"] as! String, destination: document.data()["destination"] as! String, date: document.data()["date"] as! String, price: document.data()["price"] as! String, availableSeats: document.data()["availableSpots"] as! Int, driver: document.data()["driver"] as! String, passengers: document.data()["passengers"] as! Array)
@@ -73,7 +76,7 @@ class SearchCoordinator: NSObject {
         rideDetailCoordinator.delegate = self as RideDetailCoordinatorDelegate
         rideDetailCoordinator.selectedRide = ride
         rideDetailCoordinator.isParentSearchVC = true
-
+   
         rideDetailCoordinator.start()
         
         childCoordinators.append(rideDetailCoordinator)
@@ -86,6 +89,7 @@ class SearchCoordinator: NSObject {
 
 extension SearchCoordinator: SearchViewControllerDelegate {
     func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String, passengers: [String]) {
+        allRidesArray.removeAll()
         let selectedRide = Ride(origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driver: driver, passengers: passengers)
         showRideDetail(ride: selectedRide)
         
@@ -96,8 +100,8 @@ extension SearchCoordinator: SearchViewControllerDelegate {
 
 extension SearchCoordinator: RideDetailCoordinatorDelegate {
     func didAddUserToRide() {
-        allRidesArray.removeAll()
-        loadFirebaseData()
+       // allRidesArray.removeAll()
+        //loadFirebaseData()
     }
     
     
