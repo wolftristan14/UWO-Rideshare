@@ -26,7 +26,7 @@ class RideDetailCoordinator: NSObject {
     var docRefRides: DocumentReference!
 
     var storage: Storage!
-    //var storageRef: StorageReference!
+    var storageRef: StorageReference!
     
     init(navigationController: UINavigationController) {
         super.init()
@@ -62,8 +62,8 @@ class RideDetailCoordinator: NSObject {
                 let downloadURLString = querySnapshot?.data()["imageDownloadURL"] as? String
                 //let downloadURL = URL(fileURLWithPath: downloadURLString!)
                 self.storage = Storage.storage()
-                let storageRef = self.storage.reference(forURL: downloadURLString!)
-                storageRef.getData(maxSize: 1 * 2000 * 2000) { (data, error) -> Void in
+                self.storageRef = self.storage.reference(forURL: downloadURLString!)
+                self.storageRef.getData(maxSize: 1 * 2000 * 2000) { (data, error) -> Void in
                     print("got image data")
                     let image = UIImage(data: data!)
                     rideDetailVC.imageView.image = image
@@ -79,12 +79,12 @@ class RideDetailCoordinator: NSObject {
     
     func addPassengerToRide(ride: Ride) {
         docRefRides = Firestore.firestore().document("Rides/\(ride.origin) to \(ride.destination), \(ride.date)")
-        //update passenger area (add current user email), take available seats down by 1
         
         ride.passengers.append((Auth.auth().currentUser?.email!)!)
         
         if ride.availableSeats > 0 {
-            docRefRides.updateData(["availableSpots": ride.availableSeats - 1, "passengers": ride.passengers])
+            docRefRides.updateData(["availableSpots": ride.availableSeats - 1])
+            docRefRides.collection("Passengers").document("Passenger\(Auth.auth().currentUser?.email ?? "")").setData(["name": Auth.auth().currentUser?.displayName ?? "", "email": Auth.auth().currentUser?.email ?? ""])
         } else {
             print("ride is full")
 

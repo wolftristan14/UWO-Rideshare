@@ -66,6 +66,11 @@ class SearchCoordinator: NSObject {
                     self.searchViewController.rideArray = self.allRidesArray
                     self.searchViewController.tableView.reloadData()
                     }
+                    
+                    if document == querySnapshot?.documents.last {
+                        self.allRidesArray.removeAll()
+                    }
+                   
                 }
             }
         }
@@ -89,7 +94,7 @@ class SearchCoordinator: NSObject {
 
 extension SearchCoordinator: SearchViewControllerDelegate {
     func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String, passengers: [String]) {
-        allRidesArray.removeAll()
+        //allRidesArray.removeAll()
         let selectedRide = Ride(origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driver: driver, passengers: passengers)
         showRideDetail(ride: selectedRide)
         
