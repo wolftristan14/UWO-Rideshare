@@ -17,6 +17,7 @@ protocol RideDetailCoordinatorDelegate: class {
 
 class RideDetailCoordinator: NSObject {
     
+    
     var navigationController: UINavigationController?
     var selectedRide: Ride!
     var isParentSearchVC: Bool!
@@ -25,8 +26,7 @@ class RideDetailCoordinator: NSObject {
     var docRef: DocumentReference!
     var docRefRides: DocumentReference!
 
-    var storage: Storage!
-    var storageRef: StorageReference!
+
     
     init(navigationController: UINavigationController) {
         super.init()
@@ -57,22 +57,11 @@ class RideDetailCoordinator: NSObject {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                
+                print("ye")
                 rideDetailVC.driverLabel.text = querySnapshot?.data()["firstName"] as? String
                 let downloadURLString = querySnapshot?.data()["imageDownloadURL"] as? String
-                //let downloadURL = URL(fileURLWithPath: downloadURLString!)
-                self.storage = Storage.storage()
-                self.storageRef = self.storage.reference(forURL: downloadURLString!)
-                self.storageRef.getData(maxSize: 1 * 2000 * 2000) { (data, error) -> Void in
-                    print("got image data")
-                    let image = UIImage(data: data!)
-                    rideDetailVC.imageView.image = image
-                    
-                }
+                rideDetailVC.imageView.loadImageFromCache(downloadURLString: downloadURLString!, viewController: rideDetailVC)
 
-                    
-
-                
             }
         }
     }

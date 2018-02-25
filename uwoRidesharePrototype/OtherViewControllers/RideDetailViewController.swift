@@ -41,7 +41,7 @@ class RideDetailViewController: UIViewController {
         if isJoinRideButtonHidden == true {
             joinRideButton.isHidden = true
         }
-        imageView.image = #imageLiteral(resourceName: "default-user")
+        //imageView.image = #imageLiteral(resourceName: "default-user")
         originLabel.text = selectedRide.origin
         destinationLabel.text = selectedRide.destination
         dateLabel.text = selectedRide.date

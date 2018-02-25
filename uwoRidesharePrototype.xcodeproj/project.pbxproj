@@ -47,6 +47,7 @@
 		A183824C20166BF0004180BE /* YourRidesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183824B20166BEF004180BE /* YourRidesCoordinator.swift */; };
 		A183825020166C20004180BE /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183824F20166C20004180BE /* ProfileCoordinator.swift */; };
 		A183825220166C31004180BE /* MessagesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183825120166C31004180BE /* MessagesCoordinator.swift */; };
+		A1CFAFC020433EAD00914CF2 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CFAFBF20433EAD00914CF2 /* UIImageViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		A183824B20166BEF004180BE /* YourRidesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourRidesCoordinator.swift; sourceTree = "<group>"; };
 		A183824F20166C20004180BE /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		A183825120166C31004180BE /* MessagesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesCoordinator.swift; sourceTree = "<group>"; };
+		A1CFAFBF20433EAD00914CF2 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		B040198FF0F9D4579475CD4B /* Pods_uwoRidesharePrototype.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uwoRidesharePrototype.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4E1A1CA1D66FA486E7069B8 /* Pods-uwoRidesharePrototype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uwoRidesharePrototype.release.xcconfig"; path = "Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				A16576EA2007F67D009985A1 /* UIViewControllerDismissKeyboardExtension.swift */,
+				A1CFAFBF20433EAD00914CF2 /* UIImageViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				A183825220166C31004180BE /* MessagesCoordinator.swift in Sources */,
 				A16576D31FEAE840009985A1 /* HomeCoordinator.swift in Sources */,
 				A110C8A82017AF8B00DC11EE /* YourRidesTableViewCell.swift in Sources */,
+				A1CFAFC020433EAD00914CF2 /* UIImageViewExtension.swift in Sources */,
 				A16576CF1FE9B570009985A1 /* TermsViewController.swift in Sources */,
 				A16576E81FEF0B1C009985A1 /* CreateUserCoordinator.swift in Sources */,
 				A16576DA1FEEDB2E009985A1 /* ProfileViewController.swift in Sources */,

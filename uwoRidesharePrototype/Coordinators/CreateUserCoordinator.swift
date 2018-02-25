@@ -42,7 +42,7 @@ class CreateUserCoordinator: NSObject {
     
     
     func storeImageInFirebaseStorage(image: UIImage, completionHandler: @escaping ( _ imageDownloadURL:String) -> Void) {
-        let data = UIImageJPEGRepresentation(image, 0.8)!
+        let data = UIImageJPEGRepresentation(image, 0.3)!
         storage = Storage.storage()
         storageRef = storage.reference()
         let filePath = "\(Auth.auth().currentUser!.uid)/\("userPhoto")"
