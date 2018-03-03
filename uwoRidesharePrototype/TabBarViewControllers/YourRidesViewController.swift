@@ -41,10 +41,13 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //print("your rides vc number of rows hit")
         return rideArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //print("your rides vc cell for row method hit")
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "yourrides", for: indexPath) as! YourRidesTableViewCell
         
         if rideArray.count > 0 {
@@ -78,6 +81,12 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
         delegate?.didSelectRide(origin: ride.origin, destination: ride.destination, date: ride.date, price: ride.price, availableSeats: ride.availableSeats, driver: ride.driver, passengers: ride.passengers, createdOn: ride.createdOn)
         
 
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return "Created"
+        
     }
 
     @IBAction func addRideButtonTapped(_ sender: Any) {

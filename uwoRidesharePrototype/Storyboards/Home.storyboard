@@ -407,8 +407,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="BdH-ce-2RA" id="ccf-s9-JfV"/>
-                                    <outlet property="delegate" destination="BdH-ce-2RA" id="Lyz-sm-3Sb"/>
+                                    <outlet property="dataSource" destination="mBP-dN-MBx" id="QEP-1t-iSG"/>
+                                    <outlet property="delegate" destination="mBP-dN-MBx" id="U6F-tD-hhn"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -425,6 +425,9 @@
                         <color key="badgeColor" red="0.3707177639" green="0.25714370609999998" blue="0.75468015669999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="vFY-OV-w9X" id="tJR-KL-HJ5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrj-Hq-vk9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

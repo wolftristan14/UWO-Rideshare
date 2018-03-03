@@ -39,10 +39,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //print("search vc rows in section hit")
         return rideArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //print("searchvc cell for row hit")
         let cell = tableView.dequeueReusableCell(withIdentifier: "search", for: indexPath) as! SearchTableViewCell
         
         if rideArray.count > 0 {
