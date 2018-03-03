@@ -18,6 +18,7 @@
 		A1434FD220126F1D009CDBE9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1434FD120126F1D009CDBE9 /* User.swift */; };
 		A1434FD420126F2B009CDBE9 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1434FD320126F2B009CDBE9 /* Ride.swift */; };
 		A1434FD62013C03F009CDBE9 /* AddRideCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1434FD52013C03F009CDBE9 /* AddRideCoordinator.swift */; };
+		A15CC4722048820F008A142C /* RideRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CC4712048820F008A142C /* RideRequest.swift */; };
 		A16576C71FE6EA4F009985A1 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16576C41FE6EA4D009985A1 /* Bolts.framework */; };
 		A16576C81FE6EA4F009985A1 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16576C51FE6EA4F009985A1 /* FBSDKCoreKit.framework */; };
 		A16576C91FE6EA4F009985A1 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16576C61FE6EA4F009985A1 /* FBSDKLoginKit.framework */; };
@@ -62,6 +63,7 @@
 		A1434FD120126F1D009CDBE9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A1434FD320126F2B009CDBE9 /* Ride.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
 		A1434FD52013C03F009CDBE9 /* AddRideCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRideCoordinator.swift; sourceTree = "<group>"; };
+		A15CC4712048820F008A142C /* RideRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRequest.swift; sourceTree = "<group>"; };
 		A16576C41FE6EA4D009985A1 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		A16576C51FE6EA4F009985A1 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		A16576C61FE6EA4F009985A1 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			children = (
 				A1434FD120126F1D009CDBE9 /* User.swift */,
 				A1434FD320126F2B009CDBE9 /* Ride.swift */,
+				A15CC4712048820F008A142C /* RideRequest.swift */,
 				A17F00882038A47C004A8675 /* Passenger.swift */,
 			);
 			path = "Data Models";
@@ -419,6 +422,7 @@
 				A16576EB2007F67D009985A1 /* UIViewControllerDismissKeyboardExtension.swift in Sources */,
 				A17F00892038A47C004A8675 /* Passenger.swift in Sources */,
 				A183824A20166BE0004180BE /* SearchCoordinator.swift in Sources */,
+				A15CC4722048820F008A142C /* RideRequest.swift in Sources */,
 				A1434FCF20126B86009CDBE9 /* AddRideViewController.swift in Sources */,
 				A16576D81FEEDAFC009985A1 /* YourRidesViewController.swift in Sources */,
 				A10433EA2024C66D00F0E8FD /* RideDetailViewController.swift in Sources */,

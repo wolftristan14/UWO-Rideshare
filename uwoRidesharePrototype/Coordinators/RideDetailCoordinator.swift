@@ -24,7 +24,7 @@ class RideDetailCoordinator: NSObject {
     
     weak var delegate: RideDetailCoordinatorDelegate?
     var docRef: DocumentReference!
-    var docRefRides: DocumentReference!
+    var docRefRequests: DocumentReference!
 
 
     
@@ -39,8 +39,11 @@ class RideDetailCoordinator: NSObject {
         let rideDetailVC = storyboard.instantiateViewController(withIdentifier: "ridedetail") as! RideDetailViewController
         rideDetailVC.delegate = self as RideDetailViewControllerDelegate
         loadDriverImageAndName(selectedRide: selectedRide, rideDetailVC: rideDetailVC)
+
         rideDetailVC.selectedRide = selectedRide
         navigationController?.pushViewController(rideDetailVC, animated: true)
+        //loadDriverImageAndName(selectedRide: selectedRide, rideDetailVC: rideDetailVC)
+
         if isParentSearchVC == true {
             rideDetailVC.isJoinRideButtonHidden = false
         } else if isParentSearchVC == false {
@@ -67,17 +70,34 @@ class RideDetailCoordinator: NSObject {
     }
     
     func addPassengerToRide(ride: Ride) {
-        docRefRides = Firestore.firestore().document("Rides/\(ride.origin) to \(ride.destination), \(ride.date)")
         
-        ride.passengers.append((Auth.auth().currentUser?.email!)!)
-        
-        if ride.availableSeats > 0 {
-            docRefRides.updateData(["availableSpots": ride.availableSeats - 1])
-            docRefRides.collection("Passengers").document("Passenger\(Auth.auth().currentUser?.email ?? "")").setData(["name": Auth.auth().currentUser?.displayName ?? "", "email": Auth.auth().currentUser?.email ?? ""])
-        } else {
-            print("ride is full")
 
+        docRefRequests = Firestore.firestore().collection("Requests").addDocument(data: [
+            "requesterid": Auth.auth().currentUser?.email ?? "",
+            "rideid": "",
+            "driveremail": ride.driver,
+            "createdOn": Date.init(timeIntervalSinceNow: 0),
+            "requestStatus": false
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(self.docRefRequests.documentID)")
+            }
         }
+        
+//        docRefRides = Firestore.firestore().document("Rides/\(ride.origin) to \(ride.destination), \(ride.date)")
+//
+//        ride.passengers.append((Auth.auth().currentUser?.email!)!)
+//
+//        if ride.availableSeats > 0 {
+//            docRefRides.updateData(["availableSpots": ride.availableSeats - 1])
+//            docRefRides.collection("Passengers").document("Passenger\(Auth.auth().currentUser?.email ?? "")").setData(["name": Auth.auth().currentUser?.displayName ?? "", "email": Auth.auth().currentUser?.email ?? ""])
+//        } else {
+//            print("ride is full")
+//
+//        }
+//    }
     }
 }
 

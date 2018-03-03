@@ -17,8 +17,11 @@ class Ride {
     var availableSeats: Int
     var driver: String
     var passengers: [String]
+    var createdOn: Date
+    //var luggageSize: String
     
-    init(origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String, passengers: [String]) {
+    init(origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String, passengers: [String], createdOn: Date /*luggageSize: String*/) {
+        
         self.origin = origin
         self.destination = destination
         self.date = date
@@ -26,6 +29,9 @@ class Ride {
         self.availableSeats = availableSeats
         self.driver = driver
         self.passengers = passengers
+        self.createdOn = createdOn
+        //self.luggageSize = luggageSize
+        
     }
     
     

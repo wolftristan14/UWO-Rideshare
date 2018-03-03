@@ -66,7 +66,8 @@ class CreateUserCoordinator: NSObject {
         if Auth.auth().currentUser != nil {
         
         docRef = Firestore.firestore().document("users/\(Auth.auth().currentUser?.email ?? "no email, probably added phone sign in, update to work with phone number if this comes up")")
-        docRef.setData([
+            
+         docRef.setData([
             "email": Auth.auth().currentUser?.email ?? "no email, probably added phone sign in, update to work with phone number if this comes up",
             "firstName": firstName,
             "lastName": lastName,

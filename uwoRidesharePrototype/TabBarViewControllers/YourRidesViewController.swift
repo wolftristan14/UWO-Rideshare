@@ -10,7 +10,9 @@ import UIKit
 
 protocol YourRidesViewControllerDelegate: class {
     func didTapAddRideButton()
-    func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String, passengers: [String])
+    
+    //probably change to just passing ride
+    func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String, passengers: [String], createdOn: Date)
 }
 
 
@@ -31,7 +33,7 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewWillAppear(_ animated: Bool) {
 
     self.tabBarController?.navigationItem.title = "Your Rides"
-        
+    self.tableView.isEditing = false
         
     }
     
@@ -63,12 +65,19 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let currentCell = tableView.cellForRow(at: indexPath) as! YourRidesTableViewCell
-        let availableSeats = Int(currentCell.availableSeatsLabel.text!)
+//        let currentCell = tableView.cellForRow(at: indexPath) as! YourRidesTableViewCell
+//        print(indexPath)
+//        print(indexPath.count)
+//        let availableSeats = Int(currentCell.availableSeatsLabel.text!)
 
+ 
+//        delegate?.didSelectRide( origin: currentCell.originLabel.text ?? "", destination: currentCell.destinationLabel.text ?? "", date: currentCell.dateLabel.text ?? "", price: currentCell.priceLabel.text ?? "", availableSeats: availableSeats ?? 0, driver: currentCell.accessibilityHint!, passengers: currentCell.accessibilityElements as! [String], createdOn: Date.init()) // change this when youre passing the date
         
+        let ride = rideArray[indexPath[1]]
         
-        delegate?.didSelectRide(origin: currentCell.originLabel.text ?? "", destination: currentCell.destinationLabel.text ?? "", date: currentCell.dateLabel.text ?? "", price: currentCell.priceLabel.text ?? "", availableSeats: availableSeats ?? 0, driver: currentCell.accessibilityHint!, passengers: currentCell.accessibilityElements as! [String])
+        delegate?.didSelectRide(origin: ride.origin, destination: ride.destination, date: ride.date, price: ride.price, availableSeats: ride.availableSeats, driver: ride.driver, passengers: ride.passengers, createdOn: ride.createdOn)
+        
+
     }
 
     @IBAction func addRideButtonTapped(_ sender: Any) {

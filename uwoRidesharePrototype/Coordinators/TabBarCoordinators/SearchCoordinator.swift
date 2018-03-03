@@ -58,7 +58,7 @@ class SearchCoordinator: NSObject {
                     //print("\(document.documentID) => \(document.data())")
                     let driver = document.data()["driver"] as! String
                     if document.data().count > 0 && driver != Auth.auth().currentUser?.email {
-                    let ride = Ride(origin: document.data()["origin"] as! String, destination: document.data()["destination"] as! String, date: document.data()["date"] as! String, price: document.data()["price"] as! String, availableSeats: document.data()["availableSpots"] as! Int, driver: document.data()["driver"] as! String, passengers: document.data()["passengers"] as! Array)
+                        let ride = Ride(origin: document.data()["origin"] as! String, destination: document.data()["destination"] as! String, date: document.data()["date"] as! String, price: document.data()["price"] as! String, availableSeats: document.data()["availableSeats"] as! Int, driver: document.data()["driver"] as! String, passengers: document.data()["passengers"] as! Array, createdOn: document.data()["createdOn"] as! Date)
                     
                     
                     self.allRidesArray.append(ride)
@@ -93,9 +93,9 @@ class SearchCoordinator: NSObject {
 }
 
 extension SearchCoordinator: SearchViewControllerDelegate {
-    func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String, passengers: [String]) {
+    func didSelectRide( origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String, passengers: [String], createdOn: Date) {
         //allRidesArray.removeAll()
-        let selectedRide = Ride(origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driver: driver, passengers: passengers)
+        let selectedRide = Ride(origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driver: driver, passengers: passengers, createdOn: createdOn)
         showRideDetail(ride: selectedRide)
         
     }
