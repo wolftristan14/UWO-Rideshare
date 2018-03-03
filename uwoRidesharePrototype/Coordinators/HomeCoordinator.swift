@@ -80,6 +80,11 @@ class HomeCoordintor: NSObject, UITabBarDelegate, UITabBarControllerDelegate {
             messagesCoordinator.start()
             childCoordinators.append(messagesCoordinator)
             
+        case 4: let requestsCoordinator = RequestsCoordinator(navigationController: navigationController!)
+            requestsCoordinator.delegate = self as RequestsCoordinatorDelegate
+            requestsCoordinator.start()
+            childCoordinators.append(requestsCoordinator)
+            
         default:
             print("shi")
         }
@@ -103,6 +108,10 @@ extension HomeCoordintor: ProfileCoordinatorDelegate {
 
 extension HomeCoordintor: MessagesCoordinatorDelegate {
     
+    
+}
+
+extension HomeCoordintor: RequestsCoordinatorDelegate {
     
 }
 

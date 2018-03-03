@@ -11,20 +11,43 @@ import UIKit
 
 
 class RequestsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    var requestsArray = [RideRequest]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.rowHeight = 78
+        
+    }
+    
+
+    override func viewWillAppear(_ animated: Bool) {
+    
+    self.tabBarController?.navigationItem.title = "Requests"
+    
+    
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         //print("request vc number of sections method hit")
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //print("request vc number of rows in section method hit")
-
-        return 2
+        
+        return requestsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //print("request vc cell for row method hit")
-        return UITableViewCell.init()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "requests", for: indexPath) as! RequestsTableViewCell
+        
+        let request = requestsArray[indexPath.row]
+        cell.requesteridLabel.text = "Ride Request from: \(request.requesterid)"
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -36,16 +59,5 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
     }
-    
-    
-    @IBOutlet weak var tableView: UITableView!
-    
-
-override func viewWillAppear(_ animated: Bool) {
-    
-    self.tabBarController?.navigationItem.title = "Requests"
-    
-    
-}
 
 }

@@ -67,6 +67,7 @@ class AddRideCoordinator: NSObject {
     
     docRef = Firestore.firestore().collection("Rides").addDocument(data:[
         
+    "docid": "",
     "driver": Auth.auth().currentUser?.email ?? "error",
     "destination": ride.destination,
     "origin": ride.origin,
@@ -95,9 +96,9 @@ class AddRideCoordinator: NSObject {
 extension AddRideCoordinator: AddRideViewControllerDelegate {
 
     
-    func didAddRide(origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String, createdOn: Date) {
+    func didAddRide(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String, createdOn: Date) {
         //navigationController?.popViewController(animated: true)
-        let ride = Ride(origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driver: driver, passengers: [], createdOn: createdOn)
+        let ride = Ride(docid: docid, origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driver: driver, passengers: [], createdOn: createdOn)
         addRideToDatabase(ride: ride)
         
     }

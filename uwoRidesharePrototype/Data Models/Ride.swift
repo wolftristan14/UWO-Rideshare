@@ -10,6 +10,7 @@ import Foundation
 
 class Ride {
     
+    var docid: String
     var origin: String
     var destination: String
     var date: String
@@ -20,8 +21,9 @@ class Ride {
     var createdOn: Date
     //var luggageSize: String
     
-    init(origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String, passengers: [String], createdOn: Date /*luggageSize: String*/) {
+    init(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String, passengers: [String], createdOn: Date /*luggageSize: String*/) {
         
+        self.docid = docid
         self.origin = origin
         self.destination = destination
         self.date = date

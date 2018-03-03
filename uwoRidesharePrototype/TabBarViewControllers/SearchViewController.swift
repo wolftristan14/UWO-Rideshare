@@ -10,7 +10,7 @@ import UIKit
 
 protocol SearchViewControllerDelegate: class {
     //probably change to just passing ride
-    func didSelectRide(origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String, passengers: [String], createdOn: Date)
+    func didSelectRide(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String, passengers: [String], createdOn: Date)
 }
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -75,7 +75,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     let ride = rideArray[indexPath[1]]
         
-    delegate?.didSelectRide(origin: ride.origin, destination: ride.destination, date: ride.date, price: ride.price, availableSeats: ride.availableSeats, driver: ride.driver, passengers: ride.passengers, createdOn: ride.createdOn)
+        delegate?.didSelectRide(docid: ride.docid, origin: ride.origin, destination: ride.destination, date: ride.date, price: ride.price, availableSeats: ride.availableSeats, driver: ride.driver, passengers: ride.passengers, createdOn: ride.createdOn)
     }
     
 

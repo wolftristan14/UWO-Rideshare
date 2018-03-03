@@ -17,7 +17,7 @@ protocol MessagesCoordinatorDelegate: class {
 class MessagesCoordinator: NSObject {
     
     var navigationController: UINavigationController?
-    var childCoordinators = [NSObject]()
+    //var childCoordinators = [NSObject]()
 
     
     weak var delegate: MessagesCoordinatorDelegate?

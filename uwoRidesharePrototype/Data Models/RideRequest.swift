@@ -12,11 +12,11 @@ class RideRequest {
     
     var requesterid: String
     var rideid: String
-    var createdOn: String //(maybe make date type)
+    var createdOn: Date //(maybe make date type)
     var requestStatus: Bool
     
     
-    init( requesterid: String, rideid: String, createdOn: String, requestStatus: Bool) {
+    init( requesterid: String, rideid: String, createdOn: Date, requestStatus: Bool) {
         self.requesterid = requesterid
         self.rideid = rideid
         self.createdOn = createdOn
