@@ -20,6 +20,8 @@ class RequestsCoordinator: NSObject {
     var requestsViewController: RequestsViewController!
     //var childCoordinators = [NSObject]()
     var requestsArray = [RideRequest]()
+    var requestedArray = [RideRequest]()
+
     
     
     weak var delegate: RequestsCoordinatorDelegate?
@@ -45,7 +47,7 @@ class RequestsCoordinator: NSObject {
     func loadFirebaseData()  {
         collRef = Firestore.firestore().collection("Requests")
         
-        collRef.whereField("driveremail", isEqualTo: Auth.auth().currentUser?.email ?? "ERROR").addSnapshotListener() { (querySnapshot, err) in
+        collRef.whereField("driverEmail", isEqualTo: Auth.auth().currentUser?.email ?? "ERROR").addSnapshotListener() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -53,8 +55,8 @@ class RequestsCoordinator: NSObject {
                     //print("\(document.documentID) => \(document.data())")
                     if document.data().count > 0 {
                         
-                        let request = RideRequest(requesterid: document.data()["requesterid"] as! String, rideid: document.data()["rideid"] as! String, createdOn: document.data()["createdOn"] as! Date, requestStatus: document.data()["requestStatus"] as! Bool)
-                        
+                        let request = RideRequest(requesterid: document.data()["requesterid"] as! String, rideid: document.data()["rideid"] as! String, createdOn: document.data()["createdOn"] as! Date, requestStatus: document.data()["requestStatus"] as! Bool, driverEmail: document.data()["driverEmail"] as! String)
+                        print("made it thorugh first request query")
                         self.requestsArray.append(request)
                         //print("added ride")
                         self.requestsViewController.requestsArray = self.requestsArray
@@ -63,6 +65,28 @@ class RequestsCoordinator: NSObject {
                 }
             }
         }
+        
+        collRef.whereField("requesterid", isEqualTo: Auth.auth().currentUser?.email ?? fatalError())
+            .whereField("requestStatus", isEqualTo: false).addSnapshotListener() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        //print("\(document.documentID) => \(document.data())")
+                        if document.data().count > 0 {
+                            //print(document)
+                            let request = RideRequest(requesterid: document.data()["requesterid"] as! String, rideid: document.data()["rideid"] as! String, createdOn: document.data()["createdOn"] as! Date, requestStatus: document.data()["requestStatus"] as! Bool, driverEmail: document.data()["driverEmail"] as! String)
+                            
+                            self.requestedArray.append(request)
+                            //print("added ride")
+                            self.requestsViewController.requestedArray = self.requestedArray
+                            self.requestsViewController.tableView.reloadData()
+                        }
+                    }
+                }
+        }
+                
+        
         
 
         

@@ -14,8 +14,11 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     var requestsArray = [RideRequest]()
+    var requestedArray = [RideRequest]()
+
     
     override func viewDidLoad() {
+        print("requestsvc view did load hit")
         super.viewDidLoad()
         tableView.rowHeight = 78
         
@@ -31,23 +34,33 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func numberOfSections(in tableView: UITableView) -> Int {
         //print("request vc number of sections method hit")
-        return 1
+          return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //print("request vc number of rows in section method hit")
-        
+        if section == 0 {
         return requestsArray.count
+        } else {
+            return requestedArray.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //print("request vc cell for row method hit")
         let cell = tableView.dequeueReusableCell(withIdentifier: "requests", for: indexPath) as! RequestsTableViewCell
         
+        if indexPath.section == 0 {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "requests", for: indexPath) as! RequestsTableViewCell
         let request = requestsArray[indexPath.row]
         cell.requesteridLabel.text = "Ride Request from: \(request.requesterid)"
-        
         return cell
+        } else {
+//        let cell2 = tableView.dequeueReusableCell(withIdentifier: "requested", for: indexPath) as! RequestedTableViewCell
+        let requested = requestedArray[indexPath.row]
+        cell.requesteridLabel.text = "Pending Approval From: \(requested.driverEmail)"
+        return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

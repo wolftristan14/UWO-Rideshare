@@ -75,7 +75,7 @@ class RideDetailCoordinator: NSObject {
         docRefRequests = Firestore.firestore().collection("Requests").addDocument(data: [
             "requesterid": Auth.auth().currentUser?.email ?? "",
             "rideid": "",
-            "driveremail": ride.driver,
+            "driverEmail": ride.driver,
             "createdOn": Date.init(timeIntervalSinceNow: 0),
             "requestStatus": false
         ]) { err in

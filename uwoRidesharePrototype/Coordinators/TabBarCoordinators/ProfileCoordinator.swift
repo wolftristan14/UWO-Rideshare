@@ -31,7 +31,7 @@ class ProfileCoordinator: NSObject {
     
     func start() {
         let profileViewController = navigationController?.visibleViewController?.childViewControllers[2] as!ProfileViewController
-        profileViewController.delegate = self as! ProfileViewControllerDelegate
+        profileViewController.delegate = self as ProfileViewControllerDelegate
     }
     
     
