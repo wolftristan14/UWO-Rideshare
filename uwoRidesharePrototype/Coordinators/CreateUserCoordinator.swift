@@ -23,6 +23,7 @@ class CreateUserCoordinator: NSObject {
     var docRef: DocumentReference!
     var storage: Storage!
     var storageRef: StorageReference!
+    var newUser: User!
 
 
 
@@ -62,16 +63,16 @@ class CreateUserCoordinator: NSObject {
         }
     }
     
-    func writeNewUserDataToDatabase(firstName: String, lastName: String, imageDownloadURL: String) {
+    func writeNewUserDataToDatabase(user: User) {
         if Auth.auth().currentUser != nil {
         
         docRef = Firestore.firestore().document("users/\(Auth.auth().currentUser?.email ?? "no email, probably added phone sign in, update to work with phone number if this comes up")")
             
          docRef.setData([
-            "email": Auth.auth().currentUser?.email ?? "no email, probably added phone sign in, update to work with phone number if this comes up",
-            "firstName": firstName,
-            "lastName": lastName,
-            "imageDownloadURL": imageDownloadURL
+            "email": user.email,
+            "name": user.name,
+            "phoneNumber": user.phoneNumber,
+            "imageDownloadURL": user.imageDownloadURL
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")
@@ -90,10 +91,12 @@ class CreateUserCoordinator: NSObject {
 }
 
 extension CreateUserCoordinator: CreateUserViewControllerDelegate {
-    func didFinishCreatingUser(firstName: String, lastName: String, image: UIImage) {
+    func didFinishCreatingUser(name: String, phoneNumber: String, image: UIImage) {
         self.navigationController?.popViewController(animated: true)
+        newUser = User(name: name, phoneNumber: phoneNumber, email: Auth.auth().currentUser?.email ?? "error", imageDownloadURL: "")
         storeImageInFirebaseStorage(image: image) {imageDownloadURL in
-            self.writeNewUserDataToDatabase(firstName: firstName, lastName: lastName, imageDownloadURL: imageDownloadURL)
+            self.newUser.imageDownloadURL = imageDownloadURL
+            self.writeNewUserDataToDatabase(user: self.newUser)
 
         }
         

@@ -126,9 +126,12 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         authUI?.delegate = self as FUIAuthDelegate
         
         authViewController = authUI!.authViewController()
+        
         authViewController?.isNavigationBarHidden = true
         launchVC.present(authViewController!, animated: true, completion: nil)
     }
+    
+
     
     
     func showTerms() {

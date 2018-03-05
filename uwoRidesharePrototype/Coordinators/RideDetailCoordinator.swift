@@ -38,11 +38,10 @@ class RideDetailCoordinator: NSObject {
         let storyboard = UIStoryboard.init(name: "RideDetail", bundle: nil)
         let rideDetailVC = storyboard.instantiateViewController(withIdentifier: "ridedetail") as! RideDetailViewController
         rideDetailVC.delegate = self as RideDetailViewControllerDelegate
-        loadDriverImageAndName(selectedRide: selectedRide, rideDetailVC: rideDetailVC)
+        loadDriverImage(selectedRide: selectedRide, rideDetailVC: rideDetailVC)
 
         rideDetailVC.selectedRide = selectedRide
         navigationController?.pushViewController(rideDetailVC, animated: true)
-        //loadDriverImageAndName(selectedRide: selectedRide, rideDetailVC: rideDetailVC)
 
         if isParentSearchVC == true {
             rideDetailVC.isJoinRideButtonHidden = false
@@ -53,7 +52,7 @@ class RideDetailCoordinator: NSObject {
        // rideDetailVC.delegate = self as RideDetailViewControllerDelegate
     }
     
-    func loadDriverImageAndName(selectedRide: Ride, rideDetailVC: RideDetailViewController) {
+    func loadDriverImage(selectedRide: Ride, rideDetailVC: RideDetailViewController) {
         docRef = Firestore.firestore().collection("users").document(selectedRide.driver)
         print("hit load driver image method")
         docRef.getDocument() { (querySnapshot, err) in
@@ -61,7 +60,7 @@ class RideDetailCoordinator: NSObject {
                 print("Error getting documents: \(err)")
             } else {
                 print("ye")
-                rideDetailVC.driverLabel.text = querySnapshot?.data()["firstName"] as? String
+                //rideDetailVC.driverLabel.text = querySnapshot?.data()["name"] as? String
                 let downloadURLString = querySnapshot?.data()["imageDownloadURL"] as? String
                 rideDetailVC.imageView.loadImageFromCache(downloadURLString: downloadURLString!, viewController: rideDetailVC)
 
@@ -86,18 +85,7 @@ class RideDetailCoordinator: NSObject {
             }
         }
         
-//        docRefRides = Firestore.firestore().document("Rides/\(ride.origin) to \(ride.destination), \(ride.date)")
-//
-//        ride.passengers.append((Auth.auth().currentUser?.email!)!)
-//
-//        if ride.availableSeats > 0 {
-//            docRefRides.updateData(["availableSpots": ride.availableSeats - 1])
-//            docRefRides.collection("Passengers").document("Passenger\(Auth.auth().currentUser?.email ?? "")").setData(["name": Auth.auth().currentUser?.displayName ?? "", "email": Auth.auth().currentUser?.email ?? ""])
-//        } else {
-//            print("ride is full")
-//
-//        }
-//    }
+
     }
 }
 

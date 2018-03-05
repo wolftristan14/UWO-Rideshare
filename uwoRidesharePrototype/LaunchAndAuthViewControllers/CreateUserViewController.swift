@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Firebase
 
-protocol CreateUserViewControllerDelegate: class { // class so you can make delegate weak
-    func didFinishCreatingUser(firstName: String, lastName: String, image: UIImage)
+protocol CreateUserViewControllerDelegate: class {  // class so you can make delegate weak
+    func didFinishCreatingUser(name: String, phoneNumber: String, image: UIImage)
     
 }
 
@@ -18,9 +19,9 @@ class CreateUserViewController: UIViewController, UIImagePickerControllerDelegat
     weak var delegate: CreateUserViewControllerDelegate?
     let imagePicker = UIImagePickerController()
     
-    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var phoneNumberTextField: UITextField!
     
-    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var addPhotoButton: UIButton!
@@ -29,6 +30,8 @@ class CreateUserViewController: UIViewController, UIImagePickerControllerDelegat
         super.viewDidLoad()
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
+        nameTextField.text = Auth.auth().currentUser?.displayName
+
         self.hideKeyboard()
         // Do any additional setup after loading the view.
     }
@@ -58,7 +61,22 @@ class CreateUserViewController: UIViewController, UIImagePickerControllerDelegat
     
     
     @IBAction func finishTapped(_ sender: Any) {
-        self.delegate?.didFinishCreatingUser(firstName: firstNameTextField.text ?? "", lastName: lastNameTextField.text ?? "", image: imageView.image ?? #imageLiteral(resourceName: "default-user"))
+        
+        if nameTextField.text == "" || phoneNumberTextField.text == "" {
+            
+            let alert = UIAlertController(title: ">:(", message: "You need to put your name and phone number!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
+            
+        } else {
+            
+            self.delegate?.didFinishCreatingUser(name: nameTextField.text ?? "error", phoneNumber: phoneNumberTextField.text ?? "error", image: imageView.image ?? #imageLiteral(resourceName: "default-user"))
+
+        }
+        
+
     }
     
 

@@ -10,19 +10,17 @@ import Foundation
 
 class User {
     
-    var firstName: String
-    var lastName: String
-    //var contactNumber: String
+    var name: String
+    var phoneNumber: String
     var email: String
     var imageDownloadURL: String?
     
     
-    init(firstName: String, lastName: String, /*contactNumber: String,*/ email: String, imageDownloadURL: String?) {
+    init(name: String, phoneNumber: String, email: String, imageDownloadURL: String?) {
         
-        self.firstName = firstName
-        self.lastName = lastName
+        self.name = name
         self.imageDownloadURL = imageDownloadURL
-        //self.contactNumber = contactNumber
+        self.phoneNumber = phoneNumber
         self.email = email
     
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 protocol RideDetailViewControllerDelegate: class {
     func didJoinRide(ride: Ride)
@@ -47,7 +48,7 @@ class RideDetailViewController: UIViewController {
         dateLabel.text = selectedRide.date
         priceLabel.text = selectedRide.price
         availableSeatsLabel.text = "\(selectedRide.availableSeats)"
-        driverLabel.text = ""
+        driverLabel.text = Auth.auth().currentUser?.displayName
         print(joinRideButton.isHidden)
         // Do any additional setup after loading the view.
     }

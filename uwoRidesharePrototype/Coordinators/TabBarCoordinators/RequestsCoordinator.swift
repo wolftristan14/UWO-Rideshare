@@ -36,6 +36,7 @@ class RequestsCoordinator: NSObject {
     func start() {
         requestsViewController = navigationController?.visibleViewController?.childViewControllers[4] as! RequestsViewController
         //requestsViewController.delegate = self
+        self.requestsViewController.tableView.reloadData()
         loadFirebaseData()
         
         
@@ -51,6 +52,7 @@ class RequestsCoordinator: NSObject {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                self.requestsArray.removeAll()
                 for document in querySnapshot!.documents {
                     //print("\(document.documentID) => \(document.data())")
                     if document.data().count > 0 {
@@ -66,11 +68,12 @@ class RequestsCoordinator: NSObject {
             }
         }
         
-        collRef.whereField("requesterid", isEqualTo: Auth.auth().currentUser?.email ?? fatalError())
+        collRef.whereField("requesterid", isEqualTo: Auth.auth().currentUser?.email ?? "error")
             .whereField("requestStatus", isEqualTo: false).addSnapshotListener() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
+                    self.requestedArray.removeAll()
                     for document in querySnapshot!.documents {
                         //print("\(document.documentID) => \(document.data())")
                         if document.data().count > 0 {

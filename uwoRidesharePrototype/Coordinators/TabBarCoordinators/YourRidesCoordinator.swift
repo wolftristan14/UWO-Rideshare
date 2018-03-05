@@ -49,6 +49,7 @@ class YourRidesCoordinator: NSObject {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                self.yourRidesArray.removeAll()
                 for document in querySnapshot!.documents {
                     //print("\(document.documentID) => \(document.data())")
                     if document.data().count > 0 {
@@ -122,7 +123,7 @@ extension YourRidesCoordinator: YourRidesViewControllerDelegate {
 extension YourRidesCoordinator: AddRideCoordinatorDelegate {
     func didDismissAddRideViewController() {
            //loadFirebaseData()
-        yourRidesArray.removeAll()
+        //yourRidesArray.removeAll()
 
 
     }
