@@ -54,7 +54,7 @@ class RideDetailCoordinator: NSObject {
     }
     
     func loadDriverImage(selectedRide: Ride) {
-        docRef = Firestore.firestore().collection("users").document(selectedRide.driver)
+        docRef = Firestore.firestore().collection("users").document(selectedRide.driverEmail)
         print("hit load driver image method")
         docRef.getDocument() { (querySnapshot, err) in
             if let err = err {
@@ -79,8 +79,10 @@ class RideDetailCoordinator: NSObject {
 
         docRefRequests = Firestore.firestore().collection("Requests").addDocument(data: [
             "requesterid": Auth.auth().currentUser?.email ?? "",
-            "rideid": "",
-            "driverEmail": ride.driver,
+            "requesterName": Auth.auth().currentUser?.displayName ?? "Failed to load",
+            "rideid": ride.docid,
+            "driverEmail": ride.driverEmail,
+            "driverName": ride.driverName,
             "createdOn": Date.init(timeIntervalSinceNow: 0),
             "requestStatus": false
         ]) { err in

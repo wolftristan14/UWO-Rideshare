@@ -45,7 +45,7 @@ class YourRidesCoordinator: NSObject {
     func loadFirebaseData()  {
         collRef = Firestore.firestore().collection("Rides")
         
-        collRef.whereField("driver", isEqualTo: Auth.auth().currentUser?.email ?? "ERROR").addSnapshotListener() { (querySnapshot, err) in
+        collRef.whereField("driverEmail", isEqualTo: Auth.auth().currentUser?.email ?? "ERROR").addSnapshotListener() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -54,7 +54,7 @@ class YourRidesCoordinator: NSObject {
                     //print("\(document.documentID) => \(document.data())")
                     if document.data().count > 0 {
                         
-                        let ride = Ride(docid: document.documentID, origin: document.data()["origin"] as! String, destination: document.data()["destination"] as! String, date: document.data()["date"] as! String, price: document.data()["price"] as! String, availableSeats: document.data()["availableSeats"] as! Int, driver: document.data()["driver"] as! String, passengers: document.data()["passengers"] as! Array, createdOn: document.data()["createdOn"] as! Date)
+                        let ride = Ride(docid: document.documentID, origin: document.data()["origin"] as! String, destination: document.data()["destination"] as! String, date: document.data()["date"] as! String, price: document.data()["price"] as! String, availableSeats: document.data()["availableSeats"] as! Int, driverEmail: document.data()["driverEmail"] as! String, driverName: document.data()["driverName"] as! String, passengers: document.data()["passengers"] as! Array, createdOn: document.data()["createdOn"] as! Date)
 
                     self.yourRidesArray.append(ride)
                     //print("added ride")
@@ -89,8 +89,8 @@ class YourRidesCoordinator: NSObject {
 }
 
 extension YourRidesCoordinator: YourRidesViewControllerDelegate {
-    func didSelectRide(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String, passengers: [String], createdOn: Date) {
-        let selectedRide = Ride(docid: docid, origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driver: driver, passengers: passengers, createdOn: createdOn)
+    func didSelectRide(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driverEmail: String, driverName: String, passengers: [String], createdOn: Date) {
+        let selectedRide = Ride(docid: docid, origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driverEmail: driverEmail, driverName: driverName, passengers: passengers, createdOn: createdOn)
         showRideDetail(ride: selectedRide)
     }
     

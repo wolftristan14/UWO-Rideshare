@@ -16,12 +16,13 @@ class Ride {
     var date: String
     var price: String
     var availableSeats: Int
-    var driver: String
+    var driverEmail: String
+    var driverName: String
     var passengers: [String]
     var createdOn: Date
     //var luggageSize: String
     
-    init(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String, passengers: [String], createdOn: Date /*luggageSize: String*/) {
+    init(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driverEmail: String, driverName: String, passengers: [String], createdOn: Date /*luggageSize: String*/) {
         
         self.docid = docid
         self.origin = origin
@@ -29,7 +30,8 @@ class Ride {
         self.date = date
         self.price = price
         self.availableSeats = availableSeats
-        self.driver = driver
+        self.driverEmail = driverEmail
+        self.driverName = driverName
         self.passengers = passengers
         self.createdOn = createdOn
         //self.luggageSize = luggageSize

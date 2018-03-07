@@ -57,7 +57,7 @@ class RequestsCoordinator: NSObject {
                     //print("\(document.documentID) => \(document.data())")
                     if document.data().count > 0 {
                         
-                        let request = RideRequest(requesterid: document.data()["requesterid"] as! String, rideid: document.data()["rideid"] as! String, createdOn: document.data()["createdOn"] as! Date, requestStatus: document.data()["requestStatus"] as! Bool, driverEmail: document.data()["driverEmail"] as! String)
+                        let request = RideRequest(requesterid: document.data()["requesterid"] as! String, requesterName: document.data()["requesterName"] as! String, rideid: document.data()["rideid"] as! String, createdOn: document.data()["createdOn"] as! Date, requestStatus: document.data()["requestStatus"] as! Bool, driverEmail: document.data()["driverEmail"] as! String, driverName: document.data()["driverName"] as! String)
                         print("made it thorugh first request query")
                         self.requestsArray.append(request)
                         //print("added ride")
@@ -78,7 +78,7 @@ class RequestsCoordinator: NSObject {
                         //print("\(document.documentID) => \(document.data())")
                         if document.data().count > 0 {
                             //print(document)
-                            let request = RideRequest(requesterid: document.data()["requesterid"] as! String, rideid: document.data()["rideid"] as! String, createdOn: document.data()["createdOn"] as! Date, requestStatus: document.data()["requestStatus"] as! Bool, driverEmail: document.data()["driverEmail"] as! String)
+                            let request = RideRequest(requesterid: document.data()["requesterid"] as! String, requesterName: document.data()["requesterName"] as! String, rideid: document.data()["rideid"] as! String, createdOn: document.data()["createdOn"] as! Date, requestStatus: document.data()["requestStatus"] as! Bool, driverEmail: document.data()["driverEmail"] as! String, driverName: document.data()["driverName"] as! String)
                             
                             self.requestedArray.append(request)
                             //print("added ride")

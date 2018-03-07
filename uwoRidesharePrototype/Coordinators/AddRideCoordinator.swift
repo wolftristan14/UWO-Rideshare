@@ -36,39 +36,17 @@ class AddRideCoordinator: NSObject {
     
     func addRideToDatabase(ride: Ride) {
         print("ride added to database")
-        print(ride.destination)
-        print(ride.origin)
-        print(ride.date)
-        print(ride.price)
-        print(ride.availableSeats)
+//        print(ride.destination)
+//        print(ride.origin)
+//        print(ride.date)
+//        print(ride.price)
+//        print(ride.availableSeats)
         
-//        docRef = Firestore.firestore().document("Rides/\(ride.origin) to \(ride.destination), \(ride.date)")
-//                docRef.setData([
-//                    "driver": Auth.auth().currentUser?.email ?? "error",
-//                    "destination": ride.destination,
-//                    "origin": ride.origin,
-//                    "date": ride.date,
-//                    "price": ride.price,
-//                    "availableSeats": ride.availableSeats,
-//                    "createdOn": Date.init(timeIntervalSinceNow: 0),
-//                    "passengers": []
-//                ]) { err in
-//                    if let err = err {
-//                        print("Error adding document: \(err)")
-//                    } else {
-//                    self.navigationController?.popViewController(animated: true)
-//                    self.delegate?.didDismissAddRideViewController()
-//                    print("Document added with ID: \(self.docRef!.documentID)")
-//
-//                    }
-//
-//                }
-//            }
-    
     docRef = Firestore.firestore().collection("Rides").addDocument(data:[
         
     "docid": "",
-    "driver": Auth.auth().currentUser?.email ?? "error",
+    "driverEmail": Auth.auth().currentUser?.email ?? "error",
+    "driverName": Auth.auth().currentUser?.displayName ?? "error",
     "destination": ride.destination,
     "origin": ride.origin,
     "date": ride.date,
@@ -96,9 +74,9 @@ class AddRideCoordinator: NSObject {
 extension AddRideCoordinator: AddRideViewControllerDelegate {
 
     
-    func didAddRide(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String, createdOn: Date) {
+    func didAddRide(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driverEmail: String, driverName: String, createdOn: Date) {
         //navigationController?.popViewController(animated: true)
-        let ride = Ride(docid: docid, origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driver: driver, passengers: [], createdOn: createdOn)
+        let ride = Ride(docid: docid, origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driverEmail: driverEmail, driverName: driverName, passengers: [], createdOn: createdOn)
         addRideToDatabase(ride: ride)
         
     }

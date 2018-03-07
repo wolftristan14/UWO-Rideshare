@@ -53,12 +53,12 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.section == 0 {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "requests", for: indexPath) as! RequestsTableViewCell
         let request = requestsArray[indexPath.row]
-        cell.requesteridLabel.text = "Ride Request from: \(request.requesterid)"
+        cell.requesteridLabel.text = "Ride Request from: \(request.requesterName)"
         return cell
         } else {
 //        let cell2 = tableView.dequeueReusableCell(withIdentifier: "requested", for: indexPath) as! RequestedTableViewCell
         let requested = requestedArray[indexPath.row]
-        cell.requesteridLabel.text = "Pending Approval From: \(requested.driverEmail)"
+        cell.requesteridLabel.text = "Pending Approval From: \(requested.driverName)"
         return cell
         }
     }

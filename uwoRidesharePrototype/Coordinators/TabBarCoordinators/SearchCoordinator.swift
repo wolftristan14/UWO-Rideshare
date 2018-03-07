@@ -56,9 +56,9 @@ class SearchCoordinator: NSObject {
                 for document in querySnapshot!.documents {
                     print(querySnapshot?.documents.count)
                     //print("\(document.documentID) => \(document.data())")
-                    let driver = document.data()["driver"] as! String
-                    if document.data().count > 0 && driver != Auth.auth().currentUser?.email {
-                        let ride = Ride(docid: document.documentID, origin: document.data()["origin"] as! String, destination: document.data()["destination"] as! String, date: document.data()["date"] as! String, price: document.data()["price"] as! String, availableSeats: document.data()["availableSeats"] as! Int, driver: document.data()["driver"] as! String, passengers: document.data()["passengers"] as! Array, createdOn: document.data()["createdOn"] as! Date)
+                    let driverEmail = document.data()["driverEmail"] as! String
+                    if document.data().count > 0 && driverEmail != Auth.auth().currentUser?.email {
+                        let ride = Ride(docid: document.documentID, origin: document.data()["origin"] as! String, destination: document.data()["destination"] as! String, date: document.data()["date"] as! String, price: document.data()["price"] as! String, availableSeats: document.data()["availableSeats"] as! Int, driverEmail: document.data()["driverEmail"] as! String, driverName: document.data()["driverName"] as! String,  passengers: document.data()["passengers"] as! Array, createdOn: document.data()["createdOn"] as! Date)
                     
                     
                     self.allRidesArray.append(ride)
@@ -93,9 +93,9 @@ class SearchCoordinator: NSObject {
 }
 
 extension SearchCoordinator: SearchViewControllerDelegate {
-    func didSelectRide(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driver: String, passengers: [String], createdOn: Date) {
+    func didSelectRide(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driverEmail: String, driverName: String, passengers: [String], createdOn: Date) {
         //allRidesArray.removeAll()
-        let selectedRide = Ride(docid: docid, origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driver: driver, passengers: passengers, createdOn: createdOn)
+        let selectedRide = Ride(docid: docid, origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driverEmail: driverEmail, driverName: driverName, passengers: passengers, createdOn: createdOn)
         showRideDetail(ride: selectedRide)
         
     }
