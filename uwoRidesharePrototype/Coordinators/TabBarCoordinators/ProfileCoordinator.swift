@@ -22,6 +22,10 @@ class ProfileCoordinator: NSObject {
     
     weak var delegate: ProfileCoordinatorDelegate?
     var docRef: DocumentReference!
+    var collRef: CollectionReference!
+    var profileViewController: ProfileViewController!
+   
+    var user: User!
     
     init(navigationController: UINavigationController) {
         super.init()
@@ -30,10 +34,38 @@ class ProfileCoordinator: NSObject {
     }
     
     func start() {
-        let profileViewController = navigationController?.visibleViewController?.childViewControllers[2] as!ProfileViewController
+        profileViewController = navigationController?.visibleViewController?.childViewControllers[2] as!ProfileViewController
         profileViewController.delegate = self as ProfileViewControllerDelegate
+        loadFirebaseData()
+        
     }
     
+    func loadFirebaseData()  {
+        collRef = Firestore.firestore().collection("users")
+        
+        collRef.whereField("email", isEqualTo: Auth.auth().currentUser?.email ?? "ERROR").addSnapshotListener() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    //print("\(document.documentID) => \(document.data())")
+                    if document.data().count > 0 {
+                        
+                        self.user = User(name: document.data()["name"] as! String, phoneNumber: document.data()["phoneNumber"] as! String, email: document.data()["email"] as! String, imageDownloadURL: document.data()["imageDownloadURL"] as? String)
+                        self.profileViewController.imageView.loadImageFromCache(downloadURLString: self.user.imageDownloadURL!) {image in
+                            
+                            self.profileViewController.imageView.image = image
+                        }
+                        self.profileViewController.nameLabel.text = self.user.name
+                        self.profileViewController.phoneNumberLabel.text = self.user.phoneNumber
+                        self.profileViewController.emailLabel.text = self.user.email
+
+                    }
+                }
+            }
+        }
+        
+    }
     
     
 }

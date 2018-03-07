@@ -25,6 +25,7 @@ class RideDetailCoordinator: NSObject {
     weak var delegate: RideDetailCoordinatorDelegate?
     var docRef: DocumentReference!
     var docRefRequests: DocumentReference!
+    var rideDetailVC: RideDetailViewController!
 
 
     
@@ -36,9 +37,9 @@ class RideDetailCoordinator: NSObject {
     
     func start() {
         let storyboard = UIStoryboard.init(name: "RideDetail", bundle: nil)
-        let rideDetailVC = storyboard.instantiateViewController(withIdentifier: "ridedetail") as! RideDetailViewController
+        rideDetailVC = storyboard.instantiateViewController(withIdentifier: "ridedetail") as! RideDetailViewController
         rideDetailVC.delegate = self as RideDetailViewControllerDelegate
-        loadDriverImage(selectedRide: selectedRide, rideDetailVC: rideDetailVC)
+        loadDriverImage(selectedRide: selectedRide)
 
         rideDetailVC.selectedRide = selectedRide
         navigationController?.pushViewController(rideDetailVC, animated: true)
@@ -52,7 +53,7 @@ class RideDetailCoordinator: NSObject {
        // rideDetailVC.delegate = self as RideDetailViewControllerDelegate
     }
     
-    func loadDriverImage(selectedRide: Ride, rideDetailVC: RideDetailViewController) {
+    func loadDriverImage(selectedRide: Ride) {
         docRef = Firestore.firestore().collection("users").document(selectedRide.driver)
         print("hit load driver image method")
         docRef.getDocument() { (querySnapshot, err) in
@@ -62,7 +63,12 @@ class RideDetailCoordinator: NSObject {
                 print("ye")
                 //rideDetailVC.driverLabel.text = querySnapshot?.data()["name"] as? String
                 let downloadURLString = querySnapshot?.data()["imageDownloadURL"] as? String
-                rideDetailVC.imageView.loadImageFromCache(downloadURLString: downloadURLString!, viewController: rideDetailVC)
+                self.rideDetailVC.imageView.loadImageFromCache(downloadURLString: downloadURLString!) { image in
+                    
+                    self.rideDetailVC.imageView.image = image
+                
+                }
+
 
             }
         }

@@ -65,25 +65,6 @@ class YourRidesCoordinator: NSObject {
             }
         }
         
-//        collRef { (querySnapshot, err) in
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                for document in querySnapshot!.documents {
-//                    print("\(document.documentID) => \(document.data())")
-//                    if document.data().count > 0 {
-//                        let ride = Ride(origin: document.data()["origin"] as! String, destination: document.data()["destination"] as! String, date: document.data()["date"] as! String, price: document.data()["price"] as! String, availableSeats: document.data()["availableSpots"] as! Int, driver: document.data()["driver"] as! String, passengers: document.data()["passengers"] as! Array)
-//
-//                        self.yourRidesArray.append(ride)
-//                        print("added ride")
-//                        self.yourRidesViewController.rideArray = self.yourRidesArray
-//                        self.yourRidesViewController.tableView.reloadData()
-//                    }
-//                }
-//            }
-//        }
-        
-        
     }
     
     func goToAddRideCoordinator() {
