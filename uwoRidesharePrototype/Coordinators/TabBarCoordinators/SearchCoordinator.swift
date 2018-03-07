@@ -93,10 +93,8 @@ class SearchCoordinator: NSObject {
 }
 
 extension SearchCoordinator: SearchViewControllerDelegate {
-    func didSelectRide(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driverEmail: String, driverName: String, passengers: [String], createdOn: Date) {
-        //allRidesArray.removeAll()
-        let selectedRide = Ride(docid: docid, origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driverEmail: driverEmail, driverName: driverName, passengers: passengers, createdOn: createdOn)
-        showRideDetail(ride: selectedRide)
+    func didSelectRide(ride: Ride) {
+        showRideDetail(ride: ride)
         
     }
     

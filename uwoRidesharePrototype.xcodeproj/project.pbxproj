@@ -24,6 +24,8 @@
 		A15CC478204B3F4A008A142C /* RequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CC477204B3F4A008A142C /* RequestsTableViewCell.swift */; };
 		A15CC47A204C80D2008A142C /* RequestedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CC479204C80D2008A142C /* RequestedTableViewCell.swift */; };
 		A15CC47C20506A94008A142C /* RequestDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A15CC47B20506A94008A142C /* RequestDetail.storyboard */; };
+		A15CC47E2050776C008A142C /* RequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CC47D2050776C008A142C /* RequestDetailViewController.swift */; };
+		A15CC480205089E7008A142C /* RequestDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CC47F205089E7008A142C /* RequestDetailCoordinator.swift */; };
 		A16576C71FE6EA4F009985A1 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16576C41FE6EA4D009985A1 /* Bolts.framework */; };
 		A16576C81FE6EA4F009985A1 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16576C51FE6EA4F009985A1 /* FBSDKCoreKit.framework */; };
 		A16576C91FE6EA4F009985A1 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16576C61FE6EA4F009985A1 /* FBSDKLoginKit.framework */; };
@@ -74,6 +76,8 @@
 		A15CC477204B3F4A008A142C /* RequestsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsTableViewCell.swift; sourceTree = "<group>"; };
 		A15CC479204C80D2008A142C /* RequestedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedTableViewCell.swift; sourceTree = "<group>"; };
 		A15CC47B20506A94008A142C /* RequestDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RequestDetail.storyboard; sourceTree = "<group>"; };
+		A15CC47D2050776C008A142C /* RequestDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDetailViewController.swift; sourceTree = "<group>"; };
+		A15CC47F205089E7008A142C /* RequestDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDetailCoordinator.swift; sourceTree = "<group>"; };
 		A16576C41FE6EA4D009985A1 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		A16576C51FE6EA4F009985A1 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		A16576C61FE6EA4F009985A1 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 			children = (
 				A1434FCE20126B86009CDBE9 /* AddRideViewController.swift */,
 				A10433E92024C66D00F0E8FD /* RideDetailViewController.swift */,
+				A15CC47D2050776C008A142C /* RequestDetailViewController.swift */,
 			);
 			path = OtherViewControllers;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 				A16576E71FEF0B1C009985A1 /* CreateUserCoordinator.swift */,
 				A1434FD52013C03F009CDBE9 /* AddRideCoordinator.swift */,
 				A10BDFC62028C52700C5C2B9 /* RideDetailCoordinator.swift */,
+				A15CC47F205089E7008A142C /* RequestDetailCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -436,6 +442,7 @@
 				A17000A91FD87CF80003751B /* AppCoordinator.swift in Sources */,
 				A16576E41FEEEF4D009985A1 /* TermsCoordinator.swift in Sources */,
 				A16576EB2007F67D009985A1 /* UIViewControllerDismissKeyboardExtension.swift in Sources */,
+				A15CC47E2050776C008A142C /* RequestDetailViewController.swift in Sources */,
 				A17F00892038A47C004A8675 /* Passenger.swift in Sources */,
 				A183824A20166BE0004180BE /* SearchCoordinator.swift in Sources */,
 				A15CC4722048820F008A142C /* RideRequest.swift in Sources */,
@@ -456,6 +463,7 @@
 				A15CC47A204C80D2008A142C /* RequestedTableViewCell.swift in Sources */,
 				A183825220166C31004180BE /* MessagesCoordinator.swift in Sources */,
 				A16576D31FEAE840009985A1 /* HomeCoordinator.swift in Sources */,
+				A15CC480205089E7008A142C /* RequestDetailCoordinator.swift in Sources */,
 				A110C8A82017AF8B00DC11EE /* YourRidesTableViewCell.swift in Sources */,
 				A1CFAFC020433EAD00914CF2 /* UIImageViewExtension.swift in Sources */,
 				A16576CF1FE9B570009985A1 /* TermsViewController.swift in Sources */,

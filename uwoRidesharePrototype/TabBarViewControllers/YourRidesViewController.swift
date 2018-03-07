@@ -12,7 +12,7 @@ protocol YourRidesViewControllerDelegate: class {
     func didTapAddRideButton()
     
     //probably change to just passing ride
-    func didSelectRide(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driverEmail: String, driverName: String, passengers: [String], createdOn: Date)
+    func didSelectRide(ride: Ride)
 }
 
 
@@ -70,7 +70,7 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let ride = rideArray[indexPath[1]]
         
-        delegate?.didSelectRide(docid: ride.docid, origin: ride.origin, destination: ride.destination, date: ride.date, price: ride.price, availableSeats: ride.availableSeats, driverEmail: ride.driverEmail, driverName: ride.driverName, passengers: ride.passengers, createdOn: ride.createdOn)
+        delegate?.didSelectRide(ride: ride)
         
 
     }

@@ -18,7 +18,7 @@ class RequestsCoordinator: NSObject {
     
     var navigationController: UINavigationController?
     var requestsViewController: RequestsViewController!
-    //var childCoordinators = [NSObject]()
+    var childCoordinators = [NSObject]()
     var requestsArray = [RideRequest]()
     var requestedArray = [RideRequest]()
 
@@ -35,7 +35,7 @@ class RequestsCoordinator: NSObject {
     
     func start() {
         requestsViewController = navigationController?.visibleViewController?.childViewControllers[4] as! RequestsViewController
-        //requestsViewController.delegate = self
+        requestsViewController.delegate = self
         self.requestsViewController.tableView.reloadData()
         loadFirebaseData()
         
@@ -96,5 +96,20 @@ class RequestsCoordinator: NSObject {
         
     }
     
+    func showRequestDetail(request: RideRequest) {
+    let requestDetailCoordinator = RequestDetailCoordinator(navigationController: navigationController!)
+    
+    requestDetailCoordinator.delegate = self as? RequestDetailCoordinatorDelegate
+    requestDetailCoordinator.start()
+    childCoordinators.append(requestDetailCoordinator)
+    }
+}
+
+extension RequestsCoordinator: RequestsViewControllerDelegate {
+    
+    func didSelectRequest(request: RideRequest) {
+        showRequestDetail(request: request)
+    }
     
 }
+

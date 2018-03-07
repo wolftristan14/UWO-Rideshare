@@ -10,11 +10,16 @@ import Foundation
 import UIKit
 
 
+protocol RequestsViewControllerDelegate: class {
+    func didSelectRequest(request: RideRequest)
+}
+
 class RequestsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     var requestsArray = [RideRequest]()
     var requestedArray = [RideRequest]()
+    weak var delegate: RequestsViewControllerDelegate?
 
     
     override func viewDidLoad() {
@@ -71,6 +76,18 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
             return "Requested"
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath[0] == 0 {
+            let request = requestsArray[indexPath[1]]
+            delegate?.didSelectRequest(request: request)
+            
+        } else {
+            let request = requestedArray[indexPath[1]]
+            delegate?.didSelectRequest(request: request)
+        }
     }
 
 }
