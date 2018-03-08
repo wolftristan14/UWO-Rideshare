@@ -97,7 +97,9 @@ class RequestsCoordinator: NSObject {
     }
     
     func showRequestDetail(request: RideRequest) {
+        print("request: \(request.requesterid)")
     let requestDetailCoordinator = RequestDetailCoordinator(navigationController: navigationController!)
+    requestDetailCoordinator.selectedRequest = request
     
     requestDetailCoordinator.delegate = self as? RequestDetailCoordinatorDelegate
     requestDetailCoordinator.start()

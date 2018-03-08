@@ -22,11 +22,15 @@ class RequestDetailViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     weak var delegate: RequestDetailViewControllerDelegate?
-
+    var requesterName: String!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        nameLabel.text = requesterName
     }
     
     @IBAction func acceptRequestButtonTapped(_ sender: Any) {
