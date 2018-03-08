@@ -71,7 +71,6 @@ class YourRidesCoordinator: NSObject {
     }
     
     func loadRequestsAssociatedToJoinedRides() {
-        print("hit load accosiated requests method")
         collRefRequests = Firestore.firestore().collection("Requests")
         
         collRefRequests.whereField("requesterid", isEqualTo: Auth.auth().currentUser?.email ?? "ERROR").whereField("requestStatus", isEqualTo: true).addSnapshotListener() { (querySnapshot, err) in
@@ -80,7 +79,6 @@ class YourRidesCoordinator: NSObject {
             } else {
                 self.joinedRidesArray.removeAll()
                 for document in querySnapshot!.documents {
-                    print("ohshi")
                     //print("\(document.documentID) => \(document.data())")
                     if document.data().count > 0 {
                         
