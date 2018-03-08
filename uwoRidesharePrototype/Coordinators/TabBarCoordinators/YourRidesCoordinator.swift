@@ -18,11 +18,14 @@ class YourRidesCoordinator: NSObject {
     
     var navigationController: UINavigationController?
     var childCoordinators = [NSObject]()
-    var yourRidesArray = [Ride]()
+    var postedRidesArray = [Ride]()
+    var joinedRidesArray = [Ride]()
 
     
     weak var delegate: YourRidesCoordinatorDelegate?
     var collRef: CollectionReference!
+    var collRefRequests: CollectionReference!
+    var docRef: DocumentReference!
     var yourRidesViewController: YourRidesViewController!
     
     init(navigationController: UINavigationController) {
@@ -35,7 +38,7 @@ class YourRidesCoordinator: NSObject {
         yourRidesViewController = navigationController?.visibleViewController?.childViewControllers[1] as! YourRidesViewController
         yourRidesViewController.delegate = self
         loadFirebaseData()
-
+        loadRequestsAssociatedToJoinedRides()
 
     }
     
@@ -49,22 +52,65 @@ class YourRidesCoordinator: NSObject {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                self.yourRidesArray.removeAll()
+                self.postedRidesArray.removeAll()
                 for document in querySnapshot!.documents {
                     //print("\(document.documentID) => \(document.data())")
                     if document.data().count > 0 {
                         
                         let ride = Ride(docid: document.documentID, origin: document.data()["origin"] as! String, destination: document.data()["destination"] as! String, date: document.data()["date"] as! String, price: document.data()["price"] as! String, availableSeats: document.data()["availableSeats"] as! Int, driverEmail: document.data()["driverEmail"] as! String, driverName: document.data()["driverName"] as! String, passengers: document.data()["passengers"] as! Array, createdOn: document.data()["createdOn"] as! Date)
 
-                    self.yourRidesArray.append(ride)
+                    self.postedRidesArray.append(ride)
                     //print("added ride")
-                    self.yourRidesViewController.rideArray = self.yourRidesArray
+                    self.yourRidesViewController.postedRideArray = self.postedRidesArray
                     self.yourRidesViewController.tableView.reloadData()
                     }
                 }
             }
         }
         
+    }
+    
+    func loadRequestsAssociatedToJoinedRides() {
+        print("hit load accosiated requests method")
+        collRefRequests = Firestore.firestore().collection("Requests")
+        
+        collRefRequests.whereField("requesterid", isEqualTo: Auth.auth().currentUser?.email ?? "ERROR").whereField("requestStatus", isEqualTo: true).addSnapshotListener() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                self.joinedRidesArray.removeAll()
+                for document in querySnapshot!.documents {
+                    print("ohshi")
+                    //print("\(document.documentID) => \(document.data())")
+                    if document.data().count > 0 {
+                        
+                        let rideid = document.data()["rideid"] as! String
+                        print("rideid: \(rideid)")
+                        self.loadJoinedRide(rideid: rideid)
+
+                    }
+                }
+            }
+        }
+        
+        
+    }
+    
+    func loadJoinedRide(rideid: String) {
+        docRef = Firestore.firestore().collection("Rides").document(rideid)
+        
+        docRef.getDocument() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                    let ride = Ride(docid: (querySnapshot?.documentID)!, origin: querySnapshot?.data()["origin"] as! String, destination: querySnapshot?.data()["destination"] as! String, date: querySnapshot?.data()["date"] as! String, price: querySnapshot?.data()["price"] as! String, availableSeats: querySnapshot?.data()["availableSeats"] as! Int, driverEmail: querySnapshot?.data()["driverEmail"] as! String, driverName: querySnapshot?.data()["driverName"] as! String, passengers: querySnapshot?.data()["passengers"] as! Array, createdOn: querySnapshot?.data()["createdOn"] as! Date)
+                        
+                        self.joinedRidesArray.append(ride)
+                        //print("added ride")
+                        self.yourRidesViewController.joinedRidesArray = self.joinedRidesArray
+                        self.yourRidesViewController.tableView.reloadData()
+            }
+        }
     }
     
     func goToAddRideCoordinator() {

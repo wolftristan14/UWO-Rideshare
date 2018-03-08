@@ -20,7 +20,8 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var tableView: UITableView!
     
-    var rideArray = [Ride]()
+    var postedRideArray = [Ride]()
+    var joinedRidesArray = [Ride]()
     
     weak var delegate: YourRidesViewControllerDelegate?
     
@@ -37,12 +38,18 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
         
     }
     
-    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //print("your rides vc number of rows hit")
-        return rideArray.count
+        if section == 0 {
+        return postedRideArray.count
+        } else {
+        return joinedRidesArray.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,34 +57,51 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "yourrides", for: indexPath) as! YourRidesTableViewCell
         
-        if rideArray.count > 0 {
-        let ride = rideArray[indexPath.row]
+        
+        if postedRideArray.count > 0 && indexPath[0] == 0 {
+        let ride = postedRideArray[indexPath.row]
         cell.destinationLabel.text = ride.destination
         cell.originLabel.text = ride.origin
         cell.dateLabel.text = ride.date
         cell.priceLabel.text = ride.price
         cell.availableSeatsLabel.text = "\(ride.availableSeats)"
-        //cell.accessibilityHint = ride.driver
-        //cell.accessibilityElements = ride.passengers
+            return cell
+
+        } else if joinedRidesArray.count > 0 && indexPath[0] == 1 {
+            let ride = joinedRidesArray[indexPath.row]
+            cell.destinationLabel.text = ride.destination
+            cell.originLabel.text = ride.origin
+            cell.dateLabel.text = ride.date
+            cell.priceLabel.text = ride.price
+            cell.availableSeatsLabel.text = "\(ride.availableSeats)"
+            return cell
+
+        } else {
+            return cell
+
         }
         
-        
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let ride = rideArray[indexPath[1]]
-        
+        if indexPath[0] == 0 {
+        let ride = postedRideArray[indexPath[1]]
         delegate?.didSelectRide(ride: ride)
+        } else {
+            let ride = joinedRidesArray[indexPath[1]]
+            delegate?.didSelectRide(ride: ride)
+        }
         
 
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        return "Created"
+        if section == 0 {
+        return "Posted"
+        } else {
+            return "Joined"
+        }
         
     }
 
