@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 protocol RequestDetailViewControllerDelegate: class {
-    
+    func acceptButtonTapped()
+    func declineButtonTapped()
 }
 
 class RequestDetailViewController: UIViewController {
@@ -23,7 +24,11 @@ class RequestDetailViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     weak var delegate: RequestDetailViewControllerDelegate?
     var requesterName: String!
+    var didUseRequestsArray: Bool!
+
+    @IBOutlet weak var acceptButton: UIButton!
     
+    @IBOutlet weak var declineButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +36,19 @@ class RequestDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         nameLabel.text = requesterName
+        
+        if didUseRequestsArray == false {
+            acceptButton.isHidden = true
+            declineButton.isHidden = true
+        }
     }
     
     @IBAction func acceptRequestButtonTapped(_ sender: Any) {
+        delegate?.acceptButtonTapped()
     }
     
     @IBAction func declineRequestButtonTapped(_ sender: Any) {
+        delegate?.declineButtonTapped()
     }
     
 }

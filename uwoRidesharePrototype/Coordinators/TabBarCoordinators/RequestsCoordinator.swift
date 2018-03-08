@@ -48,7 +48,9 @@ class RequestsCoordinator: NSObject {
     func loadFirebaseData()  {
         collRef = Firestore.firestore().collection("Requests")
         
-        collRef.whereField("driverEmail", isEqualTo: Auth.auth().currentUser?.email ?? "ERROR").addSnapshotListener() { (querySnapshot, err) in
+        collRef.whereField("driverEmail", isEqualTo: Auth.auth().currentUser?.email ?? "ERROR")
+            .whereField("requestStatus", isEqualTo: false)
+            .addSnapshotListener() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -57,7 +59,7 @@ class RequestsCoordinator: NSObject {
                     //print("\(document.documentID) => \(document.data())")
                     if document.data().count > 0 {
                         
-                        let request = RideRequest(requesterid: document.data()["requesterid"] as! String, requesterName: document.data()["requesterName"] as! String, rideid: document.data()["rideid"] as! String, createdOn: document.data()["createdOn"] as! Date, requestStatus: document.data()["requestStatus"] as! Bool, driverEmail: document.data()["driverEmail"] as! String, driverName: document.data()["driverName"] as! String)
+                        let request = RideRequest(docid: document.documentID, requesterid: document.data()["requesterid"] as! String, requesterName: document.data()["requesterName"] as! String, rideid: document.data()["rideid"] as! String, createdOn: document.data()["createdOn"] as! Date, requestStatus: document.data()["requestStatus"] as! Bool, driverEmail: document.data()["driverEmail"] as! String, driverName: document.data()["driverName"] as! String)
                         print("made it thorugh first request query")
                         self.requestsArray.append(request)
                         //print("added ride")
@@ -78,7 +80,7 @@ class RequestsCoordinator: NSObject {
                         //print("\(document.documentID) => \(document.data())")
                         if document.data().count > 0 {
                             //print(document)
-                            let request = RideRequest(requesterid: document.data()["requesterid"] as! String, requesterName: document.data()["requesterName"] as! String, rideid: document.data()["rideid"] as! String, createdOn: document.data()["createdOn"] as! Date, requestStatus: document.data()["requestStatus"] as! Bool, driverEmail: document.data()["driverEmail"] as! String, driverName: document.data()["driverName"] as! String)
+                            let request = RideRequest(docid: document.data()["docid"] as! String, requesterid: document.data()["requesterid"] as! String, requesterName: document.data()["requesterName"] as! String, rideid: document.data()["rideid"] as! String, createdOn: document.data()["createdOn"] as! Date, requestStatus: document.data()["requestStatus"] as! Bool, driverEmail: document.data()["driverEmail"] as! String, driverName: document.data()["driverName"] as! String)
                             
                             self.requestedArray.append(request)
                             //print("added ride")
@@ -96,11 +98,11 @@ class RequestsCoordinator: NSObject {
         
     }
     
-    func showRequestDetail(request: RideRequest) {
+    func showRequestDetail(request: RideRequest, didUseRequestsArray: Bool) {
         print("request: \(request.requesterid)")
     let requestDetailCoordinator = RequestDetailCoordinator(navigationController: navigationController!)
     requestDetailCoordinator.selectedRequest = request
-    
+    requestDetailCoordinator.didUseRequestsArray = didUseRequestsArray
     requestDetailCoordinator.delegate = self as? RequestDetailCoordinatorDelegate
     requestDetailCoordinator.start()
     childCoordinators.append(requestDetailCoordinator)
@@ -109,8 +111,8 @@ class RequestsCoordinator: NSObject {
 
 extension RequestsCoordinator: RequestsViewControllerDelegate {
     
-    func didSelectRequest(request: RideRequest) {
-        showRequestDetail(request: request)
+    func didSelectRequest(request: RideRequest, didUseRequestsArray: Bool) {
+        showRequestDetail(request: request, didUseRequestsArray: didUseRequestsArray)
     }
     
 }

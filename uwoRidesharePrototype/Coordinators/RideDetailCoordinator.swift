@@ -78,6 +78,7 @@ class RideDetailCoordinator: NSObject {
         
 
         docRefRequests = Firestore.firestore().collection("Requests").addDocument(data: [
+            "docid": "",
             "requesterid": Auth.auth().currentUser?.email ?? "",
             "requesterName": Auth.auth().currentUser?.displayName ?? "Failed to load",
             "rideid": ride.docid,

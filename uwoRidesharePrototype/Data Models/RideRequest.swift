@@ -10,6 +10,7 @@ import Foundation
 
 class RideRequest {
     
+    var docid: String
     var requesterid: String
     var requesterName: String
     var rideid: String
@@ -20,7 +21,8 @@ class RideRequest {
 
     
     
-    init( requesterid: String, requesterName: String, rideid: String, createdOn: Date, requestStatus: Bool, driverEmail: String, driverName: String) {
+    init(docid: String, requesterid: String, requesterName: String, rideid: String, createdOn: Date, requestStatus: Bool, driverEmail: String, driverName: String) {
+        self.docid = docid
         self.requesterid = requesterid
         self.requesterName = requesterName
         self.rideid = rideid

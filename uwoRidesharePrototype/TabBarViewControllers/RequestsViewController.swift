@@ -11,7 +11,7 @@ import UIKit
 
 
 protocol RequestsViewControllerDelegate: class {
-    func didSelectRequest(request: RideRequest)
+    func didSelectRequest(request: RideRequest, didUseRequestsArray: Bool)
 }
 
 class RequestsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -82,11 +82,11 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
         
         if indexPath[0] == 0 {
             let request = requestsArray[indexPath[1]]
-            delegate?.didSelectRequest(request: request)
+            delegate?.didSelectRequest(request: request, didUseRequestsArray: true)
             
         } else {
             let request = requestedArray[indexPath[1]]
-            delegate?.didSelectRequest(request: request)
+            delegate?.didSelectRequest(request: request, didUseRequestsArray: false)
         }
     }
 

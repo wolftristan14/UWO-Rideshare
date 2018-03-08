@@ -100,7 +100,9 @@
                         <viewLayoutGuide key="safeArea" id="Aiy-IV-FmV"/>
                     </view>
                     <connections>
+                        <outlet property="acceptButton" destination="9F3-X4-iAS" id="fN7-mD-Isf"/>
                         <outlet property="dateLabel" destination="W10-QB-EkM" id="s7s-om-ODG"/>
+                        <outlet property="declineButton" destination="tQL-fI-7c0" id="7Qu-aL-Xtn"/>
                         <outlet property="imageView" destination="cBd-nO-3Ty" id="tce-wM-PeM"/>
                         <outlet property="nameLabel" destination="Cor-Vi-Vl6" id="Pz9-Bc-Nnz"/>
                         <outlet property="originAndDestinationLabel" destination="YfA-6G-91c" id="qaI-pj-OyP"/>
