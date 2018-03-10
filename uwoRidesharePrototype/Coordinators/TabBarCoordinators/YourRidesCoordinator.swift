@@ -85,7 +85,7 @@ class YourRidesCoordinator: NSObject {
                 self.joinedRidesArray.removeAll()
                 
                 if querySnapshot?.documents.count == 0 {
-                    self.yourRidesViewController.joinedRidesgitArray = self.joinedRidesArray
+                    self.yourRidesViewController.joinedRidesArray = self.joinedRidesArray
                     self.yourRidesViewController.tableView.reloadData()
                 }
                 for document in querySnapshot!.documents {
