@@ -51,7 +51,11 @@ class SearchCoordinator: NSObject {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                print("add snapshotlistener hit")
+               // print("add snapshotlistener hit")
+                if querySnapshot?.documents.count == 0 {
+                    self.searchViewController.rideArray = self.allRidesArray
+                    self.searchViewController.tableView.reloadData()
+                }
 
                 for document in querySnapshot!.documents {
                     print(querySnapshot?.documents.count)

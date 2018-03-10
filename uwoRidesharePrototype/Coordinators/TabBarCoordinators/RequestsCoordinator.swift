@@ -54,8 +54,16 @@ class RequestsCoordinator: NSObject {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                print("hit first request query")
                 self.requestsArray.removeAll()
+                
+                if querySnapshot?.documents.count == 0 {
+                self.requestsViewController.requestsArray = self.requestsArray
+                self.requestsViewController.tableView.reloadData()
+                }
+                print("querysnapshot.documents:\(querySnapshot?.documents)")
                 for document in querySnapshot!.documents {
+                    print("document.data.count:\(document.data().count)")
                     //print("\(document.documentID) => \(document.data())")
                     if document.data().count > 0 {
                         
@@ -76,6 +84,12 @@ class RequestsCoordinator: NSObject {
                     print("Error getting documents: \(err)")
                 } else {
                     self.requestedArray.removeAll()
+                    
+                    if querySnapshot?.documents.count == 0 {
+                        self.requestsViewController.requestedArray = self.requestedArray
+                        self.requestsViewController.tableView.reloadData()
+                    }
+                    
                     for document in querySnapshot!.documents {
                         //print("\(document.documentID) => \(document.data())")
                         if document.data().count > 0 {

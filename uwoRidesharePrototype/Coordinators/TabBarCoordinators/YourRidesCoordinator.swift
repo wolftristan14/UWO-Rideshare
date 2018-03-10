@@ -53,6 +53,11 @@ class YourRidesCoordinator: NSObject {
                 print("Error getting documents: \(err)")
             } else {
                 self.postedRidesArray.removeAll()
+                if querySnapshot?.documents.count == 0 {
+                    self.yourRidesViewController.postedRideArray = self.postedRidesArray
+                    self.yourRidesViewController.tableView.reloadData()
+                }
+                
                 for document in querySnapshot!.documents {
                     //print("\(document.documentID) => \(document.data())")
                     if document.data().count > 0 {
@@ -78,6 +83,11 @@ class YourRidesCoordinator: NSObject {
                 print("Error getting documents: \(err)")
             } else {
                 self.joinedRidesArray.removeAll()
+                
+                if querySnapshot?.documents.count == 0 {
+                    self.yourRidesViewController.postedRideArray = self.postedRidesArray
+                    self.yourRidesViewController.tableView.reloadData()
+                }
                 for document in querySnapshot!.documents {
                     //print("\(document.documentID) => \(document.data())")
                     if document.data().count > 0 {
