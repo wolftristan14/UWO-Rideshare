@@ -18,10 +18,28 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     
     var rideArray = [Ride]()
+    var filteredRideArray = [Ride]()
     weak var delegate: SearchViewControllerDelegate!
+    let searchController = UISearchController(searchResultsController: nil)
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Rides"
+        searchController.searchBar.tintColor = UIColor.flatWhite
+        if #available(iOS 11.0, *) {
+        print("iOS 11 available")
+         
+        self.tabBarController?.navigationItem.searchController = searchController
+        } else {
+            print("iOS 11 not available")
+
+            // Fallback on earlier versions
+        }
+        self.tabBarController?.definesPresentationContext = true
         tableView.rowHeight = 129
         
 
@@ -30,7 +48,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         self.tabBarController?.navigationItem.title = "Search"
         self.navigationController?.isNavigationBarHidden = false
 
@@ -73,6 +90,27 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         delegate?.didSelectRide(ride: ride)
     }
     
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+        
+    }
+
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        filteredRideArray = rideArray.filter({( ride : Ride) -> Bool in
+            return ride.destination.lowercased().contains(searchText.lowercased())
+        })
+
+        tableView.reloadData()
+    }
 
 
 }
+
+extension SearchViewController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+}
+
