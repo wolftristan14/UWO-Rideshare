@@ -26,20 +26,20 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Rides"
-        searchController.searchBar.tintColor = UIColor.flatWhite
-        if #available(iOS 11.0, *) {
-        print("iOS 11 available")
-         
-        self.tabBarController?.navigationItem.searchController = searchController
-        } else {
-            print("iOS 11 not available")
-
-            // Fallback on earlier versions
-        }
-        self.tabBarController?.definesPresentationContext = true
+//        searchController.searchResultsUpdater = self
+//        searchController.obscuresBackgroundDuringPresentation = false
+//        searchController.searchBar.placeholder = "Search Rides"
+//        searchController.searchBar.tintColor = UIColor.flatWhite
+//        if #available(iOS 11.0, *) {
+//        print("iOS 11 available")
+//
+//        self.tabBarController?.navigationItem.searchController = searchController
+//        } else {
+//            print("iOS 11 not available")
+//
+//            // Fallback on earlier versions
+//        }
+//        self.tabBarController?.definesPresentationContext = true
         tableView.rowHeight = 129
         
 
@@ -48,6 +48,21 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Rides"
+        searchController.searchBar.tintColor = UIColor.flatWhite
+        if #available(iOS 11.0, *) {
+            print("iOS 11 available")
+            
+            self.tabBarController?.navigationItem.searchController = searchController
+        } else {
+            print("iOS 11 not available")
+            
+            // Fallback on earlier versions
+        }
+        self.tabBarController?.definesPresentationContext = true
         self.tabBarController?.navigationItem.title = "Search"
         self.navigationController?.isNavigationBarHidden = false
 
