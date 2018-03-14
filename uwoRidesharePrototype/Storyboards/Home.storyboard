@@ -19,18 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5y-76-cMA">
-                                <rect key="frame" x="162.5" y="532" width="50" height="68"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="68" id="yki-0X-kap"/>
-                                </constraints>
-                                <state key="normal" image="plusmed"/>
-                                <connections>
-                                    <action selector="addRideButtonTapped:" destination="yzj-X2-JnV" eventType="touchUpInside" id="JBc-um-1GA"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rtT-U8-mca">
-                                <rect key="frame" x="0.0" y="20" width="375" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="524"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="yourrides" rowHeight="129" id="Z42-PX-AeX" customClass="YourRidesTableViewCell" customModule="uwoRidesharePrototype" customModuleProvider="target">
@@ -123,11 +113,21 @@
                                     <outlet property="delegate" destination="yzj-X2-JnV" id="bzz-sg-I0X"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5y-76-cMA">
+                                <rect key="frame" x="162.5" y="532" width="50" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="yki-0X-kap"/>
+                                </constraints>
+                                <state key="normal" image="plusmed"/>
+                                <connections>
+                                    <action selector="addRideButtonTapped:" destination="yzj-X2-JnV" eventType="touchUpInside" id="JBc-um-1GA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="top" secondItem="rtT-U8-mca" secondAttribute="top" identifier="yourridestableviewtop" id="Hfw-xJ-N2G"/>
                             <constraint firstItem="O5y-76-cMA" firstAttribute="top" secondItem="rtT-U8-mca" secondAttribute="bottom" constant="8" id="Jck-2p-fYc"/>
-                            <constraint firstItem="rtT-U8-mca" firstAttribute="top" secondItem="4uo-dU-2Yo" secondAttribute="top" id="PgL-hB-dhf"/>
                             <constraint firstItem="4uo-dU-2Yo" firstAttribute="bottom" secondItem="O5y-76-cMA" secondAttribute="bottom" constant="18" id="R15-zy-oEx"/>
                             <constraint firstItem="rtT-U8-mca" firstAttribute="leading" secondItem="4uo-dU-2Yo" secondAttribute="leading" id="XLJ-Se-zuK"/>
                             <constraint firstItem="O5y-76-cMA" firstAttribute="centerX" secondItem="a7h-Sb-H5W" secondAttribute="centerX" id="j4s-lR-Gm0"/>
@@ -147,7 +147,7 @@
         <!--Search-->
         <scene sceneID="igh-l2-5DG">
             <objects>
-                <viewController id="BdH-ce-2RA" customClass="SearchViewController" customModule="uwoRidesharePrototype" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BdH-ce-2RA" customClass="SearchViewController" customModule="uwoRidesharePrototype" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M32-KU-Bze">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -296,7 +296,7 @@
                                     <action selector="signOutButtonTapped:" destination="rEB-ZN-Rwj" eventType="touchUpInside" id="3Ho-gA-uAk"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dSZ-58-nKW" customClass="ProfileImageStyleManager" customModule="uwoRidesharePrototype" customModuleProvider="target">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dSZ-58-nKW" customClass="ProfileImageStyleManager" customModule="uwoRidesharePrototype" customModuleProvider="target">
                                 <rect key="frame" x="112.5" y="30" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="UzQ-SH-DrP"/>
@@ -439,7 +439,6 @@
                     <tabBarItem key="tabBarItem" title="Requests" image="icons8-service-bell-filled-100" id="fmc-sD-ePc">
                         <color key="badgeColor" red="0.3707177639" green="0.25714370609999998" blue="0.75468015669999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="vFY-OV-w9X" id="tJR-KL-HJ5"/>
                     </connections>

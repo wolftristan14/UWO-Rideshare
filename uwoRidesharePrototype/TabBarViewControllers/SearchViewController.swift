@@ -26,43 +26,27 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        searchController.searchResultsUpdater = self
-//        searchController.obscuresBackgroundDuringPresentation = false
-//        searchController.searchBar.placeholder = "Search Rides"
-//        searchController.searchBar.tintColor = UIColor.flatWhite
-//        if #available(iOS 11.0, *) {
-//        print("iOS 11 available")
-//
-//        self.tabBarController?.navigationItem.searchController = searchController
-//        } else {
-//            print("iOS 11 not available")
-//
-//            // Fallback on earlier versions
-//        }
-//        self.tabBarController?.definesPresentationContext = true
         tableView.rowHeight = 129
-        
 
 
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        print(searchController)
+
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Rides"
         searchController.searchBar.tintColor = UIColor.flatWhite
         if #available(iOS 11.0, *) {
             print("iOS 11 available")
-            
-            self.tabBarController?.navigationItem.searchController = searchController
+            self.tableView.tableHeaderView = self.searchController.searchBar
         } else {
             print("iOS 11 not available")
             
             // Fallback on earlier versions
         }
-        self.tabBarController?.definesPresentationContext = true
         self.tabBarController?.navigationItem.title = "Search"
         self.navigationController?.isNavigationBarHidden = false
 
@@ -117,6 +101,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         })
 
         tableView.reloadData()
+    }
+    func scrollViewDidChangeAdjustedContentInset(_ scrollView: UIScrollView) {
+        print("scrollViewDidChangeAdjustedContentInset")
+    }
+
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        print("stopped decelerating")
     }
 
 

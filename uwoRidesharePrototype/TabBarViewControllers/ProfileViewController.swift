@@ -28,12 +28,10 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         if #available(iOS 11.0, *) {
-            print("iOS 11 available")
-            
+            self.definesPresentationContext = true
             self.tabBarController?.navigationItem.searchController = nil
-        } else {
-            print("iOS 11 not available")
             
+        } else {
             // Fallback on earlier versions
         }
         self.tabBarController?.navigationItem.title = "Profile / Settings"

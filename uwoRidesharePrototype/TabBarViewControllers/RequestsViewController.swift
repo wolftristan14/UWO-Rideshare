@@ -19,6 +19,8 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var tableView: UITableView!
     var requestsArray = [RideRequest]()
     var requestedArray = [RideRequest]()
+    var oldConstraintArray = [NSLayoutConstraint]()
+    var newConstraintArray = [NSLayoutConstraint]()
     weak var delegate: RequestsViewControllerDelegate?
 
     
@@ -32,14 +34,41 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewWillAppear(_ animated: Bool) {
         if #available(iOS 11.0, *) {
-            print("iOS 11 available")
-            
             self.tabBarController?.navigationItem.searchController = nil
-        } else {
-            print("iOS 11 not available")
             
+        } else {
             // Fallback on earlier versions
         }
+//        print(oldConstraintArray[0].isActive)
+//        print(newConstraintArray[0].isActive)
+//        print(self.tabBarController?.navigationItem.searchController?.searchBar.frame.height)
+//        
+//        
+//        if (self.tabBarController?.navigationItem.searchController?.searchBar.frame.height) ?? CGFloat.init(0) > CGFloat(50) {
+//            print("height > 50")
+//            self.tabBarController?.navigationItem.searchController = nil
+//            
+//            oldConstraintArray[0].isActive = false
+//            newConstraintArray[0].isActive = true
+//            
+//        } else {
+//            let unwrappedConstraint = self.view.constraints.filter{ $0.identifier == "newconstraint"}.first
+//            if let constraint = unwrappedConstraint {
+//                if constraint.isActive {
+//                    print("newconstraint is active")
+//                    constraint.isActive = false
+//                    oldConstraintArray[0].isActive = true
+//                }
+//            }
+//            
+//        }
+//        
+//    } else {
+//    print("iOS 11 not available")
+//    
+//    // Fallback on earlier versions
+//    }
+  
 
     self.tabBarController?.navigationItem.title = "Requests"
     

@@ -22,30 +22,20 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var postedRideArray = [Ride]()
     var joinedRidesArray = [Ride]()
-    
+
     weak var delegate: YourRidesViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 129
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if #available(iOS 11.0, *) {
-            print("iOS 11 available")
-            
-            self.tabBarController?.navigationItem.searchController = nil
-        } else {
-            print("iOS 11 not available")
-            
-            // Fallback on earlier versions
-        }
-
     self.tabBarController?.navigationItem.title = "Your Rides"
-    self.tableView.isEditing = false
+    //self.tableView.isEditing = false
         
     }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -111,7 +101,7 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
         } else {
             return "Joined"
         }
-        
+
     }
 
     @IBAction func addRideButtonTapped(_ sender: Any) {
