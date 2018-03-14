@@ -55,16 +55,20 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //print("search vc rows in section hit")
+        if isFiltering() {
+            return filteredRideArray.count
+        }
+        
         return rideArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //print("searchvc cell for row hit")
         let cell = tableView.dequeueReusableCell(withIdentifier: "search", for: indexPath) as! SearchTableViewCell
+        let ride: Ride
         
-        if rideArray.count > 0 {
-            let ride = rideArray[indexPath.row]
+        if rideArray.count > 0 && isFiltering() {
+            ride = filteredRideArray[indexPath.row]
             cell.destinationLabel.text = ride.destination
             cell.originLabel.text = ride.origin
             cell.dateLabel.text = ride.date
@@ -73,8 +77,16 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             //cell.accessibilityHint = ride.driver
             //cell.accessibilityElements = ride.passengers
 
+        } else if rideArray.count > 0 && !isFiltering() {
+            ride = rideArray[indexPath.row]
+            cell.destinationLabel.text = ride.destination
+            cell.originLabel.text = ride.origin
+            cell.dateLabel.text = ride.date
+            cell.priceLabel.text = ride.price
+            cell.availableSeatsLabel.text = "\(ride.availableSeats)"
         }
         
+
         
         
         
@@ -98,19 +110,17 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
         filteredRideArray = rideArray.filter({( ride : Ride) -> Bool in
             return ride.destination.lowercased().contains(searchText.lowercased())
+
+            
         })
 
         tableView.reloadData()
     }
-    func scrollViewDidChangeAdjustedContentInset(_ scrollView: UIScrollView) {
-        print("scrollViewDidChangeAdjustedContentInset")
-    }
-
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        print("stopped decelerating")
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
     }
-
+    
 
 }
 
