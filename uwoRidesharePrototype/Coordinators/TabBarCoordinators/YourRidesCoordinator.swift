@@ -111,7 +111,7 @@ class YourRidesCoordinator: NSObject {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                    let ride = Ride(docid: (querySnapshot?.documentID)!, origin: querySnapshot?.data()["origin"] as! String, destination: querySnapshot?.data()["destination"] as! String, date: querySnapshot?.data()["date"] as! String, price: querySnapshot?.data()["price"] as! String, availableSeats: querySnapshot?.data()["availableSeats"] as! Int, driverEmail: querySnapshot?.data()["driverEmail"] as! String, driverName: querySnapshot?.data()["driverName"] as! String, passengers: querySnapshot?.data()["passengers"] as! Array, createdOn: querySnapshot?.data()["createdOn"] as! Date)
+                    let ride = Ride(docid: (querySnapshot?.documentID)!, origin: querySnapshot?.data()!["origin"] as! String, destination: querySnapshot?.data()!["destination"] as! String, date: querySnapshot?.data()!["date"] as! String, price: querySnapshot?.data()!["price"] as! String, availableSeats: querySnapshot?.data()!["availableSeats"] as! Int, driverEmail: querySnapshot?.data()!["driverEmail"] as! String, driverName: querySnapshot?.data()!["driverName"] as! String, passengers: querySnapshot?.data()!["passengers"] as! Array, createdOn: querySnapshot?.data()!["createdOn"] as! Date)
                         
                         self.joinedRidesArray.append(ride)
                         //print("added ride")

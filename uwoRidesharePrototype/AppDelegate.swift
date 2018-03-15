@@ -12,14 +12,19 @@ import FirebaseFirestore
 import FirebaseAuthUI
 import FBSDKCoreKit
 import FirebaseFacebookAuthUI
+import UserNotifications
+import SafariServices
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
     
     var window: UIWindow?
     var rootViewController: UINavigationController?
     var appCoordinator: AppCoordinator?
+    
+    var viewActionIdentifier = "VIEW_ACTION"
+    var newsCategoryIdentifier = "NEWS_CATEGORY"
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -50,10 +55,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             appCoordinator?.start()
         }
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            Messaging.messaging().delegate = self
+            let token = Messaging.messaging().fcmToken
+            print("FCM token: \(token ?? "")")
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
         
+        application.registerForRemoteNotifications()
+
+
         return true
     }
-    //might have to mve this stuff
+    
+    //might have to move this stuff
     func application(_ app: UIApplication, open url: URL,
                      options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
         let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?
@@ -62,6 +86,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         // other URL handling goes here.
         return false
+    }
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print("Firebase registration token: \(fcmToken)")
+        
+        // TODO: If necessary send token to application server.
+        // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
     
     
@@ -88,6 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+
     
 }
 

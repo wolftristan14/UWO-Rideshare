@@ -55,7 +55,7 @@ class RequestDetailCoordinator: NSObject {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                self.ride = Ride(docid: (querySnapshot?.documentID)!, origin: querySnapshot?.data()["origin"] as! String, destination: querySnapshot?.data()["destination"] as! String, date: querySnapshot?.data()["date"] as! String, price: querySnapshot?.data()["price"] as! String, availableSeats: querySnapshot?.data()["availableSeats"] as! Int, driverEmail: querySnapshot?.data()["driverEmail"] as! String, driverName: querySnapshot?.data()["driverName"] as! String, passengers: querySnapshot?.data()["passengers"] as! Array, createdOn: querySnapshot?.data()["createdOn"] as! Date)
+                self.ride = Ride(docid: (querySnapshot?.documentID)!, origin: querySnapshot?.data()!["origin"] as! String, destination: querySnapshot?.data()!["destination"] as! String, date: querySnapshot?.data()!["date"] as! String, price: querySnapshot?.data()!["price"] as! String, availableSeats: querySnapshot?.data()!["availableSeats"] as! Int, driverEmail: querySnapshot?.data()!["driverEmail"] as! String, driverName: querySnapshot?.data()!["driverName"] as! String, passengers: querySnapshot?.data()!["passengers"] as! Array, createdOn: querySnapshot?.data()!["createdOn"] as! Date)
                 
                 self.requestDetailVC.originAndDestinationLabel.text = "\(self.ride.origin) to \(self.ride.destination)"
                 self.requestDetailVC.dateLabel.text = self.ride.date
@@ -75,14 +75,15 @@ class RequestDetailCoordinator: NSObject {
                 print("Error getting documents: \(err)")
             } else {
                 //print(querySnapshot?.documentID)
-                let downloadURLString = querySnapshot?.data()["imageDownloadURL"] as? String
-                self.requestDetailVC.imageView.loadImageFromCache(downloadURLString: downloadURLString!) { image in
+                let downloadURLString = querySnapshot?.data()?["imageDownloadURL"] as? String
+                if let downloadURL = downloadURLString {
+                self.requestDetailVC.imageView.loadImageFromCache(downloadURLString: downloadURL) { image in
                     
                     self.requestDetailVC.imageView.image = image
                     
                 }
                 
-                
+                }
             }
         }
     }

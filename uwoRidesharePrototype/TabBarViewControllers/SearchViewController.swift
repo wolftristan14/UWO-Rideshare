@@ -110,7 +110,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
         filteredRideArray = rideArray.filter({( ride : Ride) -> Bool in
             return ride.destination.lowercased().contains(searchText.lowercased())
-
+            // make this a lot better
             
         })
 

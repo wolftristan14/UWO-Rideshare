@@ -62,13 +62,14 @@ class RideDetailCoordinator: NSObject {
             } else {
                 print("ye")
                 //rideDetailVC.driverLabel.text = querySnapshot?.data()["name"] as? String
-                let downloadURLString = querySnapshot?.data()["imageDownloadURL"] as? String
-                self.rideDetailVC.imageView.loadImageFromCache(downloadURLString: downloadURLString!) { image in
+                let downloadURLString = querySnapshot?.data()?["imageDownloadURL"] as? String
+                if let downloadURL = downloadURLString {
+                self.rideDetailVC.imageView.loadImageFromCache(downloadURLString: downloadURL) { image in
                     
                     self.rideDetailVC.imageView.image = image
                 
                 }
-
+                }
 
             }
         }

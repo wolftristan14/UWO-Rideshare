@@ -296,7 +296,7 @@
                                     <action selector="signOutButtonTapped:" destination="rEB-ZN-Rwj" eventType="touchUpInside" id="3Ho-gA-uAk"/>
                                 </connections>
                             </button>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dSZ-58-nKW" customClass="ProfileImageStyleManager" customModule="uwoRidesharePrototype" customModuleProvider="target">
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dSZ-58-nKW" customClass="ProfileImageStyleManager" customModule="uwoRidesharePrototype" customModuleProvider="target">
                                 <rect key="frame" x="112.5" y="30" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="UzQ-SH-DrP"/>
