@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import InstantSearch
 
 protocol SearchViewControllerDelegate: class {
     //probably change to just passing ride
     func didSelectRide(ride: Ride)
+    func didSearchForRide(origin: String, destination: String)
 }
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SearchViewController: HitsTableViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: HitsTableWidget!
     
     var rideArray = [Ride]()
     var filteredRideArray = [Ride]()
@@ -26,6 +28,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    //InstantSearch.shared
+    InstantSearch.shared.registerAllWidgets(in: self.view)
+        hitsTableView = tableView
         tableView.rowHeight = 129
 
 
@@ -33,101 +38,109 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(searchController)
-
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Rides"
-        searchController.searchBar.tintColor = UIColor.flatWhite
-        if #available(iOS 11.0, *) {
-            print("iOS 11 available")
-            self.tableView.tableHeaderView = self.searchController.searchBar
-        } else {
-            print("iOS 11 not available")
-            
-            // Fallback on earlier versions
-        }
+//        print(searchController)
+//
+//        searchController.searchResultsUpdater = self
+//        searchController.obscuresBackgroundDuringPresentation = false
+//        searchController.searchBar.placeholder = "Search Rides"
+//        searchController.searchBar.tintColor = UIColor.flatWhite
+//        if #available(iOS 11.0, *) {
+//            print("iOS 11 available")
+//            self.tableView.tableHeaderView = self.searchController.searchBar
+//        } else {
+//            print("iOS 11 not available")
+//
+//            // Fallback on earlier versions
+//        }
         self.tabBarController?.navigationItem.title = "Search"
         self.navigationController?.isNavigationBarHidden = false
 
         
     }
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFiltering() {
-            return filteredRideArray.count
-        }
-        
-        return rideArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //print("searchvc cell for row hit")
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, containing hit: [String : Any]) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "search", for: indexPath) as! SearchTableViewCell
-        let ride: Ride
         
-        if rideArray.count > 0 && isFiltering() {
-            ride = filteredRideArray[indexPath.row]
-            cell.destinationLabel.text = ride.destination
-            cell.originLabel.text = ride.origin
-            cell.dateLabel.text = ride.date
-            cell.priceLabel.text = ride.price
-            cell.availableSeatsLabel.text = "\(ride.availableSeats)"
-            //cell.accessibilityHint = ride.driver
-            //cell.accessibilityElements = ride.passengers
-
-        } else if rideArray.count > 0 && !isFiltering() {
-            ride = rideArray[indexPath.row]
-            cell.destinationLabel.text = ride.destination
-            cell.originLabel.text = ride.origin
-            cell.dateLabel.text = ride.date
-            cell.priceLabel.text = ride.price
-            cell.availableSeatsLabel.text = "\(ride.availableSeats)"
-        }
-        
-
-        
-        
-        
+        cell.originLabel.text = hit["origin"] as? String
+        cell.destinationLabel.text = hit["destination"] as? String
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    let ride = rideArray[indexPath[1]]
-        
-        delegate?.didSelectRide(ride: ride)
-    }
-    
-    func searchBarIsEmpty() -> Bool {
-        // Returns true if the text is empty or nil
-        return searchController.searchBar.text?.isEmpty ?? true
-        
-    }
+//        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        if isFiltering() {
+//            return filteredRideArray.count
+//        }
+//
+//        return rideArray.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        //print("searchvc cell for row hit")
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "search", for: indexPath) as! SearchTableViewCell
+//        let ride: Ride
+//
+//        if rideArray.count > 0 && isFiltering() {
+//            ride = filteredRideArray[indexPath.row]
+//            cell.destinationLabel.text = ride.destination
+//            cell.originLabel.text = ride.origin
+//            cell.dateLabel.text = ride.date
+//            cell.priceLabel.text = ride.price
+//            cell.availableSeatsLabel.text = "\(ride.availableSeats)"
+//            //cell.accessibilityHint = ride.driver
+//            //cell.accessibilityElements = ride.passengers
+//
+//        } else if rideArray.count > 0 && !isFiltering() {
+//            ride = rideArray[indexPath.row]
+//            cell.destinationLabel.text = ride.destination
+//            cell.originLabel.text = ride.origin
+//            cell.dateLabel.text = ride.date
+//            cell.priceLabel.text = ride.price
+//            cell.availableSeatsLabel.text = "\(ride.availableSeats)"
+//        }
+//
+//
+//
+//
+//
+//
+//        return cell
+//    }
+//
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//    let ride = rideArray[indexPath[1]]
+//
+//        delegate?.didSelectRide(ride: ride)
+//    }
 
-    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-        filteredRideArray = rideArray.filter({( ride : Ride) -> Bool in
-            return ride.destination.lowercased().contains(searchText.lowercased())
-            // make this a lot better
-            
-        })
+//    func searchBarIsEmpty() -> Bool {
+//        // Returns true if the text is empty or nil
+//        return searchController.searchBar.text?.isEmpty ?? true
+//
+//    }
+//
+//    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+//        filteredRideArray = rideArray.filter({( ride : Ride) -> Bool in
+//            return ride.destination.lowercased().contains(searchText.lowercased())
+//            // make this a lot better
+//
+//        })
+//
+//        tableView.reloadData()
+//    }
+//
+//    func isFiltering() -> Bool {
+//        return searchController.isActive && !searchBarIsEmpty()
+//    }
 
-        tableView.reloadData()
-    }
-    
-    func isFiltering() -> Bool {
-        return searchController.isActive && !searchBarIsEmpty()
-    }
-    
 
 }
 
-extension SearchViewController: UISearchResultsUpdating {
-    // MARK: - UISearchResultsUpdating Delegate
-    func updateSearchResults(for searchController: UISearchController) {
-        filterContentForSearchText(searchController.searchBar.text!)
-    }
-}
+//extension SearchViewController: UISearchResultsUpdating {
+//    // MARK: - UISearchResultsUpdating Delegate
+//    func updateSearchResults(for searchController: UISearchController) {
+//        filterContentForSearchText(searchController.searchBar.text!)
+//    }
+//}
 

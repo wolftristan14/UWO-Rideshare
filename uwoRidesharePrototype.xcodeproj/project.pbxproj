@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		884020E112A33A06A72C7383 /* Pods_uwoRidesharePrototype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9FEB0094A2E7BDD8F161E6 /* Pods_uwoRidesharePrototype.framework */; };
 		A10433E72022654C00F0E8FD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10433E62022654C00F0E8FD /* SearchTableViewCell.swift */; };
 		A10433EA2024C66D00F0E8FD /* RideDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10433E92024C66D00F0E8FD /* RideDetailViewController.swift */; };
 		A10433EC2024C68800F0E8FD /* RideDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A10433EB2024C68800F0E8FD /* RideDetail.storyboard */; };
@@ -55,12 +56,9 @@
 		A183825020166C20004180BE /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183824F20166C20004180BE /* ProfileCoordinator.swift */; };
 		A183825220166C31004180BE /* MessagesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183825120166C31004180BE /* MessagesCoordinator.swift */; };
 		A1CFAFC020433EAD00914CF2 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CFAFBF20433EAD00914CF2 /* UIImageViewExtension.swift */; };
-		F6E1245E3C83F4DCB4C816EF /* Pods_uwoRidesharePrototype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB5A35D2A96D90A54FC594D6 /* Pods_uwoRidesharePrototype.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B36DE84DE51EE991C6757CC /* Pods-uwoRidesharePrototype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uwoRidesharePrototype.release.xcconfig"; path = "Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype.release.xcconfig"; sourceTree = "<group>"; };
-		5940F0ED9DE579162BCA9185 /* Pods-uwoRidesharePrototype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uwoRidesharePrototype.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype.debug.xcconfig"; sourceTree = "<group>"; };
 		A10433E62022654C00F0E8FD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		A10433E92024C66D00F0E8FD /* RideDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideDetailViewController.swift; sourceTree = "<group>"; };
 		A10433EB2024C68800F0E8FD /* RideDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RideDetail.storyboard; sourceTree = "<group>"; };
@@ -112,7 +110,9 @@
 		A183824F20166C20004180BE /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		A183825120166C31004180BE /* MessagesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesCoordinator.swift; sourceTree = "<group>"; };
 		A1CFAFBF20433EAD00914CF2 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
-		CB5A35D2A96D90A54FC594D6 /* Pods_uwoRidesharePrototype.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uwoRidesharePrototype.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4E0A3BFA6F3EAC27AA4B59A /* Pods-uwoRidesharePrototype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uwoRidesharePrototype.release.xcconfig"; path = "Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype.release.xcconfig"; sourceTree = "<group>"; };
+		CD97CC8503DAEBCDEA80D13F /* Pods-uwoRidesharePrototype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uwoRidesharePrototype.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype.debug.xcconfig"; sourceTree = "<group>"; };
+		EE9FEB0094A2E7BDD8F161E6 /* Pods_uwoRidesharePrototype.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uwoRidesharePrototype.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +123,7 @@
 				A16576C81FE6EA4F009985A1 /* FBSDKCoreKit.framework in Frameworks */,
 				A16576C91FE6EA4F009985A1 /* FBSDKLoginKit.framework in Frameworks */,
 				A16576C71FE6EA4F009985A1 /* Bolts.framework in Frameworks */,
-				F6E1245E3C83F4DCB4C816EF /* Pods_uwoRidesharePrototype.framework in Frameworks */,
+				884020E112A33A06A72C7383 /* Pods_uwoRidesharePrototype.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,16 +136,16 @@
 				A16576C41FE6EA4D009985A1 /* Bolts.framework */,
 				A16576C51FE6EA4F009985A1 /* FBSDKCoreKit.framework */,
 				A16576C61FE6EA4F009985A1 /* FBSDKLoginKit.framework */,
-				CB5A35D2A96D90A54FC594D6 /* Pods_uwoRidesharePrototype.framework */,
+				EE9FEB0094A2E7BDD8F161E6 /* Pods_uwoRidesharePrototype.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		752D195946AB32DCD03B17D9 /* Pods */ = {
+		7A49ABEF324A48C3CD509144 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5940F0ED9DE579162BCA9185 /* Pods-uwoRidesharePrototype.debug.xcconfig */,
-				2B36DE84DE51EE991C6757CC /* Pods-uwoRidesharePrototype.release.xcconfig */,
+				CD97CC8503DAEBCDEA80D13F /* Pods-uwoRidesharePrototype.debug.xcconfig */,
+				B4E0A3BFA6F3EAC27AA4B59A /* Pods-uwoRidesharePrototype.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -217,7 +217,7 @@
 				A17000931FD870940003751B /* uwoRidesharePrototype */,
 				A17000921FD870940003751B /* Products */,
 				13AB81F1FB20BCE1D124064F /* Frameworks */,
-				752D195946AB32DCD03B17D9 /* Pods */,
+				7A49ABEF324A48C3CD509144 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -309,12 +309,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A17000A31FD870940003751B /* Build configuration list for PBXNativeTarget "uwoRidesharePrototype" */;
 			buildPhases = (
-				5BFE6BB9BD98ED9B9519FC1E /* [CP] Check Pods Manifest.lock */,
+				8BEB9B0AA193282DF44D0375 /* [CP] Check Pods Manifest.lock */,
 				A170008D1FD870940003751B /* Sources */,
 				A170008E1FD870940003751B /* Frameworks */,
 				A170008F1FD870940003751B /* Resources */,
-				CF6F3A25DADEEDC265D74690 /* [CP] Embed Pods Frameworks */,
-				6448C17E4976C67B4D3B84F7 /* [CP] Copy Pods Resources */,
+				64FB35E31B773B83412D5C3C /* [CP] Embed Pods Frameworks */,
+				463C6F4A77C343EAC9F1B95B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -388,25 +388,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5BFE6BB9BD98ED9B9519FC1E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-uwoRidesharePrototype-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6448C17E4976C67B4D3B84F7 /* [CP] Copy Pods Resources */ = {
+		463C6F4A77C343EAC9F1B95B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -426,13 +408,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CF6F3A25DADEEDC265D74690 /* [CP] Embed Pods Frameworks */ = {
+		64FB35E31B773B83412D5C3C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AlgoliaSearch-Client-Swift/AlgoliaSearch.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
@@ -440,6 +423,8 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/InstantSearch-Core-Swift/InstantSearchCore.framework",
+				"${BUILT_PRODUCTS_DIR}/InstantSearch-iOS/InstantSearch.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
@@ -450,6 +435,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlgoliaSearch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
@@ -457,6 +443,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InstantSearchCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InstantSearch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
@@ -468,6 +456,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8BEB9B0AA193282DF44D0375 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-uwoRidesharePrototype-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -646,7 +652,7 @@
 		};
 		A17000A41FD870940003751B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5940F0ED9DE579162BCA9185 /* Pods-uwoRidesharePrototype.debug.xcconfig */;
+			baseConfigurationReference = CD97CC8503DAEBCDEA80D13F /* Pods-uwoRidesharePrototype.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = uwoRidesharePrototype/uwoRidesharePrototype.entitlements;
@@ -668,7 +674,7 @@
 		};
 		A17000A51FD870940003751B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B36DE84DE51EE991C6757CC /* Pods-uwoRidesharePrototype.release.xcconfig */;
+			baseConfigurationReference = B4E0A3BFA6F3EAC27AA4B59A /* Pods-uwoRidesharePrototype.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = uwoRidesharePrototype/uwoRidesharePrototype.entitlements;

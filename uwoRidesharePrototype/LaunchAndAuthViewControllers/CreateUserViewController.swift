@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 protocol CreateUserViewControllerDelegate: class {  // class so you can make delegate weak
-    func didFinishCreatingUser(name: String, phoneNumber: String, image: UIImage)
+    func didFinishCreatingUser(name: String, phoneNumber: String, image: UIImage, notificationTokens: [String])
     
 }
 
@@ -72,7 +72,8 @@ class CreateUserViewController: UIViewController, UIImagePickerControllerDelegat
             
         } else {
             
-            self.delegate?.didFinishCreatingUser(name: nameTextField.text ?? "error", phoneNumber: phoneNumberTextField.text ?? "error", image: imageView.image ?? #imageLiteral(resourceName: "default-user"))
+            let deviceToken = UserDefaults.standard.value(forKey: "devicetoken")
+            self.delegate?.didFinishCreatingUser(name: nameTextField.text ?? "error", phoneNumber: phoneNumberTextField.text ?? "error", image: imageView.image ?? #imageLiteral(resourceName: "default-user"), notificationTokens: [deviceToken as! String])
 
         }
         

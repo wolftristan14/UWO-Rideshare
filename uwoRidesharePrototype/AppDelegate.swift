@@ -6,6 +6,7 @@
 //  Copyright © 2017 Tristan Wolf. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import Firebase
 import FirebaseFirestore
@@ -14,6 +15,7 @@ import FBSDKCoreKit
 import FirebaseFacebookAuthUI
 import UserNotifications
 import SafariServices
+import InstantSearch
 
 
 @UIApplicationMain
@@ -23,8 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var rootViewController: UINavigationController?
     var appCoordinator: AppCoordinator?
     
-    var viewActionIdentifier = "VIEW_ACTION"
-    var newsCategoryIdentifier = "NEWS_CATEGORY"
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -72,6 +72,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         
         application.registerForRemoteNotifications()
+        
+        InstantSearch.shared.configure(appID: "NB1PXG4WJM", apiKey: "6132710f15ba25f5b14971533c42c209", index: "Rides")
+        InstantSearch.shared.params.attributesToRetrieve = ["origin", "destination"]
+        InstantSearch.shared.params.attributesToHighlight = ["origin", "destination"]
 
 
         return true
@@ -88,12 +92,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return false
     }
     
+    
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
         
+        UserDefaults.standard.setValue(fcmToken, forKey: "devicetoken")
+        UserDefaults.standard.synchronize()
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
+    
+
     
     
     

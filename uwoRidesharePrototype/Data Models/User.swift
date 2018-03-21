@@ -14,14 +14,16 @@ class User {
     var phoneNumber: String
     var email: String
     var imageDownloadURL: String?
+    var notificationTokens: [String]
     
     
-    init(name: String, phoneNumber: String, email: String, imageDownloadURL: String?) {
+    init(name: String, phoneNumber: String, email: String, imageDownloadURL: String?, notificationTokens: [String]) {
         
         self.name = name
         self.imageDownloadURL = imageDownloadURL
         self.phoneNumber = phoneNumber
         self.email = email
+        self.notificationTokens = notificationTokens
     
     }
 }

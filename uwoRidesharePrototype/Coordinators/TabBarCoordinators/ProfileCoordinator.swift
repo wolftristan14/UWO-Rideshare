@@ -51,7 +51,7 @@ class ProfileCoordinator: NSObject {
                     //print("\(document.documentID) => \(document.data())")
                     if document.data().count > 0 {
                         
-                        self.user = User(name: document.data()["name"] as! String, phoneNumber: document.data()["phoneNumber"] as! String, email: document.data()["email"] as! String, imageDownloadURL: document.data()["imageDownloadURL"] as? String)
+                        self.user = User(name: document.data()["name"] as! String, phoneNumber: document.data()["phoneNumber"] as! String, email: document.data()["email"] as! String, imageDownloadURL: document.data()["imageDownloadURL"] as? String, notificationTokens: document.data()["notificationTokens"] as! [String])
                         self.profileViewController.imageView.loadImageFromCache(downloadURLString: self.user.imageDownloadURL!) {image in
                             
                             self.profileViewController.imageView.image = image

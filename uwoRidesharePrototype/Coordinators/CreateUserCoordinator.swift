@@ -72,7 +72,8 @@ class CreateUserCoordinator: NSObject {
             "email": user.email,
             "name": user.name,
             "phoneNumber": user.phoneNumber,
-            "imageDownloadURL": user.imageDownloadURL
+            "imageDownloadURL": user.imageDownloadURL,
+            "notificationTokens": user.notificationTokens
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")
@@ -91,9 +92,9 @@ class CreateUserCoordinator: NSObject {
 }
 
 extension CreateUserCoordinator: CreateUserViewControllerDelegate {
-    func didFinishCreatingUser(name: String, phoneNumber: String, image: UIImage) {
+    func didFinishCreatingUser(name: String, phoneNumber: String, image: UIImage, notificationTokens: [String]) {
         self.navigationController?.popViewController(animated: true)
-        newUser = User(name: name, phoneNumber: phoneNumber, email: Auth.auth().currentUser?.email ?? "error", imageDownloadURL: "")
+        newUser = User(name: name, phoneNumber: phoneNumber, email: Auth.auth().currentUser?.email ?? "error", imageDownloadURL: "", notificationTokens: notificationTokens)
         storeImageInFirebaseStorage(image: image) {imageDownloadURL in
             self.newUser.imageDownloadURL = imageDownloadURL
             self.writeNewUserDataToDatabase(user: self.newUser)
