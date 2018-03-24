@@ -103,24 +103,24 @@ class SearchCoordinator: NSObject {
         
     }
     
-   func loadSearchData(origin: String, destination: String) {
-    print("origin: \(origin), destination: \(destination)")
-    let queries = [
-        IndexQuery(indexName: "Rides", query: Query(query: origin)),
-        IndexQuery(indexName: "Rides", query: Query(query: destination))
-    ]
-    
-    client.multipleQueries(queries, completionHandler: { (content, error) -> Void in
-        if error == nil {
-            //let allResults = content!["results"]
-    
-           // print("Result: \(content!["results"])")
-        }
-    })
-    
-    }
+//   func loadSearchData(origin: String, destination: String) {
+//    print("origin: \(origin), destination: \(destination)")
+//    let queries = [
+//        IndexQuery(indexName: "Rides", query: Query(query: origin)),
+//        IndexQuery(indexName: "Rides", query: Query(query: destination))
+//    ]
+//
+//    client.multipleQueries(queries, completionHandler: { (content, error) -> Void in
+//        if error == nil {
+//            //let allResults = content!["results"]
+//
+//           // print("Result: \(content!["results"])")
+//        }
+//    })
+//
+//    }
 
-    func showRideDetail(ride: Ride) {
+    func showRideDetail(ride: RideRecord) {
         let rideDetailCoordinator = RideDetailCoordinator(navigationController: navigationController!)
         rideDetailCoordinator.delegate = self as RideDetailCoordinatorDelegate
         rideDetailCoordinator.selectedRide = ride
@@ -138,13 +138,13 @@ class SearchCoordinator: NSObject {
 
 extension SearchCoordinator: SearchViewControllerDelegate {
     func didSearchForRide(origin: String, destination: String) {
-        loadSearchData(origin: origin, destination: destination)
+        //loadSearchData(origin: origin, destination: destination)
         
         
 
     }
     
-    func didSelectRide(ride: Ride) {
+    func didSelectRide(ride: RideRecord) {
         showRideDetail(ride: ride)
         
     }

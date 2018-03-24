@@ -8,10 +8,11 @@
 
 import UIKit
 import InstantSearch
+import InstantSearchCore
 
 protocol SearchViewControllerDelegate: class {
     //probably change to just passing ride
-    func didSelectRide(ride: Ride)
+    func didSelectRide(ride: RideRecord)
     func didSearchForRide(origin: String, destination: String)
 }
 
@@ -19,8 +20,8 @@ class SearchViewController: HitsTableViewController {
 
     @IBOutlet weak var tableView: HitsTableWidget!
     
-    var rideArray = [Ride]()
-    var filteredRideArray = [Ride]()
+    var rideArray = [RideRecord]()
+    //var filteredRideArray = [Ride]()
     weak var delegate: SearchViewControllerDelegate!
     let searchController = UISearchController(searchResultsController: nil)
 
@@ -61,9 +62,10 @@ class SearchViewController: HitsTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, containing hit: [String : Any]) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "search", for: indexPath) as! SearchTableViewCell
         
-        cell.originLabel.text = hit["origin"] as? String
-        cell.destinationLabel.text = hit["destination"] as? String
-        
+        cell.ride = RideRecord(json: hit)
+        if let ride = cell.ride {
+        rideArray.append(ride)
+        }
         return cell
     }
     
@@ -107,11 +109,16 @@ class SearchViewController: HitsTableViewController {
 //        return cell
 //    }
 //
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath, containing hit: [String : Any]) {
+        let ride = rideArray[indexPath[1]]
+        delegate?.didSelectRide(ride: ride)
+        
+    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //
-//    let ride = rideArray[indexPath[1]]
+//    //let ride = rideArray[indexPath[1]]
 //
-//        delegate?.didSelectRide(ride: ride)
+//        //delegate?.didSelectRide(ride: ride)
 //    }
 
 //    func searchBarIsEmpty() -> Bool {

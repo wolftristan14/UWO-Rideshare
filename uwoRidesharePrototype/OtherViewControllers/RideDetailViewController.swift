@@ -10,13 +10,13 @@ import UIKit
 import Firebase
 
 protocol RideDetailViewControllerDelegate: class {
-    func didJoinRide(ride: Ride)
+    func didJoinRide(ride: RideRecord)
 }
 
 class RideDetailViewController: UIViewController {
     @IBOutlet weak var joinRideButton: UIButton!
     
-    var selectedRide: Ride!
+    var selectedRide: RideRecord!
     
     weak var delegate: RideDetailViewControllerDelegate?
     
@@ -47,7 +47,7 @@ class RideDetailViewController: UIViewController {
         destinationLabel.text = selectedRide.destination
         dateLabel.text = selectedRide.date
         priceLabel.text = selectedRide.price
-        availableSeatsLabel.text = "\(selectedRide.availableSeats)"
+        availableSeatsLabel.text = "\(selectedRide.availableSeats ?? 0)"
         driverLabel.text = Auth.auth().currentUser?.displayName
         print(joinRideButton.isHidden)
         // Do any additional setup after loading the view.

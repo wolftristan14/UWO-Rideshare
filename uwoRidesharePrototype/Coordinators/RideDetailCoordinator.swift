@@ -19,11 +19,12 @@ class RideDetailCoordinator: NSObject {
     
     
     var navigationController: UINavigationController?
-    var selectedRide: Ride!
+    var selectedRide: RideRecord!
     var isParentSearchVC: Bool!
     
     weak var delegate: RideDetailCoordinatorDelegate?
     var docRef: DocumentReference!
+    var docRefRides: DocumentReference!
     var docRefRequests: DocumentReference!
     var rideDetailVC: RideDetailViewController!
 
@@ -53,8 +54,8 @@ class RideDetailCoordinator: NSObject {
        // rideDetailVC.delegate = self as RideDetailViewControllerDelegate
     }
     
-    func loadDriverImage(selectedRide: Ride) {
-        docRef = Firestore.firestore().collection("users").document(selectedRide.driverEmail)
+    func loadDriverImage(selectedRide: RideRecord) {
+        docRef = Firestore.firestore().collection("users").document(selectedRide.driverEmail!)
         print("hit load driver image method")
         docRef.getDocument() { (querySnapshot, err) in
             if let err = err {
@@ -75,18 +76,29 @@ class RideDetailCoordinator: NSObject {
         }
     }
     
-    func addPassengerToRide(ride: Ride) {
-        
+    func addPassengerToRide(ride: RideRecord) {
+        print(ride.docid!)
+        docRefRides = Firestore.firestore().collection("Rides").document(ride.docid!)
+        var passengerArray = ride.passengers
+        passengerArray?.append((Auth.auth().currentUser?.email)!)
+        docRefRides.updateData(["passengers": passengerArray]) { err in
+                        if let err = err {
+                            print("Error adding document: \(err)")
+                        } else {
+                            print("Document added with ID: \(self.docRefRides.documentID)")
+                        }
+                    }
 
         docRefRequests = Firestore.firestore().collection("Requests").addDocument(data: [
             "docid": "",
             "requesterid": Auth.auth().currentUser?.email ?? "",
             "requesterName": Auth.auth().currentUser?.displayName ?? "Failed to load",
-            "rideid": ride.docid,
-            "driverEmail": ride.driverEmail,
-            "driverName": ride.driverName,
+            "rideid": ride.docid ?? "",
+            "driverEmail": ride.driverEmail ?? "",
+            "driverName": ride.driverName ?? "",
             "createdOn": Date.init(timeIntervalSinceNow: 0),
             "requestStatus": false
+            
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")
@@ -100,7 +112,8 @@ class RideDetailCoordinator: NSObject {
 }
 
 extension RideDetailCoordinator: RideDetailViewControllerDelegate {
-    func didJoinRide(ride: Ride) {
+    func didJoinRide(ride: RideRecord) {
+        print("rideid:\(ride.docid)")
         delegate?.didAddUserToRide()
         navigationController?.popViewController(animated: true)
         addPassengerToRide(ride: ride)

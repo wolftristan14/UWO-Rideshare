@@ -18,8 +18,8 @@ class YourRidesCoordinator: NSObject {
     
     var navigationController: UINavigationController?
     var childCoordinators = [NSObject]()
-    var postedRidesArray = [Ride]()
-    var joinedRidesArray = [Ride]()
+    var postedRidesArray = [RideRecord]()
+    var joinedRidesArray = [RideRecord]()
 
     
     weak var delegate: YourRidesCoordinatorDelegate?
@@ -61,8 +61,10 @@ class YourRidesCoordinator: NSObject {
                 for document in querySnapshot!.documents {
                     //print("\(document.documentID) => \(document.data())")
                     if document.data().count > 0 {
-                        
-                        let ride = Ride(docid: document.documentID, origin: document.data()["origin"] as! String, destination: document.data()["destination"] as! String, date: document.data()["date"] as! String, price: document.data()["price"] as! String, availableSeats: document.data()["availableSeats"] as! Int, driverEmail: document.data()["driverEmail"] as! String, driverName: document.data()["driverName"] as! String, passengers: document.data()["passengers"] as! Array, createdOn: document.data()["createdOn"] as! Date)
+//                        let ride = Ride(docid: document.documentID, origin: document.data()["origin"] as! String, destination: document.data()["destination"] as! String, date: document.data()["date"] as! String, price: document.data()["price"] as! String, availableSeats: document.data()["availableSeats"] as! Int, driverEmail: document.data()["driverEmail"] as! String, driverName: document.data()["driverName"] as! String, passengers: document.data()["passengers"] as! Array, createdOn: document.data()["createdOn"] as! Date)
+
+                    let ride = RideRecord(json: document.data())
+                        //ride.docid = document.documentID
 
                     self.postedRidesArray.append(ride)
                     //print("added ride")
@@ -111,8 +113,10 @@ class YourRidesCoordinator: NSObject {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                    let ride = Ride(docid: (querySnapshot?.documentID)!, origin: querySnapshot?.data()!["origin"] as! String, destination: querySnapshot?.data()!["destination"] as! String, date: querySnapshot?.data()!["date"] as! String, price: querySnapshot?.data()!["price"] as! String, availableSeats: querySnapshot?.data()!["availableSeats"] as! Int, driverEmail: querySnapshot?.data()!["driverEmail"] as! String, driverName: querySnapshot?.data()!["driverName"] as! String, passengers: querySnapshot?.data()!["passengers"] as! Array, createdOn: querySnapshot?.data()!["createdOn"] as! Date)
-                        
+//                    let ride = Ride(docid: (querySnapshot?.documentID)!, origin: querySnapshot?.data()!["origin"] as! String, destination: querySnapshot?.data()!["destination"] as! String, date: querySnapshot?.data()!["date"] as! String, price: querySnapshot?.data()!["price"] as! String, availableSeats: querySnapshot?.data()!["availableSeats"] as! Int, driverEmail: querySnapshot?.data()!["driverEmail"] as! String, driverName: querySnapshot?.data()!["driverName"] as! String, passengers: querySnapshot?.data()!["passengers"] as! Array, createdOn: querySnapshot?.data()!["createdOn"] as! Date)
+                
+                let ride = RideRecord(json: (querySnapshot?.data())!)
+
                         self.joinedRidesArray.append(ride)
                         //print("added ride")
                         self.yourRidesViewController.joinedRidesArray = self.joinedRidesArray
@@ -129,21 +133,22 @@ class YourRidesCoordinator: NSObject {
         childCoordinators.append(addRideCoordinator)
     }
     
-    func showRideDetail(ride: Ride) {
+    func showRideDetail(ride: RideRecord) {
         let rideDetailCoordinator = RideDetailCoordinator(navigationController: navigationController!)
         rideDetailCoordinator.delegate = self as? RideDetailCoordinatorDelegate
         rideDetailCoordinator.selectedRide = ride
         rideDetailCoordinator.isParentSearchVC = false
         rideDetailCoordinator.start()
         childCoordinators.append(rideDetailCoordinator)
-        
-        
+
+
     }
+    //commented out to test search vc presenting ride detail vc
     
 }
 
 extension YourRidesCoordinator: YourRidesViewControllerDelegate {
-    func didSelectRide(ride: Ride) {
+    func didSelectRide(ride: RideRecord) {
         showRideDetail(ride: ride)
     }
     

@@ -56,6 +56,7 @@
 		A183825020166C20004180BE /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183824F20166C20004180BE /* ProfileCoordinator.swift */; };
 		A183825220166C31004180BE /* MessagesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183825120166C31004180BE /* MessagesCoordinator.swift */; };
 		A1CFAFC020433EAD00914CF2 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CFAFBF20433EAD00914CF2 /* UIImageViewExtension.swift */; };
+		A1E8C88A20654A7300D1C5E2 /* RideRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E8C88920654A7300D1C5E2 /* RideRecord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +111,7 @@
 		A183824F20166C20004180BE /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		A183825120166C31004180BE /* MessagesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesCoordinator.swift; sourceTree = "<group>"; };
 		A1CFAFBF20433EAD00914CF2 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		A1E8C88920654A7300D1C5E2 /* RideRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRecord.swift; sourceTree = "<group>"; };
 		B4E0A3BFA6F3EAC27AA4B59A /* Pods-uwoRidesharePrototype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uwoRidesharePrototype.release.xcconfig"; path = "Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype.release.xcconfig"; sourceTree = "<group>"; };
 		CD97CC8503DAEBCDEA80D13F /* Pods-uwoRidesharePrototype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uwoRidesharePrototype.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype.debug.xcconfig"; sourceTree = "<group>"; };
 		EE9FEB0094A2E7BDD8F161E6 /* Pods_uwoRidesharePrototype.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uwoRidesharePrototype.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +186,7 @@
 			children = (
 				A1434FD120126F1D009CDBE9 /* User.swift */,
 				A1434FD320126F2B009CDBE9 /* Ride.swift */,
+				A1E8C88920654A7300D1C5E2 /* RideRecord.swift */,
 				A15CC4712048820F008A142C /* RideRequest.swift */,
 				A17F00882038A47C004A8675 /* Passenger.swift */,
 			);
@@ -489,6 +492,7 @@
 				A16576E41FEEEF4D009985A1 /* TermsCoordinator.swift in Sources */,
 				A16576EB2007F67D009985A1 /* UIViewControllerDismissKeyboardExtension.swift in Sources */,
 				A15CC47E2050776C008A142C /* RequestDetailViewController.swift in Sources */,
+				A1E8C88A20654A7300D1C5E2 /* RideRecord.swift in Sources */,
 				A17F00892038A47C004A8675 /* Passenger.swift in Sources */,
 				A183824A20166BE0004180BE /* SearchCoordinator.swift in Sources */,
 				A15CC4722048820F008A142C /* RideRequest.swift in Sources */,

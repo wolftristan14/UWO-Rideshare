@@ -12,7 +12,7 @@ protocol YourRidesViewControllerDelegate: class {
     func didTapAddRideButton()
     
     //probably change to just passing ride
-    func didSelectRide(ride: Ride)
+    func didSelectRide(ride: RideRecord)
 }
 
 
@@ -20,8 +20,8 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var tableView: UITableView!
     
-    var postedRideArray = [Ride]()
-    var joinedRidesArray = [Ride]()
+    var postedRideArray = [RideRecord]()
+    var joinedRidesArray = [RideRecord]()
 
     weak var delegate: YourRidesViewControllerDelegate?
     
@@ -63,7 +63,7 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.originLabel.text = ride.origin
         cell.dateLabel.text = ride.date
         cell.priceLabel.text = ride.price
-        cell.availableSeatsLabel.text = "\(ride.availableSeats)"
+        cell.availableSeatsLabel.text = "\(ride.availableSeats ?? 0)"
             return cell
 
         } else if joinedRidesArray.count > 0 && indexPath[0] == 1 {

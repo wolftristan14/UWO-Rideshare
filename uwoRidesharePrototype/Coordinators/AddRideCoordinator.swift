@@ -19,7 +19,7 @@ class AddRideCoordinator: NSObject {
     var navigationController: UINavigationController?
 
     weak var delegate: AddRideCoordinatorDelegate?
-        var docRef: DocumentReference!
+    var docRef: DocumentReference!
     
     init(navigationController: UINavigationController) {
         super.init()
@@ -66,6 +66,7 @@ class AddRideCoordinator: NSObject {
     
     }
 }
+    
     
 
     
