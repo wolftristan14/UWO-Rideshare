@@ -33,12 +33,7 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
     
 
     override func viewWillAppear(_ animated: Bool) {
-        if #available(iOS 11.0, *) {
-            self.tabBarController?.navigationItem.searchController = nil
-            
-        } else {
-            // Fallback on earlier versions
-        }
+      
 
   
 

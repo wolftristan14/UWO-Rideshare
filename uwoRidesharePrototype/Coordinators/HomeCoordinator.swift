@@ -45,6 +45,7 @@ class HomeCoordintor: NSObject, UITabBarDelegate, UITabBarControllerDelegate {
         
         let searchCoordinator = SearchCoordinator(navigationController: navigationController!)
         searchCoordinator.delegate = self as SearchCoordinatorDelegate
+        //searchCoordinator.counter = false
         searchCoordinator.start()
         print("manually hitting loadfiredata mathod")
         //searchCoordinator.loadFirebaseData()

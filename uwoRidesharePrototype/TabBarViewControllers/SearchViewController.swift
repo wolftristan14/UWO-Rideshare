@@ -17,6 +17,7 @@ protocol SearchViewControllerDelegate: class {
     //probably change to just passing ride
     func didSelectRide(ride: RideRecord)
     func didSearchForRide(origin: String, destination: String)
+    func isSearchBarActive(answer: Bool)
 }
 
 class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResultsUpdating, UITableViewDelegate, UITableViewDataSource, SearchProgressDelegate {
@@ -57,7 +58,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         
         // Add the search bar
         tableView.tableHeaderView = self.searchController.searchBar
-        definesPresentationContext = true
+        searchController.definesPresentationContext = true
+        
         searchController.searchBar.sizeToFit()
         
         // Configure search progress monitoring.
@@ -124,7 +126,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
     }
     
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.searchController.searchBar.isHidden = false
 
         //InstantSearch.shared.searcher.loadMore()
 //        print(searchController)
@@ -147,6 +153,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
 
     }
@@ -166,6 +173,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
 //
 //    }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.searchController.searchBar.isHidden = true
+        //self.delegate.isSearchBarActive(answer: self.searchController.isActive)
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let ride = rideArray[indexPath[1]]
         delegate?.didSelectRide(ride: ride)
@@ -179,7 +191,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(rideArray)
+        //print(rideArray)
         let cell = tableView.dequeueReusableCell(withIdentifier: "search", for: indexPath) as! SearchTableViewCell
         let ride: RideRecord
 
@@ -214,5 +226,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
 
 }
 
-
+//class SearchController: UISearchController {
+//    override func viewWillAppear(_ animated: Bool) {
+//        print("method hit")
+//    }
+//
+//}
 

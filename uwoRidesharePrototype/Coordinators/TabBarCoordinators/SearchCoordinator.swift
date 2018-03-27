@@ -28,7 +28,7 @@ class SearchCoordinator: NSObject {
     
     var collRef: CollectionReference!
     var searchViewController: SearchViewController!
-
+    var counter: Bool!
     
     weak var delegate: SearchCoordinatorDelegate?
     
@@ -39,13 +39,17 @@ class SearchCoordinator: NSObject {
     }
     
     func start() {
-        print("search vc start hit")
-        searchViewController = navigationController?.visibleViewController?.childViewControllers[0] as! SearchViewController
+
+            searchViewController = navigationController?.visibleViewController?.childViewControllers[0] as! SearchViewController
+        print(searchViewController)
+
         searchViewController.delegate = self
+
+        searchViewController.tabBarController?.navigationItem.title = "Search"
+
         
-        loadFirebaseData()
-
-
+       // loadFirebaseData()
+        
     }
     
     func loadFirebaseData()  {
@@ -149,6 +153,10 @@ extension SearchCoordinator: SearchViewControllerDelegate {
         
     }
     
+    func isSearchBarActive(answer: Bool) {
+        print(answer)
+        let counter = answer
+    }
     
 }
 
