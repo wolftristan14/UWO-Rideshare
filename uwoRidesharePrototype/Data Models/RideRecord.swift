@@ -7,12 +7,12 @@
 //
 
 import AlgoliaSearch
-import InstantSearchCore
+//import InstantSearchCore
 import Foundation
 
 struct RideRecord {
     private var json: JSONObject
-    private let MAX_BEST_SELLING_RANK = 32691;
+    //private let MAX_BEST_SELLING_RANK = 32691;
     
     init(json: JSONObject) {
         self.json = json
@@ -60,12 +60,12 @@ struct RideRecord {
     }
 
     
-    var origin_highlighted: String? {
-        return SearchResults.highlightResult(hit: json, path: "origin")?.value
-    }
-    
-    var destination_highlighted: String? {
-        return SearchResults.highlightResult(hit: json, path: "destination")?.value
-    }
+//    var origin_highlighted: String? {
+//        return SearchResults.highlightResult(hit: json, path: "origin")?.value
+//    }
+//    
+//    var destination_highlighted: String? {
+//        return SearchResults.highlightResult(hit: json, path: "destination")?.value
+//    }
 
 }

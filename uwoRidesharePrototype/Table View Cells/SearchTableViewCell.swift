@@ -28,35 +28,35 @@ class SearchTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    var ride: RideRecord? {
-        didSet {
-            guard let ride = ride else { return }
-           // print("passengers:\(ride.passengers)")
-            let userEmail = Auth.auth().currentUser?.email ?? ""
-
-            print("does passengers have the current users email:\(ride.passengers!.contains(userEmail))")
-            print()
-            if ride.driverEmail != Auth.auth().currentUser?.email && ride.passengers!.contains(userEmail) == false {
-            originLabel.highlightedText = ride.origin
-            originLabel.highlightedTextColor = .black
-            originLabel.highlightedBackgroundColor = .yellow
-            destinationLabel.highlightedText = ride.destination
-            destinationLabel.highlightedTextColor = .black
-            destinationLabel.highlightedBackgroundColor = .yellow
-            priceLabel.highlightedText = ride.price
-            priceLabel.highlightedTextColor = .black
-            priceLabel.highlightedBackgroundColor = .yellow
-            dateLabel.highlightedText = ride.date
-            dateLabel.highlightedTextColor = .black
-            dateLabel.highlightedBackgroundColor = .yellow
-            
-            
-            if let availableSeats = ride.availableSeats {
-                availableSeatsLabel.text = "\(String(describing: availableSeats))"
-            }
-            } else {
-                self.isHidden = true
-            }
+//    var ride: RideRecord? {
+//        didSet {
+//            guard let ride = ride else { return }
+//           // print("passengers:\(ride.passengers)")
+//            let userEmail = Auth.auth().currentUser?.email ?? ""
+//
+//            print("does passengers have the current users email:\(ride.passengers!.contains(userEmail))")
+//            if ride.driverEmail != Auth.auth().currentUser?.email && ride.passengers!.contains(userEmail) == false {
+//            originLabel.highlightedText = ride.origin
+//            originLabel.highlightedTextColor = .black
+//            originLabel.highlightedBackgroundColor = .yellow
+//            destinationLabel.highlightedText = ride.destination
+//            destinationLabel.highlightedTextColor = .black
+//            destinationLabel.highlightedBackgroundColor = .yellow
+//            priceLabel.highlightedText = ride.price
+//            priceLabel.highlightedTextColor = .black
+//            priceLabel.highlightedBackgroundColor = .yellow
+//            dateLabel.highlightedText = ride.date
+//            dateLabel.highlightedTextColor = .black
+//            dateLabel.highlightedBackgroundColor = .yellow
+//
+//
+//            if let availableSeats = ride.availableSeats {
+//                availableSeatsLabel.text = "\(String(describing: availableSeats))"
+//            }
+//            } else {
+//                //dont make cell
+//                self.isHidden = true
+//            }
 //            ratingView.settings.updateOnTouch = false
 //            if let rating = item.rating {
 //                ratingView.rating = Double(rating)
@@ -70,8 +70,8 @@ class SearchTableViewCell: UITableViewCell {
 //            } else {
 //                itemImageView.image = ItemCell.placeholder
 //            }
-        }
-    }
+       // }
+    //}
 
     
 }

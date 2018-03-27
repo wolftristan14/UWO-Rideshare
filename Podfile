@@ -14,6 +14,7 @@ target 'uwoRidesharePrototype' do
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   pod 'Firebase/Messaging'
   pod 'AlgoliaSearch-Client-Swift', '~> 5.0'
-  pod 'InstantSearch-iOS'
+  pod 'AFNetworking', '~> 2.0'
+  pod 'InstantSearch-Core-Swift'
 
 end

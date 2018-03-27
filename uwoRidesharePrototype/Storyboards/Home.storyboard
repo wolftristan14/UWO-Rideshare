@@ -152,8 +152,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tDJ-hl-hnv" customClass="HitsTableWidget" customModule="InstantSearch">
-                                <rect key="frame" x="0.0" y="76" width="375" height="542"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tDJ-hl-hnv">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="search" rowHeight="129" id="yv0-5t-nbP" customClass="SearchTableViewCell" customModule="uwoRidesharePrototype" customModuleProvider="target">
@@ -242,30 +242,23 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="yzj-X2-JnV" id="qK2-wz-ugh"/>
-                                    <outlet property="delegate" destination="yzj-X2-JnV" id="iZF-qT-aRd"/>
+                                    <outlet property="dataSource" destination="BdH-ce-2RA" id="flR-Hn-wFA"/>
+                                    <outlet property="delegate" destination="BdH-ce-2RA" id="PNl-ev-2ux"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="DAs-VL-dP0" customClass="SearchBarWidget" customModule="InstantSearch">
-                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tDJ-hl-hnv" firstAttribute="top" secondItem="DAs-VL-dP0" secondAttribute="bottom" id="3lz-2i-fQh"/>
                             <constraint firstItem="tDJ-hl-hnv" firstAttribute="trailing" secondItem="dtp-ZX-ArB" secondAttribute="trailing" id="9qf-mg-RYp"/>
+                            <constraint firstItem="tDJ-hl-hnv" firstAttribute="top" secondItem="dtp-ZX-ArB" secondAttribute="top" id="LDv-F1-G4e"/>
                             <constraint firstItem="tDJ-hl-hnv" firstAttribute="bottom" secondItem="dtp-ZX-ArB" secondAttribute="bottom" id="Uk1-oP-RIw"/>
                             <constraint firstItem="tDJ-hl-hnv" firstAttribute="leading" secondItem="dtp-ZX-ArB" secondAttribute="leading" id="Vxw-VP-FCt"/>
-                            <constraint firstItem="DAs-VL-dP0" firstAttribute="top" secondItem="dtp-ZX-ArB" secondAttribute="top" id="Z4q-6x-lCE"/>
-                            <constraint firstItem="tDJ-hl-hnv" firstAttribute="trailing" secondItem="DAs-VL-dP0" secondAttribute="trailing" id="qHv-qW-vJy"/>
-                            <constraint firstItem="tDJ-hl-hnv" firstAttribute="leading" secondItem="DAs-VL-dP0" secondAttribute="leading" id="u8c-X3-hXV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dtp-ZX-ArB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" image="searchbig" selectedImage="searchbig" id="1i4-5S-W6w"/>
                     <connections>
-                        <outlet property="tableView" destination="tDJ-hl-hnv" id="ZKl-5t-1pM"/>
+                        <outlet property="tableView" destination="tDJ-hl-hnv" id="1H6-Y6-8fL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="atg-IY-2Pm" userLabel="First Responder" sceneMemberID="firstResponder"/>

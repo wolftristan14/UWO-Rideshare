@@ -15,7 +15,7 @@ import FBSDKCoreKit
 import FirebaseFacebookAuthUI
 import UserNotifications
 import SafariServices
-import InstantSearch
+//import InstantSearch
 
 
 @UIApplicationMain
@@ -73,9 +73,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         application.registerForRemoteNotifications()
         //move api key to server
-        InstantSearch.shared.configure(appID: "NB1PXG4WJM", apiKey: "6132710f15ba25f5b14971533c42c209", index: "Rides")
+//        InstantSearch.shared.configure(appID: "NB1PXG4WJM", apiKey: "", index: "Rides")
+        //InstantSearch.shared.co
 //        InstantSearch.shared.params.attributesToRetrieve = ["origin", "destination", "date", "price", "availableSeats"]
-        InstantSearch.shared.searcher.params.attributesToHighlight = ["origin", "destination", "date", "price", "availableSeats"]
+//        InstantSearch.shared.searcher.params.attributesToHighlight = ["origin", "destination", "date", "price", "availableSeats"]
+
 
 
         return true
