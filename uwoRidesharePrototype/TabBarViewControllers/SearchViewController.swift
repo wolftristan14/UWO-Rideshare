@@ -84,16 +84,16 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
        // print(Auth.auth().currentUser?.email as! String)
         var filteredResultsArray = resultsArray.filter { $0["driverEmail"] as! String != Auth.auth().currentUser?.email as! String}
         var counter = 0
-        for result in filteredResultsArray {
-        let passengersArray = result["passengers"] as! Array<String>
-            if passengersArray.contains((Auth.auth().currentUser?.email!)!) {
-                filteredResultsArray.remove(at:counter)
-            } else {
-                counter += 1
-            }
-        
-        }
-        
+//        for result in filteredResultsArray {
+//        let passengersArray = result["passengers"] as! Array<String>
+//            if passengersArray.contains((Auth.auth().currentUser?.email!)!) {
+//                filteredResultsArray.remove(at:counter)
+//            } else {
+//                counter += 1
+//            }
+//
+//        }
+//
         rideArray.removeAll()
         for object in filteredResultsArray {
             let ride = RideRecord(json: object)
@@ -164,7 +164,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
             cell.dateLabel.text = ride.date
             cell.priceLabel.text = ride.price
             cell.availableSeatsLabel.text = String(describing: availableSeats)
-            cell.accessibilityElements = ride.passengers
+            //cell.accessibilityElements = ride.passengers
 //
         //        } else if rideArray.count > 0 {
 //            ride = rideArray[indexPath.row]

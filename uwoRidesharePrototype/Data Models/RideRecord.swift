@@ -51,13 +51,15 @@ struct RideRecord {
         return json["driverName"] as? String
     }
     
-    var passengers: [String]? {
-        return json["passengers"] as? [String]
+    var passengers: [String:Any]? {
+        return json["passengers"] as? [String:Any]
     }
     
     var createdOn: Date? {
         return json["createdOn"] as? Date
     }
+    
+    
 
 
 }

@@ -48,7 +48,7 @@ class AddRideCoordinator: NSObject {
     "price": price,
     "availableSeats": availableSeats,
     "createdOn": Date.init(timeIntervalSinceNow: 0),
-    "passengers": []
+    "passengers": [:]
     ]) { err in
     if let err = err {
     print("Error adding document: \(err)")
