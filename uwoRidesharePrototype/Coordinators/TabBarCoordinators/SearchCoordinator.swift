@@ -150,7 +150,7 @@ extension SearchCoordinator: SearchViewControllerDelegate {
     
     func didSelectRide(ride: RideRecord) {
         showRideDetail(ride: ride)
-        
+        print("ride when its in search coord:\(ride)")
     }
     
     func isSearchBarActive(answer: Bool) {
