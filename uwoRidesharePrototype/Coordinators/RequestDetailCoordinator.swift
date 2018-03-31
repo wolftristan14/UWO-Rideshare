@@ -21,7 +21,7 @@ class RequestDetailCoordinator: NSObject {
     
     weak var delegate: RequestDetailCoordinatorDelegate?
     var docRefRide: DocumentReference!
-    var docRefFullRides: CollectionReference!
+    var docRefFullRides: DocumentReference!
     var docRefUser: DocumentReference!
     var docRefRequest: DocumentReference!
 
@@ -103,11 +103,10 @@ class RequestDetailCoordinator: NSObject {
     
     func updateAvailableSeats() {
         docRefRide = Firestore.firestore().collection("Rides").document(selectedRequest.rideid)
-        docRefFullRides = Firestore.firestore().collection("FullRides")
-        
+        docRefFullRides = Firestore.firestore().collection("FullRides").document(selectedRequest.rideid)
         let updatedAvailableSeats = ride.availableSeats! - 1
         if updatedAvailableSeats == 0  {
-        docRefFullRides.addDocument(data:[
+        docRefFullRides.setData([
 
                 "docid": ride.docid!,
                 "driverEmail": ride.driverEmail!,
