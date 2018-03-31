@@ -114,13 +114,14 @@ class YourRidesCoordinator: NSObject {
                 print("Error getting documents: \(err)")
             } else {
 //                    let ride = Ride(docid: (querySnapshot?.documentID)!, origin: querySnapshot?.data()!["origin"] as! String, destination: querySnapshot?.data()!["destination"] as! String, date: querySnapshot?.data()!["date"] as! String, price: querySnapshot?.data()!["price"] as! String, availableSeats: querySnapshot?.data()!["availableSeats"] as! Int, driverEmail: querySnapshot?.data()!["driverEmail"] as! String, driverName: querySnapshot?.data()!["driverName"] as! String, passengers: querySnapshot?.data()!["passengers"] as! Array, createdOn: querySnapshot?.data()!["createdOn"] as! Date)
+                if let snapshotData = querySnapshot?.data() {
+                let ride = RideRecord(json: snapshotData)
                 
-                let ride = RideRecord(json: (querySnapshot?.data())!)
-
-                        self.joinedRidesArray.append(ride)
+                    self.joinedRidesArray.append(ride)
                         //print("added ride")
-                        self.yourRidesViewController.joinedRidesArray = self.joinedRidesArray
-                        self.yourRidesViewController.tableView.reloadData()
+                    self.yourRidesViewController.joinedRidesArray = self.joinedRidesArray
+                    self.yourRidesViewController.tableView.reloadData()
+                }
             }
         }
     }

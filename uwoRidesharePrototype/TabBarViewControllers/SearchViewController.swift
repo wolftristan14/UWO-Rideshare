@@ -8,7 +8,6 @@
 
 import UIKit
 import AlgoliaSearch
-//import InstantSearch
 import AFNetworking
 import InstantSearchCore
 import Firebase
@@ -36,7 +35,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
 
 
     var rideIndex: Index!
-   // let query = Query()
     var rideSearcher: Searcher!
 
     override func viewDidLoad() {
@@ -46,7 +44,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         rideIndex = apiClient.index(withName: "Rides")
         rideSearcher = Searcher(index: rideIndex, resultHandler: self.handleSearchResults)
         rideSearcher.params.hitsPerPage = 15
-        rideSearcher.params.attributesToRetrieve = ["docid", "origin", "destination", "date", "price", "availableSeats", "passengers", "driverEmail", "driverName"]
+        rideSearcher.params.attributesToRetrieve = ["docid", "origin", "destination", "date", "price", "availableSeats", "passengers", "driverEmail", "driverName", "createdOn"]
         rideSearcher.params.attributesToHighlight = ["origin", "destination"]
         
         //searchController = UISearchController(searchResultsController: nil)
@@ -67,10 +65,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         searchProgressController.delegate = self
         
         updateSearchResults(for: searchController)
-    //InstantSearch.shared
-//    InstantSearch.shared.registerAllWidgets(in: self.view)
-//        print("allparams:\(InstantSearch.shared.searcher.params)") //check out reset method on searcher
-//        hitsTableView = tableView
+
         tableView.rowHeight = 129
 
 
@@ -132,47 +127,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.searchController.searchBar.isHidden = false
-
-        //InstantSearch.shared.searcher.loadMore()
-//        print(searchController)
-//        InstantSearch.shared.searcher.params.attributesToHighlight = ["origin", "destination", "date", "price", "availableSeats"]
-//        searchController.searchResultsUpdater = self
-//        searchController.obscuresBackgroundDuringPresentation = false
-//        searchController.searchBar.placeholder = "Search Rides"
-//        searchController.searchBar.tintColor = UIColor.flatWhite
-//        if #available(iOS 11.0, *) {
-//            print("iOS 11 available")
-//            self.tableView.tableHeaderView = self.searchController.searchBar
-//        } else {
-//            print("iOS 11 not available")
-//
-//            // Fallback on earlier versions
-//        }
         self.tabBarController?.navigationItem.title = "Search"
         self.navigationController?.isNavigationBarHidden = false
 
         
     }
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
 
-    }
-    // MARK: - instantsearch methods
-
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, containing hit: [String : Any]) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "search", for: indexPath) as! SearchTableViewCell
-//        print("hit")
-//        //print("query:\(InstantSearch.shared.searcher.params.query)")
-//        cell.ride = RideRecord(json: hit)
-//        if let ride = cell.ride {
-//        rideArray.append(ride)
-//        }
-//
-//        return cell
-//
-//
-//    }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.searchController.searchBar.isHidden = true
@@ -227,10 +187,5 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
 
 }
 
-//class SearchController: UISearchController {
-//    override func viewWillAppear(_ animated: Bool) {
-//        print("method hit")
-//    }
-//
-//}
+
 

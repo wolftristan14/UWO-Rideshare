@@ -21,6 +21,7 @@ class RequestDetailCoordinator: NSObject {
     
     weak var delegate: RequestDetailCoordinatorDelegate?
     var docRefRide: DocumentReference!
+    var docRefFullRides: CollectionReference!
     var docRefUser: DocumentReference!
     var docRefRequest: DocumentReference!
 
@@ -102,12 +103,38 @@ class RequestDetailCoordinator: NSObject {
     
     func updateAvailableSeats() {
         docRefRide = Firestore.firestore().collection("Rides").document(selectedRequest.rideid)
+        docRefFullRides = Firestore.firestore().collection("FullRides")
         
         let updatedAvailableSeats = ride.availableSeats! - 1
+        if updatedAvailableSeats == 0  {
+        docRefFullRides.addDocument(data:[
+
+                "docid": ride.docid!,
+                "driverEmail": ride.driverEmail!,
+                "driverName": ride.driverName!,
+                "destination": ride.destination!,
+                "origin": ride.origin!,
+                "date": ride.date!,
+                "price": ride.price!,
+                "availableSeats": updatedAvailableSeats,
+                "createdOn": ride.createdOn!,
+                "passengers": ride.passengers!
+            ]) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                } else {
+                  //  print("Document added with ID: \(self.docRefFullRides.document)")
+
+                }
+
+            }
+            docRefRide.delete()
+        } else {
         docRefRide.updateData(["availableSeats": updatedAvailableSeats]) {(error) in
             if let err = error {
                 print("Error getting documents: \(err)")
             }
+        }
         }
     }
     
