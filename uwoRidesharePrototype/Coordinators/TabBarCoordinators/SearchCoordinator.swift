@@ -24,7 +24,7 @@ class SearchCoordinator: NSObject {
     
     var navigationController: UINavigationController?
     var childCoordinators = [NSObject]()
-    var allRidesArray = [Ride]()
+    //var allRidesArray = [Ride]()
     
     var collRef: CollectionReference!
     var searchViewController: SearchViewController!

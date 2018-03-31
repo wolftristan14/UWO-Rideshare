@@ -34,24 +34,19 @@ class AddRideCoordinator: NSObject {
         navigationController?.pushViewController(addRideVC, animated: true)
     }
     
-    func addRideToDatabase(ride: Ride) {
+    func addRideToDatabase(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driverEmail: String, driverName: String, createdOn: Date) {
         print("ride added to database")
-//        print(ride.destination)
-//        print(ride.origin)
-//        print(ride.date)
-//        print(ride.price)
-//        print(ride.availableSeats)
-        
+
     docRef = Firestore.firestore().collection("Rides").addDocument(data:[
         
     "docid": "",
     "driverEmail": Auth.auth().currentUser?.email ?? "error",
     "driverName": Auth.auth().currentUser?.displayName ?? "error",
-    "destination": ride.destination,
-    "origin": ride.origin,
-    "date": ride.date,
-    "price": ride.price,
-    "availableSeats": ride.availableSeats,
+    "destination": destination,
+    "origin": origin,
+    "date": date,
+    "price": price,
+    "availableSeats": availableSeats,
     "createdOn": Date.init(timeIntervalSinceNow: 0),
     "passengers": []
     ]) { err in
@@ -76,9 +71,7 @@ extension AddRideCoordinator: AddRideViewControllerDelegate {
 
     
     func didAddRide(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driverEmail: String, driverName: String, createdOn: Date) {
-        //navigationController?.popViewController(animated: true)
-        let ride = Ride(docid: docid, origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driverEmail: driverEmail, driverName: driverName, passengers: [], createdOn: createdOn)
-        addRideToDatabase(ride: ride)
+        addRideToDatabase(docid: docid, origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driverEmail: driverEmail, driverName: driverName, createdOn: createdOn)
         
     }
 }

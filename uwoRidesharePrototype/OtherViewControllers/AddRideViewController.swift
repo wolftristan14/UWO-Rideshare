@@ -54,7 +54,6 @@ class AddRideViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.present(alert, animated: true, completion: nil)
         
         } else {
-
             delegate?.didAddRide(docid: "", origin: fromTextField.text ?? "", destination: goingToTextField.text ?? "", date: dateString, price: pricePickerData[pricePickerViewRow], availableSeats: numberOfSeatsPickerData[numberOfSeatsPickerViewRow], driverEmail: "", driverName: "", createdOn: Date.init(timeIntervalSinceNow: 0))
         }
         

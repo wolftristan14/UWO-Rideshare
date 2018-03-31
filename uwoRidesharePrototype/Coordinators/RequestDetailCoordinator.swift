@@ -26,7 +26,7 @@ class RequestDetailCoordinator: NSObject {
 
     var requestDetailVC: RequestDetailViewController!
     var selectedRequest: RideRequest!
-    var ride: Ride!
+    var ride: RideRecord!
     var didUseRequestsArray: Bool!
 
     
@@ -55,9 +55,10 @@ class RequestDetailCoordinator: NSObject {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                self.ride = Ride(docid: (querySnapshot?.documentID)!, origin: querySnapshot?.data()!["origin"] as! String, destination: querySnapshot?.data()!["destination"] as! String, date: querySnapshot?.data()!["date"] as! String, price: querySnapshot?.data()!["price"] as! String, availableSeats: querySnapshot?.data()!["availableSeats"] as! Int, driverEmail: querySnapshot?.data()!["driverEmail"] as! String, driverName: querySnapshot?.data()!["driverName"] as! String, passengers: querySnapshot?.data()!["passengers"] as! Array, createdOn: querySnapshot?.data()!["createdOn"] as! Date)
-                
-                self.requestDetailVC.originAndDestinationLabel.text = "\(self.ride.origin) to \(self.ride.destination)"
+                if let snapshotData = querySnapshot?.data() {
+                self.ride = RideRecord(json: snapshotData)
+                }
+                self.requestDetailVC.originAndDestinationLabel.text = "\(self.ride.origin)) to \(self.ride.destination))"
                 self.requestDetailVC.dateLabel.text = self.ride.date
                 self.requestDetailVC.priceLabel.text = self.ride.price
                 
@@ -102,7 +103,7 @@ class RequestDetailCoordinator: NSObject {
     func updateAvailableSeats() {
         docRefRide = Firestore.firestore().collection("Rides").document(selectedRequest.rideid)
         
-        let updatedAvailableSeats = ride.availableSeats - 1
+        let updatedAvailableSeats = ride.availableSeats! - 1
         docRefRide.updateData(["availableSeats": updatedAvailableSeats]) {(error) in
             if let err = error {
                 print("Error getting documents: \(err)")

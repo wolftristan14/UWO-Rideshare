@@ -59,13 +59,5 @@ struct RideRecord {
         return json["createdOn"] as? Date
     }
 
-    
-//    var origin_highlighted: String? {
-//        return SearchResults.highlightResult(hit: json, path: "origin")?.value
-//    }
-//    
-//    var destination_highlighted: String? {
-//        return SearchResults.highlightResult(hit: json, path: "destination")?.value
-//    }
 
 }
