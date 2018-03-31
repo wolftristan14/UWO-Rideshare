@@ -46,7 +46,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         rideIndex = apiClient.index(withName: "Rides")
         rideSearcher = Searcher(index: rideIndex, resultHandler: self.handleSearchResults)
         rideSearcher.params.hitsPerPage = 15
-        rideSearcher.params.attributesToRetrieve = ["docid", "origin", "destination", "date", "price", "availableSeats", "passengers", "driverEmail"]
+        rideSearcher.params.attributesToRetrieve = ["docid", "origin", "destination", "date", "price", "availableSeats", "passengers", "driverEmail", "driverName"]
         rideSearcher.params.attributesToHighlight = ["origin", "destination"]
         
         //searchController = UISearchController(searchResultsController: nil)
@@ -103,6 +103,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         for object in filteredResultsArray {
             let ride = RideRecord(json: object)
             rideArray.append(ride)
+            self.tableView.reloadData()
         }
 
         print(filteredResultsArray.count)

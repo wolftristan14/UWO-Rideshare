@@ -72,7 +72,7 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.originLabel.text = ride.origin
             cell.dateLabel.text = ride.date
             cell.priceLabel.text = ride.price
-            cell.availableSeatsLabel.text = "\(ride.availableSeats)"
+            cell.availableSeatsLabel.text = "\(ride.availableSeats ?? 0)"
             return cell
 
         } else {

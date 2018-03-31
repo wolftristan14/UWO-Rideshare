@@ -58,7 +58,7 @@ class RequestDetailCoordinator: NSObject {
                 if let snapshotData = querySnapshot?.data() {
                 self.ride = RideRecord(json: snapshotData)
                 }
-                self.requestDetailVC.originAndDestinationLabel.text = "\(self.ride.origin)) to \(self.ride.destination))"
+                self.requestDetailVC.originAndDestinationLabel.text = "\(self.ride.origin ?? "") to \(self.ride.destination ?? "")"
                 self.requestDetailVC.dateLabel.text = self.ride.date
                 self.requestDetailVC.priceLabel.text = self.ride.price
                 
