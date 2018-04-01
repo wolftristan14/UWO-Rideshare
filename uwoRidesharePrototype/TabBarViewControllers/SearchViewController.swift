@@ -82,18 +82,23 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         //print(resultsArray.count)
         //print(resultsArray[2]["driverEmail"] as! String)
        // print(Auth.auth().currentUser?.email as! String)
-        var filteredResultsArray = resultsArray.filter { $0["driverEmail"] as! String != Auth.auth().currentUser?.email as! String}
+        let displayName = Auth.auth().currentUser?.displayName ?? ""
+        var filteredResultsArray = resultsArray.filter { $0["driverEmail"] as! String != displayName}
+        
         var counter = 0
-//        for result in filteredResultsArray {
-//        let passengersArray = result["passengers"] as! Array<String>
-//            if passengersArray.contains((Auth.auth().currentUser?.email!)!) {
-//                filteredResultsArray.remove(at:counter)
-//            } else {
-//                counter += 1
-//            }
-//
-//        }
-//
+        
+
+        for result in filteredResultsArray {
+            let passengersDictionary = result["passengers"] as! [String:String]
+            if passengersDictionary[displayName] == displayName {
+                filteredResultsArray.remove(at: counter)
+                counter += 1
+            } else {
+                counter += 1
+            }
+
+        }
+        
         rideArray.removeAll()
         for object in filteredResultsArray {
             let ride = RideRecord(json: object)
