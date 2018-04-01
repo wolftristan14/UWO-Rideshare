@@ -42,6 +42,10 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
     
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         //print("request vc number of sections method hit")
           return 2

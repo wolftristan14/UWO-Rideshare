@@ -148,6 +148,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         //self.delegate.isSearchBarActive(answer: self.searchController.isActive)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let ride = rideArray[indexPath[1]]
         delegate?.didSelectRide(ride: ride)

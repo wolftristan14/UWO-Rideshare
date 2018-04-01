@@ -36,6 +36,10 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
         
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
