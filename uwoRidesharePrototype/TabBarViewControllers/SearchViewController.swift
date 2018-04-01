@@ -82,15 +82,19 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         //print(resultsArray.count)
         //print(resultsArray[2]["driverEmail"] as! String)
        // print(Auth.auth().currentUser?.email as! String)
-        let displayName = Auth.auth().currentUser?.displayName ?? ""
-        var filteredResultsArray = resultsArray.filter { $0["driverEmail"] as! String != displayName}
+       // let phoneNumber = Auth.auth().currentUser?.uid
+
+        let userUID = Auth.auth().currentUser?.uid ?? ""
+        let userEmail = Auth.auth().currentUser?.email ?? ""
+        print(userUID)
+        var filteredResultsArray = resultsArray.filter { $0["driverEmail"] as! String != userEmail}
         
         var counter = 0
         
-
+        //Auth.auth().currentUser
         for result in filteredResultsArray {
             let passengersDictionary = result["passengers"] as! [String:String]
-            if passengersDictionary[displayName] == displayName {
+            if passengersDictionary[userUID] == userUID {
                 filteredResultsArray.remove(at: counter)
                 counter += 1
             } else {

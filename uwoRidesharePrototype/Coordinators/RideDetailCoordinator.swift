@@ -81,7 +81,8 @@ class RideDetailCoordinator: NSObject {
         docRefRides = Firestore.firestore().collection("Rides").document(ride.docid!)
         //var passengerArray = ride.passengers
         //passengerArray?.append((Auth.auth().currentUser?.email)!)
-        docRefRides.updateData(["passengers.\(Auth.auth().currentUser?.displayName ?? "")": 200]) { err in
+        let userUID = Auth.auth().currentUser?.uid ?? ""
+        docRefRides.updateData(["passengers.\(userUID)": userUID]) { err in
                         if let err = err {
                             print("Error adding document: \(err)")
                         } else {

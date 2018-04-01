@@ -78,9 +78,9 @@ class YourRidesCoordinator: NSObject {
     }
     
     func loadRequestsAssociatedToJoinedRides() {
-        let userDisplayName = Auth.auth().currentUser?.displayName ?? ""
-        requestsQuery = Firestore.firestore().collection("Rides").whereField("passengers.\(userDisplayName)", isEqualTo: 200)
-        print("userDisplayName:\(userDisplayName)")
+        let userUID = Auth.auth().currentUser?.uid ?? ""
+        requestsQuery = Firestore.firestore().collection("Rides").whereField("passengers.\(userUID)", isEqualTo: userUID)
+        //print("userDisplayName:\(userDisplayName)")
 
             requestsQuery.addSnapshotListener() { (querySnapshot, err) in
             if let err = err {
