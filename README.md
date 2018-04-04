@@ -13,8 +13,6 @@ A ridesharing app for students at The University Of Western Ontario.  Users can 
 
 ![webp net-resizeimage 5](https://user-images.githubusercontent.com/24685539/38334612-c5548d12-3829-11e8-8d80-ced59360f244.png)
 
-![webp net-resizeimage 4](https://user-images.githubusercontent.com/24685539/38334611-c54410f4-3829-11e8-80fd-094b45e482a5.png)
-
 ![webp net-resizeimage 3](https://user-images.githubusercontent.com/24685539/38334610-c5314b86-3829-11e8-9dfb-30e987e91557.png)
 
 ![webp net-resizeimage 2](https://user-images.githubusercontent.com/24685539/38334609-c523b480-3829-11e8-8fd7-b0158f0d8b33.png)
