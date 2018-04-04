@@ -32,6 +32,7 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewWillAppear(_ animated: Bool) {
     self.tabBarController?.navigationItem.title = "Your Rides"
+    tableView.reloadData()
     //self.tableView.isEditing = false
         
     }

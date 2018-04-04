@@ -17,16 +17,8 @@ class MessagesViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if #available(iOS 11.0, *) {
-            print("iOS 11 available")
-            self.navigationController?.navigationItem.searchController = nil
-            //self.tabBarController?.navigationItem.searchController = nil
-        } else {
-            print("iOS 11 not available")
-            
-            // Fallback on earlier versions
-        }
-        
+
+
         self.tabBarController?.navigationItem.title = "Messages"
         
         

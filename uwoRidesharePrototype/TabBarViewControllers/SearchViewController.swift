@@ -53,7 +53,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = NSLocalizedString("search rides", comment: "")
-        
+        print("navigation item:\(self.navigationItem)")
+
+ 
+
         // Add the search bar
         tableView.tableHeaderView = self.searchController.searchBar
         searchController.definesPresentationContext = true
@@ -137,7 +140,13 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         super.viewWillAppear(true)
         self.searchController.searchBar.isHidden = false
         self.tabBarController?.navigationItem.title = "Search"
+        if #available(iOS 10.0, *) {
+            let button1 = UIBarButtonItem(image: #imageLiteral(resourceName: "search-by-algolia-white"), style: .plain, target: self, action: #selector(goToAlgoliaWebsite(_:)))
+            self.tabBarController?.navigationItem.rightBarButtonItem = button1
+            self.tabBarController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+        }
         self.navigationController?.isNavigationBarHidden = false
+        tableView.reloadData()
 
         
     }
@@ -149,6 +158,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        self.tabBarController?.navigationItem.rightBarButtonItem = nil
         tableView.reloadData()
     }
     
@@ -196,6 +206,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         return cell
     }
 
+    @objc @available(iOS 10.0, *)
+    func goToAlgoliaWebsite(_ sender : UIBarButtonItem) {
+        if let link = URL(string: "https://algolia.com") {
+            UIApplication.shared.open(link)
+        }
+    }
 
 
 }

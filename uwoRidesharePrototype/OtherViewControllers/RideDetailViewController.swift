@@ -48,7 +48,7 @@ class RideDetailViewController: UIViewController {
         dateLabel.text = selectedRide.date
         priceLabel.text = selectedRide.price
         availableSeatsLabel.text = "\(selectedRide.availableSeats ?? 0)"
-        driverLabel.text = Auth.auth().currentUser?.displayName
+        driverLabel.text = selectedRide.driverName
         print(joinRideButton.isHidden)
         // Do any additional setup after loading the view.
     }

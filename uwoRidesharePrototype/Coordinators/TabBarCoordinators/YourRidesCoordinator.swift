@@ -37,6 +37,7 @@ class YourRidesCoordinator: NSObject {
     func start() {
         yourRidesViewController = navigationController?.visibleViewController?.childViewControllers[1] as! YourRidesViewController
         yourRidesViewController.delegate = self
+
         loadFirebaseData()
         loadRequestsAssociatedToJoinedRides()
 

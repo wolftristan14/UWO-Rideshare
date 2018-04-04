@@ -36,7 +36,7 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
       
 
   
-
+    tableView.reloadData()
     self.tabBarController?.navigationItem.title = "Requests"
     
     
