@@ -15,8 +15,7 @@ import Firebase
 protocol SearchViewControllerDelegate: class {
     //probably change to just passing ride
     func didSelectRide(ride: RideRecord)
-    func didSearchForRide(origin: String, destination: String)
-    func isSearchBarActive(answer: Bool)
+    //func didSearchForRide(origin: String, destination: String)
 }
 
 class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResultsUpdating, UITableViewDelegate, UITableViewDataSource, SearchProgressDelegate {
@@ -28,7 +27,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
     
     var rideArray = [RideRecord]()
     var resultsArray = [JSONObject]()
-    var filteredRideArray = [JSONObject]()
+    var filteredResultsArray = [JSONObject]()
     weak var delegate: SearchViewControllerDelegate!
     var searchController = UISearchController(searchResultsController: nil)
     var searchProgressController: SearchProgressController!
@@ -76,6 +75,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
     }
     
     func handleSearchResults(results: SearchResults?, error: Error?, userInfo: [String: Any]) {
+        print("handle search results hit")
         guard let results = results else { return }
         if results.page == 0 {
             resultsArray = results.hits
@@ -90,7 +90,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         let userUID = Auth.auth().currentUser?.uid ?? ""
         let userEmail = Auth.auth().currentUser?.email ?? ""
         print(userUID)
-        var filteredResultsArray = resultsArray.filter { $0["driverEmail"] as! String != userEmail}
+        filteredResultsArray.removeAll()
+        filteredResultsArray = resultsArray.filter { $0["driverEmail"] as! String != userEmail}
         
         var counter = 0
         
@@ -98,8 +99,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         for result in filteredResultsArray {
             let passengersDictionary = result["passengers"] as! [String:String]
             if passengersDictionary[userUID] == userUID {
+               // if counter < filteredResultsArray.count
                 filteredResultsArray.remove(at: counter)
-                counter += 1
+                //counter += 1
             } else {
                 counter += 1
             }
@@ -115,7 +117,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
 
         print(filteredResultsArray.count)
         
-        //originIsLocal = results.content["origin"] as? String == "local"
         self.tableView.reloadData()
     }
     
@@ -147,6 +148,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         }
         self.navigationController?.isNavigationBarHidden = false
         tableView.reloadData()
+        //rideSearcher.reset()
+        
+        //rideSearcher.search()
+        
 
         
     }
@@ -205,6 +210,21 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
 //
         return cell
     }
+    
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        if scrollView == tableView {
+//            if tableView.contentOffset.y < 50 {
+//                //loadMessages()
+//                print("scrollviewdidscroll hit")
+//                rideSearcher.search()
+//                let oldContentSizeHeight = tableView.contentSize.height
+//                tableView.reloadData()
+//                let newContentSizeHeight = tableView.contentSize.height
+//                tableView.contentOffset = CGPoint(x:tableView.contentOffset.x,y:newContentSizeHeight - oldContentSizeHeight)
+//            }
+//        }
+//    }
+
 
     @objc @available(iOS 10.0, *)
     func goToAlgoliaWebsite(_ sender : UIBarButtonItem) {

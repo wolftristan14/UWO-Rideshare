@@ -29,6 +29,7 @@ class SearchCoordinator: NSObject {
     var collRef: CollectionReference!
     var searchViewController: SearchViewController!
     var counter: Bool!
+    var timer: Timer!
     
     weak var delegate: SearchCoordinatorDelegate?
     
@@ -141,28 +142,28 @@ class SearchCoordinator: NSObject {
 }
 
 extension SearchCoordinator: SearchViewControllerDelegate {
-    func didSearchForRide(origin: String, destination: String) {
-        //loadSearchData(origin: origin, destination: destination)
-        
-        
 
-    }
     
     func didSelectRide(ride: RideRecord) {
         showRideDetail(ride: ride)
         print("ride when its in search coord:\(ride)")
     }
     
-    func isSearchBarActive(answer: Bool) {
-        print(answer)
-        let counter = answer
-    }
+
     
 }
 
 extension SearchCoordinator: RideDetailCoordinatorDelegate {
     func didAddUserToRide() {
-       // allRidesArray.removeAll()
+        if #available(iOS 10.0, *) {
+            timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
+                print("timer fired")
+                self.searchViewController.rideSearcher.search()
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+        //timer.fire()     // allRidesArray.removeAll()
         //loadFirebaseData()
     }
     

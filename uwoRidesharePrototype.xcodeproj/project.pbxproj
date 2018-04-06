@@ -17,6 +17,7 @@
 		A1434FCF20126B86009CDBE9 /* AddRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1434FCE20126B86009CDBE9 /* AddRideViewController.swift */; };
 		A1434FD220126F1D009CDBE9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1434FD120126F1D009CDBE9 /* User.swift */; };
 		A1434FD62013C03F009CDBE9 /* AddRideCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1434FD52013C03F009CDBE9 /* AddRideCoordinator.swift */; };
+		A14749432077C5390031BC54 /* AddRidePreferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14749422077C5390031BC54 /* AddRidePreferences.storyboard */; };
 		A15CC4722048820F008A142C /* RideRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CC4712048820F008A142C /* RideRequest.swift */; };
 		A15CC474204B21BD008A142C /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CC473204B21BD008A142C /* RequestsViewController.swift */; };
 		A15CC476204B365A008A142C /* RequestsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CC475204B365A008A142C /* RequestsCoordinator.swift */; };
@@ -68,6 +69,7 @@
 		A1434FCE20126B86009CDBE9 /* AddRideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRideViewController.swift; sourceTree = "<group>"; };
 		A1434FD120126F1D009CDBE9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A1434FD52013C03F009CDBE9 /* AddRideCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRideCoordinator.swift; sourceTree = "<group>"; };
+		A14749422077C5390031BC54 /* AddRidePreferences.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddRidePreferences.storyboard; sourceTree = "<group>"; };
 		A15CC4712048820F008A142C /* RideRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRequest.swift; sourceTree = "<group>"; };
 		A15CC473204B21BD008A142C /* RequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
 		A15CC475204B365A008A142C /* RequestsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsCoordinator.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				A16576D01FEAE426009985A1 /* Home.storyboard */,
 				A16576DF1FEEE1E2009985A1 /* CreateUser.storyboard */,
 				A16576EE200FCE1F009985A1 /* AddRide.storyboard */,
+				A14749422077C5390031BC54 /* AddRidePreferences.storyboard */,
 				A10433EB2024C68800F0E8FD /* RideDetail.storyboard */,
 				A15CC47B20506A94008A142C /* RequestDetail.storyboard */,
 			);
@@ -374,6 +377,7 @@
 			files = (
 				A17000B21FD880780003751B /* GoogleService-Info.plist in Resources */,
 				A16576CD1FE9B41A009985A1 /* Terms.storyboard in Resources */,
+				A14749432077C5390031BC54 /* AddRidePreferences.storyboard in Resources */,
 				A10433EC2024C68800F0E8FD /* RideDetail.storyboard in Resources */,
 				A170009F1FD870940003751B /* LaunchScreen.storyboard in Resources */,
 				A16576E01FEEE1E2009985A1 /* CreateUser.storyboard in Resources */,
