@@ -69,6 +69,18 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.dateLabel.text = ride.date
         cell.priceLabel.text = ride.price
         cell.availableSeatsLabel.text = "\(ride.availableSeats ?? 0)"
+            if ride.isSmokingAllowed == false {
+                cell.smokingAllowedImageView.isHidden = true
+            }
+            if ride.willThereBeRestStops == false {
+                cell.restStopsImageView.isHidden = true
+            }
+            if ride.noFoodAllowed == false {
+                cell.noFoodImageView.isHidden = true
+            }
+            if ride.animalsAllowed == false {
+                cell.animalsAllowedImageView.isHidden = true
+            }
             return cell
 
         } else if joinedRidesArray.count > 0 && indexPath[0] == 1 {
@@ -78,6 +90,18 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.dateLabel.text = ride.date
             cell.priceLabel.text = ride.price
             cell.availableSeatsLabel.text = "\(ride.availableSeats ?? 0)"
+            if ride.isSmokingAllowed == false {
+                cell.smokingAllowedImageView.isHidden = true
+            }
+            if ride.willThereBeRestStops == false {
+                cell.restStopsImageView.isHidden = true
+            }
+            if ride.noFoodAllowed == false {
+                cell.noFoodImageView.isHidden = true
+            }
+            if ride.animalsAllowed == false {
+                cell.animalsAllowedImageView.isHidden = true
+            }
             return cell
 
         } else {
