@@ -59,6 +59,26 @@ struct RideRecord {
         return json["createdOn"] as? Date
     }
     
+    var isSmokingAllowed: Bool? {
+        return json["isSmokingAllowed"] as? Bool
+    }
+    var willThereBeRestStops: Bool? {
+        return json["willThereBeRestStops"] as? Bool
+
+    }
+    var noFoodAllowed: Bool? {
+        return json["noFoodAllowed"] as? Bool
+
+    }
+    var animalsAllowed: Bool? {
+        return json["animalsAllowed"] as? Bool
+
+    }
+    var baggageSize: String? {
+        return json["baggageSize"] as? String
+
+    }
+    
     
 
 

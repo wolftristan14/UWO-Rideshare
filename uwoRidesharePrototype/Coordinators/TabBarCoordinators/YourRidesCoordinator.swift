@@ -92,7 +92,7 @@ class YourRidesCoordinator: NSObject {
                     self.yourRidesViewController.joinedRidesArray = self.joinedRidesArray
                     self.yourRidesViewController.tableView.reloadData()
                 }
-                print(querySnapshot?.documents.count)
+                //print(querySnapshot?.documents.count)
                 for document in querySnapshot!.documents {
                     let ride = RideRecord(json: document.data())
                     
@@ -100,7 +100,7 @@ class YourRidesCoordinator: NSObject {
                     //print("added ride")
                     self.yourRidesViewController.joinedRidesArray = self.joinedRidesArray
                     self.yourRidesViewController.tableView.reloadData()
-                    print(document.data())
+                    //print(document.data())
 
                 }
             }
