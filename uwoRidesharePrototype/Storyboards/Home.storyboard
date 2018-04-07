@@ -211,33 +211,73 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smoking" translatesAutoresizingMaskIntoConstraints="NO" id="Opw-1M-4hK">
+                                                    <rect key="frame" x="182.5" y="97.5" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="2cQ-Us-Bu3"/>
+                                                        <constraint firstAttribute="width" constant="25" id="pFi-4k-5rh"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rest stops" translatesAutoresizingMaskIntoConstraints="NO" id="Lwr-zu-aRn">
+                                                    <rect key="frame" x="222" y="97.5" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="I58-FL-l62"/>
+                                                        <constraint firstAttribute="height" constant="25" id="PwJ-dX-krW"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no food" translatesAutoresizingMaskIntoConstraints="NO" id="qrQ-DZ-ejM">
+                                                    <rect key="frame" x="262" y="97.5" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="FNg-Ms-NoY"/>
+                                                        <constraint firstAttribute="height" constant="25" id="gPj-Yk-nKB"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog" translatesAutoresizingMaskIntoConstraints="NO" id="2Tc-DW-ZJV">
+                                                    <rect key="frame" x="302" y="97.5" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="0B3-6v-mc2"/>
+                                                        <constraint firstAttribute="width" constant="25" id="4r0-2o-25D"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="XLS-xR-zcJ" firstAttribute="bottom" secondItem="UWu-we-3a3" secondAttribute="bottom" constant="-3" id="5OZ-5b-izm"/>
+                                                <constraint firstItem="2Tc-DW-ZJV" firstAttribute="centerY" secondItem="qrQ-DZ-ejM" secondAttribute="centerY" id="5UV-KC-Tpr"/>
                                                 <constraint firstItem="gYP-Se-JyL" firstAttribute="leading" secondItem="UWu-we-3a3" secondAttribute="leading" id="Dbf-V9-R5b"/>
                                                 <constraint firstItem="gYP-Se-JyL" firstAttribute="top" secondItem="XPq-7J-UkU" secondAttribute="bottom" constant="10" id="Dme-0y-BHG"/>
                                                 <constraint firstItem="S8j-Zf-VUn" firstAttribute="leading" secondItem="3M7-Jk-7ai" secondAttribute="trailing" constant="50" id="FlI-N5-mkl"/>
                                                 <constraint firstAttribute="trailing" secondItem="LvR-mZ-XLD" secondAttribute="trailing" constant="40" id="Hpi-rn-a2q"/>
+                                                <constraint firstItem="qrQ-DZ-ejM" firstAttribute="leading" secondItem="Lwr-zu-aRn" secondAttribute="trailing" constant="15" id="OFt-Ph-G0W"/>
                                                 <constraint firstItem="UWu-we-3a3" firstAttribute="top" secondItem="osk-Vf-80v" secondAttribute="top" constant="11" id="Pd5-K6-6nG"/>
                                                 <constraint firstItem="UWu-we-3a3" firstAttribute="leading" secondItem="osk-Vf-80v" secondAttribute="leading" constant="15" id="QiM-G6-Zhd"/>
                                                 <constraint firstItem="XPq-7J-UkU" firstAttribute="top" secondItem="UWu-we-3a3" secondAttribute="bottom" constant="9" id="S8e-Xy-bNb"/>
                                                 <constraint firstItem="LvR-mZ-XLD" firstAttribute="bottom" secondItem="0HS-t7-mJe" secondAttribute="bottom" id="TxJ-fd-ksi"/>
+                                                <constraint firstItem="Lwr-zu-aRn" firstAttribute="leading" secondItem="Opw-1M-4hK" secondAttribute="trailing" constant="15" id="VZr-pk-ZIp"/>
                                                 <constraint firstItem="LvR-mZ-XLD" firstAttribute="top" secondItem="S8j-Zf-VUn" secondAttribute="bottom" constant="8" id="Wk9-xb-s9X"/>
+                                                <constraint firstItem="Opw-1M-4hK" firstAttribute="leading" secondItem="0HS-t7-mJe" secondAttribute="leading" id="aF1-uw-VJE"/>
+                                                <constraint firstItem="Lwr-zu-aRn" firstAttribute="centerY" secondItem="Opw-1M-4hK" secondAttribute="centerY" id="aTY-j2-4Qe"/>
+                                                <constraint firstItem="qrQ-DZ-ejM" firstAttribute="centerY" secondItem="Lwr-zu-aRn" secondAttribute="centerY" id="c27-r3-fia"/>
                                                 <constraint firstItem="3M7-Jk-7ai" firstAttribute="top" secondItem="XLS-xR-zcJ" secondAttribute="bottom" constant="11" id="cKj-lU-YQo"/>
                                                 <constraint firstItem="S8j-Zf-VUn" firstAttribute="trailing" secondItem="XLS-xR-zcJ" secondAttribute="trailing" constant="-10" id="m6N-x6-KpE"/>
+                                                <constraint firstItem="Opw-1M-4hK" firstAttribute="top" secondItem="0HS-t7-mJe" secondAttribute="bottom" constant="10" id="nUu-Sc-rZf"/>
                                                 <constraint firstItem="0HS-t7-mJe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gYP-Se-JyL" secondAttribute="trailing" constant="10" id="nbl-D1-CI9"/>
                                                 <constraint firstItem="S8j-Zf-VUn" firstAttribute="centerX" secondItem="LvR-mZ-XLD" secondAttribute="centerX" id="oQ6-7i-DmQ"/>
                                                 <constraint firstItem="XPq-7J-UkU" firstAttribute="leading" secondItem="osk-Vf-80v" secondAttribute="leading" constant="38" id="qXr-sa-KcQ"/>
                                                 <constraint firstItem="0HS-t7-mJe" firstAttribute="top" secondItem="3M7-Jk-7ai" secondAttribute="bottom" constant="7" id="teV-js-7Bq"/>
                                                 <constraint firstItem="3M7-Jk-7ai" firstAttribute="centerX" secondItem="0HS-t7-mJe" secondAttribute="centerX" id="wbA-7a-PrR"/>
+                                                <constraint firstItem="2Tc-DW-ZJV" firstAttribute="leading" secondItem="qrQ-DZ-ejM" secondAttribute="trailing" constant="15" id="zjQ-2l-roX"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="animalsAllowedImageView" destination="2Tc-DW-ZJV" id="RZd-ay-HIf"/>
                                             <outlet property="availableSeatsLabel" destination="LvR-mZ-XLD" id="hHM-j6-FfQ"/>
                                             <outlet property="dateLabel" destination="XLS-xR-zcJ" id="4Gk-nW-Wgx"/>
                                             <outlet property="destinationLabel" destination="gYP-Se-JyL" id="7vI-OW-YqA"/>
+                                            <outlet property="noFoodImageView" destination="qrQ-DZ-ejM" id="hPb-At-HM2"/>
                                             <outlet property="originLabel" destination="UWu-we-3a3" id="L6G-mc-ytz"/>
                                             <outlet property="priceLabel" destination="0HS-t7-mJe" id="qWj-iP-ELj"/>
+                                            <outlet property="restStopsImageView" destination="Lwr-zu-aRn" id="sxS-bt-W1Z"/>
+                                            <outlet property="smokingAllowedImageView" destination="Opw-1M-4hK" id="kom-os-Su4"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -473,10 +513,14 @@
     </scenes>
     <resources>
         <image name="car" width="33" height="33"/>
+        <image name="dog" width="24" height="24"/>
         <image name="icons8-service-bell-filled-100" width="33" height="33"/>
         <image name="messages" width="33" height="33"/>
+        <image name="no food" width="24" height="24"/>
         <image name="plusmed" width="50" height="50"/>
+        <image name="rest stops" width="24" height="24"/>
         <image name="searchbig" width="33" height="33"/>
         <image name="settings" width="33" height="33"/>
+        <image name="smoking" width="24" height="24"/>
     </resources>
 </document>

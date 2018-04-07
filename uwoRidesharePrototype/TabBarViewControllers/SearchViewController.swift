@@ -43,7 +43,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         rideIndex = apiClient.index(withName: "Rides")
         rideSearcher = Searcher(index: rideIndex, resultHandler: self.handleSearchResults)
         rideSearcher.params.hitsPerPage = 15
-        rideSearcher.params.attributesToRetrieve = ["docid", "origin", "destination", "date", "price", "availableSeats", "passengers", "driverEmail", "driverName", "createdOn"]
+        rideSearcher.params.attributesToRetrieve = ["docid", "origin", "destination", "date", "price", "availableSeats", "passengers", "driverEmail", "driverName", "createdOn","isSmokingAllowed", "willThereBeRestStops", "noFoodAllowed", "animalsAllowed", "baggageSize"]
         rideSearcher.params.attributesToHighlight = ["origin", "destination"]
         
         //searchController = UISearchController(searchResultsController: nil)
@@ -52,7 +52,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = NSLocalizedString("search rides", comment: "")
-        print("navigation item:\(self.navigationItem)")
+        //print("navigation item:\(self.navigationItem)")
 
  
 
@@ -85,7 +85,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         //print(resultsArray.count)
         //print(resultsArray[2]["driverEmail"] as! String)
        // print(Auth.auth().currentUser?.email as! String)
-       // let phoneNumber = Auth.auth().currentUser?.uid
 
         let userUID = Auth.auth().currentUser?.uid ?? ""
         let userEmail = Auth.auth().currentUser?.email ?? ""
@@ -192,6 +191,18 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
             cell.dateLabel.text = ride.date
             cell.priceLabel.text = ride.price
             cell.availableSeatsLabel.text = String(describing: availableSeats)
+            if ride.isSmokingAllowed == false {
+                cell.smokingAllowedImageView.isHidden = true
+            }
+            if ride.willThereBeRestStops == false {
+                cell.restStopsImageView.isHidden = true
+            }
+            if ride.noFoodAllowed == false {
+                cell.noFoodImageView.isHidden = true
+            }
+            if ride.animalsAllowed == false {
+                cell.animalsAllowedImageView.isHidden = true
+            }
             //cell.accessibilityElements = ride.passengers
 //
         //        } else if rideArray.count > 0 {

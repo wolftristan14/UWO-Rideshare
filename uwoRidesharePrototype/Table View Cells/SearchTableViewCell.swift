@@ -22,6 +22,13 @@ class SearchTableViewCell: UITableViewCell {
     
     @IBOutlet weak var availableSeatsLabel: UILabel!
     
+    @IBOutlet weak var smokingAllowedImageView: UIImageView!
+    
+    @IBOutlet weak var restStopsImageView: UIImageView!
+    
+    @IBOutlet weak var noFoodImageView: UIImageView!
+    
+    @IBOutlet weak var animalsAllowedImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
