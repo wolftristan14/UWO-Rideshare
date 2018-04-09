@@ -92,8 +92,15 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k9R-pf-f2D" customClass="ProfileImageStyleManager" customModule="uwoRidesharePrototype" customModuleProvider="target">
+                                                <rect key="frame" x="85" y="10" width="150" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="4Qr-I7-4bF"/>
+                                                    <constraint firstAttribute="height" constant="150" id="YIo-xw-hMD"/>
+                                                </constraints>
+                                            </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DG0-su-ZCw">
-                                                <rect key="frame" x="101" y="527" width="118" height="466"/>
+                                                <rect key="frame" x="101" y="934" width="118" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
                                                 <state key="normal" title="Request Ride">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -102,13 +109,6 @@
                                                     <action selector="joinRideButtonTapped:" destination="Tqh-rO-pOH" eventType="touchUpInside" id="v5c-dy-IdP"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k9R-pf-f2D" customClass="ProfileImageStyleManager" customModule="uwoRidesharePrototype" customModuleProvider="target">
-                                                <rect key="frame" x="85" y="10" width="150" height="150"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="4Qr-I7-4bF"/>
-                                                    <constraint firstAttribute="height" constant="150" id="YIo-xw-hMD"/>
-                                                </constraints>
-                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -122,10 +122,9 @@
                                             <constraint firstItem="hEg-0j-maA" firstAttribute="leading" secondItem="0z8-ZW-A3R" secondAttribute="leading" constant="16" id="8n1-Wa-XUF"/>
                                             <constraint firstItem="7Kc-lk-wWZ" firstAttribute="leading" secondItem="hEg-0j-maA" secondAttribute="trailing" constant="8" id="9Qw-Pc-Uts"/>
                                             <constraint firstItem="7Kc-lk-wWZ" firstAttribute="bottom" secondItem="hEg-0j-maA" secondAttribute="bottom" id="Bxb-qQ-2hO"/>
-                                            <constraint firstItem="k9R-pf-f2D" firstAttribute="leading" secondItem="0z8-ZW-A3R" secondAttribute="leading" constant="85" id="DC8-7s-JAh"/>
                                             <constraint firstItem="IBU-PC-e6q" firstAttribute="centerX" secondItem="0z8-ZW-A3R" secondAttribute="centerX" id="DzU-Ub-pE1"/>
                                             <constraint firstItem="Vfw-5m-ED7" firstAttribute="top" secondItem="3To-k2-8ha" secondAttribute="bottom" constant="8" id="J8i-Vy-hQE"/>
-                                            <constraint firstItem="DG0-su-ZCw" firstAttribute="top" secondItem="7Kc-lk-wWZ" secondAttribute="bottom" constant="5" id="Jzh-JK-hU9"/>
+                                            <constraint firstItem="0z8-ZW-A3R" firstAttribute="bottom" secondItem="DG0-su-ZCw" secondAttribute="bottom" constant="32" id="QMm-aj-ojQ"/>
                                             <constraint firstItem="Rwb-z3-3JH" firstAttribute="top" secondItem="X2V-78-zPK" secondAttribute="bottom" constant="8" id="QV1-Fy-Dwu"/>
                                             <constraint firstItem="7Kc-lk-wWZ" firstAttribute="top" secondItem="Rwb-z3-3JH" secondAttribute="bottom" constant="77" id="Qvv-I2-hcN"/>
                                             <constraint firstItem="k9R-pf-f2D" firstAttribute="top" secondItem="0z8-ZW-A3R" secondAttribute="top" constant="10" id="ank-DJ-Y1h"/>
@@ -134,7 +133,6 @@
                                             <constraint firstAttribute="height" constant="1000" id="c0S-RV-E7y"/>
                                             <constraint firstItem="0qy-tu-K4j" firstAttribute="top" secondItem="k9R-pf-f2D" secondAttribute="bottom" constant="15" id="hpX-PG-N5Q"/>
                                             <constraint firstItem="TjH-S4-h39" firstAttribute="top" secondItem="17b-uK-tVi" secondAttribute="bottom" constant="8" id="nWs-2J-Y1Z"/>
-                                            <constraint firstItem="0z8-ZW-A3R" firstAttribute="bottom" secondItem="DG0-su-ZCw" secondAttribute="bottom" constant="7" id="pzk-XE-UBs"/>
                                             <constraint firstItem="TjH-S4-h39" firstAttribute="centerX" secondItem="0z8-ZW-A3R" secondAttribute="centerX" id="qvp-Sf-P05"/>
                                             <constraint firstItem="X2V-78-zPK" firstAttribute="top" secondItem="IBU-PC-e6q" secondAttribute="bottom" constant="8" id="rz5-ma-2La"/>
                                             <constraint firstItem="3To-k2-8ha" firstAttribute="top" secondItem="TjH-S4-h39" secondAttribute="bottom" constant="15" id="tuq-xA-sKN"/>
@@ -146,7 +144,7 @@
                                 <constraints>
                                     <constraint firstItem="TzG-bM-tTF" firstAttribute="leading" secondItem="56S-8z-aep" secondAttribute="leading" id="RpS-tr-ugG"/>
                                     <constraint firstItem="TzG-bM-tTF" firstAttribute="top" secondItem="56S-8z-aep" secondAttribute="top" id="SKf-EY-pEV"/>
-                                    <constraint firstAttribute="bottom" secondItem="TzG-bM-tTF" secondAttribute="bottom" id="U5t-SB-Pol"/>
+                                    <constraint firstAttribute="bottom" secondItem="TzG-bM-tTF" secondAttribute="bottom" constant="-58" id="U5t-SB-Pol"/>
                                     <constraint firstAttribute="trailing" secondItem="TzG-bM-tTF" secondAttribute="trailing" id="meq-jK-Kcs"/>
                                 </constraints>
                             </scrollView>
@@ -175,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E77-el-0xi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="869" y="50"/>
+            <point key="canvasLocation" x="868.125" y="49.647887323943664"/>
         </scene>
     </scenes>
 </document>
