@@ -34,6 +34,17 @@ class RideDetailViewController: UIViewController {
     
     @IBOutlet weak var driverLabel: UILabel!
     
+    @IBOutlet weak var baggageSizeLabel: UILabel!
+    
+    @IBOutlet weak var isSmokingAllowedImageView: UIImageView!
+    
+    @IBOutlet weak var willThereBeRestStopsImageView: UIImageView!
+    
+    @IBOutlet weak var noFoodAllowedImageView: UIImageView!
+    
+    
+    @IBOutlet weak var animalsAllowedImageView: UIImageView!
+    
     var isJoinRideButtonHidden: Bool!
     
     
@@ -42,14 +53,18 @@ class RideDetailViewController: UIViewController {
         if isJoinRideButtonHidden == true {
             joinRideButton.isHidden = true
         }
-        //imageView.image = #imageLiteral(resourceName: "default-user")
         originLabel.text = selectedRide.origin
         destinationLabel.text = selectedRide.destination
         dateLabel.text = selectedRide.date
         priceLabel.text = selectedRide.price
         availableSeatsLabel.text = "\(selectedRide.availableSeats ?? 0)"
         driverLabel.text = selectedRide.driverName
+        baggageSizeLabel.text = selectedRide.baggageSize
+        
         print(joinRideButton.isHidden)
+        checkPreferences()
+        
+
         // Do any additional setup after loading the view.
     }
 
@@ -61,6 +76,33 @@ class RideDetailViewController: UIViewController {
     @IBAction func joinRideButtonTapped(_ sender: Any) {
         
         delegate?.didJoinRide(ride: selectedRide)
+    }
+    
+    func checkPreferences() {
+        
+        if selectedRide.isSmokingAllowed == true {
+            isSmokingAllowedImageView.image = #imageLiteral(resourceName: "green")
+        } else {
+            isSmokingAllowedImageView.image = #imageLiteral(resourceName: "red")
+        }
+        
+        if selectedRide.willThereBeRestStops == true {
+            willThereBeRestStopsImageView.image = #imageLiteral(resourceName: "green")
+        } else {
+            willThereBeRestStopsImageView.image = #imageLiteral(resourceName: "red")
+        }
+        
+        if selectedRide.noFoodAllowed == true {
+            noFoodAllowedImageView.image = #imageLiteral(resourceName: "green")
+        } else {
+            noFoodAllowedImageView.image = #imageLiteral(resourceName: "red")
+        }
+        
+        if selectedRide.animalsAllowed == true {
+            animalsAllowedImageView.image = #imageLiteral(resourceName: "green")
+        } else {
+            animalsAllowedImageView.image = #imageLiteral(resourceName: "red")
+        }
     }
     
     /*
