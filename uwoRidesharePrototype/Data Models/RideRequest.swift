@@ -18,10 +18,11 @@ class RideRequest {
     var requestStatus: Bool
     var driverEmail: String
     var driverName: String
+    var driverUID: String
 
     
     
-    init(docid: String, requesterid: String, requesterName: String, rideid: String, createdOn: Date, requestStatus: Bool, driverEmail: String, driverName: String) {
+    init(docid: String, requesterid: String, requesterName: String, rideid: String, createdOn: Date, requestStatus: Bool, driverEmail: String, driverName: String, driverUID: String) {
         self.docid = docid
         self.requesterid = requesterid
         self.requesterName = requesterName
@@ -30,6 +31,7 @@ class RideRequest {
         self.requestStatus = requestStatus
         self.driverEmail = driverEmail
         self.driverName = driverName
+        self.driverUID = driverUID
         
     }
     

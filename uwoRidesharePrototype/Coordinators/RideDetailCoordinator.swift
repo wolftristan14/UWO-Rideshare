@@ -82,7 +82,7 @@ class RideDetailCoordinator: NSObject {
         //var passengerArray = ride.passengers
         //passengerArray?.append((Auth.auth().currentUser?.email)!)
         let userUID = Auth.auth().currentUser?.uid ?? ""
-        docRefRides.updateData(["passengers.\(userUID)": userUID]) { err in
+        docRefRides.updateData(["passengers.\(userUID)": false]) { err in
                         if let err = err {
                             print("Error adding document: \(err)")
                         } else {
@@ -97,8 +97,9 @@ class RideDetailCoordinator: NSObject {
             "rideid": ride.docid ?? "",
             "driverEmail": ride.driverEmail ?? "",
             "driverName": ride.driverName ?? "",
+            "driverUID": Auth.auth().currentUser?.uid ?? "",
             "createdOn": Date.init(timeIntervalSinceNow: 0),
-            "requestStatus": false
+            "requestStatus": false,
             
         ]) { err in
             if let err = err {

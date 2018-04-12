@@ -117,7 +117,14 @@ class RequestDetailCoordinator: NSObject {
                 "price": ride.price!,
                 "availableSeats": updatedAvailableSeats,
                 "createdOn": ride.createdOn!,
-                "passengers": ride.passengers!
+                "passengers": ride.passengers!,
+                "isSmokingAllowed": ride.isSmokingAllowed!,
+                "willThereBeRestStops": ride.willThereBeRestStops!,
+                "noFoodAllowed": ride.noFoodAllowed!,
+                "animalsAllowed": ride.animalsAllowed!,
+                "baggageSize": ride.baggageSize!
+
+                
             ]) { err in
                 if let err = err {
                     print("Error adding document: \(err)")
@@ -129,7 +136,7 @@ class RequestDetailCoordinator: NSObject {
             }
             docRefRide.delete()
         } else {
-        docRefRide.updateData(["availableSeats": updatedAvailableSeats]) {(error) in
+            docRefRide.updateData(["availableSeats": updatedAvailableSeats, "passengers.\(selectedRequest.driverUID)": true]) {(error) in
             if let err = error {
                 print("Error getting documents: \(err)")
             }

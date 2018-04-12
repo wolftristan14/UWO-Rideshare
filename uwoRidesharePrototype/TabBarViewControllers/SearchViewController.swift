@@ -96,8 +96,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         
         //Auth.auth().currentUser
         for result in filteredResultsArray {
-            let passengersDictionary = result["passengers"] as! [String:String]
-            if passengersDictionary[userUID] == userUID {
+            let passengersDictionary = result["passengers"] as! [String:Bool]
+            //remove rides you have already joined
+            if passengersDictionary[userUID] != nil {
                // if counter < filteredResultsArray.count
                 filteredResultsArray.remove(at: counter)
                 //counter += 1
