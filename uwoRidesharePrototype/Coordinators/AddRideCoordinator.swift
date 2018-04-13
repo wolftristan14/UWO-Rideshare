@@ -95,6 +95,8 @@ extension AddRideCoordinator: AddRideViewControllerDelegate {
 
 extension AddRideCoordinator: AddRidePreferencesCoordinatorDelegate {
     func didWriteRideToFirebase() {
+        delegate?.didDismissAddRideViewController()
         navigationController?.popViewController(animated: true)
+        
     }
 }

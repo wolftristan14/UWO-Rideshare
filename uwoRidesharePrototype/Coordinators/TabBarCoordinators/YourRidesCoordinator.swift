@@ -41,6 +41,7 @@ class YourRidesCoordinator: NSObject {
         yourRidesViewController.delegate = self
 
         loadPostedRides()
+        loadPostedFullRides()
         loadJoinedRides()
 
     }
@@ -56,7 +57,6 @@ class YourRidesCoordinator: NSObject {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                self.postedRidesArray.removeAll()
 
                 //if querySnapshot?.documents.count == 0 {
                     
@@ -81,6 +81,38 @@ class YourRidesCoordinator: NSObject {
             }
         }
         
+//        fullRidesCollRef = Firestore.firestore().collection("FullRides")
+//
+//        fullRidesCollRef.whereField("driverEmail", isEqualTo: Auth.auth().currentUser?.email ?? "ERROR").addSnapshotListener() { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+//                //self.postedRidesArray.removeAll()
+//               // if querySnapshot?.documents.count == 0 {
+//                   // self.yourRidesViewController.postedRideArray = self.postedRidesArray
+//                   // self.yourRidesViewController.tableView.reloadData()
+//                //}
+//
+//                for document in querySnapshot!.documents {
+//                    //print("\(document.documentID) => \(document.data())")
+//                    if document.data().count > 0 {
+//
+//
+//                        let ride = RideRecord(json: document.data())
+//                        //ride.docid = document.documentID
+//
+//                        self.postedRidesArray.append(ride)
+//                        //print("added ride")
+//                        self.yourRidesViewController.postedRideArray = self.postedRidesArray
+//                        self.yourRidesViewController.tableView.reloadData()
+//                    }
+//                }
+//            }
+//        }
+        
+    }
+    
+    func loadPostedFullRides() {
         fullRidesCollRef = Firestore.firestore().collection("FullRides")
         
         fullRidesCollRef.whereField("driverEmail", isEqualTo: Auth.auth().currentUser?.email ?? "ERROR").addSnapshotListener() { (querySnapshot, err) in
@@ -88,9 +120,9 @@ class YourRidesCoordinator: NSObject {
                 print("Error getting documents: \(err)")
             } else {
                 //self.postedRidesArray.removeAll()
-               // if querySnapshot?.documents.count == 0 {
-                   // self.yourRidesViewController.postedRideArray = self.postedRidesArray
-                   // self.yourRidesViewController.tableView.reloadData()
+                // if querySnapshot?.documents.count == 0 {
+                // self.yourRidesViewController.postedRideArray = self.postedRidesArray
+                // self.yourRidesViewController.tableView.reloadData()
                 //}
                 
                 for document in querySnapshot!.documents {
@@ -109,7 +141,6 @@ class YourRidesCoordinator: NSObject {
                 }
             }
         }
-        
     }
     
     func loadJoinedRides() {
@@ -207,6 +238,8 @@ extension YourRidesCoordinator: YourRidesViewControllerDelegate {
 
 extension YourRidesCoordinator: AddRideCoordinatorDelegate {
     func didDismissAddRideViewController() {
+        self.postedRidesArray.removeAll()
+        loadPostedFullRides()
            //loadFirebaseData()
         //yourRidesArray.removeAll()
 
