@@ -77,8 +77,7 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
                     self.checkUser(user: user)
                 }
             } else {
-                self.showTerms()
-                
+                self.showAuthentication()
             }
         }
     }
@@ -101,13 +100,7 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
     }
     
     
-    func checkTerms() {
-        if termsAccepted == false {
-            showTerms()
-        } else {
-            showAuthentication()
-        }
-    }
+
     
     func checkIfUserHasBeenCreated() {
         if accountCreated == false {
@@ -124,22 +117,21 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         authUI?.providers = providers
         // You need to adopt a FUIAuthDelegate protocol to receive callback
         authUI?.delegate = self as FUIAuthDelegate
-        
         authViewController = authUI!.authViewController()
-        
+        //let emailVC = emailEntryViewController(forAuthUI: authUI!)
         authViewController?.isNavigationBarHidden = true
         launchVC.present(authViewController!, animated: true, completion: nil)
     }
     
-
-    
-    
-    func showTerms() {
-        let termsCoordinator = TermsCoordinator(navigationController: navigationController!)
-        termsCoordinator.delegate = self as TermsCoordinatorDelegate
-        termsCoordinator.start()
-        childCoordinators.append(termsCoordinator)
+    func authPickerViewController(forAuthUI authUI: FUIAuth) -> FUIAuthPickerViewController {
+        return CustomAuthPickerViewController(authUI: authUI)
     }
+
+    func emailEntryViewController(forAuthUI authUI: FUIAuth) -> FUIEmailEntryViewController {
+        return CustomEmailEntryViewController(authUI: authUI)
+        
+    }
+
     
     func showCreateUser() {
         let createUserCoordinator = CreateUserCoordinator(navigationController: navigationController!)
@@ -165,15 +157,6 @@ extension AppCoordinator: LaunchViewControllerDelegate {
         try! Auth.auth().signOut()
     }
     
-}
-
-extension AppCoordinator: TermsCoordinatorDelegate {
-    
-    func didAcceptTerms() {
-        print("termsAccepted")
-        termsAccepted = true
-        checkTerms()
-    }
 }
 
 extension AppCoordinator: CreateUserCoordinatorDelegate {

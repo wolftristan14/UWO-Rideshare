@@ -42,7 +42,6 @@
 		A16576DA1FEEDB2E009985A1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16576D91FEEDB2E009985A1 /* ProfileViewController.swift */; };
 		A16576DC1FEEDB3B009985A1 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16576DB1FEEDB3B009985A1 /* MessagesViewController.swift */; };
 		A16576E01FEEE1E2009985A1 /* CreateUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16576DF1FEEE1E2009985A1 /* CreateUser.storyboard */; };
-		A16576E41FEEEF4D009985A1 /* TermsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16576E31FEEEF4D009985A1 /* TermsCoordinator.swift */; };
 		A16576E61FEEFD0D009985A1 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16576E51FEEFD0D009985A1 /* CreateUserViewController.swift */; };
 		A16576E81FEF0B1C009985A1 /* CreateUserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16576E71FEF0B1C009985A1 /* CreateUserCoordinator.swift */; };
 		A16576EB2007F67D009985A1 /* UIViewControllerDismissKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16576EA2007F67D009985A1 /* UIViewControllerDismissKeyboardExtension.swift */; };
@@ -58,6 +57,8 @@
 		A183824C20166BF0004180BE /* YourRidesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183824B20166BEF004180BE /* YourRidesCoordinator.swift */; };
 		A183825020166C20004180BE /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183824F20166C20004180BE /* ProfileCoordinator.swift */; };
 		A183825220166C31004180BE /* MessagesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183825120166C31004180BE /* MessagesCoordinator.swift */; };
+		A1B8786B2081255B0004F845 /* CustomEmailEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B8786A2081255B0004F845 /* CustomEmailEntryViewController.swift */; };
+		A1B8786D20813C9C0004F845 /* CustomAuthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B8786C20813C9C0004F845 /* CustomAuthPickerViewController.swift */; };
 		A1CFAFC020433EAD00914CF2 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CFAFBF20433EAD00914CF2 /* UIImageViewExtension.swift */; };
 		A1E8C88A20654A7300D1C5E2 /* RideRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E8C88920654A7300D1C5E2 /* RideRecord.swift */; };
 /* End PBXBuildFile section */
@@ -97,7 +98,6 @@
 		A16576D91FEEDB2E009985A1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A16576DB1FEEDB3B009985A1 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		A16576DF1FEEE1E2009985A1 /* CreateUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateUser.storyboard; sourceTree = "<group>"; };
-		A16576E31FEEEF4D009985A1 /* TermsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsCoordinator.swift; sourceTree = "<group>"; };
 		A16576E51FEEFD0D009985A1 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 		A16576E71FEF0B1C009985A1 /* CreateUserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserCoordinator.swift; sourceTree = "<group>"; };
 		A16576EA2007F67D009985A1 /* UIViewControllerDismissKeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerDismissKeyboardExtension.swift; sourceTree = "<group>"; };
@@ -116,6 +116,8 @@
 		A183824B20166BEF004180BE /* YourRidesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourRidesCoordinator.swift; sourceTree = "<group>"; };
 		A183824F20166C20004180BE /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		A183825120166C31004180BE /* MessagesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesCoordinator.swift; sourceTree = "<group>"; };
+		A1B8786A2081255B0004F845 /* CustomEmailEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmailEntryViewController.swift; sourceTree = "<group>"; };
+		A1B8786C20813C9C0004F845 /* CustomAuthPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAuthPickerViewController.swift; sourceTree = "<group>"; };
 		A1CFAFBF20433EAD00914CF2 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		A1E8C88920654A7300D1C5E2 /* RideRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRecord.swift; sourceTree = "<group>"; };
 		B4E0A3BFA6F3EAC27AA4B59A /* Pods-uwoRidesharePrototype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uwoRidesharePrototype.release.xcconfig"; path = "Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +167,8 @@
 				A14749442077E0010031BC54 /* AddRidePreferencesViewController.swift */,
 				A10433E92024C66D00F0E8FD /* RideDetailViewController.swift */,
 				A15CC47D2050776C008A142C /* RequestDetailViewController.swift */,
+				A1B8786A2081255B0004F845 /* CustomEmailEntryViewController.swift */,
+				A1B8786C20813C9C0004F845 /* CustomAuthPickerViewController.swift */,
 			);
 			path = OtherViewControllers;
 			sourceTree = "<group>";
@@ -267,7 +271,6 @@
 				A183824820166BB9004180BE /* TabBarCoordinators */,
 				A17000A81FD87CF80003751B /* AppCoordinator.swift */,
 				A16576D21FEAE840009985A1 /* HomeCoordinator.swift */,
-				A16576E31FEEEF4D009985A1 /* TermsCoordinator.swift */,
 				A16576E71FEF0B1C009985A1 /* CreateUserCoordinator.swift */,
 				A1434FD52013C03F009CDBE9 /* AddRideCoordinator.swift */,
 				A14749462077E5D30031BC54 /* AddRidePreferencesCoordinator.swift */,
@@ -499,7 +502,6 @@
 				A16576D61FEEDAC7009985A1 /* SearchViewController.swift in Sources */,
 				A10BDFC72028C52700C5C2B9 /* RideDetailCoordinator.swift in Sources */,
 				A17000A91FD87CF80003751B /* AppCoordinator.swift in Sources */,
-				A16576E41FEEEF4D009985A1 /* TermsCoordinator.swift in Sources */,
 				A16576EB2007F67D009985A1 /* UIViewControllerDismissKeyboardExtension.swift in Sources */,
 				A15CC47E2050776C008A142C /* RequestDetailViewController.swift in Sources */,
 				A1E8C88A20654A7300D1C5E2 /* RideRecord.swift in Sources */,
@@ -513,6 +515,7 @@
 				A10433EA2024C66D00F0E8FD /* RideDetailViewController.swift in Sources */,
 				A16576DC1FEEDB3B009985A1 /* MessagesViewController.swift in Sources */,
 				A10433E72022654C00F0E8FD /* SearchTableViewCell.swift in Sources */,
+				A1B8786D20813C9C0004F845 /* CustomAuthPickerViewController.swift in Sources */,
 				A183825020166C20004180BE /* ProfileCoordinator.swift in Sources */,
 				A16576CB1FE6EF78009985A1 /* LaunchViewController.swift in Sources */,
 				A1434FD220126F1D009CDBE9 /* User.swift in Sources */,
@@ -532,6 +535,7 @@
 				A16576E81FEF0B1C009985A1 /* CreateUserCoordinator.swift in Sources */,
 				A15CC476204B365A008A142C /* RequestsCoordinator.swift in Sources */,
 				A16576DA1FEEDB2E009985A1 /* ProfileViewController.swift in Sources */,
+				A1B8786B2081255B0004F845 /* CustomEmailEntryViewController.swift in Sources */,
 				A17000951FD870940003751B /* AppDelegate.swift in Sources */,
 				A183824C20166BF0004180BE /* YourRidesCoordinator.swift in Sources */,
 			);
