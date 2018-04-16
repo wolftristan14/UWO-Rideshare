@@ -119,7 +119,7 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         authUI?.delegate = self as FUIAuthDelegate
         authViewController = authUI!.authViewController()
         //let emailVC = emailEntryViewController(forAuthUI: authUI!)
-        authViewController?.isNavigationBarHidden = true
+        //authViewController?.isNavigationBarHidden = true
         launchVC.present(authViewController!, animated: true, completion: nil)
     }
     
@@ -127,10 +127,10 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         return CustomAuthPickerViewController(authUI: authUI)
     }
 
-    func emailEntryViewController(forAuthUI authUI: FUIAuth) -> FUIEmailEntryViewController {
-        return CustomEmailEntryViewController(authUI: authUI)
-        
-    }
+//    func emailEntryViewController(forAuthUI authUI: FUIAuth) -> FUIEmailEntryViewController {
+//        return CustomEmailEntryViewController(authUI: authUI)
+//        
+//    }
 
     
     func showCreateUser() {

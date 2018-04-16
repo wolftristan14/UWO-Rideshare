@@ -27,7 +27,7 @@ class AddRidePreferencesViewController: UIViewController, UIPickerViewDelegate, 
     @IBOutlet weak var baggageSizePickerView: UIPickerView!
     
     weak var delegate: AddRidePreferencesViewControllerDelegate?
-    var baggageSizesArray = ["Small (backpack/briefcase)", "Medium (duffel bag)", "Large (suitcase or more)"]
+    var baggageSizesArray = ["Small", "Medium", "Large"]
     var ride: Ride?
     
     

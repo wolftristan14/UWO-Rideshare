@@ -23,8 +23,9 @@ class CustomAuthPickerViewController: FUIAuthPickerViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.flatPurpleDark
-        
+        //view.backgroundColor = UIColor.flatPurpleDark
+        self.navigationItem.leftBarButtonItem = nil
+        //self.navigationController?.navigationBar.backgroundColor = 
         // Get the superview's layout
         let margins = view.layoutMarginsGuide
         //let myView = UIButton()
@@ -34,9 +35,11 @@ class CustomAuthPickerViewController: FUIAuthPickerViewController {
         attributedString.addAttribute(.link, value: "https://wolftristan14.github.io/UWORidesharePrivatePolicy", range: NSRange(location: 61, length: 14))
         attributedString.addAttribute(.link, value: "https://wolftristan14.github.io/UWORideshareTermsAndConditions", range: NSRange(location: 38, length: 19))
         myView.attributedText = attributedString
+        myView.textColor = UIColor.flatWhiteDark
+        
         myView.font = UIFont(name: "TimesNewRoman", size: 14)
         myView.isEditable = false
-        myView.backgroundColor = UIColor.flatPurpleDark
+        //myView.backgroundColor = UIColor.flatPurpleDark
         view.addSubview(myView)
         myView.translatesAutoresizingMaskIntoConstraints = false
         myView.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
