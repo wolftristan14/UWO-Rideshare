@@ -19,7 +19,6 @@ A ride-sharing app for students at The University Of Western Ontario.  Users can
 ## Features still to be added
 
 * Messaging
-* Edit Profile
 * In-app Payment
 * Rate Drivers
 
