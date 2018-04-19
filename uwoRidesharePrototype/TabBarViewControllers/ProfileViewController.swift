@@ -10,6 +10,7 @@ import UIKit
 
 protocol ProfileViewControllerDelegate: class {
     func didTapSignOutButton()
+    func didTapEditProfileButton(image: UIImage)
 }
 
 class ProfileViewController: UIViewController {
@@ -34,6 +35,9 @@ class ProfileViewController: UIViewController {
     }
 
     
+    @IBAction func editProfileButtonTapped(_ sender: Any) {
+        delegate?.didTapEditProfileButton(image: imageView.image ?? #imageLiteral(resourceName: "default-user"))
+    }
     
     @IBAction func signOutButtonTapped(_ sender: Any) {
         delegate?.didTapSignOutButton()

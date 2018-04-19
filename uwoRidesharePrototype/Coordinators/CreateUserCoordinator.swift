@@ -24,7 +24,10 @@ class CreateUserCoordinator: NSObject {
     var storage: Storage!
     var storageRef: StorageReference!
     var newUser: User!
+    var user: User!
 
+    var isNavBarHidden: Bool!
+    var isNameHidden: Bool!
 
 
     
@@ -37,8 +40,26 @@ class CreateUserCoordinator: NSObject {
     func start() {
         let storyboard = UIStoryboard.init(name: "CreateUser", bundle: nil)
         let createUserVC = storyboard.instantiateViewController(withIdentifier: "createuser") as! CreateUserViewController
+        print("navigationController:\(createUserVC.navigationController)")
+        if isNavBarHidden == true {
+            createUserVC.isNavBarHidden = true
+        } else {
+            createUserVC.isNavBarHidden = false
+
+        }
+        if isNameHidden == true {
+            createUserVC.isNameHidden = true
+            createUserVC.user = user
+        } else {
+            createUserVC.isNameHidden = false
+
+        }
         createUserVC.delegate = self as CreateUserViewControllerDelegate
         navigationController?.pushViewController(createUserVC, animated: true)
+    }
+    
+    func loadUserData() {
+        
     }
     
     
@@ -88,13 +109,41 @@ class CreateUserCoordinator: NSObject {
            print("error")
         }
     }
+    
+    func updateUserData(phoneNumber: String, imageDownloadURL: String) {
+        
+            docRef = Firestore.firestore().document("users/\(Auth.auth().currentUser?.email ?? "no email, probably added phone sign in, update to work with phone number if this comes up")")
+        docRef.updateData([
+            "phoneNumber": phoneNumber,
+            "imageDownloadURL": imageDownloadURL,
+            ]) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                } else {
+                    //self.navigationController?.popViewController(animated: true)
+                    //self.delegate?.didDismissCreateUserViewController()
+                    print("Document updated with ID: \(self.docRef!.documentID)")
+                    
+                }
+        }
+        
+    }
 
 }
 
 extension CreateUserCoordinator: CreateUserViewControllerDelegate {
+    func didFinishUpdatingUser(phoneNumber: String, image: UIImage) {
+        self.navigationController?.popViewController(animated: true)
+        storeImageInFirebaseStorage(image: image) {imageDownloadURL in
+           // self.newUser.imageDownloadURL = imageDownloadURL
+            self.updateUserData(phoneNumber: phoneNumber, imageDownloadURL: imageDownloadURL)
+            
+        }
+    }
+    
     func didFinishCreatingUser(name: String, phoneNumber: String, image: UIImage, notificationTokens: [String]) {
         self.navigationController?.popViewController(animated: true)
-        newUser = User(name: name, phoneNumber: phoneNumber, email: Auth.auth().currentUser?.email ?? "error", imageDownloadURL: "", notificationTokens: notificationTokens)
+        newUser = User(name: name, phoneNumber: phoneNumber, email: Auth.auth().currentUser?.email ?? "error", imageDownloadURL: "", notificationTokens: notificationTokens, image: nil)
         storeImageInFirebaseStorage(image: image) {imageDownloadURL in
             self.newUser.imageDownloadURL = imageDownloadURL
             self.writeNewUserDataToDatabase(user: self.newUser)

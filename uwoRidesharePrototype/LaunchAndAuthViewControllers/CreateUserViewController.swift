@@ -12,6 +12,8 @@ import Firebase
 protocol CreateUserViewControllerDelegate: class {  // class so you can make delegate weak
     func didFinishCreatingUser(name: String, phoneNumber: String, image: UIImage, notificationTokens: [String])
     
+    func didFinishUpdatingUser(phoneNumber: String, image: UIImage)
+    
 }
 
 class CreateUserViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -26,11 +28,40 @@ class CreateUserViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var addPhotoButton: UIButton!
     
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var phoneNumberLabelNameLaberVerticalSpacing: NSLayoutConstraint!
+    
+    var isNavBarHidden: Bool!
+    var isNameHidden: Bool!
+    var user: User!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
         nameTextField.text = Auth.auth().currentUser?.displayName
+        if isNavBarHidden == true {
+            self.navigationController?.isNavigationBarHidden = true
+        } else {
+            self.navigationController?.isNavigationBarHidden = false
+        }
+        
+        if isNameHidden == true {
+            self.nameLabel.isHidden = true
+            self.nameTextField.isHidden = true
+            self.phoneNumberTextField.text = user.phoneNumber
+            self.imageView.image = user.image
+            phoneNumberLabelNameLaberVerticalSpacing.constant = 0
+            
+        } else {
+            self.nameLabel.isHidden = false
+            self.nameTextField.isHidden = false
+            self.phoneNumberTextField.text = ""
+            self.imageView.image = #imageLiteral(resourceName: "default-user")
+            phoneNumberLabelNameLaberVerticalSpacing.constant = 0
+            
+        }
 
         self.hideKeyboard()
         // Do any additional setup after loading the view.
@@ -42,11 +73,16 @@ class CreateUserViewController: UIViewController, UIImagePickerControllerDelegat
         } else {
         addPhotoButton.titleLabel?.isHidden = true
         }
+        
+      
+        
+        
     }
     
     @IBAction func chooseImageFromPhotoLibrary(_ sender: Any) {
         imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true, completion: nil)
+        
+        present(imagePicker, animated: true) {self.imageView.image = nil}
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -61,6 +97,8 @@ class CreateUserViewController: UIViewController, UIImagePickerControllerDelegat
     
     
     @IBAction func finishTapped(_ sender: Any) {
+        
+        if navigationController?.isNavigationBarHidden == true {
         
         if nameTextField.text == "" || phoneNumberTextField.text == "" {
             
@@ -78,8 +116,12 @@ class CreateUserViewController: UIViewController, UIImagePickerControllerDelegat
         }
         
 
+        } else if  navigationController?.isNavigationBarHidden == false {
+            self.delegate?.didFinishUpdatingUser(phoneNumber: phoneNumberTextField.text!, image: imageView.image!)
+        }
+    
     }
     
-
+    
 }
 

@@ -136,6 +136,8 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
     func showCreateUser() {
         let createUserCoordinator = CreateUserCoordinator(navigationController: navigationController!)
         createUserCoordinator.delegate = self as CreateUserCoordinatorDelegate
+        createUserCoordinator.isNavBarHidden = true
+        createUserCoordinator.isNameHidden = false
         createUserCoordinator.start()
         childCoordinators.append(createUserCoordinator)
     }

@@ -370,8 +370,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W67-Kv-Lg4">
-                                <rect key="frame" x="157.5" y="565" width="60" height="30"/>
-                                <state key="normal" title="Sign Out"/>
+                                <rect key="frame" x="248" y="561" width="77" height="34"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
+                                <state key="normal" title="Sign Out">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="signOutButtonTapped:" destination="rEB-ZN-Rwj" eventType="touchUpInside" id="3Ho-gA-uAk"/>
                                 </connections>
@@ -407,20 +410,32 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSg-kF-yeh">
+                                <rect key="frame" x="50" y="561" width="99" height="34"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
+                                <state key="normal" title="Edit Profile">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="editProfileButtonTapped:" destination="rEB-ZN-Rwj" eventType="touchUpInside" id="gde-yM-7P4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7aN-8Y-632" firstAttribute="top" secondItem="pgT-la-mhm" secondAttribute="bottom" constant="8" id="16N-tf-3jG"/>
+                            <constraint firstItem="QMS-WC-Bx5" firstAttribute="bottom" secondItem="xSg-kF-yeh" secondAttribute="bottom" constant="23" id="77D-zy-SWc"/>
+                            <constraint firstItem="xSg-kF-yeh" firstAttribute="leading" secondItem="QMS-WC-Bx5" secondAttribute="leading" constant="50" id="9Wq-IX-XHs"/>
                             <constraint firstItem="pgT-la-mhm" firstAttribute="centerX" secondItem="QMS-WC-Bx5" secondAttribute="centerX" id="B3z-jo-ZaY"/>
                             <constraint firstItem="Tov-kL-q1d" firstAttribute="top" secondItem="N6q-5t-LUG" secondAttribute="bottom" constant="20" id="C4y-zD-zGe"/>
                             <constraint firstItem="7aN-8Y-632" firstAttribute="centerX" secondItem="QMS-WC-Bx5" secondAttribute="centerX" id="FWR-nR-6kb"/>
                             <constraint firstItem="N6q-5t-LUG" firstAttribute="top" secondItem="dSZ-58-nKW" secondAttribute="bottom" constant="25" id="Nrw-bi-dBX"/>
                             <constraint firstItem="dSZ-58-nKW" firstAttribute="centerX" secondItem="Z86-Ek-Fah" secondAttribute="centerX" id="Ov4-i7-YhN"/>
                             <constraint firstItem="dSZ-58-nKW" firstAttribute="top" secondItem="QMS-WC-Bx5" secondAttribute="top" constant="10" id="VmM-09-IGs"/>
-                            <constraint firstItem="W67-Kv-Lg4" firstAttribute="centerX" secondItem="QMS-WC-Bx5" secondAttribute="centerX" id="Whf-W0-HEc"/>
                             <constraint firstItem="N6q-5t-LUG" firstAttribute="centerX" secondItem="QMS-WC-Bx5" secondAttribute="centerX" id="axx-qy-97b"/>
                             <constraint firstItem="QMS-WC-Bx5" firstAttribute="bottom" secondItem="W67-Kv-Lg4" secondAttribute="bottom" constant="23" id="b6Q-0o-NJy"/>
                             <constraint firstItem="pgT-la-mhm" firstAttribute="top" secondItem="Tov-kL-q1d" secondAttribute="bottom" constant="20" id="kBV-Dq-Nco"/>
+                            <constraint firstItem="QMS-WC-Bx5" firstAttribute="trailing" secondItem="W67-Kv-Lg4" secondAttribute="trailing" constant="50" id="kJ1-Bj-z7n"/>
                             <constraint firstItem="Tov-kL-q1d" firstAttribute="centerX" secondItem="QMS-WC-Bx5" secondAttribute="centerX" id="wD2-S7-rES"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QMS-WC-Bx5"/>

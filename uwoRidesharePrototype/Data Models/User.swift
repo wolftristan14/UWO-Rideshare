@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class User {
     
@@ -15,15 +16,17 @@ class User {
     var email: String
     var imageDownloadURL: String?
     var notificationTokens: [String]
+    var image: UIImage?
     
     
-    init(name: String, phoneNumber: String, email: String, imageDownloadURL: String?, notificationTokens: [String]) {
+    init(name: String, phoneNumber: String, email: String, imageDownloadURL: String?, notificationTokens: [String], image: UIImage?) {
         
         self.name = name
         self.imageDownloadURL = imageDownloadURL
         self.phoneNumber = phoneNumber
         self.email = email
         self.notificationTokens = notificationTokens
+        self.image = image
     
     }
 }
