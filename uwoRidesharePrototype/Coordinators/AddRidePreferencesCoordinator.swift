@@ -53,7 +53,8 @@ class AddRidePreferencesCoordinator: NSObject {
             "willThereBeRestStops": ride.willThereBeRestStops,
             "noFoodAllowed": ride.noFoodAllowed,
             "animalsAllowed": ride.animalsAllowed,
-            "baggageSize": ride.baggageSize
+            "baggageSize": ride.baggageSize,
+            "driverRating": 5
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")

@@ -94,7 +94,8 @@ class CreateUserCoordinator: NSObject {
             "name": user.name,
             "phoneNumber": user.phoneNumber,
             "imageDownloadURL": user.imageDownloadURL,
-            "notificationTokens": user.notificationTokens
+            "notificationTokens": user.notificationTokens,
+            "rating": 5
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")

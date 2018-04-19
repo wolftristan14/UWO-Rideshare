@@ -16,5 +16,6 @@ target 'uwoRidesharePrototype' do
   pod 'AlgoliaSearch-Client-Swift', '~> 5.0'
   pod 'AFNetworking', '~> 2.0'
   pod 'InstantSearch-Core-Swift'
+  pod 'Cosmos'
 
 end

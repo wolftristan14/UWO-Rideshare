@@ -59,7 +59,7 @@ class CreateUserViewController: UIViewController, UIImagePickerControllerDelegat
             self.nameTextField.isHidden = false
             self.phoneNumberTextField.text = ""
             self.imageView.image = #imageLiteral(resourceName: "default-user")
-            phoneNumberLabelNameLaberVerticalSpacing.constant = 0
+            phoneNumberLabelNameLaberVerticalSpacing.constant = 20
             
         }
 

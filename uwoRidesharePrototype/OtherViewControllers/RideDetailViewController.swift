@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Cosmos
 
 protocol RideDetailViewControllerDelegate: class {
     func didJoinRide(ride: RideRecord)
@@ -47,6 +48,7 @@ class RideDetailViewController: UIViewController {
     
     var isJoinRideButtonHidden: Bool!
     
+    @IBOutlet weak var cosmosRatingView: CosmosView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +62,8 @@ class RideDetailViewController: UIViewController {
         availableSeatsLabel.text = "\(selectedRide.availableSeats ?? 0)"
         driverLabel.text = selectedRide.driverName
         baggageSizeLabel.text = selectedRide.baggageSize
+        
+        cosmosRatingView.rating = Double(selectedRide.driverRating!)
         
         print(joinRideButton.isHidden)
         checkPreferences()

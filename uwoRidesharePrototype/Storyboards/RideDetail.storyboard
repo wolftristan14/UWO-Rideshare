@@ -179,6 +179,18 @@
                                                     <constraint firstAttribute="height" constant="25" id="sJz-Uu-b7t"/>
                                                 </constraints>
                                             </imageView>
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CVS-SI-JiL" customClass="CosmosView" customModule="Cosmos">
+                                                <rect key="frame" x="169" y="454" width="143" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -198,12 +210,14 @@
                                             <constraint firstItem="go1-7O-OkA" firstAttribute="leading" secondItem="XMx-bi-4GS" secondAttribute="leading" id="8oW-73-iOT"/>
                                             <constraint firstItem="7Kc-lk-wWZ" firstAttribute="leading" secondItem="hEg-0j-maA" secondAttribute="trailing" constant="8" id="9Qw-Pc-Uts"/>
                                             <constraint firstItem="MZS-6d-36H" firstAttribute="leading" secondItem="go1-7O-OkA" secondAttribute="trailing" constant="8" id="9gN-Yq-YWE"/>
+                                            <constraint firstItem="0z8-ZW-A3R" firstAttribute="trailing" secondItem="CVS-SI-JiL" secondAttribute="trailing" constant="8" id="AeJ-Yt-DWB"/>
                                             <constraint firstItem="1Pp-Uq-zoq" firstAttribute="leading" secondItem="Mgc-NL-F0U" secondAttribute="leading" id="AwH-kA-9QG"/>
                                             <constraint firstItem="7Kc-lk-wWZ" firstAttribute="bottom" secondItem="hEg-0j-maA" secondAttribute="bottom" id="Bxb-qQ-2hO"/>
                                             <constraint firstItem="IBU-PC-e6q" firstAttribute="centerX" secondItem="0z8-ZW-A3R" secondAttribute="centerX" id="DzU-Ub-pE1"/>
                                             <constraint firstItem="lDh-zr-Tyl" firstAttribute="leading" secondItem="N65-1e-Y5G" secondAttribute="leading" id="GdT-4A-pIx"/>
                                             <constraint firstItem="Vfw-5m-ED7" firstAttribute="top" secondItem="3To-k2-8ha" secondAttribute="bottom" constant="8" id="J8i-Vy-hQE"/>
                                             <constraint firstItem="XMx-bi-4GS" firstAttribute="leading" secondItem="lDh-zr-Tyl" secondAttribute="leading" id="Mvy-sF-7KX"/>
+                                            <constraint firstItem="CVS-SI-JiL" firstAttribute="leading" secondItem="7Kc-lk-wWZ" secondAttribute="trailing" constant="8" id="Q5D-Lb-RjW"/>
                                             <constraint firstItem="0z8-ZW-A3R" firstAttribute="bottom" secondItem="DG0-su-ZCw" secondAttribute="bottom" constant="75" id="QMm-aj-ojQ"/>
                                             <constraint firstItem="Rwb-z3-3JH" firstAttribute="top" secondItem="X2V-78-zPK" secondAttribute="bottom" constant="8" id="QV1-Fy-Dwu"/>
                                             <constraint firstItem="7Kc-lk-wWZ" firstAttribute="top" secondItem="Rwb-z3-3JH" secondAttribute="bottom" constant="30" id="Qvv-I2-hcN"/>
@@ -220,6 +234,7 @@
                                             <constraint firstItem="0qy-tu-K4j" firstAttribute="top" secondItem="k9R-pf-f2D" secondAttribute="bottom" constant="15" id="hpX-PG-N5Q"/>
                                             <constraint firstItem="lDh-zr-Tyl" firstAttribute="top" secondItem="N65-1e-Y5G" secondAttribute="bottom" constant="20" id="htD-RE-COm"/>
                                             <constraint firstItem="9ul-oe-AnY" firstAttribute="centerY" secondItem="N65-1e-Y5G" secondAttribute="centerY" id="jUL-xp-Bem"/>
+                                            <constraint firstItem="CVS-SI-JiL" firstAttribute="top" secondItem="7Kc-lk-wWZ" secondAttribute="top" id="miI-qy-akr"/>
                                             <constraint firstItem="N65-1e-Y5G" firstAttribute="top" secondItem="hEg-0j-maA" secondAttribute="bottom" constant="20" id="myi-Ry-JaT"/>
                                             <constraint firstItem="TjH-S4-h39" firstAttribute="top" secondItem="17b-uK-tVi" secondAttribute="bottom" constant="8" id="nWs-2J-Y1Z"/>
                                             <constraint firstItem="ecT-Wy-fui" firstAttribute="leading" secondItem="Mgc-NL-F0U" secondAttribute="trailing" constant="8" id="qbV-3j-tqM"/>
@@ -256,6 +271,7 @@
                         <outlet property="animalsAllowedImageView" destination="EAs-jm-3cK" id="ZXc-V4-mOG"/>
                         <outlet property="availableSeatsLabel" destination="Rwb-z3-3JH" id="j3O-wM-nHm"/>
                         <outlet property="baggageSizeLabel" destination="9ul-oe-AnY" id="z8f-uQ-NHE"/>
+                        <outlet property="cosmosRatingView" destination="CVS-SI-JiL" id="Df1-R9-dby"/>
                         <outlet property="dateLabel" destination="3To-k2-8ha" id="WmZ-sC-Svl"/>
                         <outlet property="destinationLabel" destination="TjH-S4-h39" id="PaB-iF-bkB"/>
                         <outlet property="driverLabel" destination="7Kc-lk-wWZ" id="yh9-wA-3KD"/>

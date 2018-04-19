@@ -79,6 +79,10 @@ struct RideRecord {
 
     }
     
+    var driverRating: Int? {
+        return json["driverRating"] as? Int
+    }
+    
 
     
     

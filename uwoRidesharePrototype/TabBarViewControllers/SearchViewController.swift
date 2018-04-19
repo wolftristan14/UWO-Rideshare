@@ -43,7 +43,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         rideIndex = apiClient.index(withName: "Rides")
         rideSearcher = Searcher(index: rideIndex, resultHandler: self.handleSearchResults)
         rideSearcher.params.hitsPerPage = 15
-        rideSearcher.params.attributesToRetrieve = ["docid", "origin", "destination", "date", "price", "availableSeats", "passengers", "driverEmail", "driverName", "createdOn","isSmokingAllowed", "willThereBeRestStops", "noFoodAllowed", "animalsAllowed", "baggageSize"]
+        rideSearcher.params.attributesToRetrieve = ["docid", "origin", "destination", "date", "price", "availableSeats", "passengers", "driverEmail", "driverName", "createdOn","isSmokingAllowed", "willThereBeRestStops", "noFoodAllowed", "animalsAllowed", "baggageSize", "driverRating"]
         rideSearcher.params.attributesToHighlight = ["origin", "destination"]
         
         //searchController = UISearchController(searchResultsController: nil)
