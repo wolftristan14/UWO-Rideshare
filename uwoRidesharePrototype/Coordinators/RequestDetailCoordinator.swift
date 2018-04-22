@@ -57,7 +57,7 @@ class RequestDetailCoordinator: NSObject {
                 print("Error getting documents: \(err)")
             } else {
                 if let snapshotData = querySnapshot?.data() {
-                self.ride = RideRecord(json: snapshotData)
+                    self.ride = RideRecord(json: snapshotData, id: (querySnapshot?.documentID)!)
                 }
                 self.requestDetailVC.originAndDestinationLabel.text = "\(self.ride.origin ?? "") to \(self.ride.destination ?? "")"
                 self.requestDetailVC.dateLabel.text = self.ride.date
@@ -122,7 +122,8 @@ class RequestDetailCoordinator: NSObject {
                 "willThereBeRestStops": ride.willThereBeRestStops!,
                 "noFoodAllowed": ride.noFoodAllowed!,
                 "animalsAllowed": ride.animalsAllowed!,
-                "baggageSize": ride.baggageSize!
+                "baggageSize": ride.baggageSize!,
+                "driverRating": ride.driverRating!
 
                 
             ]) { err in

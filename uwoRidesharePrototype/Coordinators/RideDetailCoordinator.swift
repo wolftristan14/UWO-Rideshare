@@ -23,9 +23,13 @@ class RideDetailCoordinator: NSObject {
     var isParentSearchVC: Bool!
     
     weak var delegate: RideDetailCoordinatorDelegate?
-    var docRef: DocumentReference!
-    var docRefRides: DocumentReference!
+    var loadImagedocRef: DocumentReference!
+    var addPassengerdocRef: DocumentReference!
+    var docRefPastRides: DocumentReference!
+    var docRefFullRides: DocumentReference!
+
     var docRefRequests: DocumentReference!
+    var deleteRideDocRef: DocumentReference!
     var rideDetailVC: RideDetailViewController!
 
 
@@ -47,17 +51,21 @@ class RideDetailCoordinator: NSObject {
 
         if isParentSearchVC == true {
             rideDetailVC.isJoinRideButtonHidden = false
+            rideDetailVC.isEndRideButtonHidden = true
+
         } else if isParentSearchVC == false {
             rideDetailVC.isJoinRideButtonHidden = true
+            rideDetailVC.isEndRideButtonHidden = false
+
         }
         
        // rideDetailVC.delegate = self as RideDetailViewControllerDelegate
     }
     
     func loadDriverImage(selectedRide: RideRecord) {
-        docRef = Firestore.firestore().collection("users").document(selectedRide.driverEmail!)
+        loadImagedocRef = Firestore.firestore().collection("users").document(selectedRide.driverUID!)
         print("hit load driver image method")
-        docRef.getDocument() { (querySnapshot, err) in
+        loadImagedocRef.getDocument() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -78,15 +86,15 @@ class RideDetailCoordinator: NSObject {
     
     func addPassengerToRide(ride: RideRecord) {
         print(ride.docid!)
-        docRefRides = Firestore.firestore().collection("Rides").document(ride.docid!)
+        addPassengerdocRef = Firestore.firestore().collection("Rides").document(ride.docid!)
         //var passengerArray = ride.passengers
         //passengerArray?.append((Auth.auth().currentUser?.email)!)
         let userUID = Auth.auth().currentUser?.uid ?? ""
-        docRefRides.updateData(["passengers.\(userUID)": false]) { err in
+        addPassengerdocRef.updateData(["passengers.\(userUID)": false]) { err in
                         if let err = err {
                             print("Error adding document: \(err)")
                         } else {
-                            print("Document added with ID: \(self.docRefRides.documentID)")
+                            print("Document added with ID: \(self.addPassengerdocRef.documentID)")
                         }
                     }
 
@@ -111,6 +119,58 @@ class RideDetailCoordinator: NSObject {
         
 
     }
+    
+    func deleteOldRide(ride: RideRecord) {
+        if let docid = ride.docid {
+        
+            deleteRideDocRef = Firestore.firestore().collection("Rides").document(docid)
+
+            deleteRideDocRef.delete()
+        }
+    }
+    
+    func deleteOldFullRide(ride: RideRecord) {
+        if let docid = ride.docid {
+
+        docRefFullRides = Firestore.firestore().collection("FullRides").document(docid)
+        
+        docRefFullRides.delete()
+        }
+    }
+    
+    func addCompletedRideToPastRides(ride: RideRecord) {
+        if let docid = ride.docid {
+        docRefPastRides = Firestore.firestore().collection("PastRides").document(docid)
+        
+        docRefPastRides.setData([
+            
+            "docid": ride.docid!,
+            "driverEmail": ride.driverEmail!,
+            "driverName": ride.driverName!,
+            "destination": ride.destination!,
+            "origin": ride.origin!,
+            "date": ride.date!,
+            "price": ride.price!,
+            "availableSeats": ride.availableSeats!,
+            "createdOn": ride.createdOn!,
+            "passengers": ride.passengers!,
+            "isSmokingAllowed": ride.isSmokingAllowed!,
+            "willThereBeRestStops": ride.willThereBeRestStops!,
+            "noFoodAllowed": ride.noFoodAllowed!,
+            "animalsAllowed": ride.animalsAllowed!,
+            "baggageSize": ride.baggageSize!
+            
+            
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                  print("Document added with ID: \(self.docRefPastRides.documentID)")
+                
+            }
+        }
+        }
+    }
 }
 
 extension RideDetailCoordinator: RideDetailViewControllerDelegate {
@@ -119,6 +179,13 @@ extension RideDetailCoordinator: RideDetailViewControllerDelegate {
         delegate?.didAddUserToRide()
         navigationController?.popViewController(animated: true)
         addPassengerToRide(ride: ride)
+    }
+    
+    func didEndRide(ride: RideRecord) {
+        deleteOldRide(ride: ride)
+        deleteOldFullRide(ride: ride)
+        addCompletedRideToPastRides(ride: ride)
+        navigationController?.popViewController(animated: true)
     }
     
     

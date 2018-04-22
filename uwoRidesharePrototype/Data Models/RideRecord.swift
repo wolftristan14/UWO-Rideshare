@@ -12,14 +12,17 @@ import Foundation
 
 struct RideRecord {
     private var json: JSONObject
+    private var id: String
     //private let MAX_BEST_SELLING_RANK = 32691;
     
-    init(json: JSONObject) {
+    init(json: JSONObject, id: String) {
         self.json = json
+        self.id = id
     }
     
     var docid: String? {
-        return json["docid"] as? String
+        //print(json)
+        return id
     }
     
     var origin: String? {
@@ -81,6 +84,10 @@ struct RideRecord {
     
     var driverRating: Int? {
         return json["driverRating"] as? Int
+    }
+    
+    var driverUID: String? {
+        return json["driverUID"] as? String
     }
     
 

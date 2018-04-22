@@ -26,7 +26,7 @@ class SearchCoordinator: NSObject {
     var childCoordinators = [NSObject]()
     //var allRidesArray = [Ride]()
     
-    var collRef: CollectionReference!
+    //var collRef: CollectionReference!
     var searchViewController: SearchViewController!
     var counter: Bool!
     var timer: Timer!

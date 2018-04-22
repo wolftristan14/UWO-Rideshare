@@ -43,7 +43,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         rideIndex = apiClient.index(withName: "Rides")
         rideSearcher = Searcher(index: rideIndex, resultHandler: self.handleSearchResults)
         rideSearcher.params.hitsPerPage = 15
-        rideSearcher.params.attributesToRetrieve = ["docid", "origin", "destination", "date", "price", "availableSeats", "passengers", "driverEmail", "driverName", "createdOn","isSmokingAllowed", "willThereBeRestStops", "noFoodAllowed", "animalsAllowed", "baggageSize", "driverRating"]
+        rideSearcher.params.attributesToRetrieve = ["docid", "origin", "destination", "date", "price", "availableSeats", "passengers", "driverEmail", "driverName", "createdOn","isSmokingAllowed", "willThereBeRestStops", "noFoodAllowed", "animalsAllowed", "baggageSize", "driverRating", "driverUID"]
         rideSearcher.params.attributesToHighlight = ["origin", "destination"]
         
         //searchController = UISearchController(searchResultsController: nil)
@@ -110,7 +110,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         
         rideArray.removeAll()
         for object in filteredResultsArray {
-            let ride = RideRecord(json: object)
+            let docid = object["docid"] as! String
+            let ride = RideRecord(json: object, id: docid)
             rideArray.append(ride)
             self.tableView.reloadData()
         }

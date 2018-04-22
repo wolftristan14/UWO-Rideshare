@@ -21,8 +21,7 @@ class ProfileCoordinator: NSObject {
 
     
     weak var delegate: ProfileCoordinatorDelegate?
-    var docRef: DocumentReference!
-    var collRef: CollectionReference!
+    var docRefLoadUserProfile: DocumentReference!
     var profileViewController: ProfileViewController!
    
     var user: User!
@@ -41,17 +40,19 @@ class ProfileCoordinator: NSObject {
     }
     
     func loadFirebaseData()  {
-        collRef = Firestore.firestore().collection("users")
+        let userUID = Auth.auth().currentUser?.uid ?? ""
+        docRefLoadUserProfile = Firestore.firestore().collection("users").document(userUID)
         
-        collRef.whereField("email", isEqualTo: Auth.auth().currentUser?.email ?? "ERROR").addSnapshotListener() { (querySnapshot, err) in
+        docRefLoadUserProfile.addSnapshotListener() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
+                //for document in querySnapshot!.documents {
                     //print("\(document.documentID) => \(document.data())")
-                    if document.data().count > 0 {
-                        
-                        self.user = User(name: document.data()["name"] as! String, phoneNumber: document.data()["phoneNumber"] as! String, email: document.data()["email"] as! String, imageDownloadURL: document.data()["imageDownloadURL"] as? String, notificationTokens: document.data()["notificationTokens"] as! [String], image: nil)
+                let data = querySnapshot?.data() ?? [:]
+
+                    if data.count > 0 {
+                        self.user = User(name: data["name"] as! String, phoneNumber: data["phoneNumber"] as! String, email: data["email"] as! String, imageDownloadURL: data["imageDownloadURL"] as? String, notificationTokens: data["notificationTokens"] as! [String], image: nil)
                         self.profileViewController.imageView.loadImageFromCache(downloadURLString: self.user.imageDownloadURL!) {image in
                             
                             self.profileViewController.imageView.image = image
@@ -61,7 +62,7 @@ class ProfileCoordinator: NSObject {
                         self.profileViewController.emailLabel.text = self.user.email
 
                     }
-                }
+               // }
             }
         }
         

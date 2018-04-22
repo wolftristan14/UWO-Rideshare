@@ -26,7 +26,7 @@ class RequestsCoordinator: NSObject {
     
     weak var delegate: RequestsCoordinatorDelegate?
    // var docRef: DocumentReference!
-    var collRef: CollectionReference!
+    var loadRequestsCollRef: CollectionReference!
     
     init(navigationController: UINavigationController) {
         super.init()
@@ -46,9 +46,9 @@ class RequestsCoordinator: NSObject {
     
     
     func loadFirebaseData()  {
-        collRef = Firestore.firestore().collection("Requests")
+        loadRequestsCollRef = Firestore.firestore().collection("Requests")
         
-        collRef.whereField("driverEmail", isEqualTo: Auth.auth().currentUser?.email ?? "ERROR")
+        loadRequestsCollRef.whereField("driverEmail", isEqualTo: Auth.auth().currentUser?.email ?? "ERROR")
             .whereField("requestStatus", isEqualTo: false)
             .addSnapshotListener() { (querySnapshot, err) in
             if let err = err {
@@ -78,7 +78,7 @@ class RequestsCoordinator: NSObject {
             }
         }
         
-        collRef.whereField("requesterid", isEqualTo: Auth.auth().currentUser?.email ?? "error")
+        loadRequestsCollRef.whereField("requesterid", isEqualTo: Auth.auth().currentUser?.email ?? "error")
             .whereField("requestStatus", isEqualTo: false).addSnapshotListener() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")

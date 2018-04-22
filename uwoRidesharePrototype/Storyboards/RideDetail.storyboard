@@ -191,6 +191,16 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2Z-S1-DVO">
+                                                <rect key="frame" x="101" y="893" width="118" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
+                                                <state key="normal" title="End Ride">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="endRideButtonTapped:" destination="Tqh-rO-pOH" eventType="touchUpInside" id="qcR-sS-yrD"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -221,6 +231,7 @@
                                             <constraint firstItem="0z8-ZW-A3R" firstAttribute="bottom" secondItem="DG0-su-ZCw" secondAttribute="bottom" constant="75" id="QMm-aj-ojQ"/>
                                             <constraint firstItem="Rwb-z3-3JH" firstAttribute="top" secondItem="X2V-78-zPK" secondAttribute="bottom" constant="8" id="QV1-Fy-Dwu"/>
                                             <constraint firstItem="7Kc-lk-wWZ" firstAttribute="top" secondItem="Rwb-z3-3JH" secondAttribute="bottom" constant="30" id="Qvv-I2-hcN"/>
+                                            <constraint firstItem="U2Z-S1-DVO" firstAttribute="centerX" secondItem="0z8-ZW-A3R" secondAttribute="centerX" id="Sti-1r-rTq"/>
                                             <constraint firstItem="N65-1e-Y5G" firstAttribute="leading" secondItem="hEg-0j-maA" secondAttribute="leading" id="WIz-kf-eJe"/>
                                             <constraint firstItem="9ul-oe-AnY" firstAttribute="leading" secondItem="N65-1e-Y5G" secondAttribute="trailing" constant="8" id="X2H-R7-Ocq"/>
                                             <constraint firstItem="MZS-6d-36H" firstAttribute="centerY" secondItem="go1-7O-OkA" secondAttribute="centerY" id="YfH-8q-j2Y"/>
@@ -243,6 +254,7 @@
                                             <constraint firstItem="3To-k2-8ha" firstAttribute="top" secondItem="TjH-S4-h39" secondAttribute="bottom" constant="15" id="tuq-xA-sKN"/>
                                             <constraint firstItem="EAs-jm-3cK" firstAttribute="leading" secondItem="1Pp-Uq-zoq" secondAttribute="trailing" constant="8" id="v2p-9E-NZR"/>
                                             <constraint firstItem="3To-k2-8ha" firstAttribute="centerX" secondItem="0z8-ZW-A3R" secondAttribute="centerX" id="weI-UL-lSf"/>
+                                            <constraint firstItem="0z8-ZW-A3R" firstAttribute="bottom" secondItem="U2Z-S1-DVO" secondAttribute="bottom" constant="77" id="x9P-gw-sU5"/>
                                             <constraint firstItem="Mgc-NL-F0U" firstAttribute="top" secondItem="go1-7O-OkA" secondAttribute="bottom" constant="8" id="ytu-Su-Gtf"/>
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="0z8-ZW-A3R"/>
@@ -275,6 +287,7 @@
                         <outlet property="dateLabel" destination="3To-k2-8ha" id="WmZ-sC-Svl"/>
                         <outlet property="destinationLabel" destination="TjH-S4-h39" id="PaB-iF-bkB"/>
                         <outlet property="driverLabel" destination="7Kc-lk-wWZ" id="yh9-wA-3KD"/>
+                        <outlet property="endRideButton" destination="U2Z-S1-DVO" id="2hh-n9-rer"/>
                         <outlet property="imageView" destination="k9R-pf-f2D" id="TJL-o8-3ee"/>
                         <outlet property="isSmokingAllowedImageView" destination="RzJ-4V-tPd" id="mPf-hY-gmp"/>
                         <outlet property="joinRideButton" destination="DG0-su-ZCw" id="Psp-OC-2tI"/>

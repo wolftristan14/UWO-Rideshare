@@ -33,7 +33,7 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
     
     var navigationController: UINavigationController?
     var childCoordinators = [NSObject]()
-    var docRef: DocumentReference!
+    var checkUserdocRef: DocumentReference!
     
     init(navigationController: UINavigationController) {
         super.init()
@@ -83,10 +83,10 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
     }
     
     func checkUser(user: FirebaseAuth.User) {
-        self.docRef = Firestore.firestore().collection("users").document(user.email!)
+        self.checkUserdocRef = Firestore.firestore().collection("users").document(user.uid)
         
         
-        self.docRef.getDocument { (document, error) in
+        self.checkUserdocRef.getDocument { (document, error) in
             if (document?.exists)! {
                 print("hit show home")
                 self.showHome()

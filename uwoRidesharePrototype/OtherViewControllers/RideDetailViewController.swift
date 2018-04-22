@@ -12,10 +12,13 @@ import Cosmos
 
 protocol RideDetailViewControllerDelegate: class {
     func didJoinRide(ride: RideRecord)
+    func didEndRide(ride: RideRecord)
 }
 
 class RideDetailViewController: UIViewController {
     @IBOutlet weak var joinRideButton: UIButton!
+    
+    @IBOutlet weak var endRideButton: UIButton!
     
     var selectedRide: RideRecord!
     
@@ -47,6 +50,7 @@ class RideDetailViewController: UIViewController {
     @IBOutlet weak var animalsAllowedImageView: UIImageView!
     
     var isJoinRideButtonHidden: Bool!
+    var isEndRideButtonHidden: Bool!
     
     @IBOutlet weak var cosmosRatingView: CosmosView!
     
@@ -54,6 +58,13 @@ class RideDetailViewController: UIViewController {
         super.viewDidLoad()
         if isJoinRideButtonHidden == true {
             joinRideButton.isHidden = true
+        } else {
+            joinRideButton.isHidden = false
+        }
+        if isEndRideButtonHidden == true {
+            endRideButton.isHidden = true
+        } else {
+            endRideButton.isHidden = false
         }
         originLabel.text = selectedRide.origin
         destinationLabel.text = selectedRide.destination
@@ -81,6 +92,12 @@ class RideDetailViewController: UIViewController {
         
         delegate?.didJoinRide(ride: selectedRide)
     }
+    
+    
+    @IBAction func endRideButtonTapped(_ sender: Any) {
+        delegate?.didEndRide(ride: selectedRide)
+    }
+    
     
     func checkPreferences() {
         

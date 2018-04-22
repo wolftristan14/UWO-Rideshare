@@ -21,7 +21,7 @@ class MessagesCoordinator: NSObject {
 
     
     weak var delegate: MessagesCoordinatorDelegate?
-    var docRef: DocumentReference!
+    //var docRef: DocumentReference!
     
     init(navigationController: UINavigationController) {
         super.init()

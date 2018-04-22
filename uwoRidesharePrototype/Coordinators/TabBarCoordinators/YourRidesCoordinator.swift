@@ -23,7 +23,7 @@ class YourRidesCoordinator: NSObject {
 
     
     weak var delegate: YourRidesCoordinatorDelegate?
-    var ridesCollRef: CollectionReference!
+    var postedRidesCollRef: CollectionReference!
     var fullRidesCollRef: CollectionReference!
     var joinedRidesQuery: Query!
     var joinedFullRidesQuery: Query!
@@ -51,9 +51,9 @@ class YourRidesCoordinator: NSObject {
     
     func loadPostedRides()  {
         self.yourRidesViewController.postedRideArray = self.postedRidesArray
-        ridesCollRef = Firestore.firestore().collection("Rides")
+        postedRidesCollRef = Firestore.firestore().collection("Rides")
         
-        ridesCollRef.whereField("driverEmail", isEqualTo: Auth.auth().currentUser?.email ?? "ERROR").addSnapshotListener() { (querySnapshot, err) in
+        postedRidesCollRef.whereField("driverEmail", isEqualTo: Auth.auth().currentUser?.email ?? "ERROR").addSnapshotListener() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -68,8 +68,8 @@ class YourRidesCoordinator: NSObject {
                     //print("\(document.documentID) => \(document.data())")
                     if document.data().count > 0 {
 
-
-                    let ride = RideRecord(json: document.data())
+                    
+                        let ride = RideRecord(json: document.data(), id: document.documentID)
                         //ride.docid = document.documentID
 
                     self.postedRidesArray.append(ride)
@@ -130,7 +130,7 @@ class YourRidesCoordinator: NSObject {
                     if document.data().count > 0 {
                         
                         
-                        let ride = RideRecord(json: document.data())
+                        let ride = RideRecord(json: document.data(), id: document.documentID)
                         //ride.docid = document.documentID
                         
                         self.postedRidesArray.append(ride)
@@ -160,7 +160,7 @@ class YourRidesCoordinator: NSObject {
 //                }
                 //print(querySnapshot?.documents.count)
                 for document in querySnapshot!.documents {
-                    let ride = RideRecord(json: document.data())
+                    let ride = RideRecord(json: document.data(), id: document.documentID)
                     
                     self.joinedRidesArray.append(ride)
                     //print("added ride")
@@ -186,7 +186,7 @@ class YourRidesCoordinator: NSObject {
 //                }
                 //print(querySnapshot?.documents.count)
                 for document in querySnapshot!.documents {
-                    let ride = RideRecord(json: document.data())
+                    let ride = RideRecord(json: document.data(), id: document.documentID)
                     
                     self.joinedRidesArray.append(ride)
                     //print("added ride")

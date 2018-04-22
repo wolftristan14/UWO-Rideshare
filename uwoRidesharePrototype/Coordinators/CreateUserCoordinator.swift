@@ -20,7 +20,8 @@ class CreateUserCoordinator: NSObject {
     var navigationController: UINavigationController?
     weak var delegate: CreateUserCoordinatorDelegate?
     var childCoordinators = [NSObject]()
-    var docRef: DocumentReference!
+    var createUserDocRef: DocumentReference!
+    var updateUserDocRef: DocumentReference!
     var storage: Storage!
     var storageRef: StorageReference!
     var newUser: User!
@@ -87,9 +88,8 @@ class CreateUserCoordinator: NSObject {
     func writeNewUserDataToDatabase(user: User) {
         if Auth.auth().currentUser != nil {
         
-        docRef = Firestore.firestore().document("users/\(Auth.auth().currentUser?.email ?? "no email, probably added phone sign in, update to work with phone number if this comes up")")
-            
-         docRef.setData([
+        createUserDocRef = Firestore.firestore().document("users/\(Auth.auth().currentUser?.uid ?? "no email, probably added phone sign in, update to work with phone number if this comes up")")
+         createUserDocRef.setData([
             "email": user.email,
             "name": user.name,
             "phoneNumber": user.phoneNumber,
@@ -102,7 +102,7 @@ class CreateUserCoordinator: NSObject {
             } else {
                 //self.navigationController?.popViewController(animated: true)
                 self.delegate?.didDismissCreateUserViewController()
-                print("Document added with ID: \(self.docRef!.documentID)")
+                print("Document added with ID: \(self.createUserDocRef!.documentID)")
                 
             }
         }
@@ -113,8 +113,8 @@ class CreateUserCoordinator: NSObject {
     
     func updateUserData(phoneNumber: String, imageDownloadURL: String) {
         
-            docRef = Firestore.firestore().document("users/\(Auth.auth().currentUser?.email ?? "no email, probably added phone sign in, update to work with phone number if this comes up")")
-        docRef.updateData([
+            updateUserDocRef = Firestore.firestore().document("users/\(Auth.auth().currentUser?.uid ?? "no email, probably added phone sign in, update to work with phone number if this comes up")")
+        updateUserDocRef.updateData([
             "phoneNumber": phoneNumber,
             "imageDownloadURL": imageDownloadURL,
             ]) { err in
@@ -123,7 +123,7 @@ class CreateUserCoordinator: NSObject {
                 } else {
                     //self.navigationController?.popViewController(animated: true)
                     //self.delegate?.didDismissCreateUserViewController()
-                    print("Document updated with ID: \(self.docRef!.documentID)")
+                    print("Document updated with ID: \(self.updateUserDocRef!.documentID)")
                     
                 }
         }

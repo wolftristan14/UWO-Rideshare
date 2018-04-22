@@ -18,6 +18,7 @@ class Ride {
     var availableSeats: Int?
     var driverEmail: String?
     var driverName: String?
+    var driverUID: String?
     var passengers: [String:Any]?
     var createdOn: Date?
     var isSmokingAllowed: Bool?
@@ -28,7 +29,7 @@ class Ride {
     
 
     
-    init(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driverEmail: String, driverName: String, createdOn: Date, isSmokingAllowed: Bool, willThereBeRestStops: Bool, noFoodAllowed: Bool, animalsAllowed: Bool, baggageSize: String) {
+    init(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driverEmail: String, driverName: String, driverUID: String, createdOn: Date, isSmokingAllowed: Bool, willThereBeRestStops: Bool, noFoodAllowed: Bool, animalsAllowed: Bool, baggageSize: String) {
         self.docid = docid
         self.origin = origin
         self.destination = destination
@@ -37,6 +38,7 @@ class Ride {
         self.availableSeats = availableSeats
         self.driverEmail = driverEmail
         self.driverName = driverName
+        self.driverUID = driverUID
         self.createdOn = createdOn
         self.isSmokingAllowed = isSmokingAllowed
         self.willThereBeRestStops = willThereBeRestStops

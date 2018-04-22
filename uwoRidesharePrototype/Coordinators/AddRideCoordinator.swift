@@ -19,7 +19,7 @@ class AddRideCoordinator: NSObject {
     var navigationController: UINavigationController?
 
     weak var delegate: AddRideCoordinatorDelegate?
-    var docRef: DocumentReference!
+    //var docRef: DocumentReference!
     var childCoordinators = [NSObject]()
 
     
@@ -84,8 +84,8 @@ class AddRideCoordinator: NSObject {
 extension AddRideCoordinator: AddRideViewControllerDelegate {
 
     
-    func didContinueCreatingRide(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driverEmail: String, driverName: String, createdOn: Date) {
-        let ride = Ride(docid: docid, origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driverEmail: driverEmail, driverName: driverName, createdOn: createdOn, isSmokingAllowed: false, willThereBeRestStops: false, noFoodAllowed: false, animalsAllowed: false, baggageSize: "")
+    func didContinueCreatingRide(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driverEmail: String, driverName: String, driverUID: String, createdOn: Date) {
+        let ride = Ride(docid: docid, origin: origin, destination: destination, date: date, price: price, availableSeats: availableSeats, driverEmail: driverEmail, driverName: driverName, driverUID: driverUID, createdOn: createdOn, isSmokingAllowed: false, willThereBeRestStops: false, noFoodAllowed: false, animalsAllowed: false, baggageSize: "")
         goToAddRidePreferencesCoordinator(ride: ride)
         
         

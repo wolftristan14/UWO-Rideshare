@@ -20,7 +20,7 @@ class AddRidePreferencesCoordinator: NSObject {
     weak var delegate: AddRidePreferencesCoordinatorDelegate?
     var ride: Ride?
     
-    var docRef: DocumentReference!
+    var addRidedocRef: DocumentReference!
     var childCoordinators = [NSObject]()
     
     init(navigationController: UINavigationController) {
@@ -38,10 +38,11 @@ class AddRidePreferencesCoordinator: NSObject {
     }
     
     func addRideToFirebase(ride: Ride) {
-        docRef = Firestore.firestore().collection("Rides").addDocument(data: [
+        addRidedocRef = Firestore.firestore().collection("Rides").addDocument(data: [
             "docid": "",
             "driverEmail": Auth.auth().currentUser?.email ?? "error",
             "driverName": Auth.auth().currentUser?.displayName ?? "error",
+            "driverUID": Auth.auth().currentUser?.uid ?? "error",
             "destination": ride.destination,
             "origin": ride.origin,
             "date": ride.date,
@@ -62,7 +63,7 @@ class AddRidePreferencesCoordinator: NSObject {
                 self.navigationController?.popViewController(animated: true)
                 //self.navigationController?.popToRootViewController(animated: true)
                 self.delegate?.didWriteRideToFirebase()
-                print("Document added with ID: \(self.docRef!.documentID)")
+                print("Document added with ID: \(self.addRidedocRef!.documentID)")
                 
             }
         }

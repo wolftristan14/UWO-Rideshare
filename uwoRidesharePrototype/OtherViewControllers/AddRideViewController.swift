@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol AddRideViewControllerDelegate: class {
-    func didContinueCreatingRide(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driverEmail: String, driverName: String, createdOn: Date)
+    func didContinueCreatingRide(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driverEmail: String, driverName: String, driverUID: String, createdOn: Date)
 }
 
 class AddRideViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -54,7 +54,7 @@ class AddRideViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.present(alert, animated: true, completion: nil)
         
         } else {
-            delegate?.didContinueCreatingRide(docid: "", origin: fromTextField.text ?? "", destination: goingToTextField.text ?? "", date: dateString, price: pricePickerData[pricePickerViewRow], availableSeats: numberOfSeatsPickerData[numberOfSeatsPickerViewRow], driverEmail: "", driverName: "", createdOn: Date.init(timeIntervalSinceNow: 0))
+            delegate?.didContinueCreatingRide(docid: "", origin: fromTextField.text ?? "", destination: goingToTextField.text ?? "", date: dateString, price: pricePickerData[pricePickerViewRow], availableSeats: numberOfSeatsPickerData[numberOfSeatsPickerViewRow], driverEmail: "", driverName: "", driverUID: "", createdOn: Date.init(timeIntervalSinceNow: 0))
         }
         
     }
