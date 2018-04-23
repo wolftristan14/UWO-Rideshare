@@ -73,7 +73,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         application.registerForRemoteNotifications()
 
-
+        if let notification = launchOptions?[.remoteNotification] as? [String: AnyObject] {
+            // 2
+            //print("notification:\(notification)")
+            //appCoordinator?.showRatings(notification: notification)
+            let aps = notification["aps"] as! [String: AnyObject]
+            let alert = aps["alert"] as! [String: AnyObject]
+            
+            let title = alert["title"] as! String
+            
+            
+            if title == "Thank you for using UWO Rideshare!" {
+                appCoordinator?.showRatings(notification: notification)
+            }
+            
+            
+           // _ = NewsItem.makeNewsItem(aps)
+            // 3
+            
+        }
 
 
         return true
@@ -101,17 +119,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     open func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-        switch application.applicationState {
-        case .active:
-           // appCoordinator?.showRatings()
-   
-            
-            print("do stuff in case App is active")
-        case .background:
-            print("do stuff in case App is in background")
-        case .inactive:
-            print("do stuff in case App is inactive")
-        }
+        
+        print(userInfo)
+    
     }
     
 

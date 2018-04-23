@@ -9,11 +9,18 @@
 import UIKit
 
 class RatingsViewController: UIViewController {
+    
+    var notification: [String:AnyObject]!
 
+    @IBOutlet weak var notificationTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        notificationTextView.text = "\(notification ?? [:])"
     }
 
     override func didReceiveMemoryWarning() {

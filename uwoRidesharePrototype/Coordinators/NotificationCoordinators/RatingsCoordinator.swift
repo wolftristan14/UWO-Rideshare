@@ -18,9 +18,10 @@ class RatingsCoordinator: NSObject {
     
     var navigationController: UINavigationController?
     var childCoordinators = [NSObject]()
+    var notification: [String:AnyObject]!
     
     
-    weak var delegate: RatingsCoordinatorDelegate?
+    //weak var delegate: RatingsCoordinatorDelegate?
     //var docRef: DocumentReference!
     
     init(navigationController: UINavigationController) {
@@ -32,6 +33,7 @@ class RatingsCoordinator: NSObject {
     func start() {
         let ratingStoryboard = UIStoryboard.init(name: "Ratings", bundle: nil)
         let ratingsVC = ratingStoryboard.instantiateViewController(withIdentifier: "ratings") as! RatingsViewController
+        ratingsVC.notification = notification
         navigationController?.pushViewController(ratingsVC, animated: true)
 
     }
