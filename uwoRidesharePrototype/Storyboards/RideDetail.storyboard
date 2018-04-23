@@ -179,7 +179,7 @@
                                                     <constraint firstAttribute="height" constant="25" id="sJz-Uu-b7t"/>
                                                 </constraints>
                                             </imageView>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CVS-SI-JiL" customClass="CosmosView" customModule="Cosmos">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CVS-SI-JiL" customClass="CosmosView" customModule="Cosmos">
                                                 <rect key="frame" x="169" y="454" width="143" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <userDefinedRuntimeAttributes>
@@ -242,6 +242,7 @@
                                             <constraint firstAttribute="height" constant="1000" id="c0S-RV-E7y"/>
                                             <constraint firstItem="RzJ-4V-tPd" firstAttribute="leading" secondItem="XMx-bi-4GS" secondAttribute="trailing" constant="8" id="dfq-me-c8D"/>
                                             <constraint firstItem="go1-7O-OkA" firstAttribute="top" secondItem="XMx-bi-4GS" secondAttribute="bottom" constant="8" id="fcP-3I-7aJ"/>
+                                            <constraint firstItem="9ul-oe-AnY" firstAttribute="top" secondItem="CVS-SI-JiL" secondAttribute="bottom" constant="11" id="ge0-6E-sSz"/>
                                             <constraint firstItem="0qy-tu-K4j" firstAttribute="top" secondItem="k9R-pf-f2D" secondAttribute="bottom" constant="15" id="hpX-PG-N5Q"/>
                                             <constraint firstItem="lDh-zr-Tyl" firstAttribute="top" secondItem="N65-1e-Y5G" secondAttribute="bottom" constant="20" id="htD-RE-COm"/>
                                             <constraint firstItem="9ul-oe-AnY" firstAttribute="centerY" secondItem="N65-1e-Y5G" secondAttribute="centerY" id="jUL-xp-Bem"/>

@@ -61,6 +61,9 @@
 		A1B8786D20813C9C0004F845 /* CustomAuthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B8786C20813C9C0004F845 /* CustomAuthPickerViewController.swift */; };
 		A1CFAFC020433EAD00914CF2 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CFAFBF20433EAD00914CF2 /* UIImageViewExtension.swift */; };
 		A1E8C88A20654A7300D1C5E2 /* RideRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E8C88920654A7300D1C5E2 /* RideRecord.swift */; };
+		A1F893C7208E5448005A8A38 /* RatingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F893C6208E5448005A8A38 /* RatingsCoordinator.swift */; };
+		A1F893C9208E5494005A8A38 /* Ratings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F893C8208E5494005A8A38 /* Ratings.storyboard */; };
+		A1F893CC208E54D0005A8A38 /* RatingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F893CB208E54D0005A8A38 /* RatingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +123,9 @@
 		A1B8786C20813C9C0004F845 /* CustomAuthPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAuthPickerViewController.swift; sourceTree = "<group>"; };
 		A1CFAFBF20433EAD00914CF2 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		A1E8C88920654A7300D1C5E2 /* RideRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRecord.swift; sourceTree = "<group>"; };
+		A1F893C6208E5448005A8A38 /* RatingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsCoordinator.swift; sourceTree = "<group>"; };
+		A1F893C8208E5494005A8A38 /* Ratings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Ratings.storyboard; sourceTree = "<group>"; };
+		A1F893CB208E54D0005A8A38 /* RatingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsViewController.swift; sourceTree = "<group>"; };
 		B4E0A3BFA6F3EAC27AA4B59A /* Pods-uwoRidesharePrototype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uwoRidesharePrototype.release.xcconfig"; path = "Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype.release.xcconfig"; sourceTree = "<group>"; };
 		CD97CC8503DAEBCDEA80D13F /* Pods-uwoRidesharePrototype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uwoRidesharePrototype.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uwoRidesharePrototype/Pods-uwoRidesharePrototype.debug.xcconfig"; sourceTree = "<group>"; };
 		EE9FEB0094A2E7BDD8F161E6 /* Pods_uwoRidesharePrototype.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uwoRidesharePrototype.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,6 +234,7 @@
 		A17000881FD870940003751B = {
 			isa = PBXGroup;
 			children = (
+				A1F893CA208E54AD005A8A38 /* NotificationsViewControllers */,
 				A17000931FD870940003751B /* uwoRidesharePrototype */,
 				A17000921FD870940003751B /* Products */,
 				13AB81F1FB20BCE1D124064F /* Frameworks */,
@@ -268,6 +275,7 @@
 		A17000AC1FD87E8E0003751B /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				A1F893C5208E5429005A8A38 /* NotificationCoordinators */,
 				A183824820166BB9004180BE /* TabBarCoordinators */,
 				A17000A81FD87CF80003751B /* AppCoordinator.swift */,
 				A16576D21FEAE840009985A1 /* HomeCoordinator.swift */,
@@ -291,6 +299,7 @@
 				A14749422077C5390031BC54 /* AddRidePreferences.storyboard */,
 				A10433EB2024C68800F0E8FD /* RideDetail.storyboard */,
 				A15CC47B20506A94008A142C /* RequestDetail.storyboard */,
+				A1F893C8208E5494005A8A38 /* Ratings.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -315,6 +324,22 @@
 				A183825120166C31004180BE /* MessagesCoordinator.swift */,
 			);
 			path = TabBarCoordinators;
+			sourceTree = "<group>";
+		};
+		A1F893C5208E5429005A8A38 /* NotificationCoordinators */ = {
+			isa = PBXGroup;
+			children = (
+				A1F893C6208E5448005A8A38 /* RatingsCoordinator.swift */,
+			);
+			path = NotificationCoordinators;
+			sourceTree = "<group>";
+		};
+		A1F893CA208E54AD005A8A38 /* NotificationsViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A1F893CB208E54D0005A8A38 /* RatingsViewController.swift */,
+			);
+			path = NotificationsViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,6 +421,7 @@
 				A16576D11FEAE426009985A1 /* Home.storyboard in Resources */,
 				A170009C1FD870940003751B /* Assets.xcassets in Resources */,
 				A16576EF200FCE1F009985A1 /* AddRide.storyboard in Resources */,
+				A1F893C9208E5494005A8A38 /* Ratings.storyboard in Resources */,
 				A170009A1FD870940003751B /* Main.storyboard in Resources */,
 				A15CC47C20506A94008A142C /* RequestDetail.storyboard in Resources */,
 			);
@@ -501,6 +527,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1F893CC208E54D0005A8A38 /* RatingsViewController.swift in Sources */,
 				A16576D61FEEDAC7009985A1 /* SearchViewController.swift in Sources */,
 				A10BDFC72028C52700C5C2B9 /* RideDetailCoordinator.swift in Sources */,
 				A17000A91FD87CF80003751B /* AppCoordinator.swift in Sources */,
@@ -532,6 +559,7 @@
 				A16576D31FEAE840009985A1 /* HomeCoordinator.swift in Sources */,
 				A15CC480205089E7008A142C /* RequestDetailCoordinator.swift in Sources */,
 				A110C8A82017AF8B00DC11EE /* YourRidesTableViewCell.swift in Sources */,
+				A1F893C7208E5448005A8A38 /* RatingsCoordinator.swift in Sources */,
 				A1CFAFC020433EAD00914CF2 /* UIImageViewExtension.swift in Sources */,
 				A16576CF1FE9B570009985A1 /* TermsViewController.swift in Sources */,
 				A16576E81FEF0B1C009985A1 /* CreateUserCoordinator.swift in Sources */,

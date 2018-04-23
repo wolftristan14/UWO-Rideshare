@@ -105,7 +105,7 @@ class RideDetailCoordinator: NSObject {
             "rideid": ride.docid ?? "",
             "driverEmail": ride.driverEmail ?? "",
             "driverName": ride.driverName ?? "",
-            "driverUID": Auth.auth().currentUser?.uid ?? "",
+            "driverUID": ride.driverUID ?? "",
             "createdOn": Date.init(timeIntervalSinceNow: 0),
             "requestStatus": false,
             

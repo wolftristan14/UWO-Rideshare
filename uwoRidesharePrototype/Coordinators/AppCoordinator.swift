@@ -150,6 +150,13 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         childCoordinators.append(homeCoordinator)
     }
     
+    func showRatings() {
+        let ratingsCoordinator = RatingsCoordinator(navigationController: navigationController!)
+        ratingsCoordinator.delegate = self as? RatingsCoordinatorDelegate
+        ratingsCoordinator.start()
+        childCoordinators.append(ratingsCoordinator)
+    }
+    
     
 }
 

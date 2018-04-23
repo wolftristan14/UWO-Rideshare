@@ -100,6 +100,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
     
+    open func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        switch application.applicationState {
+        case .active:
+           // appCoordinator?.showRatings()
+   
+            
+            print("do stuff in case App is active")
+        case .background:
+            print("do stuff in case App is in background")
+        case .inactive:
+            print("do stuff in case App is inactive")
+        }
+    }
+    
 
     
     
