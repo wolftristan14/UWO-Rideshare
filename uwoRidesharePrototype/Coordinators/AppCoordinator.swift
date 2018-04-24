@@ -191,7 +191,7 @@ extension AppCoordinator: HomeCoordinatorDelegate {
 
 extension AppCoordinator: RatingsCoordinatorDelegate {
     func didFinishUpdatingDriverRating() {
-        self.showHome()
+        self.checkAuth()
     }
 }
 
