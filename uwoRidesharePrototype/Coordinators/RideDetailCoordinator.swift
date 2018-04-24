@@ -29,6 +29,7 @@ class RideDetailCoordinator: NSObject {
     var docRefFullRides: DocumentReference!
 
     var docRefRequests: DocumentReference!
+    var queryRequestsToDelete: Query!
     var deleteRideDocRef: DocumentReference!
     var rideDetailVC: RideDetailViewController!
 
@@ -138,6 +139,35 @@ class RideDetailCoordinator: NSObject {
         }
     }
     
+    func deleteRequests(ride: RideRecord) {
+        print(ride.docid)
+       queryRequestsToDelete = Firestore.firestore().collection("Requests").whereField("rideid", isEqualTo: ride.docid!)
+        
+
+        queryRequestsToDelete.getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                print("ye")
+                let batch = Firestore.firestore().batch()
+                print("request document count\(querySnapshot?.documents.count)")
+                for document in (querySnapshot?.documents)! {
+                    batch.deleteDocument(document.reference)
+                }
+                batch.commit() { err in
+                    if let err = err {
+                        print("Error writing batch \(err)")
+                    } else {
+                        print("Batch write succeeded.")
+                    }
+                }
+
+            }
+        }
+
+        
+    }
+    
     func addCompletedRideToPastRides(ride: RideRecord) {
         if let docid = ride.docid {
         docRefPastRides = Firestore.firestore().collection("PastRides").document(docid)
@@ -184,6 +214,7 @@ extension RideDetailCoordinator: RideDetailViewControllerDelegate {
     func didEndRide(ride: RideRecord) {
         deleteOldRide(ride: ride)
         deleteOldFullRide(ride: ride)
+        deleteRequests(ride: ride)
         addCompletedRideToPastRides(ride: ride)
         navigationController?.popViewController(animated: true)
     }
