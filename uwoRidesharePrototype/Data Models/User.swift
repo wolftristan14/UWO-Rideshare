@@ -17,9 +17,11 @@ class User {
     var imageDownloadURL: String?
     var notificationTokens: [String]
     var image: UIImage?
+    var rating: Double?
+    var numRatings: Double?
     
     
-    init(name: String, phoneNumber: String, email: String, imageDownloadURL: String?, notificationTokens: [String], image: UIImage?) {
+    init(name: String, phoneNumber: String, email: String, imageDownloadURL: String?, notificationTokens: [String], image: UIImage?, rating: Double?, numRatings: Double?) {
         
         self.name = name
         self.imageDownloadURL = imageDownloadURL
@@ -27,6 +29,8 @@ class User {
         self.email = email
         self.notificationTokens = notificationTokens
         self.image = image
+        self.rating = rating
+        self.numRatings = numRatings
     
     }
 }

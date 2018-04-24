@@ -52,7 +52,7 @@ class ProfileCoordinator: NSObject {
                 let data = querySnapshot?.data() ?? [:]
 
                     if data.count > 0 {
-                        self.user = User(name: data["name"] as! String, phoneNumber: data["phoneNumber"] as! String, email: data["email"] as! String, imageDownloadURL: data["imageDownloadURL"] as? String, notificationTokens: data["notificationTokens"] as! [String], image: nil)
+                        self.user = User(name: data["name"] as! String, phoneNumber: data["phoneNumber"] as! String, email: data["email"] as! String, imageDownloadURL: data["imageDownloadURL"] as? String, notificationTokens: data["notificationTokens"] as! [String], image: nil, rating: data["rating"] as? Double, numRatings: data["numRatings"] as? Double)
                         self.profileViewController.imageView.loadImageFromCache(downloadURLString: self.user.imageDownloadURL!) {image in
                             
                             self.profileViewController.imageView.image = image

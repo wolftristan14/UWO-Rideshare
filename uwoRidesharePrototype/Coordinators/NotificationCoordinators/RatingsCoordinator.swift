@@ -50,11 +50,48 @@ class RatingsCoordinator: NSObject {
         delegate?.didFinishUpdatingDriverRating()
     }
     
+    func updateRating(rating: Double, driverid: String) {
+                updateDriverRatingDocRef = Firestore.firestore().collection("users").document(driverid)
+        
+        Firestore.firestore().runTransaction({ (transaction, errorPointer) -> Any? in
+            do {
+                let userDocument = try transaction.getDocument(self.updateDriverRatingDocRef).data()
+                guard var userData = userDocument else { return nil }
+                self.delegate?.didFinishUpdatingDriverRating()
+                // Compute new number of ratings
+                let numRatings = userData["numRatings"] as! Int
+                let newNumRatings = numRatings + 1
+                
+                // Compute new average rating
+                let avgRating = userData["rating"] as! Double
+                let oldRatingTotal = avgRating * Double(numRatings)
+                let newAvgRating = (oldRatingTotal + rating) / Double(newNumRatings)
+                
+                // Set new info
+                userData["numRatings"] = newNumRatings
+                userData["rating"] = newAvgRating
+                
+                // Commit to Firestore
+                transaction.setData(userData, forDocument: self.updateDriverRatingDocRef)
+            } catch {
+                // Error getting restaurant data
+                // ...
+            }
+            
+            return nil
+        }) { (object, err) in
+            // ...
+        }
+        //self.delegate?.didFinishUpdatingDriverRating()
+
+    }
+    
 }
 
 extension RatingsCoordinator: RatingsViewControllerDelegate {
     
     func didDismissRatingsViewController(rating: Double, driverid: String) {
-        updateDriverRating(rating: rating, driverid: driverid)
+        updateRating(rating: rating, driverid: driverid)
+        //updateDriverRating(rating: rating, driverid: driverid)
     }
 }
