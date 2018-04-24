@@ -106,6 +106,10 @@ class RequestDetailCoordinator: NSObject {
         docRefFullRides = Firestore.firestore().collection("FullRides").document(selectedRequest.rideid)
         let updatedAvailableSeats = ride.availableSeats! - 1
         if updatedAvailableSeats == 0  {
+            
+            
+        docRefFullRides.updateData(["passengers.\(selectedRequest.requesterid)": true])
+            
         docRefFullRides.setData([
 
                 "docid": ride.docid!,
@@ -131,6 +135,8 @@ class RequestDetailCoordinator: NSObject {
                 if let err = err {
                     print("Error adding document: \(err)")
                 } else {
+                    self.docRefFullRides.updateData(["passengers.\(self.selectedRequest.requesterid)": true])
+
                   //  print("Document added with ID: \(self.docRefFullRides.document)")
 
                 }
@@ -138,7 +144,8 @@ class RequestDetailCoordinator: NSObject {
             }
             docRefRide.delete()
         } else {
-            docRefRide.updateData(["availableSeats": updatedAvailableSeats, "passengers.\(selectedRequest.driverUID)": true]) {(error) in
+
+            docRefRide.updateData(["availableSeats": updatedAvailableSeats, "passengers.\(selectedRequest.requesterid)": true]) {(error) in
             if let err = error {
                 print("Error getting documents: \(err)")
             }

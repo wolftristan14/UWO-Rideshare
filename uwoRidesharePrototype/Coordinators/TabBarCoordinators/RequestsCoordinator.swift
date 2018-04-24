@@ -28,6 +28,7 @@ class RequestsCoordinator: NSObject {
    // var docRef: DocumentReference!
     var loadRequestsCollRef: CollectionReference!
     
+    
     init(navigationController: UINavigationController) {
         super.init()
         self.navigationController = navigationController
@@ -78,7 +79,7 @@ class RequestsCoordinator: NSObject {
             }
         }
         
-        loadRequestsCollRef.whereField("requesterid", isEqualTo: Auth.auth().currentUser?.email ?? "error")
+        loadRequestsCollRef.whereField("requesterid", isEqualTo: Auth.auth().currentUser?.uid ?? "error")
             .whereField("requestStatus", isEqualTo: false).addSnapshotListener() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
