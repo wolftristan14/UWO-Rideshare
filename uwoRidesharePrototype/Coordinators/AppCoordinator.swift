@@ -54,6 +54,7 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         launchVC.delegate = self
         navigationController?.pushViewController(launchVC, animated: true)
         checkAuth()
+        //showRatings(driverid: "ye")
         
     }
     
@@ -150,12 +151,20 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         childCoordinators.append(homeCoordinator)
     }
     
-    func showRatings(notification: [String:AnyObject]) {
+    func showRatings(driverid: String) {
         let ratingsCoordinator = RatingsCoordinator(navigationController: navigationController!)
-        ratingsCoordinator.notification = notification
-        //ratingsCoordinator.delegate = self as? RatingsCoordinatorDelegate
+        ratingsCoordinator.driverid = driverid
+        ratingsCoordinator.delegate = self as? RatingsCoordinatorDelegate
         ratingsCoordinator.start()
         childCoordinators.append(ratingsCoordinator)
+    }
+    
+    func showNotification(notification: [String:AnyObject]) {
+        let notificationStoryboard = UIStoryboard.init(name: "Notifications", bundle: nil)
+        let notificationVC = notificationStoryboard.instantiateViewController(withIdentifier: "notifications") as! NotificationsViewController
+        notificationVC.notification = notification
+        navigationController?.pushViewController(notificationVC, animated: true)
+   
     }
     
     
@@ -178,6 +187,12 @@ extension AppCoordinator: CreateUserCoordinatorDelegate {
 
 extension AppCoordinator: HomeCoordinatorDelegate {
     
+}
+
+extension AppCoordinator: RatingsCoordinatorDelegate {
+    func didFinishUpdatingDriverRating() {
+        self.showHome()
+    }
 }
 
 

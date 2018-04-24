@@ -7,36 +7,35 @@
 //
 
 import UIKit
+import Cosmos
+
+protocol RatingsViewControllerDelegate: class {
+    func didDismissRatingsViewController(rating: Double, driverid: String)
+}
 
 class RatingsViewController: UIViewController {
+    @IBOutlet weak var driverLabel: UILabel!
     
-    var notification: [String:AnyObject]!
+    weak var delegate: RatingsViewControllerDelegate!
+    var driverid: String!
 
-    @IBOutlet weak var notificationTextView: UITextView!
+    @IBOutlet weak var rateDriverView: CosmosView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        rateDriverView.rating = 5
+        
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        notificationTextView.text = "\(notification ?? [:])"
+        //driverLabel.text = "rate \(driverid)"
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func rateDriverButtonPressed(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+        delegate.didDismissRatingsViewController(rating: rateDriverView.rating, driverid: driverid)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

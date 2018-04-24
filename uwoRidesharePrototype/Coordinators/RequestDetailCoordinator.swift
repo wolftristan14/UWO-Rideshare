@@ -110,6 +110,7 @@ class RequestDetailCoordinator: NSObject {
 
                 "docid": ride.docid!,
                 "driverEmail": ride.driverEmail!,
+                "driverUID": ride.driverUID!,
                 "driverName": ride.driverName!,
                 "destination": ride.destination!,
                 "origin": ride.origin!,
