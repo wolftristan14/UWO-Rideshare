@@ -33,6 +33,8 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewWillAppear(_ animated: Bool) {
     self.tabBarController?.navigationItem.title = "Your Rides"
     tableView.reloadData()
+        
+    
     //self.tableView.isEditing = false
         
     }
@@ -64,12 +66,12 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         if postedRideArray.count > 0 && indexPath[0] == 0 {
         let ride = postedRideArray[indexPath.row]
-            print("origin and destination\(ride.origin), \(ride.destination)")
-            print("postedRideArray.count: \(postedRideArray.count)")
-            print("issmokingallowed: \(ride.isSmokingAllowed)")
-            print("reststops\(ride.willThereBeRestStops)")
-            print("nofood:\(ride.noFoodAllowed)")
-            print("animals:\(ride.animalsAllowed)")
+//            print("origin and destination\(ride.origin), \(ride.destination)")
+//            print("postedRideArray.count: \(postedRideArray.count)")
+//            print("issmokingallowed: \(ride.isSmokingAllowed)")
+//            print("reststops\(ride.willThereBeRestStops)")
+//            print("nofood:\(ride.noFoodAllowed)")
+//            print("animals:\(ride.animalsAllowed)")
         cell.destinationLabel.text = ride.destination
         cell.originLabel.text = ride.origin
         cell.dateLabel.text = ride.date

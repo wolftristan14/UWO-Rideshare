@@ -69,10 +69,20 @@ class YourRidesCoordinator: NSObject {
                     if document.data().count > 0 {
 
                     
-                        let ride = RideRecord(json: document.data(), id: document.documentID)
+                        let newRide = RideRecord(json: document.data(), id: document.documentID)
                         //ride.docid = document.documentID
 
-                    self.postedRidesArray.append(ride)
+                    //self.postedRidesArray.append(newRide)
+                        var index = 0
+                        for ride in self.postedRidesArray {
+                            if ride.docid == newRide.docid {
+                             self.postedRidesArray.remove(at: index)
+                            } else {
+                                index += 1
+                            }
+                        }
+                    self.postedRidesArray.append(newRide)
+
                     //print("added ride")
                     self.yourRidesViewController.postedRideArray = self.postedRidesArray
                     self.yourRidesViewController.tableView.reloadData()
@@ -80,35 +90,7 @@ class YourRidesCoordinator: NSObject {
                 }
             }
         }
-        
-//        fullRidesCollRef = Firestore.firestore().collection("FullRides")
-//
-//        fullRidesCollRef.whereField("driverEmail", isEqualTo: Auth.auth().currentUser?.email ?? "ERROR").addSnapshotListener() { (querySnapshot, err) in
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                //self.postedRidesArray.removeAll()
-//               // if querySnapshot?.documents.count == 0 {
-//                   // self.yourRidesViewController.postedRideArray = self.postedRidesArray
-//                   // self.yourRidesViewController.tableView.reloadData()
-//                //}
-//
-//                for document in querySnapshot!.documents {
-//                    //print("\(document.documentID) => \(document.data())")
-//                    if document.data().count > 0 {
-//
-//
-//                        let ride = RideRecord(json: document.data())
-//                        //ride.docid = document.documentID
-//
-//                        self.postedRidesArray.append(ride)
-//                        //print("added ride")
-//                        self.yourRidesViewController.postedRideArray = self.postedRidesArray
-//                        self.yourRidesViewController.tableView.reloadData()
-//                    }
-//                }
-//            }
-//        }
+
         
     }
     
@@ -130,10 +112,18 @@ class YourRidesCoordinator: NSObject {
                     if document.data().count > 0 {
                         
                         
-                        let ride = RideRecord(json: document.data(), id: document.documentID)
+                        let newRide = RideRecord(json: document.data(), id: document.documentID)
                         //ride.docid = document.documentID
+                        var index = 0
+                        for ride in self.postedRidesArray {
+                            if ride.docid == newRide.docid {
+                                self.postedRidesArray.remove(at: index)
+                            } else {
+                                index += 1
+                            }
+                        }
                         
-                        self.postedRidesArray.append(ride)
+                        self.postedRidesArray.append(newRide)
                         //print("added ride")
                         self.yourRidesViewController.postedRideArray = self.postedRidesArray
                         self.yourRidesViewController.tableView.reloadData()
@@ -160,9 +150,18 @@ class YourRidesCoordinator: NSObject {
 //                }
                 //print(querySnapshot?.documents.count)
                 for document in querySnapshot!.documents {
-                    let ride = RideRecord(json: document.data(), id: document.documentID)
+                    let newRide = RideRecord(json: document.data(), id: document.documentID)
                     
-                    self.joinedRidesArray.append(ride)
+                    var index = 0
+                    for ride in self.joinedRidesArray {
+                        if ride.docid == newRide.docid {
+                            self.joinedRidesArray.remove(at: index)
+                        } else {
+                            index += 1
+                        }
+                    }
+                    
+                    self.joinedRidesArray.append(newRide)
                     //print("added ride")
                     self.yourRidesViewController.joinedRidesArray = self.joinedRidesArray
                     self.yourRidesViewController.tableView.reloadData()
@@ -186,9 +185,18 @@ class YourRidesCoordinator: NSObject {
 //                }
                 //print(querySnapshot?.documents.count)
                 for document in querySnapshot!.documents {
-                    let ride = RideRecord(json: document.data(), id: document.documentID)
+                    let newRide = RideRecord(json: document.data(), id: document.documentID)
                     
-                    self.joinedRidesArray.append(ride)
+                    var index = 0
+                    for ride in self.joinedRidesArray {
+                        if ride.docid == newRide.docid {
+                            self.joinedRidesArray.remove(at: index)
+                        } else {
+                            index += 1
+                        }
+                    }
+                    
+                    self.joinedRidesArray.append(newRide)
                     //print("added ride")
                     self.yourRidesViewController.joinedRidesArray = self.joinedRidesArray
                     self.yourRidesViewController.tableView.reloadData()
