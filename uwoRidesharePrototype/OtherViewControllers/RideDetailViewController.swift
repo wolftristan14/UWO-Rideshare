@@ -74,13 +74,18 @@ class RideDetailViewController: UIViewController {
         driverLabel.text = selectedRide.driverName
         baggageSizeLabel.text = selectedRide.baggageSize
         
-        cosmosRatingView.rating = Double(selectedRide.driverRating!)
+        //cosmosRatingView.rating = Double(selectedRide.driverRating!)
         
         print(joinRideButton.isHidden)
         checkPreferences()
         
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("driver rating:\(selectedRide.driverRating)")
+        //cosmosRatingView.rating = Double(selectedRide.driverRating!)
     }
 
     override func didReceiveMemoryWarning() {

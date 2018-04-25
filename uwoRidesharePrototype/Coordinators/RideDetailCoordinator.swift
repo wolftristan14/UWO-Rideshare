@@ -71,6 +71,7 @@ class RideDetailCoordinator: NSObject {
                 print("Error getting documents: \(err)")
             } else {
                 print("ye")
+                self.rideDetailVC.cosmosRatingView.rating = querySnapshot?.data()!["rating"] as! Double
                 //rideDetailVC.driverLabel.text = querySnapshot?.data()["name"] as? String
                 let downloadURLString = querySnapshot?.data()?["imageDownloadURL"] as? String
                 if let downloadURL = downloadURLString {
