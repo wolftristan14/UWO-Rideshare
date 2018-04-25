@@ -18,6 +18,8 @@ class RatingsViewController: UIViewController {
     
     weak var delegate: RatingsViewControllerDelegate!
     var driverid: String!
+    var driverName: String!
+
 
     @IBOutlet weak var rateDriverView: CosmosView!
     override func viewDidLoad() {
@@ -27,8 +29,10 @@ class RatingsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        //driverLabel.text = "rate \(driverid)"
+    override func viewWillAppear(_ animated: Bool) {
+        if let driver = driverName {
+        driverLabel.text = "Rate \(driver)"
+        }
     }
 
     @IBAction func rateDriverButtonPressed(_ sender: Any) {

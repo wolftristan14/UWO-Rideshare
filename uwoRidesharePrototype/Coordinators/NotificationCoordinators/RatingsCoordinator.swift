@@ -19,6 +19,8 @@ class RatingsCoordinator: NSObject {
     var navigationController: UINavigationController?
     var childCoordinators = [NSObject]()
     var driverid: String!
+    var driverName: String!
+
     var updateDriverRatingDocRef: DocumentReference!
     
     
@@ -35,6 +37,7 @@ class RatingsCoordinator: NSObject {
         let ratingsVC = ratingStoryboard.instantiateViewController(withIdentifier: "ratings") as! RatingsViewController
         ratingsVC.delegate = self
         ratingsVC.driverid = driverid
+        ratingsVC.driverName = driverName
         navigationController?.pushViewController(ratingsVC, animated: true)
 
     }

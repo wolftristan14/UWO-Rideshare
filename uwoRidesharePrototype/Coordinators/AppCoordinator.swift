@@ -151,9 +151,10 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         childCoordinators.append(homeCoordinator)
     }
     
-    func showRatings(driverid: String) {
+    func showRatings(driverid: String, driverName: String) {
         let ratingsCoordinator = RatingsCoordinator(navigationController: navigationController!)
         ratingsCoordinator.driverid = driverid
+        ratingsCoordinator.driverName = driverName
         ratingsCoordinator.delegate = self as? RatingsCoordinatorDelegate
         ratingsCoordinator.start()
         childCoordinators.append(ratingsCoordinator)

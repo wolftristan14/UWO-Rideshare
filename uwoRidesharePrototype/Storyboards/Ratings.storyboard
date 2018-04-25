@@ -69,6 +69,7 @@
                         <viewLayoutGuide key="safeArea" id="cxw-Fk-gdJ"/>
                     </view>
                     <connections>
+                        <outlet property="driverLabel" destination="MmU-ka-Dib" id="1Mo-9J-7Gh"/>
                         <outlet property="rateDriverView" destination="aed-V7-gHC" id="qB4-gZ-BzM"/>
                     </connections>
                 </viewController>

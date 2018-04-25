@@ -79,12 +79,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             //appCoordinator?.showRatings(notification: notification)
             let aps = notification["aps"] as! [String: AnyObject]
             let driverid = notification["gcm.notification.driverid"] as! String
+            let driverName = notification["gcm.notification.driverName"] as! String
             let alert = aps["alert"] as! [String: AnyObject]
             
             let title = alert["title"] as! String
             //appCoordinator?.showNotification(notification: notification)
            if title == "Thank you for using UWO Rideshare!" {
-                appCoordinator?.showRatings(driverid: driverid)
+            appCoordinator?.showRatings(driverid: driverid, driverName: driverName)
 
             }
             

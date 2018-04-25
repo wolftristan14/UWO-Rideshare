@@ -178,6 +178,7 @@ class RideDetailCoordinator: NSObject {
             "docid": ride.docid!,
             "driverEmail": ride.driverEmail!,
             "driverName": ride.driverName!,
+            "driverUID": ride.driverUID!,
             "destination": ride.destination!,
             "origin": ride.origin!,
             "date": ride.date!,
