@@ -112,15 +112,27 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.availableSeatsLabel.text = "\(ride.availableSeats ?? 0)"
             if ride.isSmokingAllowed == false {
                 cell.smokingAllowedImageView.isHidden = true
+            } else {
+                cell.smokingAllowedImageView.isHidden = false
+                
             }
             if ride.willThereBeRestStops == false {
                 cell.restStopsImageView.isHidden = true
+            } else {
+                cell.restStopsImageView.isHidden = false
             }
             if ride.noFoodAllowed == false {
                 cell.noFoodImageView.isHidden = true
+            } else {
+                cell.noFoodImageView.isHidden = false
+                
             }
+            
             if ride.animalsAllowed == false {
                 cell.animalsAllowedImageView.isHidden = true
+            } else {
+                cell.animalsAllowedImageView.isHidden = false
+                
             }
             return cell
 
