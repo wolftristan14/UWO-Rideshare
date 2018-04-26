@@ -52,7 +52,7 @@ class RequestDetailCoordinator: NSObject {
     
     func loadFirebaseData() {
         docRefRide = Firestore.firestore().collection("Rides").document(selectedRequest.rideid)
-        docRefRide.getDocument() { (querySnapshot, err) in
+        docRefRide.addSnapshotListener() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -72,7 +72,7 @@ class RequestDetailCoordinator: NSObject {
     
     func loadRequesterImage() {
         docRefUser = Firestore.firestore().collection("users").document(selectedRequest.requesterid)
-        docRefUser.getDocument() { (querySnapshot, err) in
+        docRefUser.addSnapshotListener() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {

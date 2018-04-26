@@ -66,7 +66,7 @@ class RideDetailCoordinator: NSObject {
     func loadDriverImage(selectedRide: RideRecord) {
         loadImagedocRef = Firestore.firestore().collection("users").document(selectedRide.driverUID!)
         print("hit load driver image method")
-        loadImagedocRef.getDocument() { (querySnapshot, err) in
+        loadImagedocRef.addSnapshotListener() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
