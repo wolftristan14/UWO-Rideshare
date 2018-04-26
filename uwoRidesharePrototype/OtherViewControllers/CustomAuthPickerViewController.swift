@@ -39,7 +39,7 @@ class CustomAuthPickerViewController: FUIAuthPickerViewController {
         
         myView.font = UIFont(name: "TimesNewRoman", size: 14)
         myView.isEditable = false
-        //myView.backgroundColor = UIColor.flatPurpleDark
+        myView.backgroundColor = view.backgroundColor
         view.addSubview(myView)
         myView.translatesAutoresizingMaskIntoConstraints = false
         myView.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true

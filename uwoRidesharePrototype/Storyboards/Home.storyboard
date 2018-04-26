@@ -370,11 +370,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W67-Kv-Lg4">
-                                <rect key="frame" x="248" y="561" width="77" height="34"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
-                                <state key="normal" title="Sign Out">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
+                                <rect key="frame" x="253" y="561" width="72" height="34"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <state key="normal" title="Sign Out"/>
                                 <connections>
                                     <action selector="signOutButtonTapped:" destination="rEB-ZN-Rwj" eventType="touchUpInside" id="3Ho-gA-uAk"/>
                                 </connections>
@@ -387,35 +385,33 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6q-5t-LUG">
-                                <rect key="frame" x="154" y="205" width="67" height="30"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <rect key="frame" x="152.5" y="210" width="70.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Info:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tov-kL-q1d">
-                                <rect key="frame" x="138" y="255" width="99" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="126.5" y="250" width="122.5" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4163745969" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgT-la-mhm">
-                                <rect key="frame" x="138" y="296" width="99" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="136.5" y="294" width="103" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7aN-8Y-632">
-                                <rect key="frame" x="123.5" y="325" width="128" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="121" y="323.5" width="133.5" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSg-kF-yeh">
-                                <rect key="frame" x="50" y="561" width="99" height="34"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
-                                <state key="normal" title="Edit Profile">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
+                                <rect key="frame" x="50" y="561" width="90" height="34"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <state key="normal" title="Edit Profile"/>
                                 <connections>
                                     <action selector="editProfileButtonTapped:" destination="rEB-ZN-Rwj" eventType="touchUpInside" id="gde-yM-7P4"/>
                                 </connections>
@@ -427,9 +423,9 @@
                             <constraint firstItem="QMS-WC-Bx5" firstAttribute="bottom" secondItem="xSg-kF-yeh" secondAttribute="bottom" constant="23" id="77D-zy-SWc"/>
                             <constraint firstItem="xSg-kF-yeh" firstAttribute="leading" secondItem="QMS-WC-Bx5" secondAttribute="leading" constant="50" id="9Wq-IX-XHs"/>
                             <constraint firstItem="pgT-la-mhm" firstAttribute="centerX" secondItem="QMS-WC-Bx5" secondAttribute="centerX" id="B3z-jo-ZaY"/>
-                            <constraint firstItem="Tov-kL-q1d" firstAttribute="top" secondItem="N6q-5t-LUG" secondAttribute="bottom" constant="20" id="C4y-zD-zGe"/>
+                            <constraint firstItem="Tov-kL-q1d" firstAttribute="top" secondItem="N6q-5t-LUG" secondAttribute="bottom" constant="10" id="C4y-zD-zGe"/>
                             <constraint firstItem="7aN-8Y-632" firstAttribute="centerX" secondItem="QMS-WC-Bx5" secondAttribute="centerX" id="FWR-nR-6kb"/>
-                            <constraint firstItem="N6q-5t-LUG" firstAttribute="top" secondItem="dSZ-58-nKW" secondAttribute="bottom" constant="25" id="Nrw-bi-dBX"/>
+                            <constraint firstItem="N6q-5t-LUG" firstAttribute="top" secondItem="dSZ-58-nKW" secondAttribute="bottom" constant="30" id="Nrw-bi-dBX"/>
                             <constraint firstItem="dSZ-58-nKW" firstAttribute="centerX" secondItem="Z86-Ek-Fah" secondAttribute="centerX" id="Ov4-i7-YhN"/>
                             <constraint firstItem="dSZ-58-nKW" firstAttribute="top" secondItem="QMS-WC-Bx5" secondAttribute="top" constant="10" id="VmM-09-IGs"/>
                             <constraint firstItem="N6q-5t-LUG" firstAttribute="centerX" secondItem="QMS-WC-Bx5" secondAttribute="centerX" id="axx-qy-97b"/>
@@ -473,7 +469,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ride request from: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iw5-5S-qMa">
                                                     <rect key="frame" x="15" y="29" width="345" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -498,7 +494,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pending approval from: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjX-L5-aEE">
                                                     <rect key="frame" x="15" y="29" width="345" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
