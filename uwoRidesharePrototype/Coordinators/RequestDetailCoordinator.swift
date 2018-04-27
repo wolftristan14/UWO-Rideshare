@@ -77,6 +77,7 @@ class RequestDetailCoordinator: NSObject {
                 print("Error getting documents: \(err)")
             } else {
                 //print(querySnapshot?.documentID)
+                self.requestDetailVC.ratingView.rating = querySnapshot?.data()?["rating"] as! Double
                 let downloadURLString = querySnapshot?.data()?["imageDownloadURL"] as? String
                 if let downloadURL = downloadURLString {
                 self.requestDetailVC.imageView.loadImageFromCache(downloadURLString: downloadURL) { image in

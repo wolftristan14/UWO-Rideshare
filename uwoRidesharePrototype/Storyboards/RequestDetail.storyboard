@@ -26,7 +26,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ride request from:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66z-Ia-h39">
-                                <rect key="frame" x="111.5" y="200" width="152.5" height="21"/>
+                                <rect key="frame" x="111.5" y="200" width="152" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -38,19 +38,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Origin) to (Destination)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfA-6G-91c">
-                                <rect key="frame" x="99" y="270" width="177.5" height="21"/>
+                                <rect key="frame" x="98.5" y="294" width="178" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W10-QB-EkM">
-                                <rect key="frame" x="169.5" y="299" width="36" height="21"/>
+                                <rect key="frame" x="169.5" y="323" width="36" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wih-6P-S3x">
-                                <rect key="frame" x="168" y="328" width="39" height="21"/>
+                                <rect key="frame" x="168" y="352" width="39" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -79,6 +79,19 @@
                                     <action selector="declineRequestButtonTapped:" destination="S68-24-EDP" eventType="touchUpInside" id="ugC-nx-6Dc"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aql-nO-Yqf" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="127.5" y="256" width="120" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="v2W-pa-RTH"/>
+                                    <constraint firstAttribute="height" constant="30" id="wcj-d1-YCf"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -88,16 +101,18 @@
                             <constraint firstItem="Aiy-IV-FmV" firstAttribute="bottom" secondItem="tQL-fI-7c0" secondAttribute="bottom" constant="20" id="AaY-0X-i1b"/>
                             <constraint firstItem="wih-6P-S3x" firstAttribute="top" secondItem="W10-QB-EkM" secondAttribute="bottom" constant="8" id="BO8-AH-zyr"/>
                             <constraint firstItem="Aiy-IV-FmV" firstAttribute="bottom" secondItem="9F3-X4-iAS" secondAttribute="bottom" constant="20" id="F0N-KB-F1n"/>
+                            <constraint firstItem="Aql-nO-Yqf" firstAttribute="centerX" secondItem="Cor-Vi-Vl6" secondAttribute="centerX" id="OlQ-Ym-IOb"/>
+                            <constraint firstItem="YfA-6G-91c" firstAttribute="top" secondItem="Aql-nO-Yqf" secondAttribute="bottom" constant="8" id="POb-Zn-5nw"/>
                             <constraint firstItem="cBd-nO-3Ty" firstAttribute="centerX" secondItem="Aiy-IV-FmV" secondAttribute="centerX" id="TxU-BM-Cq9"/>
                             <constraint firstItem="66z-Ia-h39" firstAttribute="top" secondItem="cBd-nO-3Ty" secondAttribute="bottom" constant="20" id="VXw-6b-EUt"/>
                             <constraint firstItem="W10-QB-EkM" firstAttribute="top" secondItem="YfA-6G-91c" secondAttribute="bottom" constant="8" id="XDx-rT-ukp"/>
                             <constraint firstItem="Cor-Vi-Vl6" firstAttribute="centerX" secondItem="Aiy-IV-FmV" secondAttribute="centerX" id="Yfn-Zt-24h"/>
                             <constraint firstItem="wih-6P-S3x" firstAttribute="centerX" secondItem="Aiy-IV-FmV" secondAttribute="centerX" id="apg-R3-kse"/>
+                            <constraint firstItem="Aql-nO-Yqf" firstAttribute="top" secondItem="Cor-Vi-Vl6" secondAttribute="bottom" constant="6" id="arH-i4-gEq"/>
                             <constraint firstItem="tQL-fI-7c0" firstAttribute="leading" secondItem="cBd-nO-3Ty" secondAttribute="trailing" constant="-25" id="eWJ-hz-GMH"/>
                             <constraint firstItem="66z-Ia-h39" firstAttribute="centerX" secondItem="Aiy-IV-FmV" secondAttribute="centerX" id="j3H-RE-yx6"/>
                             <constraint firstItem="cBd-nO-3Ty" firstAttribute="top" secondItem="Aiy-IV-FmV" secondAttribute="top" constant="10" id="kgB-pg-y5B"/>
                             <constraint firstItem="cBd-nO-3Ty" firstAttribute="leading" secondItem="9F3-X4-iAS" secondAttribute="trailing" constant="-25" id="phY-rk-k5Y"/>
-                            <constraint firstItem="YfA-6G-91c" firstAttribute="top" secondItem="Cor-Vi-Vl6" secondAttribute="bottom" constant="20" id="zdx-Rq-ogC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Aiy-IV-FmV"/>
                     </view>
@@ -109,11 +124,12 @@
                         <outlet property="nameLabel" destination="Cor-Vi-Vl6" id="Pz9-Bc-Nnz"/>
                         <outlet property="originAndDestinationLabel" destination="YfA-6G-91c" id="qaI-pj-OyP"/>
                         <outlet property="priceLabel" destination="wih-6P-S3x" id="JTc-er-GDT"/>
+                        <outlet property="ratingView" destination="Aql-nO-Yqf" id="SHp-iP-rPe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Rs-4H-ZBy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-114" y="-79"/>
+            <point key="canvasLocation" x="-114.40000000000001" y="-79.610194902548727"/>
         </scene>
     </scenes>
 </document>

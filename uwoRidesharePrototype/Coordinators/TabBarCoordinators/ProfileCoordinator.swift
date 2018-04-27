@@ -57,6 +57,7 @@ class ProfileCoordinator: NSObject {
                             
                             self.profileViewController.imageView.image = image
                         }
+                        self.profileViewController.driverRatingView.rating = self.user.rating ?? 5
                         self.profileViewController.nameLabel.text = self.user.name
                         self.profileViewController.phoneNumberLabel.text = self.user.phoneNumber
                         self.profileViewController.emailLabel.text = self.user.email

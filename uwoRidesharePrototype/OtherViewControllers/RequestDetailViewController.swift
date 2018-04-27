@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Cosmos
 
 protocol RequestDetailViewControllerDelegate: class {
     func acceptButtonTapped()
@@ -29,6 +30,9 @@ class RequestDetailViewController: UIViewController {
     @IBOutlet weak var acceptButton: UIButton!
     
     @IBOutlet weak var declineButton: UIButton!
+    
+    @IBOutlet weak var ratingView: CosmosView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

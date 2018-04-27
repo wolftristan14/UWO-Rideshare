@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cosmos
 
 protocol ProfileViewControllerDelegate: class {
     func didTapSignOutButton()
@@ -20,6 +21,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     weak var delegate: ProfileViewControllerDelegate?
     
+    @IBOutlet weak var driverRatingView: CosmosView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
