@@ -38,7 +38,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Origin) to (Destination)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfA-6G-91c">
-                                <rect key="frame" x="98.5" y="294" width="178" height="21"/>
+                                <rect key="frame" x="99" y="294" width="177.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -90,11 +90,14 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="rating">
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="YfA-6G-91c" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Aiy-IV-FmV" secondAttribute="leading" constant="10" id="1j5-Wh-2pX"/>
+                            <constraint firstItem="Aiy-IV-FmV" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YfA-6G-91c" secondAttribute="trailing" constant="10" id="228-H9-L0U"/>
                             <constraint firstItem="YfA-6G-91c" firstAttribute="centerX" secondItem="Aiy-IV-FmV" secondAttribute="centerX" id="4cr-tM-Mf6"/>
                             <constraint firstItem="Cor-Vi-Vl6" firstAttribute="top" secondItem="66z-Ia-h39" secondAttribute="bottom" constant="8" id="7TM-In-xD5"/>
                             <constraint firstItem="W10-QB-EkM" firstAttribute="centerX" secondItem="Aiy-IV-FmV" secondAttribute="centerX" id="A28-7i-QMz"/>

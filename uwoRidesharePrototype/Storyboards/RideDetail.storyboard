@@ -10,14 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="VhF-Jr-QsB">
-            <objects>
-                <viewController id="xnT-wW-VAL" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Yru-4C-33a" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="46.875" y="47.535211267605632"/>
-        </scene>
         <!--Ride Detail View Controller-->
         <scene sceneID="7Wj-XH-Mlm">
             <objects>
@@ -205,6 +197,7 @@
                                             <constraint firstItem="Mgc-NL-F0U" firstAttribute="leading" secondItem="go1-7O-OkA" secondAttribute="leading" id="0dj-RB-x2G"/>
                                             <constraint firstItem="Rwb-z3-3JH" firstAttribute="centerX" secondItem="0z8-ZW-A3R" secondAttribute="centerX" id="1AC-eO-dg5"/>
                                             <constraint firstItem="1Pp-Uq-zoq" firstAttribute="top" secondItem="Mgc-NL-F0U" secondAttribute="bottom" constant="8" id="2e8-bg-b2g"/>
+                                            <constraint firstItem="0qy-tu-K4j" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0z8-ZW-A3R" secondAttribute="leading" constant="10" id="2vf-68-G9I"/>
                                             <constraint firstItem="DG0-su-ZCw" firstAttribute="centerX" secondItem="0z8-ZW-A3R" secondAttribute="centerX" id="3oU-jA-At9"/>
                                             <constraint firstItem="k9R-pf-f2D" firstAttribute="centerX" secondItem="0z8-ZW-A3R" secondAttribute="centerX" id="4XY-8l-8h6"/>
                                             <constraint firstItem="EAs-jm-3cK" firstAttribute="centerY" secondItem="1Pp-Uq-zoq" secondAttribute="centerY" id="7Cr-dL-sz0"/>
@@ -217,6 +210,7 @@
                                             <constraint firstItem="go1-7O-OkA" firstAttribute="leading" secondItem="XMx-bi-4GS" secondAttribute="leading" id="8oW-73-iOT"/>
                                             <constraint firstItem="7Kc-lk-wWZ" firstAttribute="leading" secondItem="hEg-0j-maA" secondAttribute="trailing" constant="8" id="9Qw-Pc-Uts"/>
                                             <constraint firstItem="MZS-6d-36H" firstAttribute="leading" secondItem="go1-7O-OkA" secondAttribute="trailing" constant="8" id="9gN-Yq-YWE"/>
+                                            <constraint firstItem="0z8-ZW-A3R" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TjH-S4-h39" secondAttribute="trailing" constant="10" id="9qD-4M-2zG"/>
                                             <constraint firstItem="0z8-ZW-A3R" firstAttribute="trailing" secondItem="CVS-SI-JiL" secondAttribute="trailing" constant="8" id="AeJ-Yt-DWB"/>
                                             <constraint firstItem="1Pp-Uq-zoq" firstAttribute="leading" secondItem="Mgc-NL-F0U" secondAttribute="leading" id="AwH-kA-9QG"/>
                                             <constraint firstItem="7Kc-lk-wWZ" firstAttribute="bottom" secondItem="hEg-0j-maA" secondAttribute="bottom" id="Bxb-qQ-2hO"/>
@@ -240,9 +234,11 @@
                                             <constraint firstItem="RzJ-4V-tPd" firstAttribute="leading" secondItem="XMx-bi-4GS" secondAttribute="trailing" constant="8" id="dfq-me-c8D"/>
                                             <constraint firstItem="go1-7O-OkA" firstAttribute="top" secondItem="XMx-bi-4GS" secondAttribute="bottom" constant="8" id="fcP-3I-7aJ"/>
                                             <constraint firstItem="9ul-oe-AnY" firstAttribute="top" secondItem="CVS-SI-JiL" secondAttribute="bottom" constant="11" id="ge0-6E-sSz"/>
+                                            <constraint firstItem="0z8-ZW-A3R" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0qy-tu-K4j" secondAttribute="trailing" constant="10" id="hH7-mM-ecq"/>
                                             <constraint firstItem="0qy-tu-K4j" firstAttribute="top" secondItem="k9R-pf-f2D" secondAttribute="bottom" constant="15" id="hpX-PG-N5Q"/>
                                             <constraint firstItem="lDh-zr-Tyl" firstAttribute="top" secondItem="N65-1e-Y5G" secondAttribute="bottom" constant="20" id="htD-RE-COm"/>
                                             <constraint firstItem="9ul-oe-AnY" firstAttribute="centerY" secondItem="N65-1e-Y5G" secondAttribute="centerY" id="jUL-xp-Bem"/>
+                                            <constraint firstItem="TjH-S4-h39" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0z8-ZW-A3R" secondAttribute="leading" constant="10" id="kFZ-AN-6ca"/>
                                             <constraint firstItem="CVS-SI-JiL" firstAttribute="top" secondItem="7Kc-lk-wWZ" secondAttribute="top" id="miI-qy-akr"/>
                                             <constraint firstItem="N65-1e-Y5G" firstAttribute="top" secondItem="hEg-0j-maA" secondAttribute="bottom" constant="20" id="myi-Ry-JaT"/>
                                             <constraint firstItem="TjH-S4-h39" firstAttribute="top" secondItem="17b-uK-tVi" secondAttribute="bottom" constant="8" id="nWs-2J-Y1Z"/>

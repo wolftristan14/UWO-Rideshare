@@ -238,7 +238,6 @@
 		A17000881FD870940003751B = {
 			isa = PBXGroup;
 			children = (
-				A1F893CA208E54AD005A8A38 /* NotificationsViewControllers */,
 				A17000931FD870940003751B /* uwoRidesharePrototype */,
 				A17000921FD870940003751B /* Products */,
 				13AB81F1FB20BCE1D124064F /* Frameworks */,
@@ -258,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				A17000941FD870940003751B /* AppDelegate.swift */,
+				A1F893CA208E54AD005A8A38 /* NotificationsViewControllers */,
 				A10433ED2024C79A00F0E8FD /* UIStyleManagers */,
 				A10433E82024C63500F0E8FD /* OtherViewControllers */,
 				A16576ED200D61C8009985A1 /* uwoRidesharePrototype.entitlements */,
@@ -475,6 +475,8 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/InstantSearch-Core-Swift/InstantSearchCore.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
@@ -496,6 +498,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InstantSearchCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
