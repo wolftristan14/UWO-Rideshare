@@ -100,12 +100,14 @@
                             <constraint firstItem="Aiy-IV-FmV" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YfA-6G-91c" secondAttribute="trailing" constant="10" id="228-H9-L0U"/>
                             <constraint firstItem="YfA-6G-91c" firstAttribute="centerX" secondItem="Aiy-IV-FmV" secondAttribute="centerX" id="4cr-tM-Mf6"/>
                             <constraint firstItem="Cor-Vi-Vl6" firstAttribute="top" secondItem="66z-Ia-h39" secondAttribute="bottom" constant="8" id="7TM-In-xD5"/>
+                            <constraint firstItem="Aiy-IV-FmV" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Cor-Vi-Vl6" secondAttribute="trailing" constant="10" id="7rN-PZ-hIw"/>
                             <constraint firstItem="W10-QB-EkM" firstAttribute="centerX" secondItem="Aiy-IV-FmV" secondAttribute="centerX" id="A28-7i-QMz"/>
                             <constraint firstItem="Aiy-IV-FmV" firstAttribute="bottom" secondItem="tQL-fI-7c0" secondAttribute="bottom" constant="20" id="AaY-0X-i1b"/>
                             <constraint firstItem="wih-6P-S3x" firstAttribute="top" secondItem="W10-QB-EkM" secondAttribute="bottom" constant="8" id="BO8-AH-zyr"/>
                             <constraint firstItem="Aiy-IV-FmV" firstAttribute="bottom" secondItem="9F3-X4-iAS" secondAttribute="bottom" constant="20" id="F0N-KB-F1n"/>
                             <constraint firstItem="Aql-nO-Yqf" firstAttribute="centerX" secondItem="Cor-Vi-Vl6" secondAttribute="centerX" id="OlQ-Ym-IOb"/>
                             <constraint firstItem="YfA-6G-91c" firstAttribute="top" secondItem="Aql-nO-Yqf" secondAttribute="bottom" constant="8" id="POb-Zn-5nw"/>
+                            <constraint firstItem="Cor-Vi-Vl6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Aiy-IV-FmV" secondAttribute="leading" constant="10" id="Qf1-cD-vi5"/>
                             <constraint firstItem="cBd-nO-3Ty" firstAttribute="centerX" secondItem="Aiy-IV-FmV" secondAttribute="centerX" id="TxU-BM-Cq9"/>
                             <constraint firstItem="66z-Ia-h39" firstAttribute="top" secondItem="cBd-nO-3Ty" secondAttribute="bottom" constant="20" id="VXw-6b-EUt"/>
                             <constraint firstItem="W10-QB-EkM" firstAttribute="top" secondItem="YfA-6G-91c" secondAttribute="bottom" constant="8" id="XDx-rT-ukp"/>

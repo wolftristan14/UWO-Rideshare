@@ -424,7 +424,7 @@
                                     <action selector="editProfileButtonTapped:" destination="rEB-ZN-Rwj" eventType="touchUpInside" id="gde-yM-7P4"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oqV-w8-jXB" customClass="CosmosView" customModule="Cosmos">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oqV-w8-jXB" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="121" y="353" width="135" height="20"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -445,6 +445,7 @@
                         <constraints>
                             <constraint firstItem="7aN-8Y-632" firstAttribute="top" secondItem="pgT-la-mhm" secondAttribute="bottom" constant="8" id="16N-tf-3jG"/>
                             <constraint firstItem="QMS-WC-Bx5" firstAttribute="bottom" secondItem="xSg-kF-yeh" secondAttribute="bottom" constant="23" id="77D-zy-SWc"/>
+                            <constraint firstItem="N6q-5t-LUG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QMS-WC-Bx5" secondAttribute="leading" constant="10" id="81E-HE-4h5"/>
                             <constraint firstItem="xSg-kF-yeh" firstAttribute="leading" secondItem="QMS-WC-Bx5" secondAttribute="leading" constant="50" id="9Wq-IX-XHs"/>
                             <constraint firstItem="pgT-la-mhm" firstAttribute="centerX" secondItem="QMS-WC-Bx5" secondAttribute="centerX" id="B3z-jo-ZaY"/>
                             <constraint firstItem="Tov-kL-q1d" firstAttribute="top" secondItem="N6q-5t-LUG" secondAttribute="bottom" constant="10" id="C4y-zD-zGe"/>
@@ -453,6 +454,7 @@
                             <constraint firstItem="dSZ-58-nKW" firstAttribute="centerX" secondItem="Z86-Ek-Fah" secondAttribute="centerX" id="Ov4-i7-YhN"/>
                             <constraint firstItem="oqV-w8-jXB" firstAttribute="top" secondItem="7aN-8Y-632" secondAttribute="bottom" constant="8" id="PH5-aB-dZw"/>
                             <constraint firstItem="dSZ-58-nKW" firstAttribute="top" secondItem="QMS-WC-Bx5" secondAttribute="top" constant="10" id="VmM-09-IGs"/>
+                            <constraint firstItem="QMS-WC-Bx5" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="N6q-5t-LUG" secondAttribute="trailing" constant="10" id="Z4m-iQ-2QM"/>
                             <constraint firstItem="N6q-5t-LUG" firstAttribute="centerX" secondItem="QMS-WC-Bx5" secondAttribute="centerX" id="axx-qy-97b"/>
                             <constraint firstItem="QMS-WC-Bx5" firstAttribute="bottom" secondItem="W67-Kv-Lg4" secondAttribute="bottom" constant="23" id="b6Q-0o-NJy"/>
                             <constraint firstItem="oqV-w8-jXB" firstAttribute="centerX" secondItem="QMS-WC-Bx5" secondAttribute="centerX" constant="1" id="kAn-Om-cqG"/>

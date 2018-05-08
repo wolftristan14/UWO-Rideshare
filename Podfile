@@ -17,7 +17,5 @@ target 'uwoRidesharePrototype' do
   pod 'AFNetworking', '~> 2.0'
   pod 'InstantSearch-Core-Swift'
   pod 'Cosmos'
-  pod 'JSQMessagesViewController'
-
 
 end
