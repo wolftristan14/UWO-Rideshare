@@ -424,7 +424,7 @@
                                     <action selector="editProfileButtonTapped:" destination="rEB-ZN-Rwj" eventType="touchUpInside" id="gde-yM-7P4"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oqV-w8-jXB" customClass="CosmosView" customModule="Cosmos">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oqV-w8-jXB" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="121" y="353" width="135" height="20"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
