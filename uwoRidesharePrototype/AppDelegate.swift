@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseFirestore
-import FirebaseAuthUI
+import FirebaseUI
 import FBSDKCoreKit
-import FirebaseFacebookAuthUI
+//import FirebaseFacebookAuthUI
 import UserNotifications
 import SafariServices
 //import InstantSearch
