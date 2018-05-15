@@ -17,7 +17,7 @@ class MessagesViewController: UIViewController {
         super.viewDidLoad()
         
         let messengerView = NMessenger(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
-        //messengerView.delegate = self
+        messengerView.delegate = self as? NMessengerDelegate
         self.view.addSubview(messengerView)
         // Do any additional setup after loading the view.
     }
