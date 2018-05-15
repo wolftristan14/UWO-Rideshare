@@ -71,18 +71,33 @@ class CreateUserCoordinator: NSObject {
         let filePath = "\(Auth.auth().currentUser!.uid)/\("userPhoto")"
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
-        self.storageRef.child(filePath).putData(data, metadata: metaData){(metaData,error) in
-            if let error = error {
+        self.storageRef.child(filePath).downloadURL(){(url, error) in
+        if let error = error {
                 print(error.localizedDescription)
                 return
-            }else{
-                
-                let imageDownloadURL = metaData!.downloadURL()!.absoluteString
-                completionHandler(imageDownloadURL)
-
-            }
+        }else{
             
+            if let url = url {
+                let urlString = url.absoluteString
+                completionHandler(urlString)
+            }
         }
+        }
+//        self.storageRef.child(filePath).putData(data, metadata: metaData){(metaData,error) in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//            }else{
+//                //metaData?.path
+//               // metaData?.storageReference
+//
+//                let imageDownloadURL = metaData?
+//                //let imageDownloadURL = metaData!.downloadURL()!.absoluteString
+//                completionHandler(imageDownloadURL!)
+//
+//            }
+//
+//        }
     }
     
     func writeNewUserDataToDatabase(user: User) {

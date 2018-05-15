@@ -17,5 +17,6 @@ target 'uwoRidesharePrototype' do
   pod 'AFNetworking', '~> 2.0'
   pod 'InstantSearch-Core-Swift'
   pod 'Cosmos'
+  pod 'NMessenger', :git => 'https://github.com/mbalex99/NMessenger', :branch => 'swift4'
 
 end

@@ -8,9 +8,9 @@
 
 import Foundation
 import UIKit
-import FirebaseAuthUI
+import FirebaseUI
 import FBSDKCoreKit
-import FirebaseFacebookAuthUI
+//import FirebaseFacebookAuthUI
 import Firebase
 
 let providers: [FUIAuthProvider] = [
