@@ -102,6 +102,17 @@ class RequestDetailCoordinator: NSObject {
         
     }
     
+//    func changeChannelStatus() {
+//        docRefChannel = Firestore.firestore().collection("Channels").whereField(Auth.auth().currentUser, isEqualTo: <#T##Any#>)
+//        
+//        docRefRequest.updateData(["requestStatus": true]) {(error) in
+//            if let err = error {
+//                print("Error getting documents: \(err)")
+//            }
+//        }
+//        
+//    }
+    
     func updateAvailableSeats() {
         docRefRide = Firestore.firestore().collection("Rides").document(selectedRequest.rideid)
         docRefFullRides = Firestore.firestore().collection("FullRides").document(selectedRequest.rideid)

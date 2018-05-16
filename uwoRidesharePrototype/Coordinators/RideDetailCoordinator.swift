@@ -122,6 +122,10 @@ class RideDetailCoordinator: NSObject {
 
     }
     
+//    func addPassengerToRideChannel() {
+//        
+//    }
+    
     func deleteOldRide(ride: RideRecord) {
         if let docid = ride.docid {
         
@@ -211,6 +215,7 @@ extension RideDetailCoordinator: RideDetailViewControllerDelegate {
         delegate?.didAddUserToRide()
         navigationController?.popViewController(animated: true)
         addPassengerToRide(ride: ride)
+      //  addPassengerToRideChannel(ride: ride)
     }
     
     func didEndRide(ride: RideRecord) {

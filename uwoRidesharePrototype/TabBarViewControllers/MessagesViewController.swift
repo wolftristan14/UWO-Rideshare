@@ -7,18 +7,22 @@
 //
 
 import UIKit
-import NMessenger
 
-class MessagesViewController: UIViewController {
-
-    //var messengerView: NMessenger!
+protocol MessagesViewControllerDelegate: class {
     
+}
+
+class MessagesViewController: UIViewController, UITabBarDelegate, UITableViewDataSource {
+
+    @IBOutlet weak var tableView: UITableView!
+    
+    var channelArray = [Channel]()
+    
+    weak var delegate: MessagesViewControllerDelegate?
+
     override func viewDidLoad() {
-        super.viewDidLoad()
         
-        let messengerView = NMessenger(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
-        messengerView.delegate = self as? NMessengerDelegate
-        self.view.addSubview(messengerView)
+        super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
@@ -28,6 +32,21 @@ class MessagesViewController: UIViewController {
         self.tabBarController?.navigationItem.title = "Messages"
         
         
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return channelArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "messages", for: indexPath)
+        
+        
+        let channel = channelArray[indexPath.row]
+    
+        cell.textLabel?.text = channel.name
+        
+        return cell
     }
 
 

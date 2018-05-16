@@ -61,6 +61,8 @@
 		A1B8786D20813C9C0004F845 /* CustomAuthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B8786C20813C9C0004F845 /* CustomAuthPickerViewController.swift */; };
 		A1CFAFC020433EAD00914CF2 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CFAFBF20433EAD00914CF2 /* UIImageViewExtension.swift */; };
 		A1E8C88A20654A7300D1C5E2 /* RideRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E8C88920654A7300D1C5E2 /* RideRecord.swift */; };
+		A1EE9EEF20AB440C00093EC6 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EE9EEE20AB440B00093EC6 /* Chat.storyboard */; };
+		A1EE9EF120AC83FD00093EC6 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EE9EF020AC83FD00093EC6 /* Channel.swift */; };
 		A1F893C7208E5448005A8A38 /* RatingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F893C6208E5448005A8A38 /* RatingsCoordinator.swift */; };
 		A1F893C9208E5494005A8A38 /* Ratings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F893C8208E5494005A8A38 /* Ratings.storyboard */; };
 		A1F893CC208E54D0005A8A38 /* RatingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F893CB208E54D0005A8A38 /* RatingsViewController.swift */; };
@@ -125,6 +127,8 @@
 		A1B8786C20813C9C0004F845 /* CustomAuthPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAuthPickerViewController.swift; sourceTree = "<group>"; };
 		A1CFAFBF20433EAD00914CF2 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		A1E8C88920654A7300D1C5E2 /* RideRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRecord.swift; sourceTree = "<group>"; };
+		A1EE9EEE20AB440B00093EC6 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		A1EE9EF020AC83FD00093EC6 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		A1F893C6208E5448005A8A38 /* RatingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsCoordinator.swift; sourceTree = "<group>"; };
 		A1F893C8208E5494005A8A38 /* Ratings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Ratings.storyboard; sourceTree = "<group>"; };
 		A1F893CB208E54D0005A8A38 /* RatingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				A1434FD120126F1D009CDBE9 /* User.swift */,
+				A1EE9EF020AC83FD00093EC6 /* Channel.swift */,
 				A14749482077E7560031BC54 /* Ride.swift */,
 				A1E8C88920654A7300D1C5E2 /* RideRecord.swift */,
 				A15CC4712048820F008A142C /* RideRequest.swift */,
@@ -305,6 +310,7 @@
 				A15CC47B20506A94008A142C /* RequestDetail.storyboard */,
 				A1F893C8208E5494005A8A38 /* Ratings.storyboard */,
 				A1F893CD208F9F67005A8A38 /* Notifications.storyboard */,
+				A1EE9EEE20AB440B00093EC6 /* Chat.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -418,6 +424,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1EE9EEF20AB440C00093EC6 /* Chat.storyboard in Resources */,
 				A17000B21FD880780003751B /* GoogleService-Info.plist in Resources */,
 				A16576CD1FE9B41A009985A1 /* Terms.storyboard in Resources */,
 				A14749432077C5390031BC54 /* AddRidePreferences.storyboard in Resources */,
@@ -564,6 +571,7 @@
 				A1B8786D20813C9C0004F845 /* CustomAuthPickerViewController.swift in Sources */,
 				A183825020166C20004180BE /* ProfileCoordinator.swift in Sources */,
 				A16576CB1FE6EF78009985A1 /* LaunchViewController.swift in Sources */,
+				A1EE9EF120AC83FD00093EC6 /* Channel.swift in Sources */,
 				A1434FD220126F1D009CDBE9 /* User.swift in Sources */,
 				A14749472077E5D30031BC54 /* AddRidePreferencesCoordinator.swift in Sources */,
 				A14749452077E0010031BC54 /* AddRidePreferencesViewController.swift in Sources */,
