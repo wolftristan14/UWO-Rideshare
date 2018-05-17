@@ -66,6 +66,7 @@
 		A1EE9EF320AE05B600093EC6 /* ChatCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EE9EF220AE05B600093EC6 /* ChatCoordinator.swift */; };
 		A1EE9EF520AE082100093EC6 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EE9EF420AE082100093EC6 /* ChatViewController.swift */; };
 		A1EE9EF720AE2DE800093EC6 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EE9EF620AE2DE800093EC6 /* Message.swift */; };
+		A1EE9EF920AE364500093EC6 /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EE9EF820AE364500093EC6 /* MessagesTableViewCell.swift */; };
 		A1F893C7208E5448005A8A38 /* RatingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F893C6208E5448005A8A38 /* RatingsCoordinator.swift */; };
 		A1F893C9208E5494005A8A38 /* Ratings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F893C8208E5494005A8A38 /* Ratings.storyboard */; };
 		A1F893CC208E54D0005A8A38 /* RatingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F893CB208E54D0005A8A38 /* RatingsViewController.swift */; };
@@ -135,6 +136,7 @@
 		A1EE9EF220AE05B600093EC6 /* ChatCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCoordinator.swift; sourceTree = "<group>"; };
 		A1EE9EF420AE082100093EC6 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		A1EE9EF620AE2DE800093EC6 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		A1EE9EF820AE364500093EC6 /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
 		A1F893C6208E5448005A8A38 /* RatingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsCoordinator.swift; sourceTree = "<group>"; };
 		A1F893C8208E5494005A8A38 /* Ratings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Ratings.storyboard; sourceTree = "<group>"; };
 		A1F893CB208E54D0005A8A38 /* RatingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				A10433E62022654C00F0E8FD /* SearchTableViewCell.swift */,
 				A15CC477204B3F4A008A142C /* RequestsTableViewCell.swift */,
 				A15CC479204C80D2008A142C /* RequestedTableViewCell.swift */,
+				A1EE9EF820AE364500093EC6 /* MessagesTableViewCell.swift */,
 			);
 			path = "Table View Cells";
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				A15CC478204B3F4A008A142C /* RequestsTableViewCell.swift in Sources */,
 				A15CC47A204C80D2008A142C /* RequestedTableViewCell.swift in Sources */,
 				A183825220166C31004180BE /* MessagesCoordinator.swift in Sources */,
+				A1EE9EF920AE364500093EC6 /* MessagesTableViewCell.swift in Sources */,
 				A16576D31FEAE840009985A1 /* HomeCoordinator.swift in Sources */,
 				A15CC480205089E7008A142C /* RequestDetailCoordinator.swift in Sources */,
 				A110C8A82017AF8B00DC11EE /* YourRidesTableViewCell.swift in Sources */,

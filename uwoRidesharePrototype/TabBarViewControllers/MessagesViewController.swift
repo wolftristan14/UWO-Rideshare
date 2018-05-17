@@ -40,12 +40,12 @@ class MessagesViewController: UIViewController, UITabBarDelegate, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "messages", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "messages", for: indexPath) as! MessagesTableViewCell
         
         
         let channel = channelArray[indexPath.row]
     
-        cell.textLabel?.text = channel.name
+        cell.channelLabel.text = channel.name
         
         return cell
     }
