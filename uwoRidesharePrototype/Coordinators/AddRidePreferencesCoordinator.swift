@@ -41,7 +41,7 @@ class AddRidePreferencesCoordinator: NSObject {
     func addRideToFirebase(ride: Ride) {
         addRideDocRef = Firestore.firestore().collection("Rides").addDocument(data: [
             "docid": "",
-            "driverEmail": Auth.auth().currentUser?.email ?? "error",
+            "driverEmail": Auth.auth().currentUser?.email!,
             "driverName": Auth.auth().currentUser?.displayName ?? "error",
             "driverUID": Auth.auth().currentUser?.uid ?? "error",
             "destination": ride.destination,
@@ -66,6 +66,7 @@ class AddRidePreferencesCoordinator: NSObject {
                 self.delegate?.didWriteRideToFirebase()
                 print("Document added with ID: \(self.addRideDocRef!.documentID)")
                 ride.docid = self.addRideDocRef.documentID
+                ride.driverName = Auth.auth().currentUser?.displayName ?? ""
                 self.addChatChannelForRide(ride: ride)
                 
             }
@@ -73,11 +74,13 @@ class AddRidePreferencesCoordinator: NSObject {
     }
     
     func addChatChannelForRide(ride: Ride) {
-        
-        
+//        print(ride.animalsAllowed)
+//        print(ride.driverEmail)
+//        print(ride.driverName)
+//        print(ride.driverUID)
         let uid = Auth.auth().currentUser?.uid ?? ""
         addChannelDocRef = Firestore.firestore().collection("Channels").addDocument(data:
-            ["name": "\(ride.origin ?? "") to \(ride.destination ?? "")",
+            ["name": "\(ride.driverName ?? ""): \(ride.origin ?? "") to \(ride.destination ?? "")",
             "members": [uid : true],
             "rideid": ride.docid ?? ""
         ]) { err in
