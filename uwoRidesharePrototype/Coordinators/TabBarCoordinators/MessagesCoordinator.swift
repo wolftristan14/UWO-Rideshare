@@ -17,7 +17,7 @@ protocol MessagesCoordinatorDelegate: class {
 class MessagesCoordinator: NSObject {
     
     var navigationController: UINavigationController?
-    //var childCoordinators = [NSObject]()
+    var childCoordinators = [NSObject]()
 
     
     weak var delegate: MessagesCoordinatorDelegate?
@@ -68,4 +68,21 @@ class MessagesCoordinator: NSObject {
             }
         }
     }
+    
+    func goToChatCoordinator(channel: Channel) {
+        let chatCoordinator = ChatCoordinator(navigationController: navigationController!)
+        chatCoordinator.delegate = self as? ChatCoordinatorDelegate
+        chatCoordinator.selectedChannel = channel
+        chatCoordinator.start()
+        childCoordinators.append(chatCoordinator)
+    }
+}
+
+extension MessagesCoordinator: MessagesViewControllerDelegate {
+    func didSelectChannel(channel: Channel) {
+        goToChatCoordinator(channel: channel)
+        
+    }
+    
+    
 }

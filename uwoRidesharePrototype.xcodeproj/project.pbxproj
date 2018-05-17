@@ -63,6 +63,8 @@
 		A1E8C88A20654A7300D1C5E2 /* RideRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E8C88920654A7300D1C5E2 /* RideRecord.swift */; };
 		A1EE9EEF20AB440C00093EC6 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EE9EEE20AB440B00093EC6 /* Chat.storyboard */; };
 		A1EE9EF120AC83FD00093EC6 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EE9EF020AC83FD00093EC6 /* Channel.swift */; };
+		A1EE9EF320AE05B600093EC6 /* ChatCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EE9EF220AE05B600093EC6 /* ChatCoordinator.swift */; };
+		A1EE9EF520AE082100093EC6 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EE9EF420AE082100093EC6 /* ChatViewController.swift */; };
 		A1F893C7208E5448005A8A38 /* RatingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F893C6208E5448005A8A38 /* RatingsCoordinator.swift */; };
 		A1F893C9208E5494005A8A38 /* Ratings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F893C8208E5494005A8A38 /* Ratings.storyboard */; };
 		A1F893CC208E54D0005A8A38 /* RatingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F893CB208E54D0005A8A38 /* RatingsViewController.swift */; };
@@ -129,6 +131,8 @@
 		A1E8C88920654A7300D1C5E2 /* RideRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRecord.swift; sourceTree = "<group>"; };
 		A1EE9EEE20AB440B00093EC6 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		A1EE9EF020AC83FD00093EC6 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		A1EE9EF220AE05B600093EC6 /* ChatCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCoordinator.swift; sourceTree = "<group>"; };
+		A1EE9EF420AE082100093EC6 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		A1F893C6208E5448005A8A38 /* RatingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsCoordinator.swift; sourceTree = "<group>"; };
 		A1F893C8208E5494005A8A38 /* Ratings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Ratings.storyboard; sourceTree = "<group>"; };
 		A1F893CB208E54D0005A8A38 /* RatingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 				A15CC47D2050776C008A142C /* RequestDetailViewController.swift */,
 				A1B8786A2081255B0004F845 /* CustomEmailEntryViewController.swift */,
 				A1B8786C20813C9C0004F845 /* CustomAuthPickerViewController.swift */,
+				A1EE9EF420AE082100093EC6 /* ChatViewController.swift */,
 			);
 			path = OtherViewControllers;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 				A14749462077E5D30031BC54 /* AddRidePreferencesCoordinator.swift */,
 				A10BDFC62028C52700C5C2B9 /* RideDetailCoordinator.swift */,
 				A15CC47F205089E7008A142C /* RequestDetailCoordinator.swift */,
+				A1EE9EF220AE05B600093EC6 /* ChatCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -575,6 +581,7 @@
 				A1434FD220126F1D009CDBE9 /* User.swift in Sources */,
 				A14749472077E5D30031BC54 /* AddRidePreferencesCoordinator.swift in Sources */,
 				A14749452077E0010031BC54 /* AddRidePreferencesViewController.swift in Sources */,
+				A1EE9EF320AE05B600093EC6 /* ChatCoordinator.swift in Sources */,
 				A1434FD62013C03F009CDBE9 /* AddRideCoordinator.swift in Sources */,
 				A10433EF2024C7C900F0E8FD /* ProfileImageStyleManager.swift in Sources */,
 				A16576E61FEEFD0D009985A1 /* CreateUserViewController.swift in Sources */,
@@ -593,6 +600,7 @@
 				A16576DA1FEEDB2E009985A1 /* ProfileViewController.swift in Sources */,
 				A1B8786B2081255B0004F845 /* CustomEmailEntryViewController.swift in Sources */,
 				A17000951FD870940003751B /* AppDelegate.swift in Sources */,
+				A1EE9EF520AE082100093EC6 /* ChatViewController.swift in Sources */,
 				A183824C20166BF0004180BE /* YourRidesCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

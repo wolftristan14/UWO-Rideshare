@@ -9,10 +9,10 @@
 import UIKit
 
 protocol MessagesViewControllerDelegate: class {
-    
+    func didSelectChannel(channel: Channel)
 }
 
-class MessagesViewController: UIViewController, UITabBarDelegate, UITableViewDataSource {
+class MessagesViewController: UIViewController, UITabBarDelegate, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -48,6 +48,13 @@ class MessagesViewController: UIViewController, UITabBarDelegate, UITableViewDat
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let channel = channelArray[indexPath[1]]
+        delegate?.didSelectChannel(channel: channel)
+    }
+    
+    
 
 
 }
