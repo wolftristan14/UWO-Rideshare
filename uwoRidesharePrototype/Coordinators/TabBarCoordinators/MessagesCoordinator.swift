@@ -39,6 +39,8 @@ class MessagesCoordinator: NSObject {
     }
     
     func loadChannelsFromFirebase() {
+        
+        
         let userUID = Auth.auth().currentUser?.uid ?? ""
         loadChannelsQuery = Firestore.firestore().collection("Channels").whereField("members.\(userUID)", isEqualTo: true)
         
@@ -46,12 +48,14 @@ class MessagesCoordinator: NSObject {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                print("total document count:\(querySnapshot?.documents.count)")
                 for document in querySnapshot!.documents {
                 //print("\(document.documentID) => \(document.data())")
                 let data = document.data()
-                
+                print(data.keys)
+                print(data.count)
                 if data.count > 0 {
-                    self.channel  = Channel(name: document.data()["name"] as! String, members: document.data()["members"] as! [String: Bool])
+                    self.channel  = Channel(name: document.data()["name"] as! String, members: document.data()["members"] as! [String: Bool], rideid: document.data()["rideid"] as! String)
                     
                     self.channelArray.append(self.channel)
                     //print("added ride")

@@ -27,6 +27,8 @@ class RideDetailCoordinator: NSObject {
     var addPassengerdocRef: DocumentReference!
     var docRefPastRides: DocumentReference!
     var docRefFullRides: DocumentReference!
+    var channelQuery: Query!
+    var channelDocRef: DocumentReference!
 
     var docRefRequests: DocumentReference!
     var queryRequestsToDelete: Query!
@@ -122,9 +124,27 @@ class RideDetailCoordinator: NSObject {
 
     }
     
-//    func addPassengerToRideChannel() {
-//        
-//    }
+    func addPassengerToRideChannel(ride: RideRecord) {
+        channelQuery = Firestore.firestore().collection("Channels").whereField("members.\(ride.driverUID ?? "")", isEqualTo: true).whereField("rideid", isEqualTo: ride.docid ?? "")
+        
+        channelQuery.getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    
+                    self.addUserToChannel(data: document.data(), docid: document.documentID)
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
+    }
+    
+    func addUserToChannel(data: [String:Any], docid: String) {
+        channelDocRef = Firestore.firestore().collection("Channels").document(docid)
+        
+        channelDocRef.updateData(["members.\(Auth.auth().currentUser?.uid ?? "")" : false])
+    }
     
     func deleteOldRide(ride: RideRecord) {
         if let docid = ride.docid {
@@ -215,7 +235,7 @@ extension RideDetailCoordinator: RideDetailViewControllerDelegate {
         delegate?.didAddUserToRide()
         navigationController?.popViewController(animated: true)
         addPassengerToRide(ride: ride)
-      //  addPassengerToRideChannel(ride: ride)
+        addPassengerToRideChannel(ride: ride)
     }
     
     func didEndRide(ride: RideRecord) {

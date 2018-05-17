@@ -13,10 +13,14 @@ class Channel {
     
     var name: String
     var members: [String:Bool]
+    var rideid: String
     
     
-    init(name: String, members: [String:Bool]) {
+    init(name: String, members: [String:Bool], rideid: String) {
+        
         self.name = name
         self.members = members
+        self.rideid = rideid
+        
     }
 }

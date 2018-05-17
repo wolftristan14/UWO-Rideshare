@@ -65,16 +65,21 @@ class AddRidePreferencesCoordinator: NSObject {
                 //self.navigationController?.popToRootViewController(animated: true)
                 self.delegate?.didWriteRideToFirebase()
                 print("Document added with ID: \(self.addRideDocRef!.documentID)")
+                ride.docid = self.addRideDocRef.documentID
+                self.addChatChannelForRide(ride: ride)
                 
             }
         }
     }
     
     func addChatChannelForRide(ride: Ride) {
+        
+        
         let uid = Auth.auth().currentUser?.uid ?? ""
         addChannelDocRef = Firestore.firestore().collection("Channels").addDocument(data:
             ["name": "\(ride.origin ?? "") to \(ride.destination ?? "")",
-            "members": [uid : true]
+            "members": [uid : true],
+            "rideid": ride.docid ?? ""
         ]) { err in
                         if let err = err {
                             print("Error adding document: \(err)")
@@ -95,7 +100,7 @@ extension AddRidePreferencesCoordinator: AddRidePreferencesViewControllerDelegat
     
     func didAddRide(ride: Ride) {
         addRideToFirebase(ride: ride)
-        addChatChannelForRide(ride: ride)
+        //addChatChannelForRide(ride: ride)
     }
         
         

@@ -24,6 +24,8 @@ class RequestDetailCoordinator: NSObject {
     var docRefFullRides: DocumentReference!
     var docRefUser: DocumentReference!
     var docRefRequest: DocumentReference!
+    var channelQuery: Query!
+    var channelDocRef: DocumentReference!
 
     var requestDetailVC: RequestDetailViewController!
     var selectedRequest: RideRequest!
@@ -102,16 +104,30 @@ class RequestDetailCoordinator: NSObject {
         
     }
     
-//    func changeChannelStatus() {
-//        docRefChannel = Firestore.firestore().collection("Channels").whereField(Auth.auth().currentUser, isEqualTo: <#T##Any#>)
-//        
-//        docRefRequest.updateData(["requestStatus": true]) {(error) in
-//            if let err = error {
-//                print("Error getting documents: \(err)")
-//            }
-//        }
-//        
-//    }
+    func changeChannelStatus() {
+        channelQuery = Firestore.firestore().collection("Channels").whereField("members.\(ride.driverUID ?? "")", isEqualTo: true).whereField("rideid", isEqualTo: ride.docid ?? "")
+        
+        channelQuery.getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    
+                    self.addUserToChannel(data: document.data(), docid: document.documentID)
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
+    
+    }
+    
+    func addUserToChannel(data: [String:Any], docid: String) {
+        channelDocRef = Firestore.firestore().collection("Channels").document(docid)
+        
+        
+        
+        channelDocRef.updateData(["members.\(selectedRequest.requesterid)" : true])
+    }
     
     func updateAvailableSeats() {
         docRefRide = Firestore.firestore().collection("Rides").document(selectedRequest.rideid)
@@ -177,6 +193,7 @@ class RequestDetailCoordinator: NSObject {
 extension RequestDetailCoordinator: RequestDetailViewControllerDelegate {
     func acceptButtonTapped() {
         changeRequestStatus()
+        changeChannelStatus()
         updateAvailableSeats()
         navigationController?.popViewController(animated: true)
 
