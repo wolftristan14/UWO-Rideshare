@@ -21,10 +21,13 @@ class ChatViewController: NMessengerViewController {
     var senderUID: String!
     var messagesCollRef: CollectionReference!
     
+    
     var messageCounter: Int!
     override func viewDidLoad() {
         super.viewDidLoad()
-        messageCounter = self.messengerView.allMessages().count
+         messagesCollRef = Firestore.firestore().collection("Channels").document(selectedChannel.channelid ?? "").collection("Messages")
+        messageCounter = 0
+        getMessagesFromFirebase()
         
         // Do any additional setup after loading the view.
     }
@@ -35,7 +38,7 @@ class ChatViewController: NMessengerViewController {
     }
     
     func writeMessageToFirebase(text: String) {
-        messagesCollRef = Firestore.firestore().collection("Channels").document(selectedChannel.channelid ?? "").collection("Messages")
+//        messagesCollRef = Firestore.firestore().collection("Channels").document(selectedChannel.channelid ?? "").collection("Messages")
         
         
         messagesCollRef.document("message\(messageCounter!)").setData(["text": text, "senderid": senderUID]) { err in
@@ -52,26 +55,31 @@ class ChatViewController: NMessengerViewController {
             
         }
         
-        //        messagesCollRef.document("message\(messageCounter)").setData(data: ["text": text, "senderid": senderUID]) { err in
-        //            if let err = err {
-        //                print("Error adding document: \(err)")
-        //            } else {
-        //
-        //                self.messageCounter! += 1
-        //                //self.navigationController?.popViewController(animated: true)
-        //                //self.navigationController?.popToRootViewController(animated: true)
-        //                //self.delegate?.didWriteRideToFirebase()
-        //
-        //            }
-        //
-        //        }
         
-        
-        
-        
-        
-        
-        
+    }
+    
+    func getMessagesFromFirebase() {
+        messagesCollRef.getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in (querySnapshot?.documents)! {
+                    
+                    let message = Message(text: document.data()["text"] as! String, senderid: document.data()["senderid"] as! String)
+                    
+                    
+                    //let formattedMessage =
+                    if message.senderid == Auth.auth().currentUser?.uid {
+                    self.postText(message.text, isIncomingMessage: false)
+                    } else if message.senderid != Auth.auth().currentUser?.uid {
+                    self.postText(message.text, isIncomingMessage: true)
+
+                    }
+                    
+                    self.messageCounter! += 1
+                }
+            }
+        }
     }
     
     

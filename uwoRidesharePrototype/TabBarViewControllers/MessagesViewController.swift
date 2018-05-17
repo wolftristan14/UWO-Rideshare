@@ -28,11 +28,12 @@ class MessagesViewController: UIViewController, UITabBarDelegate, UITableViewDel
     
     override func viewWillAppear(_ animated: Bool) {
 
-
         self.tabBarController?.navigationItem.title = "Messages"
         
         
     }
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return channelArray.count
@@ -52,6 +53,7 @@ class MessagesViewController: UIViewController, UITabBarDelegate, UITableViewDel
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let channel = channelArray[indexPath[1]]
         delegate?.didSelectChannel(channel: channel)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     
