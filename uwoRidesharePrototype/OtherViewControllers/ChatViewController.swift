@@ -25,6 +25,7 @@ class ChatViewController: NMessengerViewController {
     var messageCounter: Int!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.inputBarView.textInputAreaView.subviews[1].isHidden = true
          messagesCollRef = Firestore.firestore().collection("Channels").document(selectedChannel.channelid ?? "").collection("Messages")
         messageCounter = 0
         getMessagesFromFirebase()
@@ -37,9 +38,12 @@ class ChatViewController: NMessengerViewController {
         return self.postText(text,isIncomingMessage: isIncomingMessage)
     }
     
+//    override func sendImage(_ image: UIImage, isIncomingMessage: Bool) -> GeneralMessengerCell {
+//        //writeImageToFirebase()
+//    }
+    
     func writeMessageToFirebase(text: String) {
-//        messagesCollRef = Firestore.firestore().collection("Channels").document(selectedChannel.channelid ?? "").collection("Messages")
-        
+
         
         messagesCollRef.document("message\(messageCounter!)").setData(["text": text, "senderid": senderUID]) { err in
             if let err = err {
