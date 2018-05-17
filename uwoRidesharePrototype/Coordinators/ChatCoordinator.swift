@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Firebase
+import NMessenger
 
 protocol ChatCoordinatorDelegate: class {
     
@@ -30,13 +31,16 @@ class ChatCoordinator: NSObject {
     
     func start() {
         let storyboard = UIStoryboard.init(name: "Chat", bundle: nil)
-        let chatVC = storyboard.instantiateViewController(withIdentifier: "chat")
-        //chatVC.delegate = self as? ChatViewControllerDelegate
-        //chatVC.selectedChannel = selectedChannel
+        let chatVC = storyboard.instantiateViewController(withIdentifier: "chat") as! ChatViewController
+        chatVC.delegate = self as? ChatViewControllerDelegate
+        chatVC.selectedChannel = selectedChannel
+        chatVC.senderUID = Auth.auth().currentUser?.uid ?? ""
         navigationController.pushViewController(chatVC, animated: true)
         
         
         
+        
     }
+    
     
 }

@@ -370,7 +370,7 @@ open class NMessengerViewController: UIViewController, UITextViewDelegate, NMess
      - parameter isIncomingMessage: if message is incoming or outgoing
      - returns: the newly created message
      */
-    fileprivate func postText(_ text: String, isIncomingMessage:Bool) -> GeneralMessengerCell {
+    /*fileprivate*/open func postText(_ text: String, isIncomingMessage:Bool) -> GeneralMessengerCell {
         let newMessage = createTextMessage(text, isIncomingMessage: isIncomingMessage)
         self.addMessageToMessenger(newMessage)
         return newMessage
@@ -398,7 +398,7 @@ open class NMessengerViewController: UIViewController, UITextViewDelegate, NMess
      - parameter isIncomingMessage: if message is incoming or outgoing
      - returns: the newly created message
      */
-    fileprivate func postImage(_ image: UIImage, isIncomingMessage:Bool) -> GeneralMessengerCell {
+    /*fileprivate*/open func postImage(_ image: UIImage, isIncomingMessage:Bool) -> GeneralMessengerCell {
         let newMessage = self.createImageMessage(image, isIncomingMessage: isIncomingMessage)
         self.addMessageToMessenger(newMessage)
         return newMessage

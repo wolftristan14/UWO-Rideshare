@@ -55,7 +55,7 @@ class MessagesCoordinator: NSObject {
                 print(data.keys)
                 print(data.count)
                 if data.count > 0 {
-                    self.channel  = Channel(name: document.data()["name"] as! String, members: document.data()["members"] as! [String: Bool], rideid: document.data()["rideid"] as! String)
+                    self.channel  = Channel(name: document.data()["name"] as! String, members: document.data()["members"] as! [String: Bool], rideid: document.data()["rideid"] as! String, channelid: document.documentID)
                     
                     self.channelArray.append(self.channel)
                     //print("added ride")
