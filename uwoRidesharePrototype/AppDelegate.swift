@@ -15,7 +15,6 @@ import FBSDKCoreKit
 //import FirebaseFacebookAuthUI
 import UserNotifications
 import SafariServices
-//import InstantSearch
 
 
 @UIApplicationMain
@@ -76,14 +75,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if let notification = launchOptions?[.remoteNotification] as? [String: AnyObject] {
             // 2
             //print("notification:\(notification)")
-            //appCoordinator?.showRatings(notification: notification)
             let aps = notification["aps"] as! [String: AnyObject]
             let driverid = notification["gcm.notification.driverid"] as! String
             let driverName = notification["gcm.notification.driverName"] as! String
             let alert = aps["alert"] as! [String: AnyObject]
             
             let title = alert["title"] as! String
-            //appCoordinator?.showNotification(notification: notification)
            if title == "Thank you for using UWO Rideshare!" {
             appCoordinator?.showRatings(driverid: driverid, driverName: driverName)
 
@@ -96,7 +93,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
     
-    //might have to move this stuff
     func application(_ app: UIApplication, open url: URL,
                      options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
         let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?

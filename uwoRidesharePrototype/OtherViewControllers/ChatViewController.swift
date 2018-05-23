@@ -72,6 +72,7 @@ class ChatViewController: NMessengerViewController {
                     let message = Message(text: document.data()["text"] as! String, senderid: document.data()["senderid"] as! String)
                     
                     
+                    
                     //let formattedMessage =
                     if message.senderid == Auth.auth().currentUser?.uid {
                     self.postText(message.text, isIncomingMessage: false)
