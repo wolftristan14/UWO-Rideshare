@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import FirebaseUI
 import FBSDKCoreKit
-//import FirebaseFacebookAuthUI
 import Firebase
 
 let providers: [FUIAuthProvider] = [
@@ -54,8 +53,6 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         launchVC.delegate = self
         navigationController?.pushViewController(launchVC, animated: true)
         checkAuth()
-        //showRatings(driverid: "ye")
-        
     }
     
     func checkAuth() {
@@ -100,9 +97,6 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         
     }
     
-    
-
-    
     func checkIfUserHasBeenCreated() {
         if accountCreated == false {
             showCreateUser()
@@ -127,11 +121,6 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
     func authPickerViewController(forAuthUI authUI: FUIAuth) -> FUIAuthPickerViewController {
         return CustomAuthPickerViewController(authUI: authUI)
     }
-
-//    func emailEntryViewController(forAuthUI authUI: FUIAuth) -> FUIEmailEntryViewController {
-//        return CustomEmailEntryViewController(authUI: authUI)
-//        
-//    }
 
     
     func showCreateUser() {
