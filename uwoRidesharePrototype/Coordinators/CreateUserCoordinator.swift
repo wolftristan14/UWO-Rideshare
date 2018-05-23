@@ -71,33 +71,34 @@ class CreateUserCoordinator: NSObject {
         let filePath = "\(Auth.auth().currentUser!.uid)/\("userPhoto")"
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
-        self.storageRef.child(filePath).downloadURL(){(url, error) in
-        if let error = error {
+
+        self.storageRef.child(filePath).putData(data, metadata: metaData){(metaData,error) in
+            if let error = error {
                 print(error.localizedDescription)
                 return
-        }else{
-            
-            if let url = url {
-                let urlString = url.absoluteString
-                completionHandler(urlString)
+            }else{
+                self.storageRef.child(filePath).downloadURL(){(url, error) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                        return
+                    }else{
+                        
+                        if let url = url {
+                            let urlString = url.absoluteString
+                            completionHandler(urlString)
+                        }
+                    }
+                }
+                //metaData?.path
+               // metaData?.storageReference
+
+                //let imageDownloadURL = metaData?
+                //let imageDownloadURL = metaData!.downloadURL()!.absoluteString
+                //completionHandler(imageDownloadURL!)
+
             }
+
         }
-        }
-//        self.storageRef.child(filePath).putData(data, metadata: metaData){(metaData,error) in
-//            if let error = error {
-//                print(error.localizedDescription)
-//                return
-//            }else{
-//                //metaData?.path
-//               // metaData?.storageReference
-//
-//                let imageDownloadURL = metaData?
-//                //let imageDownloadURL = metaData!.downloadURL()!.absoluteString
-//                completionHandler(imageDownloadURL!)
-//
-//            }
-//
-//        }
     }
     
     func writeNewUserDataToDatabase(user: User) {
@@ -159,11 +160,13 @@ extension CreateUserCoordinator: CreateUserViewControllerDelegate {
     }
     
     func didFinishCreatingUser(name: String, phoneNumber: String, image: UIImage, notificationTokens: [String]) {
+        
         self.navigationController?.popViewController(animated: true)
         newUser = User(name: name, phoneNumber: phoneNumber, email: Auth.auth().currentUser?.email ?? "error", imageDownloadURL: "", notificationTokens: notificationTokens, image: nil, rating: 5, numRatings: 0)
         storeImageInFirebaseStorage(image: image) {imageDownloadURL in
             self.newUser.imageDownloadURL = imageDownloadURL
             self.writeNewUserDataToDatabase(user: self.newUser)
+
 
         }
         
