@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 protocol MessagesViewControllerDelegate: class {
     func didSelectChannel(channel: Channel)
@@ -19,6 +20,10 @@ class MessagesViewController: UIViewController, UITabBarDelegate, UITableViewDel
     var channelArray = [Channel]()
     
     weak var delegate: MessagesViewControllerDelegate?
+    
+    var loadChannelsQuery: Query!
+    var channel: Channel!
+
 
     override func viewDidLoad() {
         
@@ -27,10 +32,15 @@ class MessagesViewController: UIViewController, UITabBarDelegate, UITableViewDel
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
+        loadChannelsFromFirebase()
+        tableView.reloadData()
         self.tabBarController?.navigationItem.title = "Messages"
         
         
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     
@@ -54,6 +64,37 @@ class MessagesViewController: UIViewController, UITabBarDelegate, UITableViewDel
         let channel = channelArray[indexPath[1]]
         delegate?.didSelectChannel(channel: channel)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func loadChannelsFromFirebase() {
+        
+        
+        let userUID = Auth.auth().currentUser?.uid ?? ""
+        loadChannelsQuery = Firestore.firestore().collection("Channels").whereField("members.\(userUID)", isEqualTo: true)
+        
+        loadChannelsQuery.addSnapshotListener() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                self.channelArray.removeAll()
+                print("total document count:\(querySnapshot?.documents.count)")
+                for document in querySnapshot!.documents {
+                    //print("\(document.documentID) => \(document.data())")
+                    let data = document.data()
+                    print(data.keys)
+                    print(data.count)
+                    if data.count > 0 {
+                        self.channel  = Channel(name: document.data()["name"] as! String, members: document.data()["members"] as! [String: Bool], rideid: document.data()["rideid"] as! String, channelid: document.documentID)
+                        
+                        self.channelArray.append(self.channel)
+                        //print("added ride")
+                        self.tableView.reloadData()
+                        
+                        
+                    }
+                }
+            }
+        }
     }
     
     

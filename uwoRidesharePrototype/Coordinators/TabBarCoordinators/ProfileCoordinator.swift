@@ -21,7 +21,6 @@ class ProfileCoordinator: NSObject {
 
     
     weak var delegate: ProfileCoordinatorDelegate?
-    var docRefLoadUserProfile: DocumentReference!
     var profileViewController: ProfileViewController!
    
     var user: User!
@@ -35,43 +34,13 @@ class ProfileCoordinator: NSObject {
     func start() {
         profileViewController = navigationController?.visibleViewController?.childViewControllers[2] as!ProfileViewController
         profileViewController.delegate = self as ProfileViewControllerDelegate
-        loadFirebaseData()
-        
+
     }
     
-    func loadFirebaseData()  {
-        let userUID = Auth.auth().currentUser?.uid ?? ""
-        docRefLoadUserProfile = Firestore.firestore().collection("users").document(userUID)
-        
-        docRefLoadUserProfile.addSnapshotListener() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                //for document in querySnapshot!.documents {
-                    //print("\(document.documentID) => \(document.data())")
-                let data = querySnapshot?.data() ?? [:]
-
-                    if data.count > 0 {
-                        self.user = User(name: data["name"] as! String, phoneNumber: data["phoneNumber"] as! String, email: data["email"] as! String, imageDownloadURL: data["imageDownloadURL"] as? String, notificationTokens: data["notificationTokens"] as! [String], image: nil, rating: data["rating"] as? Double, numRatings: data["numRatings"] as? Double)
-                        self.profileViewController.imageView.loadImageFromCache(downloadURLString: self.user.imageDownloadURL!) {image in
-                            
-                            self.profileViewController.imageView.image = image
-                        }
-                        self.profileViewController.driverRatingView.rating = self.user.rating ?? 5
-                        self.profileViewController.nameLabel.text = self.user.name
-                        self.profileViewController.phoneNumberLabel.text = self.user.phoneNumber
-                        self.profileViewController.emailLabel.text = self.user.email
-
-                    }
-               // }
-            }
-        }
-        
-    }
     
     func goToEditProfileCoordinator(image: UIImage) {
         let createUserCoordinator = CreateUserCoordinator(navigationController: navigationController!)
-        createUserCoordinator.delegate = self as? CreateUserCoordinatorDelegate
+        createUserCoordinator.delegate = self as CreateUserCoordinatorDelegate
         createUserCoordinator.isNavBarHidden = false
         createUserCoordinator.isNameHidden = true
         createUserCoordinator.user = user

@@ -28,7 +28,6 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
     var fullRidesCollRef: CollectionReference!
     var joinedRidesQuery: Query!
     var joinedFullRidesQuery: Query!
-    var docRef: DocumentReference!
 
     weak var delegate: YourRidesViewControllerDelegate?
     
