@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 protocol YourRidesViewControllerDelegate: class {
     func didTapAddRideButton()
@@ -20,8 +21,14 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var tableView: UITableView!
     
-    var postedRideArray = [RideRecord]()
+    var postedRidesArray = [RideRecord]()
     var joinedRidesArray = [RideRecord]()
+    
+    var postedRidesCollRef: CollectionReference!
+    var fullRidesCollRef: CollectionReference!
+    var joinedRidesQuery: Query!
+    var joinedFullRidesQuery: Query!
+    var docRef: DocumentReference!
 
     weak var delegate: YourRidesViewControllerDelegate?
     
@@ -32,16 +39,17 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewWillAppear(_ animated: Bool) {
     self.tabBarController?.navigationItem.title = "Your Rides"
-    tableView.reloadData()
-        
-    
-    //self.tableView.isEditing = false
+        loadPostedRides()
+        loadPostedFullRides()
+        loadJoinedRides()
+        tableView.reloadData()
         
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         tableView.reloadData()
     }
+
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -52,7 +60,7 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //print("your rides vc number of rows hit")
         if section == 0 {
-        return postedRideArray.count
+            return postedRidesArray.count
         } else {
         return joinedRidesArray.count
         }
@@ -64,14 +72,9 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "yourrides", for: indexPath) as! YourRidesTableViewCell
         
         
-        if postedRideArray.count > 0 && indexPath[0] == 0 {
-        let ride = postedRideArray[indexPath.row]
-//            print("origin and destination\(ride.origin), \(ride.destination)")
-//            print("postedRideArray.count: \(postedRideArray.count)")
-//            print("issmokingallowed: \(ride.isSmokingAllowed)")
-//            print("reststops\(ride.willThereBeRestStops)")
-//            print("nofood:\(ride.noFoodAllowed)")
-//            print("animals:\(ride.animalsAllowed)")
+        if postedRidesArray.count > 0 && indexPath[0] == 0 {
+        let ride = postedRidesArray[indexPath.row]
+
         cell.destinationLabel.text = ride.destination
         cell.originLabel.text = ride.origin
         cell.dateLabel.text = ride.date
@@ -146,7 +149,7 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath[0] == 0 {
-        let ride = postedRideArray[indexPath[1]]
+        let ride = postedRidesArray[indexPath[1]]
         delegate?.didSelectRide(ride: ride)
         } else {
             let ride = joinedRidesArray[indexPath[1]]
@@ -164,9 +167,146 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
         }
 
     }
+    
 
     @IBAction func addRideButtonTapped(_ sender: Any) {
         self.delegate?.didTapAddRideButton()
+    }
+    
+    func loadPostedRides()  {
+       // self.yourRidesViewController.postedRideArray = self.postedRidesArray
+        postedRidesCollRef = Firestore.firestore().collection("Rides")
+        
+        postedRidesCollRef.whereField("driverEmail", isEqualTo: Auth.auth().currentUser?.email ?? "ERROR").addSnapshotListener() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                
+   
+                for document in querySnapshot!.documents {
+                    //print("\(document.documentID) => \(document.data())")
+                    if document.data().count > 0 {
+                        
+                        
+                        let newRide = RideRecord(json: document.data(), id: document.documentID)
+                        //ride.docid = document.documentID
+                        
+                        //self.postedRidesArray.append(newRide)
+                        var index = 0
+                        for ride in self.postedRidesArray {
+                            if ride.docid == newRide.docid {
+                                self.postedRidesArray.remove(at: index)
+                            } else {
+                                index += 1
+                            }
+                        }
+                        self.postedRidesArray.append(newRide)
+                        
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
+        
+        
+    }
+    
+    func loadPostedFullRides() {
+        fullRidesCollRef = Firestore.firestore().collection("FullRides")
+        
+        fullRidesCollRef.whereField("driverEmail", isEqualTo: Auth.auth().currentUser?.email ?? "ERROR").addSnapshotListener() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+
+                
+                for document in querySnapshot!.documents {
+                    //print("\(document.documentID) => \(document.data())")
+                    if document.data().count > 0 {
+                        
+                        
+                        let newRide = RideRecord(json: document.data(), id: document.documentID)
+                        //ride.docid = document.documentID
+                        var index = 0
+                        for ride in self.postedRidesArray {
+                            if ride.docid == newRide.docid {
+                                self.postedRidesArray.remove(at: index)
+                            } else {
+                                index += 1
+                            }
+                        }
+                        
+                        self.postedRidesArray.append(newRide)
+                        //print("added ride")
+                        //self.yourRidesViewController.postedRideArray = self.postedRidesArray
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
+    }
+    
+    func loadJoinedRides() {
+        let userUID = Auth.auth().currentUser?.uid ?? ""
+        joinedRidesQuery = Firestore.firestore().collection("Rides").whereField("passengers.\(userUID)", isEqualTo: true)
+        //print("userDisplayName:\(userDisplayName)")
+        
+        joinedRidesQuery.addSnapshotListener() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                
+                for document in querySnapshot!.documents {
+                    let newRide = RideRecord(json: document.data(), id: document.documentID)
+                    
+                    var index = 0
+                    for ride in self.joinedRidesArray {
+                        if ride.docid == newRide.docid {
+                            self.joinedRidesArray.remove(at: index)
+                        } else {
+                            index += 1
+                        }
+                    }
+                    
+                    self.joinedRidesArray.append(newRide)
+                    //print("added ride")
+                    self.tableView.reloadData()
+                    //print(document.data())
+                    
+                }
+            }
+        }
+        
+        joinedFullRidesQuery = Firestore.firestore().collection("FullRides").whereField("passengers.\(userUID)", isEqualTo: true/*[userUID: true]*/)
+        //print("userDisplayName:\(userDisplayName)")
+        
+        joinedFullRidesQuery.addSnapshotListener() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                
+                for document in querySnapshot!.documents {
+                    let newRide = RideRecord(json: document.data(), id: document.documentID)
+                    
+                    var index = 0
+                    for ride in self.joinedRidesArray {
+                        if ride.docid == newRide.docid {
+                            self.joinedRidesArray.remove(at: index)
+                        } else {
+                            index += 1
+                        }
+                    }
+                    
+                    self.joinedRidesArray.append(newRide)
+                    //print("added ride")
+                    self.tableView.reloadData()
+                    //print(document.data())
+                    
+                }
+            }
+        }
+        
+        
     }
     
     

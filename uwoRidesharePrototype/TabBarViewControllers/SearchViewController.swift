@@ -74,6 +74,35 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.searchController.searchBar.isHidden = false
+        self.tabBarController?.navigationItem.title = "Search"
+        if #available(iOS 10.0, *) {
+            let button1 = UIBarButtonItem(image: #imageLiteral(resourceName: "search-by-algolia-white"), style: .plain, target: self, action: #selector(goToAlgoliaWebsite(_:)))
+            self.tabBarController?.navigationItem.rightBarButtonItem = button1
+            self.tabBarController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+        }
+        self.navigationController?.isNavigationBarHidden = false
+        tableView.reloadData()
+        //rideSearcher.reset()
+        
+        //rideSearcher.search()
+        
+        
+        
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.searchController.searchBar.isHidden = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.tabBarController?.navigationItem.rightBarButtonItem = nil
+        tableView.reloadData()
+    }
+    
     func handleSearchResults(results: SearchResults?, error: Error?, userInfo: [String: Any]) {
         print("handle search results hit")
         guard let results = results else { return }
@@ -138,35 +167,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
     
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.searchController.searchBar.isHidden = false
-        self.tabBarController?.navigationItem.title = "Search"
-        if #available(iOS 10.0, *) {
-            let button1 = UIBarButtonItem(image: #imageLiteral(resourceName: "search-by-algolia-white"), style: .plain, target: self, action: #selector(goToAlgoliaWebsite(_:)))
-            self.tabBarController?.navigationItem.rightBarButtonItem = button1
-            self.tabBarController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
-        }
-        self.navigationController?.isNavigationBarHidden = false
-        tableView.reloadData()
-        //rideSearcher.reset()
-        
-        //rideSearcher.search()
-        
-
-        
-    }
-
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.searchController.searchBar.isHidden = true
-        //self.delegate.isSearchBarActive(answer: self.searchController.isActive)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        self.tabBarController?.navigationItem.rightBarButtonItem = nil
-        tableView.reloadData()
-    }
+ 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let ride = rideArray[indexPath[1]]
@@ -218,39 +219,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResul
                 cell.animalsAllowedImageView.isHidden = false
 
             }
-            //cell.accessibilityElements = ride.passengers
-//
-        //        } else if rideArray.count > 0 {
-//            ride = rideArray[indexPath.row]
-//            cell.destinationLabel.text = ride.destination
-//            cell.originLabel.text = ride.origin
-//            cell.dateLabel.text = ride.date
-//            cell.priceLabel.text = ride.price
-//            cell.availableSeatsLabel.text = "\(ride.availableSeats)"
+
         }
-//
-//
-//
-//
-//
-//
+
         return cell
     }
     
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        if scrollView == tableView {
-//            if tableView.contentOffset.y < 50 {
-//                //loadMessages()
-//                print("scrollviewdidscroll hit")
-//                rideSearcher.search()
-//                let oldContentSizeHeight = tableView.contentSize.height
-//                tableView.reloadData()
-//                let newContentSizeHeight = tableView.contentSize.height
-//                tableView.contentOffset = CGPoint(x:tableView.contentOffset.x,y:newContentSizeHeight - oldContentSizeHeight)
-//            }
-//        }
-//    }
-
 
     @objc @available(iOS 10.0, *)
     func goToAlgoliaWebsite(_ sender : UIBarButtonItem) {
