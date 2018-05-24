@@ -41,7 +41,6 @@ class CreateUserCoordinator: NSObject {
     func start() {
         let storyboard = UIStoryboard.init(name: "CreateUser", bundle: nil)
         let createUserVC = storyboard.instantiateViewController(withIdentifier: "createuser") as! CreateUserViewController
-        print("navigationController:\(createUserVC.navigationController)")
         if isNavBarHidden == true {
             createUserVC.isNavBarHidden = true
         } else {
@@ -59,12 +58,10 @@ class CreateUserCoordinator: NSObject {
         navigationController?.pushViewController(createUserVC, animated: true)
     }
     
-    func loadUserData() {
-        
-    }
+
     
     
-    func storeImageInFirebaseStorage(image: UIImage, completionHandler: @escaping ( _ imageDownloadURL:String) -> Void) {
+    func storeImageInFirebaseStorageAndGetDownloadUrl(image: UIImage, completionHandler: @escaping ( _ imageDownloadURL:String) -> Void) {
         let data = UIImageJPEGRepresentation(image, 0.3)!
         storage = Storage.storage()
         storageRef = storage.reference()
@@ -89,17 +86,14 @@ class CreateUserCoordinator: NSObject {
                         }
                     }
                 }
-                //metaData?.path
-               // metaData?.storageReference
 
-                //let imageDownloadURL = metaData?
-                //let imageDownloadURL = metaData!.downloadURL()!.absoluteString
-                //completionHandler(imageDownloadURL!)
 
             }
 
         }
     }
+    
+    
     
     func writeNewUserDataToDatabase(user: User) {
         if Auth.auth().currentUser != nil {
@@ -138,8 +132,6 @@ class CreateUserCoordinator: NSObject {
                 if let err = err {
                     print("Error adding document: \(err)")
                 } else {
-                    //self.navigationController?.popViewController(animated: true)
-                    //self.delegate?.didDismissCreateUserViewController()
                     print("Document updated with ID: \(self.updateUserDocRef!.documentID)")
                     
                 }
@@ -152,10 +144,8 @@ class CreateUserCoordinator: NSObject {
 extension CreateUserCoordinator: CreateUserViewControllerDelegate {
     func didFinishUpdatingUser(phoneNumber: String, image: UIImage) {
         self.navigationController?.popViewController(animated: true)
-        storeImageInFirebaseStorage(image: image) {imageDownloadURL in
-           // self.newUser.imageDownloadURL = imageDownloadURL
+        storeImageInFirebaseStorageAndGetDownloadUrl(image: image) {imageDownloadURL in
             self.updateUserData(phoneNumber: phoneNumber, imageDownloadURL: imageDownloadURL)
-            
         }
     }
     
@@ -163,7 +153,7 @@ extension CreateUserCoordinator: CreateUserViewControllerDelegate {
         
         self.navigationController?.popViewController(animated: true)
         newUser = User(name: name, phoneNumber: phoneNumber, email: Auth.auth().currentUser?.email ?? "error", imageDownloadURL: "", notificationTokens: notificationTokens, image: nil, rating: 5, numRatings: 0)
-        storeImageInFirebaseStorage(image: image) {imageDownloadURL in
+        storeImageInFirebaseStorageAndGetDownloadUrl(image: image) {imageDownloadURL in
             self.newUser.imageDownloadURL = imageDownloadURL
             self.writeNewUserDataToDatabase(user: self.newUser)
 
