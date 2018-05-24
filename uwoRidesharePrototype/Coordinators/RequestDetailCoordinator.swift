@@ -22,7 +22,7 @@ class RequestDetailCoordinator: NSObject {
     weak var delegate: RequestDetailCoordinatorDelegate?
     var docRefRide: DocumentReference!
     var docRefFullRides: DocumentReference!
-git    var docRefRequest: DocumentReference!
+    var docRefRequest: DocumentReference!
     var channelQuery: Query!
     var channelDocRef: DocumentReference!
 
