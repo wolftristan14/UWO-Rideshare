@@ -22,7 +22,7 @@ class RequestDetailCoordinator: NSObject {
     weak var delegate: RequestDetailCoordinatorDelegate?
     var docRefRide: DocumentReference!
     var docRefFullRides: DocumentReference!
-    var docRefUser: DocumentReference!
+    //var docRefUser: DocumentReference!
     var docRefRequest: DocumentReference!
     var channelQuery: Query!
     var channelDocRef: DocumentReference!
@@ -46,52 +46,52 @@ class RequestDetailCoordinator: NSObject {
         requestDetailVC = storyboard.instantiateViewController(withIdentifier: "requestdetail") as! RequestDetailViewController
         requestDetailVC.didUseRequestsArray = didUseRequestsArray
         requestDetailVC.delegate = self as RequestDetailViewControllerDelegate
-        requestDetailVC.requesterName = selectedRequest.requesterName
+        requestDetailVC.selectedRequest = selectedRequest
         navigationController?.pushViewController(requestDetailVC, animated: true)
-        loadFirebaseData()
-        loadRequesterImage()
+//        loadFirebaseData()
+//        loadRequesterImage()
     }
     
-    func loadFirebaseData() {
-        docRefRide = Firestore.firestore().collection("Rides").document(selectedRequest.rideid)
-        docRefRide.addSnapshotListener() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                if let snapshotData = querySnapshot?.data() {
-                    self.ride = RideRecord(json: snapshotData, id: (querySnapshot?.documentID)!)
-                }
-                self.requestDetailVC.originAndDestinationLabel.text = "\(self.ride.origin ?? "") to \(self.ride.destination ?? "")"
-                self.requestDetailVC.dateLabel.text = self.ride.date
-                self.requestDetailVC.priceLabel.text = self.ride.price
-                
-
-                
-                
-            }
-        }
-    }
-    
-    func loadRequesterImage() {
-        docRefUser = Firestore.firestore().collection("users").document(selectedRequest.requesterid)
-        docRefUser.addSnapshotListener() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                //print(querySnapshot?.documentID)
-                self.requestDetailVC.ratingView.rating = querySnapshot?.data()?["rating"] as! Double
-                let downloadURLString = querySnapshot?.data()?["imageDownloadURL"] as? String
-                if let downloadURL = downloadURLString {
-                self.requestDetailVC.imageView.loadImageFromCache(downloadURLString: downloadURL) { image in
-                    
-                    self.requestDetailVC.imageView.image = image
-                    
-                }
-                
-                }
-            }
-        }
-    }
+//    func loadFirebaseData() {
+//        docRefRide = Firestore.firestore().collection("Rides").document(selectedRequest.rideid)
+//        docRefRide.addSnapshotListener() { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+//                if let snapshotData = querySnapshot?.data() {
+//                    self.ride = RideRecord(json: snapshotData, id: (querySnapshot?.documentID)!)
+//                }
+//                self.requestDetailVC.originAndDestinationLabel.text = "\(self.ride.origin ?? "") to \(self.ride.destination ?? "")"
+//                self.requestDetailVC.dateLabel.text = self.ride.date
+//                self.requestDetailVC.priceLabel.text = self.ride.price
+//                
+//
+//                
+//                
+//            }
+//        }
+//    }
+//    
+//    func loadRequesterImage() {
+//        docRefUser = Firestore.firestore().collection("users").document(selectedRequest.requesterid)
+//        docRefUser.addSnapshotListener() { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+//                //print(querySnapshot?.documentID)
+//                self.requestDetailVC.ratingView.rating = querySnapshot?.data()?["rating"] as! Double
+//                let downloadURLString = querySnapshot?.data()?["imageDownloadURL"] as? String
+//                if let downloadURL = downloadURLString {
+//                self.requestDetailVC.imageView.loadImageFromCache(downloadURLString: downloadURL) { image in
+//                    
+//                    self.requestDetailVC.imageView.image = image
+//                    
+//                }
+//                
+//                }
+//            }
+//        }
+//    }
     
     func changeRequestStatus() {
         docRefRequest = Firestore.firestore().collection("Requests").document(selectedRequest.docid)
