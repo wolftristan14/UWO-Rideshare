@@ -54,6 +54,9 @@ class RideDetailViewController: UIViewController {
     
     @IBOutlet weak var cosmosRatingView: CosmosView!
     
+    var loadImagedocRef: DocumentReference!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if isJoinRideButtonHidden == true {
@@ -84,6 +87,7 @@ class RideDetailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        loadDriverImage(selectedRide: selectedRide)
         print("driver rating:\(selectedRide.driverRating)")
         //cosmosRatingView.rating = Double(selectedRide.driverRating!)
     }
@@ -131,14 +135,26 @@ class RideDetailViewController: UIViewController {
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func loadDriverImage(selectedRide: RideRecord) {
+        loadImagedocRef = Firestore.firestore().collection("users").document(selectedRide.driverUID!)
+        loadImagedocRef.addSnapshotListener() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                self.cosmosRatingView.rating = querySnapshot?.data()!["rating"] as! Double
+                let downloadURLString = querySnapshot?.data()?["imageDownloadURL"] as? String
+                if let downloadURL = downloadURLString {
+                    self.imageView.loadImageFromCache(downloadURLString: downloadURL) { image in
+                        
+                        self.imageView.image = image
+                        
+                    }
+                }
+                
+            }
+        }
     }
-    */
+    
+
 
 }

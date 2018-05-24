@@ -23,7 +23,7 @@ class RideDetailCoordinator: NSObject {
     var isParentSearchVC: Bool!
     
     weak var delegate: RideDetailCoordinatorDelegate?
-    var loadImagedocRef: DocumentReference!
+    //var loadImagedocRef: DocumentReference!
     var addPassengerdocRef: DocumentReference!
     var docRefPastRides: DocumentReference!
     var docRefFullRides: DocumentReference!
@@ -44,11 +44,10 @@ class RideDetailCoordinator: NSObject {
     }
     
     func start() {
+        
         let storyboard = UIStoryboard.init(name: "RideDetail", bundle: nil)
         rideDetailVC = storyboard.instantiateViewController(withIdentifier: "ridedetail") as! RideDetailViewController
         rideDetailVC.delegate = self as RideDetailViewControllerDelegate
-        loadDriverImage(selectedRide: selectedRide)
-
         rideDetailVC.selectedRide = selectedRide
         navigationController?.pushViewController(rideDetailVC, animated: true)
 
@@ -62,31 +61,8 @@ class RideDetailCoordinator: NSObject {
 
         }
         
-       // rideDetailVC.delegate = self as RideDetailViewControllerDelegate
     }
     
-    func loadDriverImage(selectedRide: RideRecord) {
-        loadImagedocRef = Firestore.firestore().collection("users").document(selectedRide.driverUID!)
-        print("hit load driver image method")
-        loadImagedocRef.addSnapshotListener() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                print("ye")
-                self.rideDetailVC.cosmosRatingView.rating = querySnapshot?.data()!["rating"] as! Double
-                //rideDetailVC.driverLabel.text = querySnapshot?.data()["name"] as? String
-                let downloadURLString = querySnapshot?.data()?["imageDownloadURL"] as? String
-                if let downloadURL = downloadURLString {
-                self.rideDetailVC.imageView.loadImageFromCache(downloadURLString: downloadURL) { image in
-                    
-                    self.rideDetailVC.imageView.image = image
-                
-                }
-                }
-
-            }
-        }
-    }
     
     func addPassengerToRide(ride: RideRecord) {
         print(ride.docid!)

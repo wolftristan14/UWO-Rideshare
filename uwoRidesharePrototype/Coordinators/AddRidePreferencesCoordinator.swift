@@ -34,7 +34,7 @@ class AddRidePreferencesCoordinator: NSObject {
         let storyboard = UIStoryboard.init(name: "AddRidePreferences", bundle: nil)
         let addRidePreferencesVC = storyboard.instantiateViewController(withIdentifier: "addridepreferences") as! AddRidePreferencesViewController
         addRidePreferencesVC.ride = ride
-        addRidePreferencesVC.delegate = self as? AddRidePreferencesViewControllerDelegate
+        addRidePreferencesVC.delegate = self as AddRidePreferencesViewControllerDelegate
         navigationController?.pushViewController(addRidePreferencesVC, animated: true)
     }
     
@@ -74,10 +74,6 @@ class AddRidePreferencesCoordinator: NSObject {
     }
     
     func addChatChannelForRide(ride: Ride) {
-//        print(ride.animalsAllowed)
-//        print(ride.driverEmail)
-//        print(ride.driverName)
-//        print(ride.driverUID)
         let uid = Auth.auth().currentUser?.uid ?? ""
         addChannelDocRef = Firestore.firestore().collection("Channels").addDocument(data:
             ["name": "\(ride.driverName ?? ""): \(ride.origin ?? "") to \(ride.destination ?? "")",
@@ -87,9 +83,6 @@ class AddRidePreferencesCoordinator: NSObject {
                         if let err = err {
                             print("Error adding document: \(err)")
                         } else {
-                            //self.navigationController?.popViewController(animated: true)
-                            //self.navigationController?.popToRootViewController(animated: true)
-                            //self.delegate?.didWriteRideToFirebase()
                             print("Document added with ID: \(self.addChannelDocRef?.documentID)")
             
             }
@@ -103,7 +96,6 @@ extension AddRidePreferencesCoordinator: AddRidePreferencesViewControllerDelegat
     
     func didAddRide(ride: Ride) {
         addRideToFirebase(ride: ride)
-        //addChatChannelForRide(ride: ride)
     }
         
         

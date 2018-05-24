@@ -36,36 +36,7 @@ class AddRideCoordinator: NSObject {
         navigationController?.pushViewController(addRideVC, animated: true)
     }
     
-//    func addRideToDatabase(docid: String, origin: String, destination: String, date: String, price: String, availableSeats: Int, driverEmail: String, driverName: String, createdOn: Date) {
-//        print("ride added to database")
-//
-//    docRef = Firestore.firestore().collection("Rides").addDocument(data:[
-//
-//    "docid": "",
-//    "driverEmail": Auth.auth().currentUser?.email ?? "error",
-//    "driverName": Auth.auth().currentUser?.displayName ?? "error",
-//    "destination": destination,
-//    "origin": origin,
-//    "date": date,
-//    "price": price,
-//    "availableSeats": availableSeats,
-//    "createdOn": Date.init(timeIntervalSinceNow: 0),
-//    "passengers": [:]
-//    ]) { err in
-//    if let err = err {
-//    print("Error adding document: \(err)")
-//    } else {
-//    self.navigationController?.popViewController(animated: true)
-//    self.delegate?.didDismissAddRideViewController()
-//    print("Document added with ID: \(self.docRef!.documentID)")
-//
-//    }
-//
-//    }
-    
 
-        
-//}
     
     func goToAddRidePreferencesCoordinator(ride: Ride) {
         let addRidePreferencesCoordinator = AddRidePreferencesCoordinator(navigationController: navigationController!)
@@ -76,9 +47,6 @@ class AddRideCoordinator: NSObject {
         
     }
 
-    
-
-    
 }
 
 extension AddRideCoordinator: AddRideViewControllerDelegate {
