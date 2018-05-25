@@ -19,7 +19,6 @@ class AddRideViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBOutlet weak var fromTextField: UITextField!
     
-    
     @IBOutlet weak var dateAndTimeDatePicker: UIDatePicker!
     
     @IBOutlet weak var pricePickerView: UIPickerView!
