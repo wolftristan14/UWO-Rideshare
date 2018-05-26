@@ -81,7 +81,7 @@ extension YourRidesCoordinator: RideDetailCoordinatorDelegate {
     }
     
     func didEndRide() {
-        yourRidesViewController.tableView.reloadData()
+        yourRidesViewController.postedRidesArray.removeAll()
     }
     
     
