@@ -44,10 +44,11 @@ class YourRidesCoordinator: NSObject {
         childCoordinators.append(addRideCoordinator)
     }
     
-    func showRideDetail(ride: RideRecord) {
+    func showRideDetail(ride: RideRecord, postedRide: Bool) {
         let rideDetailCoordinator = RideDetailCoordinator(navigationController: navigationController!)
         rideDetailCoordinator.delegate = self as? RideDetailCoordinatorDelegate
         rideDetailCoordinator.selectedRide = ride
+        rideDetailCoordinator.postedRide = postedRide
         rideDetailCoordinator.isParentSearchVC = false
         rideDetailCoordinator.start()
         childCoordinators.append(rideDetailCoordinator)
@@ -58,14 +59,31 @@ class YourRidesCoordinator: NSObject {
 }
 
 extension YourRidesCoordinator: YourRidesViewControllerDelegate {
-    func didSelectRide(ride: RideRecord) {
-        showRideDetail(ride: ride)
+    func didSelectRide(ride: RideRecord, postedRide: Bool) {
+        showRideDetail(ride: ride, postedRide: postedRide)
+
     }
+    
+//    func didSelectRide(ride: RideRecord) {
+//        showRideDetail(ride: ride)
+//    }
     
     func didTapAddRideButton() {
         goToAddRideCoordinator()
         
     }
+    
+}
+
+extension YourRidesCoordinator: RideDetailCoordinatorDelegate {
+    func didAddUserToRide() {
+        
+    }
+    
+    func didEndRide() {
+        yourRidesViewController.tableView.reloadData()
+    }
+    
     
 }
 

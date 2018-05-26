@@ -51,6 +51,8 @@ class RideDetailViewController: UIViewController {
     
     var isJoinRideButtonHidden: Bool!
     var isEndRideButtonHidden: Bool!
+    var postedRide: Bool!
+    
     
     @IBOutlet weak var cosmosRatingView: CosmosView!
     
@@ -68,7 +70,12 @@ class RideDetailViewController: UIViewController {
             endRideButton.isHidden = true
         } else {
             endRideButton.isHidden = false
+            if postedRide == false {
+                endRideButton.isHidden = true
+            }
         }
+        
+        
         originLabel.text = selectedRide.origin
         destinationLabel.text = selectedRide.destination
         dateLabel.text = selectedRide.date

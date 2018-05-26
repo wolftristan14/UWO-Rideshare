@@ -149,7 +149,8 @@ class RequestDetailCoordinator: NSObject {
 }
 
 extension RequestDetailCoordinator: RequestDetailViewControllerDelegate {
-    func acceptButtonTapped() {
+    func acceptButtonTapped(ride: RideRecord) {
+        self.ride = ride
         changeRequestStatus()
         changeChannelStatus()
         updateAvailableSeats()

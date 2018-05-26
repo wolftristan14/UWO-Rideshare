@@ -12,8 +12,7 @@ import Firebase
 protocol YourRidesViewControllerDelegate: class {
     func didTapAddRideButton()
     
-    //probably change to just passing ride
-    func didSelectRide(ride: RideRecord)
+    func didSelectRide(ride: RideRecord, postedRide: Bool)
 }
 
 
@@ -149,10 +148,10 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         if indexPath[0] == 0 {
         let ride = postedRidesArray[indexPath[1]]
-        delegate?.didSelectRide(ride: ride)
+            delegate?.didSelectRide(ride: ride, postedRide: true)
         } else {
             let ride = joinedRidesArray[indexPath[1]]
-            delegate?.didSelectRide(ride: ride)
+            delegate?.didSelectRide(ride: ride, postedRide: false)
         }
         
 
@@ -181,7 +180,6 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
                 print("Error getting documents: \(err)")
             } else {
                 
-   
                 for document in querySnapshot!.documents {
                     //print("\(document.documentID) => \(document.data())")
                     if document.data().count > 0 {
@@ -254,7 +252,6 @@ class YourRidesViewController: UIViewController, UITableViewDelegate, UITableVie
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                
                 for document in querySnapshot!.documents {
                     let newRide = RideRecord(json: document.data(), id: document.documentID)
                     

@@ -73,6 +73,10 @@ extension SearchCoordinator: SearchViewControllerDelegate {
 }
 
 extension SearchCoordinator: RideDetailCoordinatorDelegate {
+    func didEndRide() {
+        
+    }
+    
     func didAddUserToRide() {
         if #available(iOS 10.0, *) {
             timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in

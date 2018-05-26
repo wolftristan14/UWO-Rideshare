@@ -12,7 +12,7 @@ import Cosmos
 import Firebase
 
 protocol RequestDetailViewControllerDelegate: class {
-    func acceptButtonTapped()
+    func acceptButtonTapped(ride: RideRecord)
     func declineButtonTapped()
 }
 
@@ -44,7 +44,7 @@ class RequestDetailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        nameLabel.text = requesterName
+        nameLabel.text = selectedRequest.requesterName
         loadFirebaseData()
         loadRequesterImage()
         
@@ -55,7 +55,7 @@ class RequestDetailViewController: UIViewController {
     }
     
     @IBAction func acceptRequestButtonTapped(_ sender: Any) {
-        delegate?.acceptButtonTapped()
+        delegate?.acceptButtonTapped(ride: ride)
     }
     
     @IBAction func declineRequestButtonTapped(_ sender: Any) {

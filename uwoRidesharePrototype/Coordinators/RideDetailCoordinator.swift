@@ -13,6 +13,7 @@ import Firebase
 
 protocol RideDetailCoordinatorDelegate: class {
    func didAddUserToRide()
+   func didEndRide()
 }
 
 class RideDetailCoordinator: NSObject {
@@ -23,7 +24,6 @@ class RideDetailCoordinator: NSObject {
     var isParentSearchVC: Bool!
     
     weak var delegate: RideDetailCoordinatorDelegate?
-    //var loadImagedocRef: DocumentReference!
     var addPassengerdocRef: DocumentReference!
     var docRefPastRides: DocumentReference!
     var docRefFullRides: DocumentReference!
@@ -32,8 +32,11 @@ class RideDetailCoordinator: NSObject {
 
     var docRefRequests: DocumentReference!
     var queryRequestsToDelete: Query!
+    var queryChannelsToDelete: Query!
     var deleteRideDocRef: DocumentReference!
     var rideDetailVC: RideDetailViewController!
+    
+    var postedRide: Bool!
 
 
     
@@ -49,6 +52,7 @@ class RideDetailCoordinator: NSObject {
         rideDetailVC = storyboard.instantiateViewController(withIdentifier: "ridedetail") as! RideDetailViewController
         rideDetailVC.delegate = self as RideDetailViewControllerDelegate
         rideDetailVC.selectedRide = selectedRide
+        rideDetailVC.postedRide = postedRide
         navigationController?.pushViewController(rideDetailVC, animated: true)
 
         if isParentSearchVC == true {
@@ -169,6 +173,33 @@ class RideDetailCoordinator: NSObject {
         
     }
     
+    func deleteRideChannel(ride: RideRecord) {
+        queryChannelsToDelete = Firestore.firestore().collection("Channels").whereField("rideid", isEqualTo: ride.docid!)
+        
+        
+        queryChannelsToDelete.getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                print("ye")
+                let batch = Firestore.firestore().batch()
+                print("request document count\(querySnapshot?.documents.count)")
+                for document in (querySnapshot?.documents)! {
+                    batch.deleteDocument(document.reference)
+                }
+                batch.commit() { err in
+                    if let err = err {
+                        print("Error writing batch \(err)")
+                    } else {
+                        print("Batch write succeeded.")
+                    }
+                }
+                
+            }
+        }
+        
+    }
+    
     func addCompletedRideToPastRides(ride: RideRecord) {
         if let docid = ride.docid {
         docRefPastRides = Firestore.firestore().collection("PastRides").document(docid)
@@ -218,8 +249,11 @@ extension RideDetailCoordinator: RideDetailViewControllerDelegate {
         deleteOldRide(ride: ride)
         deleteOldFullRide(ride: ride)
         deleteRequests(ride: ride)
+        deleteRideChannel(ride: ride)
         addCompletedRideToPastRides(ride: ride)
+        delegate?.didEndRide()
         navigationController?.popViewController(animated: true)
+        
     }
     
     
