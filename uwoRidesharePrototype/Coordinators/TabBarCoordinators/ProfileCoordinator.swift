@@ -54,7 +54,8 @@ class ProfileCoordinator: NSObject {
 }
 
 extension ProfileCoordinator: ProfileViewControllerDelegate {
-    func didTapEditProfileButton(image: UIImage) {
+    func didTapEditProfileButton(image: UIImage, user: User) {
+        self.user = user
         goToEditProfileCoordinator(image: image)
     }
     

@@ -12,7 +12,7 @@ import Firebase
 
 protocol ProfileViewControllerDelegate: class {
     func didTapSignOutButton()
-    func didTapEditProfileButton(image: UIImage)
+    func didTapEditProfileButton(image: UIImage, user: User)
 }
 
 class ProfileViewController: UIViewController {
@@ -72,7 +72,7 @@ class ProfileViewController: UIViewController {
 
     
     @IBAction func editProfileButtonTapped(_ sender: Any) {
-        delegate?.didTapEditProfileButton(image: imageView.image ?? #imageLiteral(resourceName: "default-user"))
+        delegate?.didTapEditProfileButton(image: imageView.image ?? #imageLiteral(resourceName: "default-user"), user: user)
     }
     
     @IBAction func signOutButtonTapped(_ sender: Any) {

@@ -50,8 +50,8 @@ class CreateUserViewController: UIViewController, UIImagePickerControllerDelegat
         if isNameHidden == true {
             self.nameLabel.isHidden = true
             self.nameTextField.isHidden = true
-            self.phoneNumberTextField.text = user.phoneNumber
-            self.imageView.image = user.image
+            self.phoneNumberTextField.text = user?.phoneNumber
+            self.imageView.image = user?.image
             phoneNumberLabelNameLaberVerticalSpacing.constant = 0
             
         } else {
