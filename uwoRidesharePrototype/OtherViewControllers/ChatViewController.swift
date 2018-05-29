@@ -33,6 +33,7 @@ class ChatViewController: NMessengerViewController {
         // Do any additional setup after loading the view.
     }
     
+    
     override func sendText(_ text: String, isIncomingMessage:Bool) -> GeneralMessengerCell {
         writeMessageToFirebase(text: text)
         return self.postText(text,isIncomingMessage: isIncomingMessage)
@@ -72,8 +73,6 @@ class ChatViewController: NMessengerViewController {
                     let message = Message(text: document.data()["text"] as! String, senderid: document.data()["senderid"] as! String)
                     
                     
-                    
-                    //let formattedMessage =
                     if message.senderid == Auth.auth().currentUser?.uid {
                     self.postText(message.text, isIncomingMessage: false)
                     } else if message.senderid != Auth.auth().currentUser?.uid {

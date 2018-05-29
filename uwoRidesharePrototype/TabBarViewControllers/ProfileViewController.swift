@@ -25,11 +25,19 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var driverRatingView: CosmosView!
     var docRefLoadUserProfile: DocumentReference!
     var user: User!
+    
+    var activityIndicator: UIActivityIndicatorView!
 
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator = UIActivityIndicatorView.init(activityIndicatorStyle: .gray)
+        activityIndicator.center = CGPoint(x: imageView.frame.size.width / 2, y: imageView.frame.size.height / 2)
+        imageView.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+
+        
 
         // Do any additional setup after loading the view.
     }
@@ -56,6 +64,7 @@ class ProfileViewController: UIViewController {
                 if data.count > 0 {
                     self.user = User(name: data["name"] as! String, phoneNumber: data["phoneNumber"] as! String, email: data["email"] as! String, imageDownloadURL: data["imageDownloadURL"] as? String, notificationTokens: data["notificationTokens"] as! [String], image: nil, rating: data["rating"] as? Double, numRatings: data["numRatings"] as? Double)
                     self.imageView.loadImageFromCache(downloadURLString: self.user.imageDownloadURL!) {image in
+                        self.activityIndicator.stopAnimating()
                         self.imageView.image = image
                     }
                     self.driverRatingView.rating = self.user.rating ?? 5

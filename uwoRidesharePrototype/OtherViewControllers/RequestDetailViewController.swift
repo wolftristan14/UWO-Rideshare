@@ -39,8 +39,14 @@ class RequestDetailViewController: UIViewController {
     var selectedRequest: RideRequest!
     var ride: RideRecord!
     
+    var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator = UIActivityIndicatorView.init(activityIndicatorStyle: .gray)
+        activityIndicator.center = CGPoint(x: imageView.frame.size.width / 2, y: imageView.frame.size.height / 2)
+        imageView.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,7 +99,7 @@ class RequestDetailViewController: UIViewController {
                 let downloadURLString = querySnapshot?.data()?["imageDownloadURL"] as? String
                 if let downloadURL = downloadURLString {
                     self.imageView.loadImageFromCache(downloadURLString: downloadURL) { image in
-                        
+                        self.activityIndicator.stopAnimating()
                         self.imageView.image = image
                         
                     }
