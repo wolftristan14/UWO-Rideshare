@@ -56,6 +56,7 @@ class RideDetailViewController: UIViewController {
     
     @IBOutlet weak var cosmosRatingView: CosmosView!
     
+    var requestsQuery: Query!
     var loadImagedocRef: DocumentReference!
     var activityIndicator: UIActivityIndicatorView!
 
@@ -71,6 +72,7 @@ class RideDetailViewController: UIViewController {
             joinRideButton.isHidden = true
         } else {
             joinRideButton.isHidden = false
+            checkIfRideHasBeenRequested()
         }
         if isEndRideButtonHidden == true {
             endRideButton.isHidden = true
@@ -166,6 +168,20 @@ class RideDetailViewController: UIViewController {
                 
             }
         }
+    }
+    
+    func checkIfRideHasBeenRequested() {
+        requestsQuery = Firestore.firestore().collection("Requests").whereField("driverUID", isEqualTo: Auth.auth().currentUser?.uid ?? "").whereField("rideid", isEqualTo: selectedRide.docid ?? "")
+        requestsQuery.getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                if (querySnapshot?.documents.count)! > 0 {
+                    self.joinRideButton.isHidden = true
+                }
+            }
+        }
+        
     }
     
 
