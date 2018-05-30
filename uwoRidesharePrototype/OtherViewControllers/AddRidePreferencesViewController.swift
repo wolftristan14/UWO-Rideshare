@@ -112,13 +112,13 @@ class AddRidePreferencesViewController: UIViewController, UIPickerViewDelegate, 
     
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        print("hit")
+        //print("hit")
         return baggageSizesArray.count
 
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        print("hit")
+        //print("hit")
     return baggageSizesArray[row]
     
 }

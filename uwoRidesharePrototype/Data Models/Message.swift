@@ -12,10 +12,12 @@ class Message {
 
     var text: String
     var senderid: String
+    var senderName: String
 
 
-    init(text: String, senderid: String) {
+    init(text: String, senderid: String, senderName: String) {
         self.text = text
         self.senderid = senderid
+        self.senderName = senderName
     }
 }

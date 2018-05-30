@@ -240,8 +240,8 @@ open class NMessengerViewController: UIViewController, UITextViewDelegate, NMess
     /**
      Called when adding a text to the messenger. Override this function to add your message to the VC
      */
-    open func sendText(_ text: String, isIncomingMessage:Bool) -> GeneralMessengerCell {
-        return self.postText(text,isIncomingMessage: isIncomingMessage)
+    open func sendText(_ text: String, isIncomingMessage:Bool, avatarImage: UIImage?) -> GeneralMessengerCell {
+        return self.postText(text,isIncomingMessage: isIncomingMessage, avatarImage: avatarImage ?? #imageLiteral(resourceName: "default-user"))
     }
     /**
      Called  when adding an image to the messenger. Override this function to add your message to the VC
@@ -354,14 +354,25 @@ open class NMessengerViewController: UIViewController, UITextViewDelegate, NMess
      - parameter isIncomingMessage: if message is incoming or outgoing
      - returns: the newly created message
      */
-    open func createTextMessage(_ text: String, isIncomingMessage:Bool) -> GeneralMessengerCell {
+    open func createTextMessage(_ text: String, isIncomingMessage:Bool, avatarImage:UIImage) -> GeneralMessengerCell {
         let textContent = TextContentNode(textMessageString: text, currentViewController: self, bubbleConfiguration: self.sharedBubbleConfiguration)
         let newMessage = MessageNode(content: textContent)
         newMessage.cellPadding = messagePadding
         newMessage.currentViewController = self
         newMessage.isIncomingMessage = isIncomingMessage
+        newMessage.avatarNode = self.createAvatar(avatarImage: avatarImage)
+        
         
         return newMessage
+    }
+    
+    open func createAvatar(avatarImage: UIImage)->ASImageNode {
+        let avatar = ASImageNode()
+        avatar.image = avatarImage
+        //avatar.backgroundColor = UIColor.lightGray
+        avatar.style.preferredSize = CGSize(width: avatarImage.size.width / 2.5, height: avatarImage.size.height / 2.5)
+        //avatar.layer.cornerRadius = 10
+        return avatar
     }
     
     /**
@@ -370,8 +381,8 @@ open class NMessengerViewController: UIViewController, UITextViewDelegate, NMess
      - parameter isIncomingMessage: if message is incoming or outgoing
      - returns: the newly created message
      */
-    fileprivate func postText(_ text: String, isIncomingMessage:Bool) -> GeneralMessengerCell {
-        let newMessage = createTextMessage(text, isIncomingMessage: isIncomingMessage)
+    open func postText(_ text: String, isIncomingMessage:Bool, avatarImage:UIImage?) -> GeneralMessengerCell {
+        let newMessage = createTextMessage(text, isIncomingMessage: isIncomingMessage, avatarImage: avatarImage ?? #imageLiteral(resourceName: "food"))
         self.addMessageToMessenger(newMessage)
         return newMessage
     }

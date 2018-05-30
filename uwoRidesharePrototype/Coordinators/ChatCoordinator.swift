@@ -35,10 +35,19 @@ class ChatCoordinator: NSObject {
         chatVC.delegate = self as? ChatViewControllerDelegate
         chatVC.selectedChannel = selectedChannel
         chatVC.senderUID = Auth.auth().currentUser?.uid ?? ""
+        chatVC.senderName = Auth.auth().currentUser?.displayName ?? ""
         navigationController.pushViewController(chatVC, animated: true)
         
         
         
+        
+    }
+    
+    func imageTestStart() {
+        let storyboard = UIStoryboard.init(name: "Chat", bundle: nil)
+        let imageTestVC = storyboard.instantiateViewController(withIdentifier: "imagetest") as! ImageTestViewController
+
+        navigationController.pushViewController(imageTestVC, animated: true)
         
     }
     

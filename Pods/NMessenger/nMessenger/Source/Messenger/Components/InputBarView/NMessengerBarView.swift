@@ -143,7 +143,7 @@ open class NMessengerBarView: InputBarView, UITextViewDelegate, CameraViewDelega
             if textView == self.textInputView {
                 textInputViewHeight.constant = textInputViewHeightConst
                 textInputAreaViewHeight.constant = textInputViewHeightConst+10
-                _ = self.controller.sendText(self.textInputView.text,isIncomingMessage: false)
+                _ = self.controller.sendText(self.textInputView.text,isIncomingMessage: false, avatarImage: #imageLiteral(resourceName: "default-user"))
                 self.textInputView.text = ""
                 return false
             }
@@ -203,7 +203,7 @@ open class NMessengerBarView: InputBarView, UITextViewDelegate, CameraViewDelega
         textInputAreaViewHeight.constant = textInputViewHeightConst+10
         if self.textInputView.text != ""
         {
-            _ = self.controller.sendText(self.textInputView.text,isIncomingMessage: false)
+            _ = self.controller.sendText(self.textInputView.text,isIncomingMessage: false, avatarImage: #imageLiteral(resourceName: "default-user"))
             self.textInputView.text = ""
         }
     }

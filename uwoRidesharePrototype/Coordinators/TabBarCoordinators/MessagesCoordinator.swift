@@ -27,7 +27,6 @@ class MessagesCoordinator: NSObject {
     init(navigationController: UINavigationController) {
         super.init()
         self.navigationController = navigationController
-        //self.navigationController?.isNavigationBarHidden = true
     }
     
     func start() {
@@ -42,6 +41,7 @@ class MessagesCoordinator: NSObject {
         chatCoordinator.delegate = self as? ChatCoordinatorDelegate
         chatCoordinator.selectedChannel = channel
         chatCoordinator.start()
+        //chatCoordinator.imageTestStart()
         childCoordinators.append(chatCoordinator)
     }
 }

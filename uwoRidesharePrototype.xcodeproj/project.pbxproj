@@ -57,6 +57,7 @@
 		A183824C20166BF0004180BE /* YourRidesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183824B20166BEF004180BE /* YourRidesCoordinator.swift */; };
 		A183825020166C20004180BE /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183824F20166C20004180BE /* ProfileCoordinator.swift */; };
 		A183825220166C31004180BE /* MessagesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183825120166C31004180BE /* MessagesCoordinator.swift */; };
+		A1A03AF920BF17B50022CDB6 /* ImageTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A03AF820BF17B50022CDB6 /* ImageTestViewController.swift */; };
 		A1B8786B2081255B0004F845 /* CustomEmailEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B8786A2081255B0004F845 /* CustomEmailEntryViewController.swift */; };
 		A1B8786D20813C9C0004F845 /* CustomAuthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B8786C20813C9C0004F845 /* CustomAuthPickerViewController.swift */; };
 		A1CFAFC020433EAD00914CF2 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CFAFBF20433EAD00914CF2 /* UIImageViewExtension.swift */; };
@@ -127,6 +128,7 @@
 		A183824B20166BEF004180BE /* YourRidesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourRidesCoordinator.swift; sourceTree = "<group>"; };
 		A183824F20166C20004180BE /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		A183825120166C31004180BE /* MessagesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesCoordinator.swift; sourceTree = "<group>"; };
+		A1A03AF820BF17B50022CDB6 /* ImageTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTestViewController.swift; sourceTree = "<group>"; };
 		A1B8786A2081255B0004F845 /* CustomEmailEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmailEntryViewController.swift; sourceTree = "<group>"; };
 		A1B8786C20813C9C0004F845 /* CustomAuthPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAuthPickerViewController.swift; sourceTree = "<group>"; };
 		A1CFAFBF20433EAD00914CF2 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				A1B8786A2081255B0004F845 /* CustomEmailEntryViewController.swift */,
 				A1B8786C20813C9C0004F845 /* CustomAuthPickerViewController.swift */,
 				A1EE9EF420AE082100093EC6 /* ChatViewController.swift */,
+				A1A03AF820BF17B50022CDB6 /* ImageTestViewController.swift */,
 			);
 			path = OtherViewControllers;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				A14749472077E5D30031BC54 /* AddRidePreferencesCoordinator.swift in Sources */,
 				A14749452077E0010031BC54 /* AddRidePreferencesViewController.swift in Sources */,
 				A1EE9EF320AE05B600093EC6 /* ChatCoordinator.swift in Sources */,
+				A1A03AF920BF17B50022CDB6 /* ImageTestViewController.swift in Sources */,
 				A1434FD62013C03F009CDBE9 /* AddRideCoordinator.swift in Sources */,
 				A10433EF2024C7C900F0E8FD /* ProfileImageStyleManager.swift in Sources */,
 				A16576E61FEEFD0D009985A1 /* CreateUserViewController.swift in Sources */,
