@@ -21,6 +21,7 @@
 		A14749452077E0010031BC54 /* AddRidePreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14749442077E0010031BC54 /* AddRidePreferencesViewController.swift */; };
 		A14749472077E5D30031BC54 /* AddRidePreferencesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14749462077E5D30031BC54 /* AddRidePreferencesCoordinator.swift */; };
 		A14749492077E7560031BC54 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14749482077E7560031BC54 /* Ride.swift */; };
+		A14C81C520C7269B001C5E3C /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14C81C420C7269B001C5E3C /* Root.storyboard */; };
 		A15CC4722048820F008A142C /* RideRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CC4712048820F008A142C /* RideRequest.swift */; };
 		A15CC474204B21BD008A142C /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CC473204B21BD008A142C /* RequestsViewController.swift */; };
 		A15CC476204B365A008A142C /* RequestsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CC475204B365A008A142C /* RequestsCoordinator.swift */; };
@@ -89,6 +90,7 @@
 		A14749442077E0010031BC54 /* AddRidePreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRidePreferencesViewController.swift; sourceTree = "<group>"; };
 		A14749462077E5D30031BC54 /* AddRidePreferencesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRidePreferencesCoordinator.swift; sourceTree = "<group>"; };
 		A14749482077E7560031BC54 /* Ride.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
+		A14C81C420C7269B001C5E3C /* Root.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
 		A15CC4712048820F008A142C /* RideRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRequest.swift; sourceTree = "<group>"; };
 		A15CC473204B21BD008A142C /* RequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
 		A15CC475204B365A008A142C /* RequestsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsCoordinator.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				A17000981FD870940003751B /* Main.storyboard */,
+				A14C81C420C7269B001C5E3C /* Root.storyboard */,
 				A16576CC1FE9B41A009985A1 /* Terms.storyboard */,
 				A16576D01FEAE426009985A1 /* Home.storyboard */,
 				A16576DF1FEEE1E2009985A1 /* CreateUser.storyboard */,
@@ -439,6 +442,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A14C81C520C7269B001C5E3C /* Root.storyboard in Resources */,
 				A1EE9EEF20AB440C00093EC6 /* Chat.storyboard in Resources */,
 				A17000B21FD880780003751B /* GoogleService-Info.plist in Resources */,
 				A16576CD1FE9B41A009985A1 /* Terms.storyboard in Resources */,

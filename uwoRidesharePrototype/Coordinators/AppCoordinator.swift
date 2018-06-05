@@ -24,6 +24,7 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
     
     var mainStoryboard: UIStoryboard!
     var launchVC: LaunchViewController!
+    var rootVC: UIViewController!
     var handle: AuthStateDidChangeListenerHandle!
     var authUI: FUIAuth?
     var termsAccepted = false
@@ -48,10 +49,11 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
     }
     
     func start() {
-        mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
-        launchVC = mainStoryboard.instantiateViewController(withIdentifier: "launch") as! LaunchViewController
-        launchVC.delegate = self
-        navigationController?.pushViewController(launchVC, animated: true)
+        mainStoryboard = UIStoryboard.init(name: "Root", bundle: nil)
+        rootVC = mainStoryboard.instantiateViewController(withIdentifier: "root")
+//        launchVC = mainStoryboard.instantiateViewController(withIdentifier: "root") //as! LaunchViewController
+        //launchVC.delegate = self
+        navigationController?.pushViewController(rootVC, animated: true)
         checkAuth()
     }
     
@@ -113,9 +115,11 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         // You need to adopt a FUIAuthDelegate protocol to receive callback
         authUI?.delegate = self as FUIAuthDelegate
         authViewController = authUI!.authViewController()
-        //let emailVC = emailEntryViewController(forAuthUI: authUI!)
+        
         //authViewController?.isNavigationBarHidden = true
-        launchVC.present(authViewController!, animated: true, completion: nil)
+       // launchVC.present(authViewController!, animated: true, completion: nil)
+        rootVC.modalTransitionStyle = .crossDissolve
+        rootVC.present(authViewController!, animated: true, completion: nil)
     }
     
     func authPickerViewController(forAuthUI authUI: FUIAuth) -> FUIAuthPickerViewController {

@@ -12,7 +12,6 @@ import Firebase
 import FirebaseFirestore
 import FirebaseUI
 import FBSDKCoreKit
-//import FirebaseFacebookAuthUI
 import UserNotifications
 import SafariServices
 
@@ -27,16 +26,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Configure a default firebase app
+        
         FirebaseApp.configure()
+        
+        // set the root view controller as a navigation controller
+        
         window = UIWindow.init(frame: UIScreen.main.bounds)
         rootViewController = UINavigationController()
-        
         window?.rootViewController = rootViewController
-        rootViewController?.view.backgroundColor = UIColor.white
-        
         appCoordinator = AppCoordinator(navigationController: rootViewController!)
-        window?.makeKeyAndVisible()
+        //window?.makeKeyAndVisible()
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
@@ -54,6 +55,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         } else {
             appCoordinator?.start()
         }
+        
+        //window?.makeKeyAndVisible()
+
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self
@@ -74,7 +78,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         if let notification = launchOptions?[.remoteNotification] as? [String: AnyObject] {
             // 2
-            //print("notification:\(notification)")
             let aps = notification["aps"] as! [String: AnyObject]
             let driverid = notification["gcm.notification.driverid"] as! String
             let driverName = notification["gcm.notification.driverName"] as! String
