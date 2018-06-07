@@ -100,6 +100,7 @@ static NSString *const kVisibilityOnImage = @"ic_visibility.png";
     if (!cell) {
       cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
                                     reuseIdentifier:kValueCellReuseIdentitfier];
+        cell.backgroundColor = UIColor.lightGrayColor;
       cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
       cell.detailTextLabel.minimumScaleFactor = 0.5;
     }

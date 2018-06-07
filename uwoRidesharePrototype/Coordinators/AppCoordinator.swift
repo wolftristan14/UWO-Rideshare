@@ -118,13 +118,39 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
         
         //authViewController?.isNavigationBarHidden = true
        // launchVC.present(authViewController!, animated: true, completion: nil)
-        rootVC.modalTransitionStyle = .crossDissolve
         rootVC.present(authViewController!, animated: true, completion: nil)
     }
     
     func authPickerViewController(forAuthUI authUI: FUIAuth) -> FUIAuthPickerViewController {
         return CustomAuthPickerViewController(authUI: authUI)
     }
+    
+    func emailEntryViewController(forAuthUI authUI: FUIAuth) -> FUIEmailEntryViewController {
+        return CustomEmailEntryViewController(authUI: authUI)
+    }
+    
+    func passwordRecoveryViewController(forAuthUI authUI: FUIAuth, email: String) -> FUIPasswordRecoveryViewController {
+        return CustomPasswordRecoveryViewController(authUI: authUI, email: email)
+
+    }
+    
+    func passwordSignInViewController(forAuthUI authUI: FUIAuth, email: String) -> FUIPasswordSignInViewController {
+        return CustomPasswordSignInViewController(authUI: authUI, email: email)
+ 
+    }
+    
+    func passwordSignUpViewController(forAuthUI authUI: FUIAuth, email: String) -> FUIPasswordSignUpViewController {
+        return CustomPasswordSignUpViewController(authUI: authUI, email: email)
+
+    }
+    
+    func passwordVerificationViewController(forAuthUI authUI: FUIAuth, email: String, newCredential: AuthCredential) -> FUIPasswordVerificationViewController {
+        
+        return CustomPasswordVerificationViewController(authUI: authUI, email: email, newCredential: newCredential)
+
+    }
+    
+    
 
     
     func showCreateUser() {
@@ -164,13 +190,13 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
     
 }
 
-extension AppCoordinator: LaunchViewControllerDelegate {
-    
-    func signOut() {
-        try! Auth.auth().signOut()
-    }
-    
-}
+//extension AppCoordinator: LaunchViewControllerDelegate {
+//
+//    func signOut() {
+//        try! Auth.auth().signOut()
+//    }
+//
+//}
 
 extension AppCoordinator: CreateUserCoordinatorDelegate {
     func didDismissCreateUserViewController() {

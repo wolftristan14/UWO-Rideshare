@@ -62,6 +62,10 @@
 		A1B8786B2081255B0004F845 /* CustomEmailEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B8786A2081255B0004F845 /* CustomEmailEntryViewController.swift */; };
 		A1B8786D20813C9C0004F845 /* CustomAuthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B8786C20813C9C0004F845 /* CustomAuthPickerViewController.swift */; };
 		A1CFAFC020433EAD00914CF2 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CFAFBF20433EAD00914CF2 /* UIImageViewExtension.swift */; };
+		A1E34CE920C9A56100AA2F88 /* CustomPasswordSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E34CE820C9A56100AA2F88 /* CustomPasswordSignInViewController.swift */; };
+		A1E34CED20C9A5DD00AA2F88 /* CustomPasswordSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E34CEC20C9A5DD00AA2F88 /* CustomPasswordSignUpViewController.swift */; };
+		A1E34CEF20C9A60B00AA2F88 /* CustomPasswordRecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E34CEE20C9A60B00AA2F88 /* CustomPasswordRecoveryViewController.swift */; };
+		A1E34CF120C9A67600AA2F88 /* CustomPasswordVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E34CF020C9A67600AA2F88 /* CustomPasswordVerificationViewController.swift */; };
 		A1E8C88A20654A7300D1C5E2 /* RideRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E8C88920654A7300D1C5E2 /* RideRecord.swift */; };
 		A1EE9EEF20AB440C00093EC6 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EE9EEE20AB440B00093EC6 /* Chat.storyboard */; };
 		A1EE9EF120AC83FD00093EC6 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EE9EF020AC83FD00093EC6 /* Channel.swift */; };
@@ -134,6 +138,10 @@
 		A1B8786A2081255B0004F845 /* CustomEmailEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmailEntryViewController.swift; sourceTree = "<group>"; };
 		A1B8786C20813C9C0004F845 /* CustomAuthPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAuthPickerViewController.swift; sourceTree = "<group>"; };
 		A1CFAFBF20433EAD00914CF2 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		A1E34CE820C9A56100AA2F88 /* CustomPasswordSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordSignInViewController.swift; sourceTree = "<group>"; };
+		A1E34CEC20C9A5DD00AA2F88 /* CustomPasswordSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordSignUpViewController.swift; sourceTree = "<group>"; };
+		A1E34CEE20C9A60B00AA2F88 /* CustomPasswordRecoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordRecoveryViewController.swift; sourceTree = "<group>"; };
+		A1E34CF020C9A67600AA2F88 /* CustomPasswordVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordVerificationViewController.swift; sourceTree = "<group>"; };
 		A1E8C88920654A7300D1C5E2 /* RideRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRecord.swift; sourceTree = "<group>"; };
 		A1EE9EEE20AB440B00093EC6 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		A1EE9EF020AC83FD00093EC6 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
@@ -193,8 +201,6 @@
 				A14749442077E0010031BC54 /* AddRidePreferencesViewController.swift */,
 				A10433E92024C66D00F0E8FD /* RideDetailViewController.swift */,
 				A15CC47D2050776C008A142C /* RequestDetailViewController.swift */,
-				A1B8786A2081255B0004F845 /* CustomEmailEntryViewController.swift */,
-				A1B8786C20813C9C0004F845 /* CustomAuthPickerViewController.swift */,
 				A1EE9EF420AE082100093EC6 /* ChatViewController.swift */,
 				A1A03AF820BF17B50022CDB6 /* ImageTestViewController.swift */,
 			);
@@ -280,6 +286,7 @@
 				A17000941FD870940003751B /* AppDelegate.swift */,
 				A1F893CA208E54AD005A8A38 /* NotificationsViewControllers */,
 				A10433ED2024C79A00F0E8FD /* UIStyleManagers */,
+				A1E34CE720C992D300AA2F88 /* FirebaseUICustomAuthViewControllers */,
 				A10433E82024C63500F0E8FD /* OtherViewControllers */,
 				A16576ED200D61C8009985A1 /* uwoRidesharePrototype.entitlements */,
 				A16576E92007F654009985A1 /* Extensions */,
@@ -353,6 +360,19 @@
 				A183825120166C31004180BE /* MessagesCoordinator.swift */,
 			);
 			path = TabBarCoordinators;
+			sourceTree = "<group>";
+		};
+		A1E34CE720C992D300AA2F88 /* FirebaseUICustomAuthViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A1B8786C20813C9C0004F845 /* CustomAuthPickerViewController.swift */,
+				A1B8786A2081255B0004F845 /* CustomEmailEntryViewController.swift */,
+				A1E34CE820C9A56100AA2F88 /* CustomPasswordSignInViewController.swift */,
+				A1E34CEE20C9A60B00AA2F88 /* CustomPasswordRecoveryViewController.swift */,
+				A1E34CEC20C9A5DD00AA2F88 /* CustomPasswordSignUpViewController.swift */,
+				A1E34CF020C9A67600AA2F88 /* CustomPasswordVerificationViewController.swift */,
+			);
+			path = FirebaseUICustomAuthViewControllers;
 			sourceTree = "<group>";
 		};
 		A1F893C5208E5429005A8A38 /* NotificationCoordinators */ = {
@@ -583,12 +603,14 @@
 				A1434FCF20126B86009CDBE9 /* AddRideViewController.swift in Sources */,
 				A16576D81FEEDAFC009985A1 /* YourRidesViewController.swift in Sources */,
 				A15CC474204B21BD008A142C /* RequestsViewController.swift in Sources */,
+				A1E34CF120C9A67600AA2F88 /* CustomPasswordVerificationViewController.swift in Sources */,
 				A14749492077E7560031BC54 /* Ride.swift in Sources */,
 				A10433EA2024C66D00F0E8FD /* RideDetailViewController.swift in Sources */,
 				A16576DC1FEEDB3B009985A1 /* MessagesViewController.swift in Sources */,
 				A10433E72022654C00F0E8FD /* SearchTableViewCell.swift in Sources */,
 				A1EE9EF720AE2DE800093EC6 /* Message.swift in Sources */,
 				A1B8786D20813C9C0004F845 /* CustomAuthPickerViewController.swift in Sources */,
+				A1E34CED20C9A5DD00AA2F88 /* CustomPasswordSignUpViewController.swift in Sources */,
 				A183825020166C20004180BE /* ProfileCoordinator.swift in Sources */,
 				A16576CB1FE6EF78009985A1 /* LaunchViewController.swift in Sources */,
 				A1EE9EF120AC83FD00093EC6 /* Channel.swift in Sources */,
@@ -599,8 +621,10 @@
 				A1A03AF920BF17B50022CDB6 /* ImageTestViewController.swift in Sources */,
 				A1434FD62013C03F009CDBE9 /* AddRideCoordinator.swift in Sources */,
 				A10433EF2024C7C900F0E8FD /* ProfileImageStyleManager.swift in Sources */,
+				A1E34CE920C9A56100AA2F88 /* CustomPasswordSignInViewController.swift in Sources */,
 				A16576E61FEEFD0D009985A1 /* CreateUserViewController.swift in Sources */,
 				A15CC478204B3F4A008A142C /* RequestsTableViewCell.swift in Sources */,
+				A1E34CEF20C9A60B00AA2F88 /* CustomPasswordRecoveryViewController.swift in Sources */,
 				A15CC47A204C80D2008A142C /* RequestedTableViewCell.swift in Sources */,
 				A183825220166C31004180BE /* MessagesCoordinator.swift in Sources */,
 				A1EE9EF920AE364500093EC6 /* MessagesTableViewCell.swift in Sources */,

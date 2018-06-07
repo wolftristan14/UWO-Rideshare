@@ -258,6 +258,8 @@ static const CGFloat kFooterTextViewHorizontalInset = 8.0f;
     [tableView registerNib:cellNib forCellReuseIdentifier:kCellReuseIdentifier];
     cell = [tableView dequeueReusableCellWithIdentifier:kCellReuseIdentifier];
   }
+
+
   cell.textField.delegate = self;
   if (indexPath.row == 0) {
     cell.label.text = FUILocalizedString(kStr_Email);

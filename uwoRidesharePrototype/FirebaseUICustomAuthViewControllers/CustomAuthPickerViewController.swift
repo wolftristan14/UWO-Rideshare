@@ -65,8 +65,9 @@ class CustomAuthPickerViewController: FUIAuthPickerViewController {
         //titleLabel.font = UIFont(name: "TimesNewRoman", size: 72)
         
         view.addSubview(titleLabel)
-        //titleLabel.font = UIFont(name: "TimesNewRoman", size: 72.0)
-        titleLabel.font = titleLabel.font.withSize(36)
+        titleLabel.font = titleLabel.font.withSize(40)
+        titleLabel.lineBreakMode = .byWordWrapping
+        titleLabel.numberOfLines = 0
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
 

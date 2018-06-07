@@ -201,6 +201,7 @@ static NSString *const kCellReuseIdentifier = @"cellReuseIdentifier";
     [tableView registerNib:cellNib forCellReuseIdentifier:kCellReuseIdentifier];
     cell = [tableView dequeueReusableCellWithIdentifier:kCellReuseIdentifier];
   }
+
   cell.textField.delegate = self;
   cell.label.text = FUILocalizedString(kStr_Password);
   _passwordField = cell.textField;

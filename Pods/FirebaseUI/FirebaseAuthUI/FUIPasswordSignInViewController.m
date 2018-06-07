@@ -184,6 +184,7 @@ static NSString *const kCellReuseIdentifier = @"cellReuseIdentifier";
     [tableView registerNib:cellNib forCellReuseIdentifier:kCellReuseIdentifier];
     cell = [tableView dequeueReusableCellWithIdentifier:kCellReuseIdentifier];
   }
+
   cell.textField.delegate = self;
   if (indexPath.row == 0) {
     cell.label.text = FUILocalizedString(kStr_Email);
