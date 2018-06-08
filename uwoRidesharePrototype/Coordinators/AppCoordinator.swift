@@ -73,7 +73,7 @@ class AppCoordinator: NSObject, FUIAuthDelegate {
                 
                 
                 //checks if the authenticated user has made a profile yet
-                if self.navigationController?.visibleViewController == self.launchVC {
+                if self.navigationController?.visibleViewController == self.rootVC {
                     self.checkUser(user: user)
                 }
             } else {
